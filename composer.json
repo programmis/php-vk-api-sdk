@@ -1,7 +1,9 @@
 {
     "name": "programmis/php-vk-api-sdk",
     "description": "Lib for Vk Api",
+    "homepage": "https://github.com/programmis/php-vk-api-sdk",
     "license": "MIT",
+    "type": "library",
     "authors": [
         {
             "name": "Daniil Sazhin",
