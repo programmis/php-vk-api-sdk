@@ -1,13 +1,14 @@
 {
     "name": "programmis/php-vk-api-sdk",
     "description": "Lib for Vk Api",
+    "license": "MIT",
     "authors": [
         {
             "name": "Daniil Sazhin",
             "email": "sazhin_daniil@mail.ru"
         }
     ],
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
     "require": {
         "psr/log": "^1.0",
         "php": ">=5.3.0",
