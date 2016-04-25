@@ -32,9 +32,8 @@ class BoardDeleteComment extends Request
 
     public function doRequest()
     {
-        if (!$this->comment_id) {
-            throw new \Exception("not fill comment_id");
-        }
+        $this->setRequiredParams('comment_id');
+        
         $this->setMethod("board.deleteComment");
 
         $this->setParameter("comment_id", $this->comment_id);

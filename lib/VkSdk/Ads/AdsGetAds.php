@@ -70,9 +70,8 @@ class AdsGetAds extends Request
 
     public function doRequest()
     {
-        if (!$this->account_id) {
-            throw new \Exception("not fill account_id");
-        }
+        $this->setRequiredParams('account_id');
+        
         $this->setMethod("Ads.getAds");
 
         $this->setParameter("account_id", $this->account_id);

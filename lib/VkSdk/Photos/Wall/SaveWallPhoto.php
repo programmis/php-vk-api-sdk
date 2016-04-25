@@ -74,7 +74,7 @@ class SaveWallPhoto extends UploadWallPhoto implements Photo
     
     public function checkUploadPhoto(){
         if(!$this->vk_upload_photo){
-            throw  new \Exception('set VkUploadPhoto');
+            throw  new \Exception('please set VkUploadPhoto');
         }
     }
 

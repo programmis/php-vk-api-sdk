@@ -24,9 +24,7 @@ class WallDelete extends Request
 
     public function doRequest()
     {
-        if (!$this->post_id) {
-            throw new \Exception("not fill post_id");
-        }
+        $this->setRequiredParams('post_id');
 
         $this->setMethod("wall.delete");
 

@@ -84,9 +84,8 @@ class AdsGetTargetingStats extends Request
 
     public function doRequest()
     {
-        if (!$this->account_id && !$this->link_url) {
-            throw new \Exception("not fill account_id OR link_url");
-        }
+        $this->setRequiredParams(array('account_id', 'link_url'));
+        
         $this->setMethod("Ads.getTargetingStats");
 
         $this->setParameter("criteria", $this->criteria->getJSON());

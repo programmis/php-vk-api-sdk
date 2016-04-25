@@ -94,9 +94,9 @@ class MessagesSend extends Request
 
     public function doRequest()
     {
-        if (!$this->message && !$this->attachments) {
-            throw new \Exception("not fill attachments OR message");
-        }
+        $this->setRequiredParams('message');
+        $this->setRequiredParams('attachment');
+        
         $this->setMethod("messages.send");
 
         $attachments = "";

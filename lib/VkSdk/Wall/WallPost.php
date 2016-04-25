@@ -99,9 +99,7 @@ class WallPost extends Request
 
     public function doRequest()
     {
-        if (!$this->message && !$this->attachments && !$this->post_id) {
-            throw new \Exception("not fill attachments OR message");
-        }
+        $this->setRequiredParams(array('attachments', 'message', 'post_id'));
 
         $this->setMethod("wall.post");
 

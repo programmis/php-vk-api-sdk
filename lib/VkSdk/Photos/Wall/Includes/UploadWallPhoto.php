@@ -54,7 +54,7 @@ class UploadWallPhoto extends GetWallUploadServer implements Server
     
     public function checkUploadServer(){
         if(!$this->upload_server){
-            throw new \Exception('set Upload Server');
+            throw new \Exception('please set Upload Server');
         }
     }
 

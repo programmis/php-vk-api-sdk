@@ -70,10 +70,8 @@ class WallAddComment extends Request
 
     public function doRequest()
     {
-        if (!$this->text && !$this->attachments && !$this->post_id) {
-            throw new \Exception("not fill attachments OR message");
-        }
-
+        $this->setRequiredParams(array('text', 'attachments', 'post_id'));
+        
         $this->setMethod("wall.addComment");
 
         $attachments = "";

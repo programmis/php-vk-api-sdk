@@ -61,9 +61,7 @@ class WallEditComment extends Request
 
     public function doRequest()
     {
-        if (!$this->message && !$this->attachments) {
-            throw new \Exception("not fill attachments OR message");
-        }
+        $this->setRequiredParams(array('message', 'attachments'));
 
         $this->setMethod("wall.editComment");
 

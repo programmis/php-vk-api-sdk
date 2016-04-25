@@ -69,7 +69,7 @@ class UploadMessagesPhoto extends GetMessagesUploadServer implements Server
 
     public function checkUploadServer(){
         if(!$this->upload_server){
-            throw new \Exception('set upload server');
+            throw new \Exception('please set upload server');
         }
     }
     

@@ -3,7 +3,6 @@
 namespace VkSdk\Ads;
 
 use VkSdk\Ads\Includes\AdsAdSpecification;
-use VkSdk\Ads\Includes\Specifications;
 use VkSdk\Includes\Request;
 
 class AdsCreateAds extends Request
@@ -44,10 +43,7 @@ class AdsCreateAds extends Request
 
     public function doRequest()
     {
-
-        if (!$this->account_id) {
-            throw new \Exception("not fill account_id");
-        }
+        $this->setRequiredParams('account_id');
 
         $this->setMethod("Ads.createAds");
 

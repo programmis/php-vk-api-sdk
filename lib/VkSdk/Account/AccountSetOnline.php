@@ -6,8 +6,6 @@ use VkSdk\Includes\Request;
 
 class AccountSetOnline extends Request
 {
-
-    private $voip;
     private $response;
 
 
@@ -18,7 +16,7 @@ class AccountSetOnline extends Request
 
     public function setVoip($voip)
     {
-        $this->voip = $voip;
+        $this->vkarg_voip = $voip;
         return $this;
     }
 
@@ -26,9 +24,6 @@ class AccountSetOnline extends Request
     {
         $this->setMethod("account.setOnline");
 
-        if ($this->voip) {
-            $this->setParameter("voip", $this->voip);
-        }
 
         $json = $this->execApi();
         if (!$json) {

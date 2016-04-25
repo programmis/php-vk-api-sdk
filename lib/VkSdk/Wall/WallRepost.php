@@ -56,9 +56,7 @@ class WallRepost extends Request
 
     public function doRequest()
     {
-        if (!$this->object) {
-            throw new \Exception("not fill object");
-        }
+        $this->setRequiredParams('object');
 
         $this->setMethod("wall.repost");
 

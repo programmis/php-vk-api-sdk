@@ -32,11 +32,10 @@ class GroupsJoin extends Request
 
     public function doRequest()
     {
+        $this->setRequiredParams('group_id');
+        
         $this->setMethod("groups.join");
 
-        if (!$this->group_id) {
-            throw new \Exception("please fill group_id field");
-        }
         $this->setParameter("group_id", $this->group_id);
         if ($this->not_sure) {
             $this->setParameter("not_sure", $this->not_sure);

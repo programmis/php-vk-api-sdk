@@ -3,8 +3,6 @@
 namespace VkSdk\Includes;
 
 use Psr\Log\LoggerInterface;
-use Symfony\Component\Yaml\Exception\ParseException;
-use Symfony\Component\Yaml\Parser;
 use VkSdk\Logger\Logger;
 
 class Opts
@@ -15,19 +13,41 @@ class Opts
     private $method;
     protected $logger;
     private $v;
-    
-    const VK_API_VERSION = '5.29';
 
+    const VK_API_VERSION = '5.29';
     const API_URL = "https://api.vk.com/method/";
 
 
     public function __construct(LoggerInterface $loggerInterface = null)
     {
-        if($loggerInterface){
+        if ($loggerInterface) {
             $this->logger = $loggerInterface;
         } else {
             $this->logger = new Logger();
         }
+    }
+
+    public function __set($name, $value)
+    {
+        if (preg_match('|vkarg_(.*)|', $name, $res)) {
+            if (isset($res[1]) && $res[1]) {
+                $this->setParameter($res[1], $value);
+            }
+        } else {
+            $this->logger->warning('Set unknown variable: ' . $name);
+        }
+    }
+
+    public function __get($name)
+    {
+        if (preg_match('|vkarg_(.*)|', $name, $res)) {
+            if (isset($res[1]) && $res[1] && array_key_exists($res[1], $this->data)) {
+                return $this->data[$res[1]]['value'];
+            }
+        } else {
+            $this->logger->warning('Get unknown variable: ' . $name);
+        }
+        return null;
     }
 
     public function getResultApiUrl()
@@ -43,28 +63,9 @@ class Opts
             throw new \Exception("method not fill");
         }
 
-        if(!$this->access_token){
-            try {
-                $yaml = new Parser();
-                $parse = $yaml->parse(
-                    file_get_contents(
-                        __DIR__ . "/../../../app/config/config.yml"
-                    )
-                );
-                if(isset($parse['vkontakte']) && isset($parse['vkontakte']['access_token'])){
-                    $this->access_token = $parse['vkontakte']['access_token'];
-                }
-                else{
-                    throw new ParseException("not found access_token!");
-                }
-            }
-            catch (ParseException $pe){
-                $this->logger->critical("Unable to parse config: " . $pe->getMessage());
-                throw new \Exception($pe->getMessage());
-            }
+        if (!$this->access_token) {
+            $this->access_token = Logger::getConfigParam('access_token', true);
         }
-
-        $this->logger->debug("parameters: " . serialize($this->parameters));
 
         $url = self::API_URL . $this->method . "?v=" . $this->v . "&access_token=" . $this->access_token;
 
@@ -82,9 +83,40 @@ class Opts
         return $this;
     }
 
+    public function setRequiredParams($params)
+    {
+        if (is_array($params)) {
+            foreach ($params as $param) {
+                $this->parameters[$param]['required'] = true;
+            }
+        } else {
+            $this->parameters[$params]['required'] = true;
+        }
+    }
+
+    public function checkRequiredParams()
+    {
+        foreach ($this->parameters as $key => $param) {
+            if (is_array($param)) {
+                if (isset($param['required']) && $param['required'] && !isset($param['value'])) {
+                    $error = "not fill '" . $key . "' required parameter!";
+                    $this->logger->critical($error);
+                    throw new \Exception($error);
+                }
+            } else {
+                $this->logger->warning("Wrong parameter: '" . $key . "', value: " . $param);
+                unset($this->parameters[$key]);
+            }
+        }
+    }
+
     public function getParameters()
     {
-        return $this->parameters;
+        $parameters = array();
+        foreach ($this->parameters as $key => $param) {
+            $parameters[$key] = $param['value'];
+        }
+        return $parameters;
     }
 
     public function setMethod($method)
@@ -95,7 +127,18 @@ class Opts
 
     public function setParameter($name, $value)
     {
-        $this->parameters[$name] = $value;
+        if (is_array($value)) {
+            if (isset($value['value'])) {
+                $this->parameters[$name]['value'] = $value['value'];
+            } else {
+                $this->logger->warning('Can\'t set parameter: ' . $name . ', values: ' . serialize($value));
+            }
+            if (isset($value['required'])) {
+                $this->parameters[$name]['required'] = $value['required'];
+            }
+        } else {
+            $this->parameters[$name]['value'] = $value;
+        }
         return $this;
     }
 

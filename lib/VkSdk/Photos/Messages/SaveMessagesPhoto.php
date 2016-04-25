@@ -71,7 +71,7 @@ class SaveMessagesPhoto extends UploadMessagesPhoto implements Photo
 
     public function checkUploadPhoto(){
         if(!$this->vk_upload_photo){
-            throw new \Exception('set upload photo');
+            throw new \Exception('please set upload photo');
         }
     }
     

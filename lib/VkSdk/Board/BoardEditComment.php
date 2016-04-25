@@ -73,9 +73,8 @@ class BoardEditComment extends Request
 
     public function doRequest()
     {
-        if (!$this->text && !$this->attachments && !$this->topic_id) {
-            throw new \Exception("not fill attachments OR message");
-        }
+        $this->setRequiredParams(array('text', 'attachments', 'topic_id'));
+        
         $this->setMethod("board.editComment");
 
         $attachments = "";

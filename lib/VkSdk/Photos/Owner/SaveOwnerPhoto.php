@@ -66,7 +66,7 @@ class SaveOwnerPhoto extends UploadOwnerPhoto implements Photo
 
     public function checkUploadPhoto(){
         if(!$this->vk_upload_photo){
-            throw new \Exception('set vk upload photo');
+            throw new \Exception('please set vk upload photo');
         }
     }
     
