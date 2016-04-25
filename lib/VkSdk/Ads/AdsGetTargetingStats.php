@@ -8,13 +8,6 @@ use VkSdk\Includes\Request;
 class AdsGetTargetingStats extends Request
 {
 
-    private $account_id;
-    private $ad_id;
-    private $ad_format;
-    private $ad_platform;
-    private $link_url;
-    private $link_domain;
-
     private $audience_count;
     private $recommended_cpc;
     private $recommended_cpm;
@@ -41,37 +34,37 @@ class AdsGetTargetingStats extends Request
 
     public function setLinkDomain($link_domain)
     {
-        $this->link_domain = $link_domain;
+        $this->vkarg_link_domain = $link_domain;
         return $this;
     }
 
     public function setLinkUrl($link_url)
     {
-        $this->link_url = $link_url;
+        $this->vkarg_link_url = $link_url;
         return $this;
     }
 
     public function setAdPlatform($ad_platform)
     {
-        $this->ad_platform = $ad_platform;
+        $this->vkarg_ad_platform = $ad_platform;
         return $this;
     }
 
     public function setAdFormat($ad_format)
     {
-        $this->ad_format = $ad_format;
+        $this->vkarg_ad_format = $ad_format;
         return $this;
     }
 
     public function setAdId($ad_id)
     {
-        $this->ad_id = $ad_id;
+        $this->vkarg_ad_id = $ad_id;
         return $this;
     }
 
     public function setAccountId($account_id)
     {
-        $this->account_id = $account_id;
+        $this->vkarg_account_id = $account_id;
         return $this;
     }
 
@@ -89,21 +82,6 @@ class AdsGetTargetingStats extends Request
         $this->setMethod("Ads.getTargetingStats");
 
         $this->setParameter("criteria", $this->criteria->getJSON());
-        $this->setParameter("account_id", $this->account_id);
-        $this->setParameter("link_url", $this->link_url);
-
-        if ($this->ad_id) {
-            $this->setParameter("ad_id", $this->ad_id);
-        }
-        if ($this->ad_format) {
-            $this->setParameter("ad_format", $this->ad_format);
-        }
-        if ($this->ad_platform) {
-            $this->setParameter("ad_platform", $this->ad_platform);
-        }
-        if ($this->link_domain) {
-            $this->setParameter("link_domain", $this->link_domain);
-        }
 
         $json = $this->execApi();
         if (!$json) {

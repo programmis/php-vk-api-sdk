@@ -8,8 +8,6 @@ use VkSdk\Includes\Request;
 class AdsCreateAds extends Request
 {
 
-    private $account_id;
-
     private $ad_specification = array();
 
     private $ids = array();
@@ -21,7 +19,7 @@ class AdsCreateAds extends Request
 
     public function setAccountId($account_id)
     {
-        $this->account_id = $account_id;
+        $this->vkarg_account_id = $account_id;
         return $this;
     }
 
@@ -47,7 +45,6 @@ class AdsCreateAds extends Request
 
         $this->setMethod("Ads.createAds");
 
-        $this->setParameter("account_id", $this->account_id);
         $this->setParameter("data", $this->adSpecificationsToJSON());
 
         $json = $this->execApi();

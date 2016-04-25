@@ -7,7 +7,6 @@ use VkSdk\Includes\Request;
 class StatusSet extends Request
 {
 
-    private $text;
     private $response;
 
     public function getResponse()
@@ -17,7 +16,7 @@ class StatusSet extends Request
 
     public function setText($text)
     {
-        $this->text = $text;
+        $this->vkarg_text = $text;
         return $this;
     }
 
@@ -25,10 +24,6 @@ class StatusSet extends Request
     {
         $this->setMethod("status.set");
         
-        if ($this->text) {
-            $this->setParameter("text", $this->text);
-        }
-
         $json = $this->execApi();
         if (!$json) {
             return false;

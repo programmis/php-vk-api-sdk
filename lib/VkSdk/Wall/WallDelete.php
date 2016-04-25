@@ -6,19 +6,16 @@ use VkSdk\Includes\Request;
 
 class WallDelete extends Request
 {
-
-    private $owner_id;
-    private $post_id;
-
+    
     public function setOwnerId($owner_id)
     {
-        $this->owner_id = $owner_id;
+        $this->vkarg_owner_id = $owner_id;
         return $this;
     }
 
     public function setPostId($post_id)
     {
-        $this->post_id = $post_id;
+        $this->vkarg_post_id = $post_id;
         return $this;
     }
 
@@ -27,11 +24,6 @@ class WallDelete extends Request
         $this->setRequiredParams('post_id');
 
         $this->setMethod("wall.delete");
-
-        $this->setParameter("post_id", $this->post_id);
-        if ($this->owner_id) {
-            $this->setParameter("owner_id", $this->owner_id);
-        }
 
         $json = $this->execApi();
         if (!$json) {

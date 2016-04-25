@@ -10,10 +10,7 @@ class AdsGetSuggestions extends Request
 
     private $section;
     private $ids = array();
-    private $q;
-    private $country;
     private $cities = array();
-    private $lang;
 
     private $result = array();
 
@@ -24,19 +21,19 @@ class AdsGetSuggestions extends Request
 
     public function setLang($lang)
     {
-        $this->lang = $lang;
+        $this->vkarg_lang = $lang;
         return $this;
     }
 
     public function setCountry($country)
     {
-        $this->country = $country;
+        $this->vkarg_country = $country;
         return $this;
     }
 
     public function setQ($q)
     {
-        $this->q = $q;
+        $this->vkarg_q = $q;
         return $this;
     }
 
@@ -54,31 +51,23 @@ class AdsGetSuggestions extends Request
 
     public function setSection($section)
     {
-        $this->section = $section;
+        $this->vkarg_section = $section;
         return $this;
+    }
+    
+    public function getSection(){
+        return $this->vkarg_section;
     }
 
     public function doRequest()
     {
         $this->setMethod("Ads.getSuggestions");
         
-        if ($this->section) {
-            $this->setParameter("section", $this->section);
-        }
         if ($this->ids) {
             $this->setParameter("ids", implode(",", $this->ids));
         }
-        if ($this->q) {
-            $this->setParameter("q", $this->q);
-        }
-        if ($this->country) {
-            $this->setParameter("country", $this->country);
-        }
         if ($this->cities) {
             $this->setParameter("cities", implode(",", $this->cities));
-        }
-        if ($this->lang) {
-            $this->setParameter("lang", $this->lang);
         }
 
         $json = $this->execApi();
@@ -91,7 +80,7 @@ class AdsGetSuggestions extends Request
         }
 
         if (isset($json->response) && $json->response) {
-            if ($this->section == "interests") {
+            if ($this->getSection() == "interests") {
                 $this->result = $json->response;
             } else {
                 foreach ($json->response as $key => $rsp) {

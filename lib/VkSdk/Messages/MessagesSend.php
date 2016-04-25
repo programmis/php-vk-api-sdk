@@ -8,15 +8,8 @@ use VkSdk\Messages\Includes\MessagesAttachments;
 class MessagesSend extends Request
 {
 
-    private $user_id;
-    private $domain;
-    private $chat_id;
     private $user_ids = array();
-    private $message;
     private $message_id;
-    private $guid;
-    private $lat;
-    private $long;
     private $attachments = array();
     private $forward_messages = array();
 
@@ -27,19 +20,19 @@ class MessagesSend extends Request
 
     public function setUserId($user_id)
     {
-        $this->user_id = $user_id;
+        $this->vkarg_user_id = $user_id;
         return $this;
     }
 
     public function setDomain($domain)
     {
-        $this->domain = $domain;
+        $this->vkarg_domain = $domain;
         return $this;
     }
 
     public function setChatId($chat_id)
     {
-        $this->chat_id = $chat_id;
+        $this->vkarg_chat_id = $chat_id;
         return $this;
     }
 
@@ -55,25 +48,25 @@ class MessagesSend extends Request
 
     public function setMessage($message)
     {
-        $this->message = $message;
+        $this->vkarg_message = $message;
         return $this;
     }
 
     public function setGuid($guid)
     {
-        $this->guid = $guid;
+        $this->vkarg_guid = $guid;
         return $this;
     }
 
     public function setLat($lat)
     {
-        $this->lat = $lat;
+        $this->vkarg_lat = $lat;
         return $this;
     }
 
     public function setLong($long)
     {
-        $this->long = $long;
+        $this->vkarg_long = $long;
         return $this;
     }
 
@@ -94,9 +87,6 @@ class MessagesSend extends Request
 
     public function doRequest()
     {
-        $this->setRequiredParams('message');
-        $this->setRequiredParams('attachment');
-        
         $this->setMethod("messages.send");
 
         $attachments = "";
@@ -112,29 +102,10 @@ class MessagesSend extends Request
             }
         }
 
+        $this->setRequiredParams(array('message', 'attachment'));
+
         if ($attachments) {
             $this->setParameter("attachment", $attachments);
-        }
-        if ($this->message) {
-            $this->setParameter("message", $this->message);
-        }
-        if ($this->lat) {
-            $this->setParameter("lat", $this->lat);
-        }
-        if ($this->long) {
-            $this->setParameter("long", $this->long);
-        }
-        if ($this->user_id) {
-            $this->setParameter("user_id", $this->user_id);
-        }
-        if ($this->domain) {
-            $this->setParameter("domain", $this->domain);
-        }
-        if ($this->chat_id) {
-            $this->setParameter("chat_id", $this->chat_id);
-        }
-        if ($this->guid) {
-            $this->setParameter("guid", $this->guid);
         }
         if ($this->user_ids) {
             $this->setParameter("user_ids", implode(",", $this->user_ids));

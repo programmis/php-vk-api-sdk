@@ -9,13 +9,13 @@ use Symfony\Component\Yaml\Parser;
 
 class Logger extends AbstractLogger
 {
-    
+
     const VK_CONFIG_FILE = "/../../../app/config/config.yml";
-    
+
 
     public function log($level, $message, array $context = array())
     {
-        echo '[' . date("Y-m-d H:i:s") . '] php.' . $level . " " . $message . "\n";        
+        echo '[' . date("Y-m-d H:i:s") . '] php.' . $level . " " . $message . "\n";
     }
 
 

@@ -32,7 +32,6 @@ class SaveAdsPhoto extends AdsGetUploadUrl
 
     public function doRequest()
     {
-
         $upload_url = new AdsGetUploadUrl($this->access_token);
         $result = $upload_url->setAdFormat($this->ad_format)->doRequest();
         if ($result === true) {

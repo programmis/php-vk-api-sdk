@@ -6,20 +6,56 @@ use VkSdk\Includes\Request;
 
 class PhotosCreateAlbum extends Request
 {
-
-    private $title;
-    private $group_id;
-    private $description;
-    private $comment_privacy;
-    private $privacy;
     private $id;
 
 
     public function setTitle($title)
     {
-        $this->title = $title;
+        $this->vkarg_title = $title;
         return $this;
     }
+
+    /**
+     * @param mixed $group_id
+     * @return PhotosCreateAlbum
+     */
+    public function setGroupId($group_id)
+    {
+        $this->vkarg_group_id = $group_id;
+        return $this;
+    }
+
+    /**
+     * @param mixed $description
+     * @return PhotosCreateAlbum
+     */
+    public function setDescription($description)
+    {
+        $this->vkarg_description = $description;
+        return $this;
+    }
+
+    /**
+     * @param mixed $comment_privacy
+     * @return PhotosCreateAlbum
+     */
+    public function setCommentPrivacy($comment_privacy)
+    {
+        $this->vkarg_comment_privacy = $comment_privacy;
+        return $this;
+    }
+
+    /**
+     * @param mixed $privacy
+     * @return PhotosCreateAlbum
+     */
+    public function setPrivacy($privacy)
+    {
+        $this->vkarg_privacy = $privacy;
+        return $this;
+    }
+    
+    
 
     public function getId()
     {
@@ -28,21 +64,7 @@ class PhotosCreateAlbum extends Request
 
     public function doRequest()
     {
-        $this->setMethod("photos.createAlbum");
-        
-        $this->setParameter("title", $this->title);
-        if ($this->group_id) {
-            $this->setParameter("group_id", $this->group_id);
-        }
-        if ($this->description) {
-            $this->setParameter("description", $this->description);
-        }
-        if ($this->comment_privacy) {
-            $this->setParameter("comment_privacy", $this->comment_privacy);
-        }
-        if ($this->privacy) {
-            $this->setParameter("privacy", $this->privacy);
-        }
+        $this->setMethod("photos.createAlbum");        
 
         $json = $this->execApi();
         if (!$json) {

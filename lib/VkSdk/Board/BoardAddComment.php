@@ -8,12 +8,7 @@ use VkSdk\Wall\Includes\WallAttachments;
 class BoardAddComment extends Request
 {
 
-    private $group_id;
-    private $topic_id;
-    private $from_group;
-    private $text;
     private $attachments = array();
-    private $sticker_id;
     private $comment_id;
 
     public function getCommentId()
@@ -23,13 +18,7 @@ class BoardAddComment extends Request
 
     public function setStickerId($sticker_id)
     {
-        $this->sticker_id = $sticker_id;
-        return $this;
-    }
-
-    public function setReplyToComment($reply_to_comment)
-    {
-        $this->reply_to_comment = $reply_to_comment;
+        $this->vkarg_sticker_id = $sticker_id;
         return $this;
     }
 
@@ -40,33 +29,30 @@ class BoardAddComment extends Request
 
     public function setFromGroup($from_group)
     {
-        $this->from_group = $from_group;
+        $this->vkarg_from_group = $from_group;
         return $this;
     }
 
     public function setText($text)
     {
-        $this->text = $text;
+        $this->vkarg_text = $text;
         return $this;
     }
 
     public function setGroupId($group_id)
     {
-        $this->group_id = $group_id;
+        $this->vkarg_group_id = $group_id;
         return $this;
     }
 
     public function setTopicId($topic_id)
     {
-        $this->topic_id = $topic_id;
+        $this->vkarg_topic_id = $topic_id;
         return $this;
     }
 
     public function doRequest()
     {
-
-        $this->setRequiredParams(array('text', 'attachments', 'topic_id'));
-
         $this->setMethod("board.addComment");
 
         $attachments = "";
@@ -85,22 +71,8 @@ class BoardAddComment extends Request
         if ($attachments) {
             $this->setParameter("attachments", $attachments);
         }
-        if ($this->topic_id) {
-            $this->setParameter("topic_id", $this->topic_id);
-        }
-        if ($this->group_id) {
-            $this->setParameter("group_id", $this->group_id);
-        }
-        if ($this->from_group) {
-            $this->setParameter("from_group", $this->from_group);
-        }
-        if ($this->text) {
-            $this->setParameter("text", $this->text);
-        }
-        if ($this->sticker_id) {
-            $this->setParameter("sticker_id", $this->sticker_id);
-        }
 
+        $this->setRequiredParams(array('text', 'attachments', 'topic_id'));
 
         $json = $this->execApi();
         if (!$json) {

@@ -12,8 +12,6 @@ class SaveWallPhoto extends UploadWallPhoto implements Photo
      * @var UploadWallPhoto
      */
     private $vk_upload_photo;
-    private $user_id;
-    private $group_id;
 
     private $media_id;
     private $album_id;
@@ -80,7 +78,7 @@ class SaveWallPhoto extends UploadWallPhoto implements Photo
 
     public function setGroupId($group_id)
     {
-        $this->group_id = $group_id;
+        $this->vkarg_group_id = $group_id;
         
         $this->checkUploadPhoto();
         
@@ -90,7 +88,7 @@ class SaveWallPhoto extends UploadWallPhoto implements Photo
 
     public function setUserId($user_id)
     {
-        $this->user_id = $user_id;
+        $this->vkarg_user_id = $user_id;
         return $this;
     }
 
@@ -103,15 +101,8 @@ class SaveWallPhoto extends UploadWallPhoto implements Photo
         $vk_upload = $this->vk_upload_photo->doRequest();
 
         if (!$vk_upload) {
-            $this->logger->debug("upload wall photo result is empty");
+            $this->logger->error("upload wall photo result is empty");
             return false;
-        }
-
-        if ($this->group_id) {
-            $this->setParameter("group_id", $this->group_id);
-        }
-        if ($this->user_id) {
-            $this->setParameter("user_id", $this->user_id);
         }
 
         $this->setParameter("server", $this->vk_upload_photo->getServer());

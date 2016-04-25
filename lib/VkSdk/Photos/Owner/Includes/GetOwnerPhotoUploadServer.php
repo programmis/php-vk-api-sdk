@@ -7,7 +7,6 @@ use VkSdk\Includes\Request;
 class GetOwnerPhotoUploadServer extends Request
 {
 
-    private $owner_id;
     private $upload_url;
 
     public function getUploadUrl()
@@ -17,17 +16,13 @@ class GetOwnerPhotoUploadServer extends Request
 
     public function setOwnerId($owner_id)
     {
-        $this->owner_id = $owner_id;
+        $this->vkarg_owner_id = $owner_id;
         return $this;
     }
 
     public function doRequest()
     {
         $this->setMethod("photos.getOwnerPhotoUploadServer");
-
-        if ($this->owner_id) {
-            $this->setParameter("owner_id", $this->owner_id);
-        }
 
         $json = $this->execApi();
         if (!$json) {

@@ -7,7 +7,6 @@ use VkSdk\Includes\Request;
 class GetWallUploadServer extends Request
 {
 
-    private $group_id;
     private $upload_url;
     private $album_id;
     private $user_id;
@@ -30,17 +29,13 @@ class GetWallUploadServer extends Request
 
     public function setGroupId($group_id)
     {
-        $this->group_id = $group_id;
+        $this->vkarg_group_id = $group_id;
         return $this;
     }
 
     public function doRequest()
     {
         $this->setMethod("photos.getWallUploadServer");
-
-        if ($this->group_id) {
-            $this->setParameter("group_id", $this->group_id);
-        }
 
         $json = $this->execApi();
         if (!$json) {

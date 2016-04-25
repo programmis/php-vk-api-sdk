@@ -84,7 +84,7 @@ class SaveMessagesPhoto extends UploadMessagesPhoto implements Photo
         $vk_upload = $this->vk_upload_photo->doRequest();
 
         if (!$vk_upload) {
-            $this->logger->debug("upload wall photo result is empty");
+            $this->logger->error("upload wall photo result is empty");
             return false;
         }
 

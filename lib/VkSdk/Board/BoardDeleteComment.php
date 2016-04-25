@@ -7,26 +7,21 @@ use VkSdk\Includes\Request;
 class BoardDeleteComment extends Request
 {
 
-    private $group_id;
-    private $topic_id;
-    private $comment_id;
-
-
     public function setTopicId($topic_id)
     {
-        $this->topic_id = $topic_id;
+        $this->vkarg_topic_id = $topic_id;
         return $this;
     }
 
     public function setGroupId($group_id)
     {
-        $this->group_id = $group_id;
+        $this->vkarg_group_id = $group_id;
         return $this;
     }
 
     public function setCommentId($comment_id)
     {
-        $this->comment_id = $comment_id;
+        $this->vkarg_comment_id = $comment_id;
         return $this;
     }
 
@@ -35,14 +30,6 @@ class BoardDeleteComment extends Request
         $this->setRequiredParams('comment_id');
         
         $this->setMethod("board.deleteComment");
-
-        $this->setParameter("comment_id", $this->comment_id);
-        if ($this->group_id) {
-            $this->setParameter("group_id", $this->group_id);
-        }
-        if ($this->topic_id) {
-            $this->setParameter("topic_id", $this->topic_id);
-        }
 
         $json = $this->execApi();
         if (!$json) {

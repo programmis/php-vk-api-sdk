@@ -7,7 +7,6 @@ use VkSdk\Includes\Request;
 class StatusGet extends Request
 {
 
-    private $user_id;
     private $text;
 
 
@@ -18,17 +17,13 @@ class StatusGet extends Request
 
     public function setUserId($user_id)
     {
-        $this->user_id = $user_id;
+        $this->vkarg_user_id = $user_id;
         return $this;
     }
 
     public function doRequest()
     {
         $this->setMethod("status.get");
-
-        if ($this->user_id) {
-            $this->setParameter("user_id", $this->user_id);
-        }
 
         $json = $this->execApi();
         if (!$json) {

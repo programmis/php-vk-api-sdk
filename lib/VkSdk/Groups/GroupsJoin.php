@@ -7,9 +7,6 @@ use VkSdk\Includes\Request;
 class GroupsJoin extends Request
 {
 
-    private $group_id;
-    private $not_sure;
-
     private $response;
 
     public function getResponse()
@@ -19,13 +16,13 @@ class GroupsJoin extends Request
 
     public function setGroupId($group_id)
     {
-        $this->group_id = $group_id;
+        $this->vkarg_group_id = $group_id;
         return $this;
     }
 
     public function setNotSure($not_sure)
     {
-        $this->not_sure = $not_sure;
+        $this->vkarg_not_sure = $not_sure;
         return $this;
     }
 
@@ -33,13 +30,8 @@ class GroupsJoin extends Request
     public function doRequest()
     {
         $this->setRequiredParams('group_id');
-        
-        $this->setMethod("groups.join");
 
-        $this->setParameter("group_id", $this->group_id);
-        if ($this->not_sure) {
-            $this->setParameter("not_sure", $this->not_sure);
-        }
+        $this->setMethod("groups.join");
 
         $json = $this->execApi();
         if (!$json) {

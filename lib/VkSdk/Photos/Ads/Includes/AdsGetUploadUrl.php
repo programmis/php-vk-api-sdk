@@ -7,8 +7,6 @@ use VkSdk\Includes\Request;
 class AdsGetUploadUrl extends Request
 {
 
-    private $ad_format;
-
     private $url;
 
     public function getUrl()
@@ -18,19 +16,15 @@ class AdsGetUploadUrl extends Request
 
     public function setAdFormat($ad_format)
     {
-        $this->ad_format = $ad_format;
+        $this->vkarg_ad_format = $ad_format;
         return $this;
     }
 
     public function doRequest()
     {
-        if (!$this->ad_format) {
-            throw new \Exception("not fill ad_format");
-        }
+        $this->setRequiredParams('ad_format');
 
         $this->setMethod("Ads.getUploadURL");
-
-        $this->setParameter("ad_format", $this->ad_format);
 
         $json = $this->execApi();
         if (!$json) {

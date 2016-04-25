@@ -8,13 +8,8 @@ use VkSdk\Wall\Includes\WallAttachments;
 class WallAddComment extends Request
 {
 
-    private $owner_id;
     private $post_id;
-    private $from_group;
-    private $text;
-    private $reply_to_comment;
     private $attachments = array();
-    private $sticker_id;
     private $comment_id;
 
     public function getCommentId()
@@ -24,13 +19,13 @@ class WallAddComment extends Request
 
     public function setStickerId($sticker_id)
     {
-        $this->sticker_id = $sticker_id;
+        $this->vkarg_sticker_id = $sticker_id;
         return $this;
     }
 
     public function setReplyToComment($reply_to_comment)
     {
-        $this->reply_to_comment = $reply_to_comment;
+        $this->vkarg_reply_to_comment = $reply_to_comment;
         return $this;
     }
 
@@ -41,25 +36,25 @@ class WallAddComment extends Request
 
     public function setFromGroup($from_group)
     {
-        $this->from_group = $from_group;
+        $this->vkarg_from_group = $from_group;
         return $this;
     }
 
     public function setText($text)
     {
-        $this->text = $text;
+        $this->vkarg_text = $text;
         return $this;
     }
 
     public function setOwnerId($owner_id)
     {
-        $this->owner_id = $owner_id;
+        $this->vkarg_owner_id = $owner_id;
         return $this;
     }
 
     public function setPostId($post_id)
     {
-        $this->post_id = $post_id;
+        $this->vkarg_post_id = $post_id;
         return $this;
     }
 
@@ -70,8 +65,6 @@ class WallAddComment extends Request
 
     public function doRequest()
     {
-        $this->setRequiredParams(array('text', 'attachments', 'post_id'));
-        
         $this->setMethod("wall.addComment");
 
         $attachments = "";
@@ -90,25 +83,8 @@ class WallAddComment extends Request
         if ($attachments) {
             $this->setParameter("attachments", $attachments);
         }
-        if ($this->post_id) {
-            $this->setParameter("post_id", $this->post_id);
-        }
-        if ($this->owner_id) {
-            $this->setParameter("owner_id", $this->owner_id);
-        }
-        if ($this->from_group) {
-            $this->setParameter("from_group", $this->from_group);
-        }
-        if ($this->text) {
-            $this->setParameter("text", $this->text);
-        }
-        if ($this->reply_to_comment) {
-            $this->setParameter("reply_to_comment", $this->reply_to_comment);
-        }
-        if ($this->sticker_id) {
-            $this->setParameter("sticker_id", $this->sticker_id);
-        }
-
+        
+        $this->setRequiredParams(array('text', 'attachments', 'post_id'));
 
         $json = $this->execApi();
         if (!$json) {

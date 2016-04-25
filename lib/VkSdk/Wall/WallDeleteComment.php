@@ -7,18 +7,15 @@ use VkSdk\Includes\Request;
 class WallDeleteComment extends Request
 {
 
-    private $owner_id;
-    private $comment_id;
-
     public function setOwnerId($owner_id)
     {
-        $this->owner_id = $owner_id;
+        $this->vkarg_owner_id = $owner_id;
         return $this;
     }
 
     public function setCommentId($comment_id)
     {
-        $this->comment_id = $comment_id;
+        $this->vkarg_comment_id = $comment_id;
         return $this;
     }
 
@@ -27,12 +24,7 @@ class WallDeleteComment extends Request
         $this->setRequiredParams('comment_id');
 
         $this->setMethod("wall.deleteComment");
-
-        $this->setParameter("comment_id", $this->comment_id);
-        if ($this->owner_id) {
-            $this->setParameter("owner_id", $this->owner_id);
-        }
-
+        
         $json = $this->execApi();
         if (!$json) {
             return false;
