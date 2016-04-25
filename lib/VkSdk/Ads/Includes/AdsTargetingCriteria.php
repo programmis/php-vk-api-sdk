@@ -2,8 +2,6 @@
 
 namespace VkSdk\Ads\Includes;
 
-use VkSdk\Ads\AdsGetTargetingStats;
-
 class AdsTargetingCriteria
 {
 

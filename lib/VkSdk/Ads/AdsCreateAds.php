@@ -3,13 +3,10 @@
 namespace VkSdk\Ads;
 
 use VkSdk\Ads\Includes\AdsAdSpecification;
-use VkSdk\Ads\Includes\Specifications;
 use VkSdk\Includes\Request;
 
 class AdsCreateAds extends Request
 {
-
-    private $account_id;
 
     private $ad_specification = array();
 
@@ -22,7 +19,7 @@ class AdsCreateAds extends Request
 
     public function setAccountId($account_id)
     {
-        $this->account_id = $account_id;
+        $this->vkarg_account_id = $account_id;
         return $this;
     }
 
@@ -44,14 +41,10 @@ class AdsCreateAds extends Request
 
     public function doRequest()
     {
-
-        if (!$this->account_id) {
-            throw new \Exception("not fill account_id");
-        }
+        $this->setRequiredParams('account_id');
 
         $this->setMethod("Ads.createAds");
 
-        $this->setParameter("account_id", $this->account_id);
         $this->setParameter("data", $this->adSpecificationsToJSON());
 
         $json = $this->execApi();

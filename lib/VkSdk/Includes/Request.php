@@ -2,6 +2,7 @@
 
 namespace VkSdk\Includes;
 
+
 abstract class Request extends Opts
 {
 
@@ -20,14 +21,20 @@ abstract class Request extends Opts
 
     public function execApi()
     {
+        $this->checkRequiredParams();
+        
         $url = $this->getResultApiUrl();
 
         $this->logger->debug("execApi: " . $url);
 
+        $parameters = $this->getParameters();
+
+        $this->logger->debug("with parameters: " . serialize($parameters));
+
         $apiCurl = curl_init($url);
         curl_setopt($apiCurl, CURLOPT_POST, 1);
         curl_setopt($apiCurl, CURLOPT_HTTPHEADER, array("Content-type: multipart/form-data"));
-        curl_setopt($apiCurl, CURLOPT_POSTFIELDS, $this->getParameters());
+        curl_setopt($apiCurl, CURLOPT_POSTFIELDS, $parameters);
         curl_setopt($apiCurl, CURLOPT_FOLLOWLOCATION, 1);
         curl_setopt($apiCurl, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($apiCurl, CURLOPT_SSL_VERIFYPEER, 0);

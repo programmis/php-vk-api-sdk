@@ -26,13 +26,13 @@ class AdsGetAdsTargeting extends Request
 
     public function setClientId($client_id)
     {
-        $this->client_id = $client_id;
+        $this->vkarg_client_id = $client_id;
         return $this;
     }
 
     public function setIncludeDeleted($include_deleted)
     {
-        $this->include_deleted = $include_deleted;
+        $this->vkarg_include_deleted = $include_deleted;
         return $this;
     }
 
@@ -50,43 +50,29 @@ class AdsGetAdsTargeting extends Request
 
     public function setLimit($limit)
     {
-        $this->limit = $limit;
+        $this->vkarg_limit = $limit;
         return $this;
     }
 
     public function setOffset($offset)
     {
-        $this->offset = $offset;
+        $this->vkarg_offset = $offset;
         return $this;
     }
 
 
     public function setAccountId($account_id)
     {
-        $this->account_id = $account_id;
+        $this->vkarg_account_id = $account_id;
         return $this;
     }
 
     public function doRequest()
     {
-        if (!$this->account_id) {
-            throw new \Exception("not fill account_id");
-        }
+        $this->setRequiredParams('account_id');
+        
         $this->setMethod("Ads.getAdsTargeting");
 
-        $this->setParameter("account_id", $this->account_id);
-        if ($this->include_deleted) {
-            $this->setParameter("include_deleted", $this->include_deleted);
-        }
-        if ($this->limit) {
-            $this->setParameter("limit", $this->limit);
-        }
-        if ($this->offset) {
-            $this->setParameter("offset", $this->offset);
-        }
-        if ($this->client_id) {
-            $this->setParameter("client_id", $this->client_id);
-        }
         if (count($this->ad_ids)) {
             $this->setParameter("ad_ids", json_encode($this->ad_ids));
         }

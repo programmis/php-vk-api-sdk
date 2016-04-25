@@ -8,32 +8,11 @@ use VkSdk\Wall\Includes\WallAttachments;
 class BoardEditComment extends Request
 {
 
-    private $group_id;
-    private $topic_id;
-    private $text;
     private $attachments = array();
-    private $comment_id;
-
-    public function getCommentId()
-    {
-        return $this->comment_id;
-    }
-
-    public function setStickerId($sticker_id)
-    {
-        $this->sticker_id = $sticker_id;
-        return $this;
-    }
 
     public function setCommentId($comment_id)
     {
-        $this->comment_id = $comment_id;
-        return $this;
-    }
-
-    public function setReplyToComment($reply_to_comment)
-    {
-        $this->reply_to_comment = $reply_to_comment;
+        $this->vkarg_comment_id = $comment_id;
         return $this;
     }
 
@@ -50,32 +29,24 @@ class BoardEditComment extends Request
 
     public function setText($text)
     {
-        $this->text = $text;
+        $this->vkarg_text = $text;
         return $this;
     }
 
     public function setGroupId($group_id)
     {
-        $this->group_id = $group_id;
+        $this->vkarg_group_id = $group_id;
         return $this;
     }
 
     public function setTopicId($topic_id)
     {
-        $this->topic_id = $topic_id;
+        $this->vkarg_topic_id = $topic_id;
         return $this;
-    }
-
-    public function getPostId()
-    {
-        return $this->topic_id;
     }
 
     public function doRequest()
     {
-        if (!$this->text && !$this->attachments && !$this->topic_id) {
-            throw new \Exception("not fill attachments OR message");
-        }
         $this->setMethod("board.editComment");
 
         $attachments = "";
@@ -94,19 +65,8 @@ class BoardEditComment extends Request
         if ($attachments) {
             $this->setParameter("attachments", $attachments);
         }
-        if ($this->topic_id) {
-            $this->setParameter("topic_id", $this->topic_id);
-        }
-        if ($this->group_id) {
-            $this->setParameter("group_id", $this->group_id);
-        }
-        if ($this->text) {
-            $this->setParameter("text", $this->text);
-        }
-        if ($this->comment_id) {
-            $this->setParameter("comment_id", $this->comment_id);
-        }
 
+        $this->setRequiredParams(array('text', 'attachments', 'topic_id'));
 
         $json = $this->execApi();
         if (!$json) {

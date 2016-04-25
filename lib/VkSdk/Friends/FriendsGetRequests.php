@@ -8,12 +8,7 @@ class FriendsGet extends Request
 {
 
     private $count;
-    private $offset;
     private $extended;
-    private $need_mutual;
-    private $out;
-    private $sort;
-    private $suggested;
     private $items;
 
     public function getItems()
@@ -23,37 +18,37 @@ class FriendsGet extends Request
 
     public function setSuggested($suggested)
     {
-        $this->suggested = $suggested;
+        $this->vkarg_suggested = $suggested;
         return $this;
     }
 
     public function setSort($sort)
     {
-        $this->sort = $sort;
+        $this->vkarg_sort = $sort;
         return $this;
     }
 
     public function setOut($out)
     {
-        $this->out = $out;
+        $this->vkarg_out = $out;
         return $this;
     }
 
     public function setNeedMutual($need_mutual)
     {
-        $this->need_mutual = $need_mutual;
+        $this->vkarg_need_mutual = $need_mutual;
         return $this;
     }
 
     public function setOffset($offset)
     {
-        $this->offset = $offset;
+        $this->vkarg_offset = $offset;
         return $this;
     }
 
     public function setCount($count)
     {
-        $this->count = $count;
+        $this->vkarg_count = $count;
         return $this;
     }
 
@@ -66,25 +61,6 @@ class FriendsGet extends Request
     public function doRequest()
     {
         $this->setMethod("friends.getRequests");
-
-        if ($this->need_mutual) {
-            $this->setParameter("need_mutual", $this->need_mutual);
-        }
-        if ($this->out) {
-            $this->setParameter("out", $this->out);
-        }
-        if ($this->sort) {
-            $this->setParameter("sort", $this->sort);
-        }
-        if ($this->suggested) {
-            $this->setParameter("suggested", $this->suggested);
-        }
-        if ($this->count) {
-            $this->setParameter("count", $this->count);
-        }
-        if ($this->offset) {
-            $this->setParameter("offset", $this->offset);
-        }
 
         $json = $this->execApi();
         if (!$json) {

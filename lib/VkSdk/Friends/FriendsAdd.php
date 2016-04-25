@@ -6,10 +6,7 @@ use VkSdk\Includes\Request;
 
 class FriendsAdd extends Request
 {
-
-    private $user_id;
-    private $text;
-
+    
     private $response;
 
     public function getResponse()
@@ -19,24 +16,21 @@ class FriendsAdd extends Request
 
     public function setText($text)
     {
-        $this->text = $text;
+        $this->vkarg_text = $text;
         return $this;
     }
 
     public function setUserId($user_id)
     {
-        $this->user_id = $user_id;
+        $this->vkarg_user_id = $user_id;
         return $this;
     }
 
     public function doRequest()
     {
-        $this->setMethod("friends.add");
+        $this->setRequiredParams('user_id');
 
-        $this->setParameter("user_id", $this->user_id);
-        if ($this->text) {
-            $this->setParameter("text", $this->text);
-        }
+        $this->setMethod("friends.add");
 
         $json = $this->execApi();
         if (!$json) {

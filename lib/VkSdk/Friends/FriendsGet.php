@@ -7,14 +7,9 @@ use VkSdk\Includes\Request;
 class FriendsGet extends Request
 {
 
-    private $user_id;
-    private $order;
-    private $list_id;
     private $count;
-    private $offset;
     private $fields = array();
     private $items = array();
-    private $name_case;
 
     public function getItems()
     {
@@ -28,7 +23,7 @@ class FriendsGet extends Request
 
     public function setNameCase($name_case)
     {
-        $this->name_case = $name_case;
+        $this->vkarg_name_case = $name_case;
         return $this;
     }
 
@@ -44,31 +39,31 @@ class FriendsGet extends Request
 
     public function setOffset($offset)
     {
-        $this->offset = $offset;
+        $this->vkarg_offset = $offset;
         return $this;
     }
 
     public function setCount($count)
     {
-        $this->count = $count;
+        $this->vkarg_count = $count;
         return $this;
     }
 
     public function setListId($list_id)
     {
-        $this->list_id = $list_id;
+        $this->vkarg_list_id = $list_id;
         return $this;
     }
 
     public function setOrder($order)
     {
-        $this->order = $order;
+        $this->vkarg_order = $order;
         return $this;
     }
 
     public function setUserId($user_id)
     {
-        $this->user_id = $user_id;
+        $this->vkarg_user_id = $user_id;
         return $this;
     }
 
@@ -76,26 +71,8 @@ class FriendsGet extends Request
     {
         $this->setMethod("friends.get");
 
-        if ($this->user_id) {
-            $this->setParameter("user_id", $this->user_id);
-        }
-        if ($this->order) {
-            $this->setParameter("order", $this->order);
-        }
-        if ($this->list_id) {
-            $this->setParameter("list_id", $this->list_id);
-        }
-        if ($this->count) {
-            $this->setParameter("count", $this->count);
-        }
-        if ($this->offset) {
-            $this->setParameter("offset", $this->offset);
-        }
         if ($this->fields) {
             $this->setParameter("fields", implode(",", $this->fields));
-        }
-        if ($this->name_case) {
-            $this->setParameter("name_case", $this->name_case);
         }
 
         $json = $this->execApi();

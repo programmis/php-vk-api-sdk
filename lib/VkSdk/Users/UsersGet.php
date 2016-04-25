@@ -43,7 +43,7 @@ class UsersGet extends Request
     public function doRequest()
     {
         $this->setMethod("users.get");
-        
+
         if ($this->user_ids) {
             $this->setParameter("user_ids", implode(",", $this->user_ids));
         }

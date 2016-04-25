@@ -7,14 +7,8 @@ use VkSdk\Messages\Includes\MessageItem;
 
 class MessagesGet extends Request
 {
-
-    private $out;
-    private $offset;
+    
     private $count;
-    private $time_offset;
-    private $filters;
-    private $preview_length;
-    private $last_message_id;
 
     private $messages = array();
 
@@ -30,71 +24,49 @@ class MessagesGet extends Request
 
     public function setOut($out)
     {
-        $this->out = $out;
+        $this->vkarg_out = $out;
         return $this;
     }
 
     public function setOffset($offset)
     {
-        $this->offset = $offset;
+        $this->vkarg_offset = $offset;
         return $this;
     }
 
     public function setCount($count)
     {
-        $this->count = $count;
+        $this->vkarg_count = $count;
         return $this;
     }
 
     public function setTimeOffset($time_offset)
     {
-        $this->time_offset = $time_offset;
+        $this->vkarg_time_offset = $time_offset;
         return $this;
     }
 
     public function setFilters($filters)
     {
-        $this->filters = $filters;
+        $this->vkarg_filters = $filters;
         return $this;
     }
 
     public function setPreviewLength($preview_length)
     {
-        $this->preview_length = $preview_length;
+        $this->vkarg_preview_length = $preview_length;
         return $this;
     }
 
     public function setLastMessageId($last_message_id)
     {
-        $this->last_message_id = $last_message_id;
+        $this->vkarg_last_message_id = $last_message_id;
         return $this;
     }
 
     public function doRequest()
     {
         $this->setMethod("messages.get");
-
-        if ($this->out) {
-            $this->setParameter("out", $this->out);
-        }
-        if ($this->offset) {
-            $this->setParameter("offset", $this->offset);
-        }
-        if ($this->count) {
-            $this->setParameter("count", $this->count);
-        }
-        if ($this->time_offset) {
-            $this->setParameter("time_offset", $this->time_offset);
-        }
-        if ($this->filters) {
-            $this->setParameter("filters", $this->filters);
-        }
-        if ($this->preview_length) {
-            $this->setParameter("preview_length", $this->preview_length);
-        }
-        if ($this->last_message_id) {
-            $this->setParameter("last_message_id", $this->last_message_id);
-        }
 
         $json = $this->execApi();
         if (!$json) {

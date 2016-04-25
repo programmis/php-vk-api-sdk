@@ -8,19 +8,16 @@ use VkSdk\Wall\Includes\WallAttachments;
 class WallEditComment extends Request
 {
 
-    private $owner_id;
-    private $message;
     private $attachments = array();
-    private $comment_id;
 
     public function getCommentId()
     {
-        return $this->comment_id;
+        return $this->vkarg_comment_id;
     }
 
     public function setCommentId($comment_id)
     {
-        $this->comment_id = $comment_id;
+        $this->vkarg_comment_id = $comment_id;
         return $this;
     }
 
@@ -49,22 +46,18 @@ class WallEditComment extends Request
 
     public function setMessage($message)
     {
-        $this->message = $message;
+        $this->vkarg_message = $message;
         return $this;
     }
 
     public function setOwnerId($owner_id)
     {
-        $this->owner_id = $owner_id;
+        $this->vkarg_owner_id = $owner_id;
         return $this;
     }
 
     public function doRequest()
     {
-        if (!$this->message && !$this->attachments) {
-            throw new \Exception("not fill attachments OR message");
-        }
-
         $this->setMethod("wall.editComment");
 
         $attachments = "";
@@ -83,16 +76,9 @@ class WallEditComment extends Request
         if ($attachments) {
             $this->setParameter("attachments", $attachments);
         }
-        if ($this->owner_id) {
-            $this->setParameter("owner_id", $this->owner_id);
-        }
-        if ($this->comment_id) {
-            $this->setParameter("comment_id", $this->comment_id);
-        }
-        if ($this->message) {
-            $this->setParameter("message", $this->message);
-        }
 
+        $this->setRequiredParams(array('message', 'attachments'));
+        
         $json = $this->execApi();
         if (!$json) {
             return false;

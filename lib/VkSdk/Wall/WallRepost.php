@@ -6,11 +6,6 @@ use VkSdk\Includes\Request;
 
 class WallRepost extends Request
 {
-
-    private $object;
-    private $message;
-    private $group_id;
-
     private $success;
     private $reposts_count;
     private $likes_count;
@@ -38,37 +33,27 @@ class WallRepost extends Request
 
     public function setObject($object)
     {
-        $this->object = $object;
+        $this->vkarg_object = $object;
         return $this;
     }
 
     public function setMessage($message)
     {
-        $this->message = $message;
+        $this->vkarg_message = $message;
         return $this;
     }
 
     public function setGroupId($group_id)
     {
-        $this->group_id = $group_id;
+        $this->vkarg_group_id = $group_id;
         return $this;
     }
 
     public function doRequest()
     {
-        if (!$this->object) {
-            throw new \Exception("not fill object");
-        }
+        $this->setRequiredParams('object');
 
         $this->setMethod("wall.repost");
-
-        $this->setParameter("object", $this->object);
-        if ($this->message) {
-            $this->setParameter("message", $this->message);
-        }
-        if ($this->group_id) {
-            $this->setParameter("group_id", $this->group_id);
-        }
 
         $json = $this->execApi();
         if (!$json) {

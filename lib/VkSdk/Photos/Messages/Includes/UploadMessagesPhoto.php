@@ -69,7 +69,7 @@ class UploadMessagesPhoto extends GetMessagesUploadServer implements Server
 
     public function checkUploadServer(){
         if(!$this->upload_server){
-            throw new \Exception('set upload server');
+            throw new \Exception('please set upload server');
         }
     }
     
@@ -78,12 +78,12 @@ class UploadMessagesPhoto extends GetMessagesUploadServer implements Server
         $this->checkUploadServer();
 
         if(!$this->photo_url){
-            throw new \Exception('set photo url');
+            throw new \Exception('please set photo url');
         }
         
         $get_upload_server = $this->upload_server->doRequest();
         if (!$get_upload_server) {
-            $this->logger->debug("not found upload server");
+            $this->logger->error("not found upload server");
             return false;
         }
 

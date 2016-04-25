@@ -10,30 +10,29 @@ class PollsCreate extends Request
 {
 
     private $question;
-    private $is_anonymous;
     private $owner_id;
     private $add_answers;
 
-    /** 
-     * @var  PollInfo 
+    /**
+     * @var  PollInfo
      */
     private $poll_info;
 
     public function setQuestion($question)
     {
-        $this->question = $question;
+        $this->vkarg_question = $question;
         return $this;
     }
 
     public function setIsAnonymous($is_anonymous)
     {
-        $this->is_anonymous = $is_anonymous;
+        $this->vkarg_is_anonymous = $is_anonymous;
         return $this;
     }
 
     public function setOwnerId($owner_id)
     {
-        $this->owner_id = $owner_id;
+        $this->vkarg_owner_id = $owner_id;
         return $this;
     }
 
@@ -58,15 +57,6 @@ class PollsCreate extends Request
     {
         $this->setMethod("polls.create");
 
-        if ($this->question) {
-            $this->setParameter("question", $this->question);
-        }
-        if ($this->is_anonymous) {
-            $this->setParameter("is_anonymous", $this->is_anonymous);
-        }
-        if ($this->owner_id) {
-            $this->setParameter("owner_id", $this->owner_id);
-        }
         if ($this->add_answers) {
             $this->setParameter("add_answers", json_encode($this->add_answers));
         }
