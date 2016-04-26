@@ -3,11 +3,23 @@
 namespace VkSdk\Includes;
 
 
-abstract class Request extends Opts
+use Psr\Log\LoggerInterface;
+use VkSdk\Config\Config;
+use VkSdk\Logger\Logger;
+
+abstract class Request extends \ApiRator\Includes\Request implements VkInterface
 {
 
     private $error_code;
     private $error_msg;
+
+    public function __construct(LoggerInterface $loggerInterface = null)
+    {
+        if(!$loggerInterface){
+            $loggerInterface = new Logger();
+        }
+        parent::__construct('vkarg', $loggerInterface);
+    }
 
     public function getErrorCode()
     {
@@ -19,44 +31,9 @@ abstract class Request extends Opts
         return $this->error_msg;
     }
 
-    public function execApi()
+    public function answerProcessing($content)
     {
-        $this->checkRequiredParams();
-        
-        $url = $this->getResultApiUrl();
-
-        $this->logger->debug("execApi: " . $url);
-
-        $parameters = $this->getParameters();
-
-        $this->logger->debug("with parameters: " . serialize($parameters));
-
-        $apiCurl = curl_init($url);
-        curl_setopt($apiCurl, CURLOPT_POST, 1);
-        curl_setopt($apiCurl, CURLOPT_HTTPHEADER, array("Content-type: multipart/form-data"));
-        curl_setopt($apiCurl, CURLOPT_POSTFIELDS, $parameters);
-        curl_setopt($apiCurl, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt($apiCurl, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($apiCurl, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($apiCurl, CURLOPT_SSL_VERIFYHOST, 0);
-        $apiContent = curl_exec($apiCurl);
-
-        if ($apiContent === false) {
-            $this->logger->error(curl_error($apiCurl));
-            curl_close($apiCurl);
-            return false;
-        }
-
-        curl_close($apiCurl);
-
-        if (!$apiContent) {
-            $this->logger->debug("apiContent is empty");
-            return false;
-        }
-
-        $this->logger->debug("execApi result: " . $apiContent);
-
-        $json = json_decode($apiContent);
+        $json = json_decode($content);
 
         if (isset($json->error) && $json->error) {
             if (isset($json->error->error_code) && $json->error->error_code) {
@@ -94,6 +71,22 @@ abstract class Request extends Opts
         }
 
         return $json;
+    }
+    
+    public function getResultApiUrl()
+    {
+        $access_token = $this->getAccessToken();
+        if (!$access_token) {
+            $access_token = Config::getParam('access_token', true);
+        }
+        $version = $this->getApiVersion();
+        if(!$version){
+            $version = self::API_VERSION;
+        }
+        
+        $url = self::API_URL . $this->getMethod() . "?v=" . $version . "&access_token=" . $access_token;
+        
+        return $url;
     }
 
     abstract public function doRequest();
