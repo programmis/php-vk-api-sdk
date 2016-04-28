@@ -89,6 +89,12 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         return $url;
     }
 
+    public function handleParameters($parameters)
+    {
+        return $parameters;
+    }
+
+
     abstract public function doRequest();
 
 }
