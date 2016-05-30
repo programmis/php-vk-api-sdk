@@ -79,7 +79,7 @@ class AdsGetTargetingStats extends Request
     {
         $this->setRequiredParams(array('account_id', 'link_url'));
         
-        $this->setMethod("Ads.getTargetingStats");
+        $this->setMethod("ads.getTargetingStats");
 
         $this->setParameter("criteria", $this->criteria->getJSON());
 

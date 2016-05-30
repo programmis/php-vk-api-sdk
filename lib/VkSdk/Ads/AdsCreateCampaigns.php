@@ -46,7 +46,7 @@ class AdsCreateCampaigns extends Request
     {
         $this->setRequiredParams('account_id');
 
-        $this->setMethod("Ads.createCampaigns");
+        $this->setMethod("ads.createCampaigns");
 
         $this->setParameter("data", $this->campaignSpecificationsToJSON());
 

@@ -61,7 +61,7 @@ class AdsGetSuggestions extends Request
 
     public function doRequest()
     {
-        $this->setMethod("Ads.getSuggestions");
+        $this->setMethod("ads.getSuggestions");
         
         if ($this->ids) {
             $this->setParameter("ids", implode(",", $this->ids));

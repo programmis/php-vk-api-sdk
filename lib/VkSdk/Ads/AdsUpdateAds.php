@@ -44,7 +44,7 @@ class AdsUpdateAds extends Request
     {
         $this->setRequiredParams('account_id');
 
-        $this->setMethod("Ads.updateAds");
+        $this->setMethod("ads.updateAds");
 
         $this->setParameter("data", $this->adSpecificationsToJSON());
 

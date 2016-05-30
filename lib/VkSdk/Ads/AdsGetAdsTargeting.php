@@ -71,7 +71,7 @@ class AdsGetAdsTargeting extends Request
     {
         $this->setRequiredParams('account_id');
         
-        $this->setMethod("Ads.getAdsTargeting");
+        $this->setMethod("ads.getAdsTargeting");
 
         if (count($this->ad_ids)) {
             $this->setParameter("ad_ids", json_encode($this->ad_ids));

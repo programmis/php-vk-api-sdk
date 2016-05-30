@@ -67,7 +67,7 @@ class AdsGetAds extends Request
     {
         $this->setRequiredParams('account_id');
 
-        $this->setMethod("Ads.getAds");
+        $this->setMethod("ads.getAds");
 
         if (count($this->ad_ids)) {
             $this->setParameter("ad_ids", json_encode($this->ad_ids));
@@ -90,7 +90,7 @@ class AdsGetAds extends Request
         ) {
 
             foreach ($json->response as $key => $rs) {
-                $this->ad_specifications[$key] = new AdsAdSpecification($this, Specifications::GET);
+                $this->ad_specifications[$key] = new AdsAdSpecification(Specifications::GET);
                 if (isset($rs->ad_platform)) {
                     $this->ad_specifications[$key]->setAdPlatform($rs->ad_platform);
                 }
