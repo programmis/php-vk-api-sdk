@@ -43,7 +43,7 @@ class AdsCreateAds extends Request
     {
         $this->setRequiredParams('account_id');
 
-        $this->setMethod("Ads.createAds");
+        $this->setMethod("ads.createAds");
 
         $this->setParameter("data", $this->adSpecificationsToJSON());
 
