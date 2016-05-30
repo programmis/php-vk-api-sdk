@@ -37,7 +37,7 @@ class AdsAdSpecification
     public function __construct($type)
     {
         $this->type = $type;
-        if ($this->type != 2) {
+        if ($this->type != Specifications::GET) {
             $this->criteria = new AdsTargetingCriteria();
         }
     }
@@ -126,12 +126,12 @@ class AdsAdSpecification
     {
         $array = array();
 
-        if ($this->type == 0) {
+        if ($this->type == Specifications::CREATE) {
             $array["campaign_id"] = $this->campaign_id;
             $array["cost_type"] = $this->cost_type;
             $array["ad_format"] = $this->ad_format;
         } else {
-            if ($this->type == 1) {
+            if ($this->type == Specifications::UPDATE) {
                 $array['ad_id'] = $this->ad_id;
             }
         }
@@ -185,7 +185,7 @@ class AdsAdSpecification
             $array['disclaimer'] = $this->disclaimer;
         }
 
-        if ($this->type != 2) {
+        if ($this->type != Specifications::GET) {
             $array = array_merge($array, $this->criteria->getArray());
         }
 

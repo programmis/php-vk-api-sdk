@@ -34,7 +34,7 @@ class AdsGetAccounts extends Request
 
     public function doRequest()
     {
-        $this->setMethod("Ads.getAccounts");
+        $this->setMethod("ads.getAccounts");
 
         $json = $this->execApi();
         if (!$json) {
