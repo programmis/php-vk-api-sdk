@@ -8,10 +8,10 @@ use VkSdk\Users\Includes\UserInfo;
 class UsersGet extends Request
 {
 
-    private $user_ids = array();
-    private $fields = array();
+    private $user_ids = [];
+    private $fields = [];
 
-    private $users_info = array();
+    private $users_info = [];
 
     public function getUsersInfo()
     {

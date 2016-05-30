@@ -9,11 +9,11 @@ use VkSdk\Users\Includes\UserInfo;
 class PollsGetVoters extends Request
 {
 
-    private $answer_ids = array();
+    private $answer_ids = [];
     private $count;
-    private $fields = array();
+    private $fields = [];
 
-    private $voters = array();
+    private $voters = [];
 
     public function getVoters()
     {

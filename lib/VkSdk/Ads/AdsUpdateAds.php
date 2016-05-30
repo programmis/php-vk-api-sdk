@@ -9,9 +9,9 @@ use VkSdk\Includes\Request;
 class AdsUpdateAds extends Request
 {
 
-    private $ad_specification = array();
+    private $ad_specification = [];
 
-    private $ids = array();
+    private $ids = [];
 
     public function getIds()
     {
@@ -31,7 +31,7 @@ class AdsUpdateAds extends Request
 
     private function adSpecificationsToJSON()
     {
-        $ad = array();
+        $ad = [];
 
         foreach ($this->ad_specification as $as) {
             $ad[] = $as->getArray();

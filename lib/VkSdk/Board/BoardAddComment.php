@@ -8,7 +8,7 @@ use VkSdk\Wall\Includes\WallAttachments;
 class BoardAddComment extends Request
 {
 
-    private $attachments = array();
+    private $attachments = [];
     private $comment_id;
 
     public function getCommentId()

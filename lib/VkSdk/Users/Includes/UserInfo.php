@@ -10,7 +10,7 @@ class UserInfo
     private $last_name = "";
     private $sex = 0;
     private $photo_50;
-    private $last_seen = array();
+    private $last_seen = [];
 
 
     public function setId($id)

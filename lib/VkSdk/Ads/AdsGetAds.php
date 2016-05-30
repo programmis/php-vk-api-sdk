@@ -9,10 +9,10 @@ use VkSdk\Includes\Request;
 class AdsGetAds extends Request
 {
 
-    private $campaign_ids = array();
-    private $ad_ids = array();
+    private $campaign_ids = [];
+    private $ad_ids = [];
 
-    private $ad_specifications = array();
+    private $ad_specifications = [];
 
 
     public function getAdSpecifications()
@@ -55,7 +55,6 @@ class AdsGetAds extends Request
         $this->vkarg_offset = $offset;
         return $this;
     }
-
 
     public function setAccountId($account_id)
     {

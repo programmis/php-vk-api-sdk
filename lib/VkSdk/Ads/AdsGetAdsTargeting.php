@@ -11,12 +11,12 @@ class AdsGetAdsTargeting extends Request
     private $account_id;
     private $client_id;
     private $include_deleted;
-    private $campaign_ids = array();
-    private $ad_ids = array();
+    private $campaign_ids = [];
+    private $ad_ids = [];
     private $limit;
     private $offset;
 
-    private $criteria = array();
+    private $criteria = [];
 
 
     public function getCriteria()

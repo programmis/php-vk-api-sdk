@@ -10,7 +10,7 @@ class PollInfo
     private $question;
     private $votes;
     private $answer_id;
-    private $answers = array();
+    private $answers = [];
     private $anonymous;
 
     public function getAnswers()

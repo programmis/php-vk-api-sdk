@@ -10,7 +10,7 @@ class MessagesGet extends Request
     
     private $count;
 
-    private $messages = array();
+    private $messages = [];
 
     public function getMessages()
     {

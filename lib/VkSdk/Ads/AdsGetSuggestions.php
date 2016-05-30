@@ -9,10 +9,10 @@ class AdsGetSuggestions extends Request
 {
 
     private $section;
-    private $ids = array();
-    private $cities = array();
+    private $ids = [];
+    private $cities = [];
 
-    private $result = array();
+    private $result = [];
 
     public function getResult()
     {

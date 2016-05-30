@@ -9,7 +9,7 @@ class WallAddComment extends Request
 {
 
     private $post_id;
-    private $attachments = array();
+    private $attachments = [];
     private $comment_id;
 
     public function getCommentId()

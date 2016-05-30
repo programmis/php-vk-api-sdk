@@ -124,7 +124,7 @@ class AdsAdSpecification
 
     public function getArray()
     {
-        $array = array();
+        $array = [];
 
         if ($this->type == 0) {
             $array["campaign_id"] = $this->campaign_id;

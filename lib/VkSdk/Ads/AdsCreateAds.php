@@ -8,9 +8,9 @@ use VkSdk\Includes\Request;
 class AdsCreateAds extends Request
 {
 
-    private $ad_specification = array();
+    private $ad_specification = [];
 
-    private $ids = array();
+    private $ids = [];
 
     public function getIds()
     {
@@ -30,7 +30,7 @@ class AdsCreateAds extends Request
 
     private function adSpecificationsToJSON()
     {
-        $ad = array();
+        $ad = [];
 
         foreach ($this->ad_specification as $as) {
             $ad[] = $as->getArray();

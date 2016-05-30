@@ -8,10 +8,10 @@ use VkSdk\Messages\Includes\MessagesAttachments;
 class MessagesSend extends Request
 {
 
-    private $user_ids = array();
+    private $user_ids = [];
     private $message_id;
-    private $attachments = array();
-    private $forward_messages = array();
+    private $attachments = [];
+    private $forward_messages = [];
 
     public function getMessageId()
     {

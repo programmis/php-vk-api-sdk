@@ -8,10 +8,10 @@ use VkSdk\Users\Includes\UserInfo;
 class UsersSearch extends Request
 {
 
-    private $fields = array();
+    private $fields = [];
     private $count;
 
-    private $users_info = array();
+    private $users_info = [];
 
     public function setGroupId($group_id)
     {

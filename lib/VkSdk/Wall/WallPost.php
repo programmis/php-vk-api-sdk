@@ -8,7 +8,7 @@ use VkSdk\Wall\Includes\WallAttachments;
 class WallPost extends Request
 {
 
-    private $attachments = array();
+    private $attachments = [];
     private $post_id;
 
     public function addAttachment(WallAttachments $attachments)

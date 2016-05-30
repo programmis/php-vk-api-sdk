@@ -8,7 +8,7 @@ class PollVotersInfo
 {
 
     private $answer_id;
-    private $users = array();
+    private $users = [];
     private $count;
 
     public function getAnswerId()

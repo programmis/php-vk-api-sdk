@@ -10,25 +10,25 @@ class AdsTargetingCriteria
     private $age_to = 0;
     private $birthday = 0;
     private $country = 0;
-    private $cities = array();
-    private $cities_not = array();
-    private $statuses = array();
-    private $groups = array();
-    private $apps = array();
-    private $apps_not = array();
-    private $districts = array();
-    private $stations = array();
-    private $streets = array();
-    private $schools = array();
-    private $positions = array();
-    private $religions = array();
-    private $interests = array();
-    private $interest_categories = array();
-    private $user_devices = array();
-    private $user_os = array();
-    private $user_browsers = array();
-    private $retargeting_groups = array();
-    private $retargeting_groups_not = array();
+    private $cities = [];
+    private $cities_not = [];
+    private $statuses = [];
+    private $groups = [];
+    private $apps = [];
+    private $apps_not = [];
+    private $districts = [];
+    private $stations = [];
+    private $streets = [];
+    private $schools = [];
+    private $positions = [];
+    private $religions = [];
+    private $interests = [];
+    private $interest_categories = [];
+    private $user_devices = [];
+    private $user_os = [];
+    private $user_browsers = [];
+    private $retargeting_groups = [];
+    private $retargeting_groups_not = [];
     private $paying;
     private $travellers = 0;
     private $school_from = 0;
@@ -372,7 +372,7 @@ class AdsTargetingCriteria
 
     public function getArray()
     {
-        $array = array();
+        $array = [];
 
         if ($this->school_from) {
             $array['school_from'] = $this->school_from;

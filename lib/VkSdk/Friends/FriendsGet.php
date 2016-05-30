@@ -8,8 +8,8 @@ class FriendsGet extends Request
 {
 
     private $count;
-    private $fields = array();
-    private $items = array();
+    private $fields = [];
+    private $items = [];
 
     public function getItems()
     {

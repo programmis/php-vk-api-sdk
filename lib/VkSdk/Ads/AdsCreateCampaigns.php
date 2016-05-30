@@ -10,7 +10,7 @@ class AdsCreateCampaigns extends Request
 
     private $campaign_specification;
 
-    private $ids = array();
+    private $ids = [];
 
     public function getIds()
     {
@@ -30,7 +30,7 @@ class AdsCreateCampaigns extends Request
 
     private function campaignSpecificationsToJSON()
     {
-        $campaign = array();
+        $campaign = [];
 
         foreach ($this->campaign_specification as $cs) {
             /**
