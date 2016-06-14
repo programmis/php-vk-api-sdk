@@ -36,9 +36,13 @@ class AdsImportTargetContacts extends Request
         return $this;
     }
 
+    /**
+     * @param array $contacts
+     * @return $this
+     */
     public function setContacts($contacts)
     {
-        $this->vkarg_contacts = $contacts;
+        $this->vkarg_contacts = implode(',', $contacts);
         return $this;
     }
 
