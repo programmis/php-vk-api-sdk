@@ -19,10 +19,11 @@ class AdsGetAdsLayout extends Request
 
     private $ads = [];
 
-    public function getAds(){
+    public function getAds()
+    {
         return $this->ads;
     }
-    
+
     public function addCampaignId($campaign_id)
     {
         $this->campaign_ids[] = $campaign_id;
