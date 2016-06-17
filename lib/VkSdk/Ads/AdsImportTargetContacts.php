@@ -61,9 +61,7 @@ class AdsImportTargetContacts extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response
-        ) {
+        if (isset($json->response)) {
             $this->response = $json->response;
 
             return true;
