@@ -26,6 +26,7 @@ class AdsAdSpecification
     private $video;
     private $disclaimer;
     private $approved;
+    private $age_restriction;
 
     private $create_time;
     private $update_time;
@@ -61,6 +62,24 @@ class AdsAdSpecification
     public function setCreateTime($create_time)
     {
         $this->create_time = $create_time;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAgeRestriction()
+    {
+        return $this->age_restriction;
+    }
+
+    /**
+     * @param mixed $age_restriction
+     * @return AdsAdSpecification
+     */
+    public function setAgeRestriction($age_restriction)
+    {
+        $this->age_restriction = $age_restriction;
         return $this;
     }
 
@@ -136,6 +155,9 @@ class AdsAdSpecification
             }
         }
 
+        if ($this->age_restriction) {
+            $array['age_restriction'] = $this->age_restriction;
+        }
         if ($this->cpc) {
             $array["cpc"] = $this->cpc;
         }
