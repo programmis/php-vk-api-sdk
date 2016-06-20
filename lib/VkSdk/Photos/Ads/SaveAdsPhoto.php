@@ -61,6 +61,7 @@ class SaveAdsPhoto extends AdsGetUploadUrl
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_TIMEOUT, 60);
             curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_SAFE_UPLOAD, false);
             curl_setopt($ch, CURLOPT_POSTFIELDS, array("file" => "@{$this->photo_url};type=image/jfif"));;
             $vkContent = curl_exec($ch);
 
