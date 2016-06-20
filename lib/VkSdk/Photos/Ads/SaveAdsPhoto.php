@@ -6,7 +6,6 @@ use VkSdk\Photos\Ads\Includes\AdsGetUploadUrl;
 
 class SaveAdsPhoto extends AdsGetUploadUrl
 {
-
     private $photo_url;
     private $access_token;
     private $ad_format;
@@ -30,9 +29,29 @@ class SaveAdsPhoto extends AdsGetUploadUrl
         return $this;
     }
 
+    /**
+     * @return string
+     */
+    public function getAccessToken()
+    {
+        return $this->access_token;
+    }
+
+    /**
+     * @param string $access_token
+     * @return SaveAdsPhoto
+     */
+    public function setAccessToken($access_token)
+    {
+        $this->access_token = $access_token;
+        return $this;
+    }
+
     public function doRequest()
     {
-        $upload_url = new AdsGetUploadUrl($this->access_token);
+        $upload_url = new AdsGetUploadUrl();
+        $upload_url->setAccessToken($this->access_token);
+
         $result = $upload_url->setAdFormat($this->ad_format)->doRequest();
         if ($result === true) {
             $this->logger->debug("execUrl: " . $upload_url->getUrl());
@@ -76,7 +95,5 @@ class SaveAdsPhoto extends AdsGetUploadUrl
         } else {
             return $result;
         }
-
     }
-
 }
