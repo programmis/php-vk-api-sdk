@@ -24,7 +24,7 @@ class AdsGetUploadUrl extends Request
     {
         $this->setRequiredParams('ad_format');
 
-        $this->setMethod("Ads.getUploadURL");
+        $this->setMethod("ads.getUploadURL");
 
         $json = $this->execApi();
         if (!$json) {
