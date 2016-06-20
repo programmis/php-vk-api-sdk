@@ -49,15 +49,15 @@ class SaveAdsPhoto extends AdsGetUploadUrl
 
     public function doRequest()
     {
-        $upload_url = new AdsGetUploadUrl();
-        $upload_url->setAccessToken($this->access_token);
+        $uploadUrl = new AdsGetUploadUrl();
+        $uploadUrl->setAccessToken($this->access_token);
 
-        $result = $upload_url->setAdFormat($this->ad_format)->doRequest();
+        $result = $uploadUrl->setAdFormat($this->ad_format)->doRequest();
         if ($result === true) {
-            $this->logger->debug("execUrl: " . $upload_url->getUrl());
+            $this->logger->debug("execUrl: " . $uploadUrl->getUrl());
 
             $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $upload_url->getUrl());
+            curl_setopt($ch, CURLOPT_URL, $uploadUrl->getUrl());
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
             curl_setopt($ch, CURLOPT_TIMEOUT, 60);
             curl_setopt($ch, CURLOPT_POST, 1);
