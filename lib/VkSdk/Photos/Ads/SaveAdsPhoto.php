@@ -49,20 +49,24 @@ class SaveAdsPhoto extends AdsGetUploadUrl
 
     public function doRequest()
     {
-        $uploadUrl = new AdsGetUploadUrl();
-        $uploadUrl->setAccessToken($this->access_token);
+        if (!is_file($this->photo_url)) {
+            return -1;
+        }
 
-        $result = $uploadUrl->setAdFormat($this->ad_format)->doRequest();
+        $upload_url = new AdsGetUploadUrl();
+        $upload_url->setAccessToken($this->access_token);
+
+        $result = $upload_url->setAdFormat($this->ad_format)->doRequest();
         if ($result === true) {
-            $this->logger->debug("execUrl: " . $uploadUrl->getUrl());
+            $this->logger->debug("execUrl: " . $upload_url->getUrl());
 
             $ch = curl_init();
-            curl_setopt($ch, CURLOPT_URL, $uploadUrl->getUrl());
+            curl_setopt($ch, CURLOPT_URL, $upload_url->getUrl());
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_TIMEOUT, 60);
+            curl_setopt($ch, CURLOPT_TIMEOUT, 20);
             curl_setopt($ch, CURLOPT_POST, 1);
             curl_setopt($ch, CURLOPT_SAFE_UPLOAD, false);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, array("file" => "@{$this->photo_url};type=image/jfif"));;
+            curl_setopt($ch, CURLOPT_POSTFIELDS, ["file" => "@{$this->photo_url};type=image/jfif"]);;
             $vkContent = curl_exec($ch);
 
             if (curl_errno($ch)) {
