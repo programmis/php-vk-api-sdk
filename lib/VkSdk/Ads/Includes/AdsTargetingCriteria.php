@@ -374,6 +374,9 @@ class AdsTargetingCriteria
     {
         $array = [];
 
+        if ($this->ad_id) {
+            $array['ad_id'] = $this->ad_id;
+        }
         if ($this->school_from) {
             $array['school_from'] = $this->school_from;
         }

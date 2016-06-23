@@ -3,6 +3,7 @@
 namespace VkSdk\Ads;
 
 use VkSdk\Ads\Includes\AdsAdSpecification;
+use VkSdk\Ads\Includes\AdsTargetingCriteria;
 use VkSdk\Ads\Includes\Specifications;
 use VkSdk\Includes\Request;
 
@@ -26,7 +27,12 @@ class AdsUpdateAds extends Request
 
     public function addAdSpecification()
     {
-        return $this->ad_specification[] = new AdsAdSpecification($this, Specifications::UPDATE);
+        return $this->ad_specification[] = new AdsAdSpecification(Specifications::UPDATE);
+    }
+    
+    public function addAdTargetingCriteria()
+    {
+        return $this->ad_specification[] = new AdsTargetingCriteria();
     }
 
     private function adSpecificationsToJSON()
