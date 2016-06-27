@@ -38,7 +38,25 @@ class AdsTargetingCriteria
 
     private $ad_id;
     private $campaign_id;
+    private $name;
 
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     * @return AdsTargetingCriteria
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+        return $this;
+    }
 
     public function getSchoolFrom()
     {
@@ -374,6 +392,9 @@ class AdsTargetingCriteria
     {
         $array = [];
 
+        if ($this->name) {
+            $array['name'] = $this->name;
+        }
         if ($this->ad_id) {
             $array['ad_id'] = $this->ad_id;
         }
