@@ -17,9 +17,13 @@ class AdsCreateCampaigns extends Request
         return $this->ids;
     }
 
-    public function addCampaignSpecification(AdsCampaignSpecification $adsCampaignSpecification)
+    public function addCampaignSpecification(AdsCampaignSpecification $adsCampaignSpecification = null)
     {
-        return $this->campaign_specification[] = $adsCampaignSpecification;
+        if(!$adsCampaignSpecification){
+            return $this->campaign_specification[] = new AdsCampaignSpecification();
+        } else {
+            return $this->campaign_specification[] = $adsCampaignSpecification;
+        }
     }
 
     public function setAccountId($account_id)
