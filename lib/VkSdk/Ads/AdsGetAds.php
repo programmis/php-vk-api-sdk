@@ -12,8 +12,10 @@ class AdsGetAds extends Request
     private $campaign_ids = [];
     private $ad_ids = [];
 
+    /**
+     * @var AdsAdSpecification[]
+     */
     private $ad_specifications = [];
-
 
     public function getAdSpecifications()
     {
@@ -32,9 +34,21 @@ class AdsGetAds extends Request
         return $this;
     }
 
+    public function setCampaignIds($campaign_ids)
+    {
+        $this->campaign_ids = $campaign_ids;
+        return $this;
+    }
+
     public function addCampaignId($campaign_id)
     {
         $this->campaign_ids[] = $campaign_id;
+        return $this;
+    }
+
+    public function setAdIds($ad_ids)
+    {
+        $this->ad_ids = $ad_ids;
         return $this;
     }
 
@@ -97,16 +111,25 @@ class AdsGetAds extends Request
                     $this->ad_specifications[$key]->setCpc($rs->cpc);
                 }
                 if (isset($rs->cpm)) {
-                    $this->ad_specifications[$key]->setCpc($rs->cpm);
+                    $this->ad_specifications[$key]->setCpm($rs->cpm);
                 }
                 if (isset($rs->video)) {
-                    $this->ad_specifications[$key]->setCpc($rs->video);
+                    $this->ad_specifications[$key]->setVideo($rs->video);
                 }
-                if (isset($rs->disclaimer)) {
-                    $this->ad_specifications[$key]->setCpc($rs->disclaimer);
+                if (isset($rs->disclaimer_medical)) {
+                    $this->ad_specifications[$key]->setDisclaimerMedical($rs->disclaimer_medical);
+                }
+                if (isset($rs->disclaimer_specialist)) {
+                    $this->ad_specifications[$key]->setDisclaimerSpecialist($rs->disclaimer_specialist);
+                }
+                if (isset($rs->disclaimer_supplements)) {
+                    $this->ad_specifications[$key]->setDisclaimerSupplements($rs->disclaimer_supplements);
                 }
                 if (isset($rs->impressions_limit)) {
-                    $this->ad_specifications[$key]->setCpc($rs->impressions_limit);
+                    $this->ad_specifications[$key]->setImpressionsLimit($rs->impressions_limit);
+                }
+                if (isset($rs->impressions_limited)) {
+                    $this->ad_specifications[$key]->setImpressionsLimited($rs->impressions_limited);
                 }
                 if (isset($rs->ad_format)) {
                     $this->ad_specifications[$key]->setAdFormat($rs->ad_format);

@@ -24,6 +24,12 @@ class AdsGetAdsLayout extends Request
         return $this->ads;
     }
 
+    public function setAdIds($ad_ids)
+    {
+        $this->ad_ids = $ad_ids;
+        return $this;
+    }
+
     public function addCampaignId($campaign_id)
     {
         $this->campaign_ids[] = $campaign_id;

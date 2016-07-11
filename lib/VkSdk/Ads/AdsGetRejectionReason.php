@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: alfred
- * Date: 21.06.16
- * Time: 21:20
+ * Date: 30.06.16
+ * Time: 21:21
  */
 
 namespace VkSdk\Ads;
@@ -11,21 +11,18 @@ namespace VkSdk\Ads;
 
 use VkSdk\Includes\Request;
 
-class AdsDeleteAds extends Request
+class AdsGetRejectionReason extends Request
 {
-    private $ids = [];
+    private $response;
 
-    public function addId($id)
+    public function getResponse()
     {
-        $this->ids[] = $id;
-
-        return $this;
+        return $this->response;
     }
 
-    public function setIds($ids)
+    public function setAdId($ad_id)
     {
-        $this->ids = $ids;
-
+        $this->vkarg_ad_id = $ad_id;
         return $this;
     }
 
@@ -37,11 +34,9 @@ class AdsDeleteAds extends Request
 
     public function doRequest()
     {
-        $this->setRequiredParams(['account_id']);
+        $this->setRequiredParams(['account_id', 'ad_id']);
 
-        $this->setMethod("ads.deleteAds");
-
-        $this->setParameter("ids", json_encode($this->ids));
+        $this->setMethod("ads.getRejectionReason");
 
         $json = $this->execApi();
         if (!$json) {
@@ -55,6 +50,8 @@ class AdsDeleteAds extends Request
         if (
             isset($json->response) && $json->response
         ) {
+            $this->response = $json->response;
+
             return true;
         }
 

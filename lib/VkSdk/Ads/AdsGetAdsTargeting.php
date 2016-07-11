@@ -7,14 +7,8 @@ use VkSdk\Includes\Request;
 
 class AdsGetAdsTargeting extends Request
 {
-
-    private $account_id;
-    private $client_id;
-    private $include_deleted;
     private $campaign_ids = [];
     private $ad_ids = [];
-    private $limit;
-    private $offset;
 
     private $criteria = [];
 

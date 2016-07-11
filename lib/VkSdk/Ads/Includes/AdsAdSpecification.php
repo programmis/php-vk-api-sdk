@@ -12,6 +12,7 @@ class AdsAdSpecification
     private $cpc = 0.0;
     private $cpm = 0.0;
     private $impressions_limit;
+    private $impressions_limited;
     private $ad_platform;
     private $all_limit;
     private $category1_id;
@@ -24,7 +25,9 @@ class AdsAdSpecification
     private $link_domain;
     private $photo;
     private $video;
-    private $disclaimer;
+    private $disclaimer_medical;
+    private $disclaimer_specialist;
+    private $disclaimer_supplements;
     private $approved;
     private $age_restriction;
 
@@ -41,6 +44,22 @@ class AdsAdSpecification
         if ($this->type != Specifications::GET) {
             $this->criteria = new AdsTargetingCriteria();
         }
+    }
+
+    /**
+     * @return integer
+     */
+    public function getCategory1Id()
+    {
+        return $this->category1_id;
+    }
+
+    /**
+     * @return integer
+     */
+    public function getCategory2Id()
+    {
+        return $this->category2_id;
     }
 
     public function getUpdateTime()
@@ -141,6 +160,142 @@ class AdsAdSpecification
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getCampaignId()
+    {
+        return $this->campaign_id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAdFormat()
+    {
+        return $this->ad_format;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCostType()
+    {
+        return $this->cost_type;
+    }
+
+    /**
+     * @return float
+     */
+    public function getCpc()
+    {
+        return $this->cpc;
+    }
+
+    /**
+     * @return float
+     */
+    public function getCpm()
+    {
+        return $this->cpm;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImpressionsLimit()
+    {
+        return $this->impressions_limit;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImpressionsLimited()
+    {
+        return $this->impressions_limited;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAdPlatform()
+    {
+        return $this->ad_platform;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAllLimit()
+    {
+        return $this->all_limit;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTitle()
+    {
+        return $this->title;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLinkUrl()
+    {
+        return $this->link_url;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getLinkDomain()
+    {
+        return $this->link_domain;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getVideo()
+    {
+        return $this->video;
+    }
+    
     public function getArray()
     {
         $array = [];
@@ -179,6 +334,9 @@ class AdsAdSpecification
         if ($this->impressions_limit) {
             $array['impressions_limit'] = $this->impressions_limit;
         }
+        if ($this->impressions_limited) {
+            $array['impressions_limited'] = $this->impressions_limited;
+        }
         if ($this->all_limit) {
             $array['all_limit'] = $this->all_limit;
         }
@@ -203,8 +361,14 @@ class AdsAdSpecification
         if ($this->video) {
             $array['video'] = $this->video;
         }
-        if ($this->disclaimer) {
-            $array['disclaimer'] = $this->disclaimer;
+        if ($this->disclaimer_medical) {
+            $array['disclaimer_medical'] = $this->disclaimer_medical;
+        }
+        if ($this->disclaimer_specialist) {
+            $array['disclaimer_specialist'] = $this->disclaimer_specialist;
+        }
+        if ($this->disclaimer_supplements) {
+            $array['disclaimer_supplements'] = $this->disclaimer_supplements;
         }
 
         if ($this->type != Specifications::GET) {
@@ -247,6 +411,12 @@ class AdsAdSpecification
     public function setImpressionsLimit($impressions_limit)
     {
         $this->impressions_limit = $impressions_limit;
+        return $this;
+    }
+
+    public function setImpressionsLimited($impressions_limited)
+    {
+        $this->impressions_limited = $impressions_limited;
         return $this;
     }
 
@@ -322,10 +492,57 @@ class AdsAdSpecification
         return $this;
     }
 
-    public function setDisclaimer($disclaimer)
+    /**
+     * @return mixed
+     */
+    public function getDisclaimerMedical()
     {
-        $this->disclaimer = $disclaimer;
+        return $this->disclaimer_medical;
+    }
+
+    /**
+     * @param mixed $disclaimer_medical
+     * @return AdsAdSpecification
+     */
+    public function setDisclaimerMedical($disclaimer_medical)
+    {
+        $this->disclaimer_medical = $disclaimer_medical;
         return $this;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getDisclaimerSpecialist()
+    {
+        return $this->disclaimer_specialist;
+    }
+
+    /**
+     * @param mixed $disclaimer_specialist
+     * @return AdsAdSpecification
+     */
+    public function setDisclaimerSpecialist($disclaimer_specialist)
+    {
+        $this->disclaimer_specialist = $disclaimer_specialist;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDisclaimerSupplements()
+    {
+        return $this->disclaimer_supplements;
+    }
+
+    /**
+     * @param mixed $disclaimer_supplements
+     * @return AdsAdSpecification
+     */
+    public function setDisclaimerSupplements($disclaimer_supplements)
+    {
+        $this->disclaimer_supplements = $disclaimer_supplements;
+        return $this;
+    }
 }
