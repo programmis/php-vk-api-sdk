@@ -11,6 +11,7 @@ class AdsUpdateAds extends Request
 {
 
     private $ad_specification = [];
+    private $ad_targeting = [];
 
     private $ids = [];
     
@@ -42,15 +43,18 @@ class AdsUpdateAds extends Request
     
     public function addAdTargetingCriteria()
     {
-        return $this->ad_specification[] = new AdsTargetingCriteria();
+        return $this->ad_targeting[] = new AdsTargetingCriteria();
     }
 
-    private function adSpecificationsToJSON()
+    private function adDataToJSON()
     {
         $ad = [];
 
         foreach ($this->ad_specification as $as) {
             $ad[] = $as->getArray();
+        }
+        foreach ($this->ad_targeting as $at) {
+            $ad[] = $at->getArray();
         }
 
         return json_encode($ad);
@@ -62,7 +66,7 @@ class AdsUpdateAds extends Request
 
         $this->setMethod("ads.updateAds");
 
-        $this->setParameter("data", $this->adSpecificationsToJSON());
+        $this->setParameter("data", $this->adDataToJSON());
 
         $json = $this->execApi();
         if (!$json) {
