@@ -3,6 +3,7 @@
 namespace VkSdk\Ads;
 
 use VkSdk\Ads\Includes\AdsAdSpecification;
+use VkSdk\Ads\Includes\Specifications;
 use VkSdk\Includes\Request;
 
 class AdsCreateAds extends Request
@@ -23,9 +24,13 @@ class AdsCreateAds extends Request
         return $this;
     }
 
-    public function addAdSpecification(AdsAdSpecification $adsAdSpecification)
+    public function addAdSpecification(AdsAdSpecification $adsAdSpecification = null)
     {
-        return $this->ad_specification[] = $adsAdSpecification;
+        if (!$adsAdSpecification) {
+            return $this->ad_specification[] = new AdsAdSpecification(Specifications::CREATE);
+        } else {
+            return $this->ad_specification[] = $adsAdSpecification;
+        }
     }
 
     private function adSpecificationsToJSON()
