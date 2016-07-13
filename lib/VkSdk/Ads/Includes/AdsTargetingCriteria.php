@@ -14,6 +14,7 @@ class AdsTargetingCriteria
     private $cities_not = [];
     private $statuses = [];
     private $groups = [];
+    private $groups_not = [];
     private $apps = [];
     private $apps_not = [];
     private $districts = [];
@@ -36,9 +37,217 @@ class AdsTargetingCriteria
     private $uni_from = 0;
     private $uni_to = 0;
 
-    private $ad_id;
-    private $campaign_id;
-    private $name;
+    private $ad_id = 0;
+    private $campaign_id = 0;
+    private $name = '';
+
+    /**
+     * @return int
+     */
+    public function getSex()
+    {
+        return $this->sex;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAgeFrom()
+    {
+        return $this->age_from;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAgeTo()
+    {
+        return $this->age_to;
+    }
+
+    /**
+     * @return int
+     */
+    public function getBirthday()
+    {
+        return $this->birthday;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCountry()
+    {
+        return $this->country;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCities()
+    {
+        return $this->cities;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCitiesNot()
+    {
+        return $this->cities_not;
+    }
+
+    /**
+     * @return array
+     */
+    public function getStatuses()
+    {
+        return $this->statuses;
+    }
+
+    /**
+     * @return array
+     */
+    public function getGroups()
+    {
+        return $this->groups;
+    }
+
+    /**
+     * @return array
+     */
+    public function getApps()
+    {
+        return $this->apps;
+    }
+
+    /**
+     * @return array
+     */
+    public function getAppsNot()
+    {
+        return $this->apps_not;
+    }
+
+    /**
+     * @return array
+     */
+    public function getDistricts()
+    {
+        return $this->districts;
+    }
+
+    /**
+     * @return array
+     */
+    public function getStations()
+    {
+        return $this->stations;
+    }
+
+    /**
+     * @return array
+     */
+    public function getStreets()
+    {
+        return $this->streets;
+    }
+
+    /**
+     * @return array
+     */
+    public function getSchools()
+    {
+        return $this->schools;
+    }
+
+    /**
+     * @return array
+     */
+    public function getPositions()
+    {
+        return $this->positions;
+    }
+
+    /**
+     * @return array
+     */
+    public function getReligions()
+    {
+        return $this->religions;
+    }
+
+    /**
+     * @return array
+     */
+    public function getInterests()
+    {
+        return $this->interests;
+    }
+
+    /**
+     * @return array
+     */
+    public function getInterestCategories()
+    {
+        return $this->interest_categories;
+    }
+
+    /**
+     * @return array
+     */
+    public function getUserDevices()
+    {
+        return $this->user_devices;
+    }
+
+    /**
+     * @return array
+     */
+    public function getUserOs()
+    {
+        return $this->user_os;
+    }
+
+    /**
+     * @return array
+     */
+    public function getUserBrowsers()
+    {
+        return $this->user_browsers;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRetargetingGroups()
+    {
+        return $this->retargeting_groups;
+    }
+
+    /**
+     * @return array
+     */
+    public function getRetargetingGroupsNot()
+    {
+        return $this->retargeting_groups_not;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPaying()
+    {
+        return $this->paying;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTravellers()
+    {
+        return $this->travellers;
+    }
 
     /**
      * @return mixed
@@ -205,6 +414,30 @@ class AdsTargetingCriteria
     public function addGroup($group)
     {
         $this->groups[] = $group;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getGroupsNot()
+    {
+        return $this->groups_not;
+    }
+
+    /**
+     * @param array $groups_not
+     * @return AdsTargetingCriteria
+     */
+    public function setGroupsNot($groups_not)
+    {
+        $this->groups_not = $groups_not;
+        return $this;
+    }
+
+    public function addGroupNot($group_not)
+    {
+        $this->groups_not[] = $group_not;
         return $this;
     }
 

@@ -48,11 +48,26 @@ class AdsCreateAds extends Request
     {
         $ad = [];
 
-        foreach ($this->ad_specification as $as) {
-            $ad[] = $as->getArray();
-        }
-        foreach ($this->ad_targeting as $at) {
-            $ad[] = $at->getArray();
+        if (count($this->ad_specification) > count($this->ad_targeting)) {
+            foreach ($this->ad_specification as $key => $as) {
+                $data = $as->getArray();
+                if (isset($this->ad_targeting[$key])) {
+                    if ($this->ad_targeting[$key]) {
+                        $data = array_merge($data, $this->ad_targeting[$key]->getArray());
+                    }
+                }
+                $ad[] = $data;
+            }
+        } else {
+            foreach ($this->ad_targeting as $key => $at) {
+                $data = $at->getArray();
+                if (isset($this->ad_specification[$key])) {
+                    if ($this->ad_specification[$key]) {
+                        $data = array_merge($data, $this->ad_specification[$key]->getArray());
+                    }
+                }
+                $ad[] = $data;
+            }
         }
 
         return json_encode($ad);
