@@ -36,6 +36,12 @@ class AdsGetAdsTargeting extends Request
         return $this;
     }
 
+    public function setAdIds($ad_ids)
+    {
+        $this->ad_ids = $ad_ids;
+        return $this;
+    }
+
     public function addAdId($ad_id)
     {
         $this->ad_ids[] = $ad_id;
@@ -64,7 +70,7 @@ class AdsGetAdsTargeting extends Request
     public function doRequest()
     {
         $this->setRequiredParams('account_id');
-        
+
         $this->setMethod("ads.getAdsTargeting");
 
         if (count($this->ad_ids)) {
