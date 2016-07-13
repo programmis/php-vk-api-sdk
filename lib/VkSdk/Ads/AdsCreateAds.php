@@ -11,7 +11,6 @@ class AdsCreateAds extends Request
 {
 
     private $ad_specification = [];
-    private $ad_targeting = [];
 
     private $ids = [];
 
@@ -35,39 +34,12 @@ class AdsCreateAds extends Request
         }
     }
 
-    public function addAdTargetingCriteria(AdsTargetingCriteria $adsTargetingCriteria = null)
-    {
-        if (!$adsTargetingCriteria) {
-            return $this->ad_targeting[] = new AdsTargetingCriteria();
-        } else {
-            return $this->ad_targeting[] = $adsTargetingCriteria;
-        }
-    }
-
     private function adDataToJSON()
     {
         $ad = [];
 
-        if (count($this->ad_specification) > count($this->ad_targeting)) {
-            foreach ($this->ad_specification as $key => $as) {
-                $data = $as->getArray();
-                if (isset($this->ad_targeting[$key])) {
-                    if ($this->ad_targeting[$key]) {
-                        $data = array_merge($data, $this->ad_targeting[$key]->getArray());
-                    }
-                }
-                $ad[] = $data;
-            }
-        } else {
-            foreach ($this->ad_targeting as $key => $at) {
-                $data = $at->getArray();
-                if (isset($this->ad_specification[$key])) {
-                    if ($this->ad_specification[$key]) {
-                        $data = array_merge($data, $this->ad_specification[$key]->getArray());
-                    }
-                }
-                $ad[] = $data;
-            }
+        foreach ($this->ad_specification as $key => $as) {
+            $ad[] = $as->getArray();
         }
 
         return json_encode($ad);
