@@ -3,6 +3,7 @@
 namespace VkSdk\Ads;
 
 use VkSdk\Ads\Includes\AdsAdSpecification;
+use VkSdk\Ads\Includes\AdsTargetingCriteria;
 use VkSdk\Ads\Includes\Specifications;
 use VkSdk\Includes\Request;
 
@@ -10,6 +11,7 @@ class AdsCreateAds extends Request
 {
 
     private $ad_specification = [];
+    private $ad_targeting = [];
 
     private $ids = [];
 
@@ -33,12 +35,24 @@ class AdsCreateAds extends Request
         }
     }
 
-    private function adSpecificationsToJSON()
+    public function addAdTargetingCriteria(AdsTargetingCriteria $adsTargetingCriteria = null)
+    {
+        if (!$adsTargetingCriteria) {
+            return $this->ad_targeting[] = new AdsTargetingCriteria();
+        } else {
+            return $this->ad_targeting[] = $adsTargetingCriteria;
+        }
+    }
+
+    private function adDataToJSON()
     {
         $ad = [];
 
         foreach ($this->ad_specification as $as) {
             $ad[] = $as->getArray();
+        }
+        foreach ($this->ad_targeting as $at) {
+            $ad[] = $at->getArray();
         }
 
         return json_encode($ad);
@@ -50,7 +64,7 @@ class AdsCreateAds extends Request
 
         $this->setMethod("ads.createAds");
 
-        $this->setParameter("data", $this->adSpecificationsToJSON());
+        $this->setParameter("data", $this->adDataToJSON());
 
         $json = $this->execApi();
         if (!$json) {
