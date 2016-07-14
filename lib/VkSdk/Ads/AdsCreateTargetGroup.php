@@ -34,7 +34,7 @@ class AdsCreateTargetGroup extends Request
 
     public function setClientId($client_id)
     {
-        $this->vkarg_account_id = $client_id;
+        $this->vkarg_client_id = $client_id;
         return $this;
     }
 
