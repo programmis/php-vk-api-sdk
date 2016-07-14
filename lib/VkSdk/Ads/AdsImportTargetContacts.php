@@ -30,6 +30,12 @@ class AdsImportTargetContacts extends Request
         return $this;
     }
 
+    public function setClientId($client_id)
+    {
+        $this->vkarg_client_id = $client_id;
+        return $this;
+    }
+
     public function setTargetGroupId($target_group_id)
     {
         $this->vkarg_target_group_id = $target_group_id;
