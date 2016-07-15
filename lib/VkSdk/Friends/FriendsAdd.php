@@ -6,14 +6,6 @@ use VkSdk\Includes\Request;
 
 class FriendsAdd extends Request
 {
-    
-    private $response;
-
-    public function getResponse()
-    {
-        return $this->response;
-    }
-
     public function setText($text)
     {
         $this->vkarg_text = $text;
@@ -42,7 +34,6 @@ class FriendsAdd extends Request
         }
 
         if (isset($json->response) && $json->response) {
-            $this->response = $json->response;
             return true;
         }
 

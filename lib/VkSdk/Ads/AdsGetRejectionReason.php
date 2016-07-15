@@ -13,13 +13,6 @@ use VkSdk\Includes\Request;
 
 class AdsGetRejectionReason extends Request
 {
-    private $response;
-
-    public function getResponse()
-    {
-        return $this->response;
-    }
-
     public function setAdId($ad_id)
     {
         $this->vkarg_ad_id = $ad_id;
@@ -50,8 +43,6 @@ class AdsGetRejectionReason extends Request
         if (
             isset($json->response) && $json->response
         ) {
-            $this->response = $json->response;
-
             return true;
         }
 

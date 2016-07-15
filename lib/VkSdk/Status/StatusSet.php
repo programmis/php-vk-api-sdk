@@ -6,14 +6,6 @@ use VkSdk\Includes\Request;
 
 class StatusSet extends Request
 {
-
-    private $response;
-
-    public function getResponse()
-    {
-        return $this->response;
-    }
-
     public function setText($text)
     {
         $this->vkarg_text = $text;
@@ -36,7 +28,6 @@ class StatusSet extends Request
         if (
         isset($json->response)
         ) {
-            $this->response = $json->response;
             return true;
         }
 

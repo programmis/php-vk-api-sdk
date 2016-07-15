@@ -13,17 +13,7 @@ class AdsUpdateAds extends Request
     private $ad_specification = [];
 
     private $ids = [];
-    
-    private $response;
 
-    /**
-     * @return mixed
-     */
-    public function getResponse()
-    {
-        return $this->response;
-    }
-    
     public function getIds()
     {
         return $this->ids;
@@ -69,18 +59,14 @@ class AdsUpdateAds extends Request
         }
 
         if (
-            isset($json->response) && ($this->response = $json->response) &&
+            isset($json->response) && $json->response &&
             isset($json->response[0]) && $json->response[0] &&
-            isset($json->response[0]->id) && $json->response[0]->id       
-        ) {            
+            isset($json->response[0]->id) && $json->response[0]->id &&
+            !isset($json->response[0]->error_code)
+        ) {
             foreach ($json->response as $rs) {
                 $this->ids[] = $rs->id;
             }
-
-            if(isset($json->response[0]->error_code)){
-                return false;
-            }
-            
             return true;
         }
 

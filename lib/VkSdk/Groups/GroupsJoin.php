@@ -6,14 +6,6 @@ use VkSdk\Includes\Request;
 
 class GroupsJoin extends Request
 {
-
-    private $response;
-
-    public function getResponse()
-    {
-        return $this->response;
-    }
-
     public function setGroupId($group_id)
     {
         $this->vkarg_group_id = $group_id;
@@ -45,7 +37,6 @@ class GroupsJoin extends Request
         if (
         isset($json->response)
         ) {
-            $this->response = $json->response;
             return true;
         }
 

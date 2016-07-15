@@ -13,17 +13,6 @@ use VkSdk\Includes\Request;
 
 class AdsImportTargetContacts extends Request
 {
-    /** @var  integer */
-    private $response;
-
-    /**
-     * @return integer
-     */
-    public function getResponse()
-    {
-        return $this->response;
-    }
-
     public function setAccountId($account_id)
     {
         $this->vkarg_account_id = $account_id;
@@ -68,8 +57,6 @@ class AdsImportTargetContacts extends Request
         }
 
         if (isset($json->response)) {
-            $this->response = $json->response;
-
             return true;
         }
 

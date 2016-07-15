@@ -65,7 +65,8 @@ class AdsCreateAds extends Request
         if (
             isset($json->response) && $json->response &&
             isset($json->response[0]) && $json->response[0] &&
-            isset($json->response[0]->id) && $json->response[0]->id
+            isset($json->response[0]->id) && $json->response[0]->id &&
+            !isset($json->response[0]->error_code)
         ) {
             foreach ($json->response as $rs) {
                 $this->ids[] = $rs->id;

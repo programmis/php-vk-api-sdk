@@ -12,10 +12,11 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
 
     private $error_code;
     private $error_msg;
+    private $response;
 
     public function __construct(LoggerInterface $loggerInterface = null)
     {
-        if(!$loggerInterface){
+        if (!$loggerInterface) {
             $loggerInterface = new Logger();
         }
         parent::__construct('vkarg', $loggerInterface);
@@ -31,10 +32,21 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         return $this->error_msg;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
     public function answerProcessing($content)
     {
         $json = json_decode($content);
 
+        if (isset($json->response)) {
+            $this->response = $json->response;
+        }
         if (isset($json->error) && $json->error) {
             if (isset($json->error->error_code) && $json->error->error_code) {
                 if ($json->error->error_code == 14) {
@@ -72,7 +84,7 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
 
         return $json;
     }
-    
+
     public function getResultApiUrl()
     {
         $access_token = $this->getAccessToken();
@@ -80,12 +92,12 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
             $access_token = Config::getParam('access_token', true);
         }
         $version = $this->getApiVersion();
-        if(!$version){
+        if (!$version) {
             $version = self::API_VERSION;
         }
-        
+
         $url = self::API_URL . $this->getMethod() . "?v=" . $version . "&access_token=" . $access_token;
-        
+
         return $url;
     }
 

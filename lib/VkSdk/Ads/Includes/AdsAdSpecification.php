@@ -346,7 +346,7 @@ class AdsAdSpecification
         if ($this->category2_id) {
             $array['category2_id'] = $this->category2_id;
         }
-        if ($this->status) {
+        if ($this->status !== null) {
             $array['status'] = $this->status;
         }
         if ($this->name) {
