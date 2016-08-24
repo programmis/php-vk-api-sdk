@@ -12,6 +12,25 @@
 <li>polls</li>
 <li>ads</li>
 </ul>
+
+**1) Download [composer](https://getcomposer.org/download/) :**
+_
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+php -r "if (hash_file('SHA384', 'composer-setup.php') === 'e115a8dc7871f15d853148a7fbac7da27d6c0030b848d9b3dc09e2a0388afed865e6a3d6b3c0fad45c48e2b5fc1196ae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+php composer-setup.php
+php -r "unlink('composer-setup.php');"
+_
+**3) Install SDK:**
+_
+php composer.phar require programmis/php-vk-api-sdk
+_
+**4) Get token vkontakte:**
+_
+http://oauth.vk.com/authorize?client_id=3682744&v=5.7&scope=friends,wall,offline&redirect_uri=http://oauth.vk.com/blank.html&display=page&response_type=token
+in the address bar:
+https://oauth.vk.com/blank.html#access_token=**345345345345345345345345345d73e7de6acf1475ca460d**&expires_in=0&user_id=1 
+_
+
 <ul>
 <h5>Examples:</h5>
 <li>Obtain detailed information about users VKontakte:<br>
