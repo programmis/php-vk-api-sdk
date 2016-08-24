@@ -5,14 +5,23 @@ namespace VkSdk\Users;
 use VkSdk\Includes\Request;
 use VkSdk\Users\Includes\UserInfo;
 
+/**
+ * Class UsersGet
+ *
+ * @package VkSdk\Users
+ */
 class UsersGet extends Request
 {
 
     private $user_ids = [];
     private $fields = [];
 
+    /** @var UserInfo[] $users_info */
     private $users_info = [];
 
+    /**
+     * @return Includes\UserInfo[]
+     */
     public function getUsersInfo()
     {
         return $this->users_info;
