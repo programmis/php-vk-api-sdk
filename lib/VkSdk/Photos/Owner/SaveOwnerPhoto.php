@@ -5,10 +5,8 @@ namespace VkSdk\Photos\Owner;
 use VkSdk\Photos\Includes\Photo;
 use VkSdk\Photos\Owner\Includes\UploadOwnerPhoto;
 
-
 class SaveOwnerPhoto extends UploadOwnerPhoto implements Photo
 {
-
     /**
      * @var  $vk_upload_photo UploadOwnerPhoto
      */
@@ -38,7 +36,7 @@ class SaveOwnerPhoto extends UploadOwnerPhoto implements Photo
         $this->vk_upload_photo = $vk_upload_photo;
         return $this;
     }
-    
+
 
     public function getPostId()
     {
@@ -65,18 +63,19 @@ class SaveOwnerPhoto extends UploadOwnerPhoto implements Photo
         return $this->photo_hash;
     }
 
-    public function checkUploadPhoto(){
-        if(!$this->vk_upload_photo){
+    public function checkUploadPhoto()
+    {
+        if (!$this->vk_upload_photo) {
             throw new \Exception('please set vk upload photo');
         }
     }
-    
+
     public function setOwnerId($owner_id)
     {
         $this->owner_id = $owner_id;
-        
+
         $this->checkUploadPhoto();
-        
+
         $this->vk_upload_photo->setOwnerId($owner_id);
         return $this;
     }
@@ -86,7 +85,7 @@ class SaveOwnerPhoto extends UploadOwnerPhoto implements Photo
         $this->setMethod("photos.saveOwnerPhoto");
 
         $this->checkUploadPhoto();
-        
+
         $vk_upload = $this->vk_upload_photo->doRequest();
 
         if (!$vk_upload) {
@@ -107,23 +106,29 @@ class SaveOwnerPhoto extends UploadOwnerPhoto implements Photo
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response &&
-            isset($json->response->saved) && $json->response->saved
+        if (isset($json->response)
+            && $json->response
+            &&isset($json->response->saved)
+            && $json->response->saved
         ) {
-            if (isset($json->response->photo_hash) && $json->response->photo_hash) {
+            if (isset($json->response->photo_hash)
+                && $json->response->photo_hash) {
                 $this->photo_hash = $json->response->photo_hash;
             }
-            if (isset($json->response->photo_src) && $json->response->photo_src) {
+            if (isset($json->response->photo_src)
+                && $json->response->photo_src) {
                 $this->photo_src = $json->response->photo_src;
             }
-            if (isset($json->response->photo_src_big) && $json->response->photo_src_big) {
+            if (isset($json->response->photo_src_big)
+                && $json->response->photo_src_big) {
                 $this->photo_src_big = $json->response->photo_src_big;
             }
-            if (isset($json->response->photo_src_small) && $json->response->photo_src_small) {
+            if (isset($json->response->photo_src_small)
+                && $json->response->photo_src_small) {
                 $this->photo_hash = $json->response->photo_src_small;
             }
-            if (isset($json->response->post_id) && $json->response->post_id) {
+            if (isset($json->response->post_id)
+                && $json->response->post_id) {
                 $this->post_id = $json->response->post_id;
             }
 
@@ -132,5 +137,4 @@ class SaveOwnerPhoto extends UploadOwnerPhoto implements Photo
 
         return false;
     }
-
 }
