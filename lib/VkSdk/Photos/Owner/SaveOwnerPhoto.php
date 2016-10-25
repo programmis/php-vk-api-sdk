@@ -5,6 +5,7 @@ namespace VkSdk\Photos\Owner;
 use VkSdk\Photos\Includes\Photo;
 use VkSdk\Photos\Owner\Includes\UploadOwnerPhoto;
 
+
 class SaveOwnerPhoto extends UploadOwnerPhoto implements Photo
 {
 
