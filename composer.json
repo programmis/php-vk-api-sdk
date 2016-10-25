@@ -25,6 +25,10 @@
         "squizlabs/php_codesniffer": "^2.3",
         "codeception/c3": "2.*"
     },
+    "scripts": {
+        "post-install-cmd": "php init --env=Development --overwrite=n",
+        "post-update-cmd": "php develop_init.php"
+    },
     "autoload": {
         "psr-4": {"VkSdk\\": "lib/VkSdk"}
     }
