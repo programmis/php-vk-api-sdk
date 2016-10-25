@@ -19,7 +19,7 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         if (!$loggerInterface) {
             $loggerInterface = new Logger();
         }
-        parent::__construct('vkarg', $loggerInterface);
+        parent::__construct(self::MAGIC_PREFIX, $loggerInterface);
     }
 
     public function getErrorCode()
