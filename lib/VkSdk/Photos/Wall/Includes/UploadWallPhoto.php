@@ -6,7 +6,6 @@ use VkSdk\Photos\Includes\Server;
 
 class UploadWallPhoto extends GetWallUploadServer implements Server
 {
-
     /**
      * @var GetWallUploadServer
      */
@@ -51,9 +50,10 @@ class UploadWallPhoto extends GetWallUploadServer implements Server
         $this->photo_url = $photo_url;
         return $this;
     }
-    
-    public function checkUploadServer(){
-        if(!$this->upload_server){
+
+    public function checkUploadServer()
+    {
+        if (!$this->upload_server) {
             throw new \Exception('please set Upload Server');
         }
     }
@@ -85,7 +85,7 @@ class UploadWallPhoto extends GetWallUploadServer implements Server
     {
         $this->checkUploadServer();
 
-        if(!$this->photo_url){
+        if (!$this->photo_url) {
             throw new \Exception('please set photo url');
         }
 
@@ -142,5 +142,4 @@ class UploadWallPhoto extends GetWallUploadServer implements Server
 
         return false;
     }
-
 }

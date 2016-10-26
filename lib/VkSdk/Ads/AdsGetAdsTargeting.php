@@ -89,10 +89,7 @@ class AdsGetAdsTargeting extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response
-        ) {
-
+        if (isset($json->response) && $json->response) {
             foreach ($json->response as $key => $rs) {
                 $criteria = new AdsTargetingCriteria();
                 if (isset($rs->id)) {
@@ -199,5 +196,4 @@ class AdsGetAdsTargeting extends Request
 
         return false;
     }
-
 }

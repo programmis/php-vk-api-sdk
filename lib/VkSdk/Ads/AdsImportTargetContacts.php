@@ -8,7 +8,6 @@
 
 namespace VkSdk\Ads;
 
-
 use VkSdk\Includes\Request;
 
 class AdsImportTargetContacts extends Request

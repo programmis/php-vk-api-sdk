@@ -7,7 +7,6 @@ use VkSdk\Wall\Includes\WallAttachments;
 
 class WallEditComment extends Request
 {
-
     private $attachments = [];
 
     public function getCommentId()
@@ -88,13 +87,10 @@ class WallEditComment extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response
-        ) {
+        if (isset($json->response) && $json->response) {
             return true;
         }
 
         return false;
     }
-
 }

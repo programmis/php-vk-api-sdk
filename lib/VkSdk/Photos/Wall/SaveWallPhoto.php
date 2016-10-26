@@ -7,7 +7,6 @@ use VkSdk\Photos\Wall\Includes\UploadWallPhoto;
 
 class SaveWallPhoto extends UploadWallPhoto implements Photo
 {
-
     /**
      * @var UploadWallPhoto
      */
@@ -43,7 +42,7 @@ class SaveWallPhoto extends UploadWallPhoto implements Photo
         $this->vk_upload_photo = $vk_upload_photo;
         return $this;
     }
-    
+
 
     public function getHeight()
     {
@@ -69,9 +68,10 @@ class SaveWallPhoto extends UploadWallPhoto implements Photo
     {
         return $this->media_id;
     }
-    
-    public function checkUploadPhoto(){
-        if(!$this->vk_upload_photo){
+
+    public function checkUploadPhoto()
+    {
+        if (!$this->vk_upload_photo) {
             throw  new \Exception('please set VkUploadPhoto');
         }
     }
@@ -79,9 +79,9 @@ class SaveWallPhoto extends UploadWallPhoto implements Photo
     public function setGroupId($group_id)
     {
         $this->vkarg_group_id = $group_id;
-        
+
         $this->checkUploadPhoto();
-        
+
         $this->vk_upload_photo->setGroupId($group_id);
         return $this;
     }
@@ -95,9 +95,9 @@ class SaveWallPhoto extends UploadWallPhoto implements Photo
     public function doRequest()
     {
         $this->setMethod("photos.saveWallPhoto");
-        
+
         $this->checkUploadPhoto();
-        
+
         $vk_upload = $this->vk_upload_photo->doRequest();
 
         if (!$vk_upload) {
@@ -138,5 +138,4 @@ class SaveWallPhoto extends UploadWallPhoto implements Photo
 
         return false;
     }
-
 }

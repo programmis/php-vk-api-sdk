@@ -7,7 +7,6 @@ use VkSdk\Wall\Includes\WallAttachments;
 
 class WallAddComment extends Request
 {
-
     private $post_id;
     private $attachments = [];
     private $comment_id;
@@ -95,9 +94,8 @@ class WallAddComment extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response &&
-            isset($json->response->comment_id) && $json->response->comment_id
+        if (isset($json->response) && $json->response
+            && isset($json->response->comment_id) && $json->response->comment_id
         ) {
             $this->comment_id = $json->response->comment_id;
             return true;
@@ -105,5 +103,4 @@ class WallAddComment extends Request
 
         return false;
     }
-
 }

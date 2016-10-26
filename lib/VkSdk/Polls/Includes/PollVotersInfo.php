@@ -6,7 +6,6 @@ use VkSdk\Users\Includes\UserInfo;
 
 class PollVotersInfo
 {
-
     private $answer_id;
     private $users = [];
     private $count;
@@ -42,5 +41,4 @@ class PollVotersInfo
     {
         return $this->users[] = $info;
     }
-
 }

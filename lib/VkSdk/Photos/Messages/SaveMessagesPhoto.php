@@ -7,7 +7,6 @@ use VkSdk\Photos\Messages\Includes\UploadMessagesPhoto;
 
 class SaveMessagesPhoto extends UploadMessagesPhoto implements Photo
 {
-
     /**
      * @var UploadMessagesPhoto
      */
@@ -38,7 +37,7 @@ class SaveMessagesPhoto extends UploadMessagesPhoto implements Photo
         return $this;
     }
 
-    
+
     public function getDate()
     {
         return $this->date;
@@ -69,18 +68,19 @@ class SaveMessagesPhoto extends UploadMessagesPhoto implements Photo
         return $this->media_id;
     }
 
-    public function checkUploadPhoto(){
-        if(!$this->vk_upload_photo){
+    public function checkUploadPhoto()
+    {
+        if (!$this->vk_upload_photo) {
             throw new \Exception('please set upload photo');
         }
     }
-    
+
     public function doRequest()
     {
         $this->setMethod("photos.saveMessagesPhoto");
 
-        $this->checkUploadPhoto(); 
-        
+        $this->checkUploadPhoto();
+
         $vk_upload = $this->vk_upload_photo->doRequest();
 
         if (!$vk_upload) {
@@ -117,5 +117,4 @@ class SaveMessagesPhoto extends UploadMessagesPhoto implements Photo
 
         return false;
     }
-
 }

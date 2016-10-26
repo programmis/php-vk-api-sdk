@@ -6,7 +6,6 @@ use VkSdk\Includes\Request;
 
 class GetWallUploadServer extends Request
 {
-
     private $upload_url;
     private $album_id;
     private $user_id;
@@ -59,5 +58,4 @@ class GetWallUploadServer extends Request
         }
         return false;
     }
-
 }

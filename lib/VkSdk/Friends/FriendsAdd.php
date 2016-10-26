@@ -39,5 +39,4 @@ class FriendsAdd extends Request
 
         return false;
     }
-
 }

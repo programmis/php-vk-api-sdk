@@ -64,12 +64,11 @@ class WallRepost extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response &&
-            isset($json->response->success) && $json->response->success &&
-            isset($json->response->post_id) && $json->response->post_id &&
-            isset($json->response->reposts_count) &&
-            isset($json->response->likes_count)
+        if (isset($json->response) && $json->response
+            && isset($json->response->success) && $json->response->success
+            && isset($json->response->post_id) && $json->response->post_id
+            && isset($json->response->reposts_count)
+            && isset($json->response->likes_count)
         ) {
             $this->reposts_count = $json->response->reposts_count;
             $this->likes_count = $json->response->likes_count;
@@ -80,7 +79,5 @@ class WallRepost extends Request
         }
 
         return false;
-
     }
-
 }

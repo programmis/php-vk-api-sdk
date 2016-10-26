@@ -7,8 +7,6 @@ use VkSdk\Includes\Request;
 
 class AdsGetSuggestions extends Request
 {
-
-    private $section;
     private $ids = [];
     private $cities = [];
 
@@ -54,15 +52,16 @@ class AdsGetSuggestions extends Request
         $this->vkarg_section = $section;
         return $this;
     }
-    
-    public function getSection(){
+
+    public function getSection()
+    {
         return $this->vkarg_section;
     }
 
     public function doRequest()
     {
         $this->setMethod("ads.getSuggestions");
-        
+
         if ($this->ids) {
             $this->setParameter("ids", implode(",", $this->ids));
         }
@@ -107,5 +106,4 @@ class AdsGetSuggestions extends Request
 
         return false;
     }
-
 }

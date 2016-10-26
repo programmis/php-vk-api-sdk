@@ -8,7 +8,6 @@ use VkSdk\Polls\Includes\PollInfo;
 
 class PollsCreate extends Request
 {
-
     private $question;
     private $owner_id;
     private $add_answers;
@@ -70,9 +69,8 @@ class PollsCreate extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response &&
-            isset($json->response->id) && $json->response->id
+        if (isset($json->response) && $json->response
+            && isset($json->response->id) && $json->response->id
         ) {
             $this->poll_info = new PollInfo();
             $this->poll_info->setId($json->response->id);
@@ -113,5 +111,4 @@ class PollsCreate extends Request
         }
         return false;
     }
-
 }

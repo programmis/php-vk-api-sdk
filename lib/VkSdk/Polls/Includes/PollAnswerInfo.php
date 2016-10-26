@@ -4,7 +4,6 @@ namespace VkSdk\Polls\Includes;
 
 class PollAnswerInfo
 {
-
     private $id;
     private $text;
     private $votes;
@@ -53,5 +52,4 @@ class PollAnswerInfo
         $this->rate = $rate;
         return $this;
     }
-
 }

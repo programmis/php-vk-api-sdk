@@ -7,7 +7,6 @@ use VkSdk\Wall\Includes\WallAttachments;
 
 class WallPost extends Request
 {
-
     private $attachments = [];
     private $post_id;
 
@@ -119,9 +118,8 @@ class WallPost extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response &&
-            isset($json->response->post_id) && $json->response->post_id
+        if (isset($json->response) && $json->response
+            && isset($json->response->post_id) && $json->response->post_id
         ) {
             $this->post_id = $json->response->post_id;
             return true;
@@ -129,5 +127,4 @@ class WallPost extends Request
 
         return false;
     }
-
 }

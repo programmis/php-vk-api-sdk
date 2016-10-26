@@ -8,7 +8,6 @@ use VkSdk\Includes\Request;
 
 class AdsGetAds extends Request
 {
-
     private $campaign_ids = [];
     private $ad_ids = [];
 
@@ -98,10 +97,7 @@ class AdsGetAds extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response
-        ) {
-
+        if (isset($json->response) && $json->response) {
             foreach ($json->response as $key => $rs) {
                 $this->ad_specifications[$key] = new AdsAdSpecification(Specifications::GET);
                 if (isset($rs->ad_platform)) {
@@ -174,5 +170,4 @@ class AdsGetAds extends Request
 
         return false;
     }
-
 }

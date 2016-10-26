@@ -26,13 +26,10 @@ class AccountSetOnline extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response
-        ) {
+        if (isset($json->response) && $json->response) {
             return true;
         }
 
         return false;
     }
-
 }

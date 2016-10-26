@@ -6,7 +6,6 @@ use VkSdk\Includes\Request;
 
 class GetOwnerPhotoUploadServer extends Request
 {
-
     private $upload_url;
 
     public function getUploadUrl()
@@ -42,5 +41,4 @@ class GetOwnerPhotoUploadServer extends Request
         }
         return false;
     }
-
 }

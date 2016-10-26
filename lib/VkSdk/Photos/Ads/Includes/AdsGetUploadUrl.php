@@ -6,7 +6,6 @@ use VkSdk\Includes\Request;
 
 class AdsGetUploadUrl extends Request
 {
-
     private $url;
 
     public function getUrl()
@@ -35,9 +34,7 @@ class AdsGetUploadUrl extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response
-        ) {
+        if (isset($json->response) && $json->response) {
             $this->url = $json->response;
 
             return true;
@@ -45,5 +42,4 @@ class AdsGetUploadUrl extends Request
 
         return false;
     }
-
 }

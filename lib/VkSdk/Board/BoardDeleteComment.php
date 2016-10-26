@@ -6,7 +6,6 @@ use VkSdk\Includes\Request;
 
 class BoardDeleteComment extends Request
 {
-
     public function setTopicId($topic_id)
     {
         $this->vkarg_topic_id = $topic_id;
@@ -46,5 +45,4 @@ class BoardDeleteComment extends Request
 
         return false;
     }
-
 }

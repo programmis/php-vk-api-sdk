@@ -1,11 +1,9 @@
 <?php
 
-
 namespace VkSdk\Ads\Includes;
 
 class AdsGetSuggestionsResult
 {
-
     private $id;
     private $name;
     private $desc;
@@ -66,5 +64,4 @@ class AdsGetSuggestionsResult
         $this->id = $id;
         return $this;
     }
-
 }

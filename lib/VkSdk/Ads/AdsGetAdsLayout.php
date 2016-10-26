@@ -8,7 +8,6 @@
 
 namespace VkSdk\Ads;
 
-
 use VkSdk\Ads\Includes\AdsAd;
 use VkSdk\Includes\Request;
 
@@ -95,10 +94,7 @@ class AdsGetAdsLayout extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response
-        ) {
-
+        if (isset($json->response) && $json->response) {
             foreach ($json->response as $key => $rs) {
                 $this->ads[$key] = new AdsAd();
                 if (isset($rs->id)) {

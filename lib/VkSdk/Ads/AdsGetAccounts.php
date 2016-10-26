@@ -6,7 +6,6 @@ use VkSdk\Includes\Request;
 
 class AdsGetAccounts extends Request
 {
-
     private $account_id;
     private $account_type;
     private $account_status;
@@ -45,12 +44,11 @@ class AdsGetAccounts extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && isset($json->response[0]) &&
-            isset($json->response[0]->account_id) &&
-            isset($json->response[0]->account_type) &&
-            isset($json->response[0]->account_status) &&
-            isset($json->response[0]->access_role)
+        if (isset($json->response) && isset($json->response[0])
+            && isset($json->response[0]->account_id)
+            && isset($json->response[0]->account_type)
+            && isset($json->response[0]->account_status)
+            && isset($json->response[0]->access_role)
         ) {
             $this->account_id = $json->response[0]->account_id;
             $this->account_type = $json->response[0]->account_type;
@@ -62,5 +60,4 @@ class AdsGetAccounts extends Request
 
         return false;
     }
-
 }

@@ -4,7 +4,6 @@ namespace VkSdk\Ads\Includes;
 
 class AdsTargetingCriteria
 {
-
     private $sex = 0;
     private $age_from = 0;
     private $age_to = 0;
@@ -737,6 +736,4 @@ class AdsTargetingCriteria
         $this->travellers = $travellers;
         return $this;
     }
-
-
 }

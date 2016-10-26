@@ -99,5 +99,4 @@ class PollInfo
         $this->votes = $votes;
         return $this;
     }
-
 }

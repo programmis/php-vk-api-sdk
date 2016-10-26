@@ -2,13 +2,11 @@
 
 namespace VkSdk\Config;
 
-
 use Symfony\Component\Yaml\Exception\ParseException;
 use Symfony\Component\Yaml\Parser;
 
 class Config
 {
-
     const VK_CONFIG_FILE = "/../../../app/config/config.yml";
 
     public static function getParam($param, $required = false)
@@ -33,5 +31,4 @@ class Config
             }
         }
     }
-    
 }

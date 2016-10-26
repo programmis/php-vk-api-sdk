@@ -6,7 +6,6 @@ use VkSdk\Includes\Request;
 
 class WallDelete extends Request
 {
-    
     public function setOwnerId($owner_id)
     {
         $this->vkarg_owner_id = $owner_id;
@@ -40,5 +39,4 @@ class WallDelete extends Request
 
         return false;
     }
-
 }

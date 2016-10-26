@@ -6,7 +6,6 @@ use VkSdk\Includes\Request;
 
 class StatusGet extends Request
 {
-
     private $text;
 
 
@@ -34,9 +33,8 @@ class StatusGet extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response &&
-            isset($json->response->text)
+        if (isset($json->response) && $json->response
+            && isset($json->response->text)
         ) {
             $this->text = $json->response->text;
             return true;
@@ -44,5 +42,4 @@ class StatusGet extends Request
 
         return false;
     }
-
 }

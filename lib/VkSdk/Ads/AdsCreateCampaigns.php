@@ -7,7 +7,6 @@ use VkSdk\Includes\Request;
 
 class AdsCreateCampaigns extends Request
 {
-
     private $campaign_specification;
 
     private $ids = [];
@@ -19,7 +18,7 @@ class AdsCreateCampaigns extends Request
 
     public function addCampaignSpecification(AdsCampaignSpecification $adsCampaignSpecification = null)
     {
-        if(!$adsCampaignSpecification){
+        if (!$adsCampaignSpecification) {
             return $this->campaign_specification[] = new AdsCampaignSpecification();
         } else {
             return $this->campaign_specification[] = $adsCampaignSpecification;
@@ -63,9 +62,7 @@ class AdsCreateCampaigns extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response
-        ) {
+        if (isset($json->response) && $json->response) {
             foreach ($json->response as $rs) {
                 $this->ids[] = $rs->id;
             }
@@ -75,5 +72,4 @@ class AdsCreateCampaigns extends Request
 
         return false;
     }
-
 }

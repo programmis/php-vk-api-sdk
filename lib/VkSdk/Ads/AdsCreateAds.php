@@ -3,13 +3,11 @@
 namespace VkSdk\Ads;
 
 use VkSdk\Ads\Includes\AdsAdSpecification;
-use VkSdk\Ads\Includes\AdsTargetingCriteria;
 use VkSdk\Ads\Includes\Specifications;
 use VkSdk\Includes\Request;
 
 class AdsCreateAds extends Request
 {
-
     private $ad_specification = [];
 
     private $ids = [];
@@ -62,11 +60,10 @@ class AdsCreateAds extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response &&
-            isset($json->response[0]) && $json->response[0] &&
-            isset($json->response[0]->id) && $json->response[0]->id &&
-            !isset($json->response[0]->error_code)
+        if (isset($json->response) && $json->response
+            && isset($json->response[0]) && $json->response[0]
+            && isset($json->response[0]->id) && $json->response[0]->id
+            && !isset($json->response[0]->error_code)
         ) {
             foreach ($json->response as $rs) {
                 $this->ids[] = $rs->id;
@@ -77,5 +74,4 @@ class AdsCreateAds extends Request
 
         return false;
     }
-
 }

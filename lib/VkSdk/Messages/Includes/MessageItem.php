@@ -4,7 +4,6 @@ namespace VkSdk\Messages\Includes;
 
 class MessageItem
 {
-
     private $id;
     private $date;
     private $out;
@@ -89,5 +88,4 @@ class MessageItem
         $this->id = $id;
         return $this;
     }
-
 }

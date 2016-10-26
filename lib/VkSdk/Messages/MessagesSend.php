@@ -7,7 +7,6 @@ use VkSdk\Messages\Includes\MessagesAttachments;
 
 class MessagesSend extends Request
 {
-
     private $user_ids = [];
     private $message_id;
     private $attachments = [];
@@ -130,7 +129,5 @@ class MessagesSend extends Request
         }
 
         return false;
-
     }
-
 }

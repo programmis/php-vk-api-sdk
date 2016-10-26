@@ -4,7 +4,6 @@ namespace VkSdk\Users\Includes;
 
 class UserInfo
 {
-
     private $id;
     private $first_name = "";
     private $last_name = "";
@@ -79,5 +78,4 @@ class UserInfo
     {
         return $this->sex;
     }
-
 }

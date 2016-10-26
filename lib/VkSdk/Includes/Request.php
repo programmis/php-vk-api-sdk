@@ -2,14 +2,12 @@
 
 namespace VkSdk\Includes;
 
-
 use Psr\Log\LoggerInterface;
 use VkSdk\Config\Config;
 use VkSdk\Logger\Logger;
 
 abstract class Request extends \ApiRator\Includes\Request implements VkInterface
 {
-
     private $error_code;
     private $error_msg;
     private $response;
@@ -52,7 +50,7 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
                 if ($json->error->error_code == 14) {
                     /*
                     if( $need_captcha_response ){
-                        if( is_object( $json ) && isset( $json->error->captcha_sid ) && isset( $json->error->captcha_img ) ){
+                        if(is_object($json) && isset($json->error->captcha_sid) && isset($json->error->captcha_img)) {
                             $recognize = new AntigateRecognizeCaptchaRequest( $json->error->captcha_img );
                             $recognize->downloadCaptcha();
                             $result = $recognize->doRecognize();
@@ -102,5 +100,4 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     }
 
     abstract public function doRequest();
-
 }

@@ -8,7 +8,6 @@ use VkSdk\Users\Includes\UserInfo;
 
 class PollsGetVoters extends Request
 {
-
     private $answer_ids = [];
     private $count;
     private $fields = [];
@@ -94,14 +93,13 @@ class PollsGetVoters extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response &&
-            isset($json->response[0]) && isset($json->response[0]->answer_id)
+        if (isset($json->response) && $json->response
+            && isset($json->response[0]) && isset($json->response[0]->answer_id)
         ) {
             foreach ($json->response as $voters) {
                 $poll_voters = new PollVotersInfo();
                 $poll_voters->setAnswerId($voters->answer_id);
-                $poll_voters->setCount($voters->users->count);                
+                $poll_voters->setCount($voters->users->count);
                 foreach ($voters->users->items as $user) {
                     $user_info = new UserInfo();
                     $user_info->setFirstName($user->first_name)
@@ -121,5 +119,4 @@ class PollsGetVoters extends Request
         }
         return false;
     }
-
 }

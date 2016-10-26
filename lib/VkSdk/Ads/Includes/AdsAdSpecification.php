@@ -4,7 +4,6 @@ namespace VkSdk\Ads\Includes;
 
 class AdsAdSpecification
 {
-
     private $ad_id;
     private $campaign_id;
     private $ad_format = 2;

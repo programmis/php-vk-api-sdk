@@ -7,7 +7,6 @@ use VkSdk\Messages\Includes\MessageItem;
 
 class MessagesGet extends Request
 {
-    
     private $count;
 
     private $messages = [];
@@ -77,10 +76,9 @@ class MessagesGet extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response &&
-            isset($json->response->count) &&
-            isset($json->response->items)
+        if (isset($json->response) && $json->response
+            && isset($json->response->count)
+            && isset($json->response->items)
         ) {
             $this->count = $json->response->count;
 
@@ -100,5 +98,4 @@ class MessagesGet extends Request
 
         return false;
     }
-
 }

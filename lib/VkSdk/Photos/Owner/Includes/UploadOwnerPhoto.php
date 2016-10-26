@@ -6,7 +6,6 @@ use VkSdk\Photos\Includes\Server;
 
 class UploadOwnerPhoto extends GetOwnerPhotoUploadServer implements Server
 {
-
     /**
      * @var GetOwnerPhotoUploadServer
      */
@@ -45,8 +44,9 @@ class UploadOwnerPhoto extends GetOwnerPhotoUploadServer implements Server
         return $this;
     }
 
-    public function checkUploadServer(){
-        if(!$this->upload_server){
+    public function checkUploadServer()
+    {
+        if (!$this->upload_server) {
             throw new \Exception('please set Upload Server');
         }
     }
@@ -54,7 +54,7 @@ class UploadOwnerPhoto extends GetOwnerPhotoUploadServer implements Server
     public function setOwnerId($owner_id)
     {
         $this->checkUploadServer();
-        
+
         $this->upload_server->setOwnerId($owner_id);
         return $this;
     }
@@ -78,10 +78,10 @@ class UploadOwnerPhoto extends GetOwnerPhotoUploadServer implements Server
     {
         $this->checkUploadServer();
 
-        if(!$this->photo_url){
+        if (!$this->photo_url) {
             throw new \Exception('please set photo url');
         }
-        
+
         $get_upload_server = $this->upload_server->doRequest();
         if (!$get_upload_server) {
             $this->logger->error("not found upload server");
@@ -133,5 +133,4 @@ class UploadOwnerPhoto extends GetOwnerPhotoUploadServer implements Server
 
         return false;
     }
-
 }

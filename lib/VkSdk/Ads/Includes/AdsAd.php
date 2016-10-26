@@ -8,7 +8,6 @@
 
 namespace VkSdk\Ads\Includes;
 
-
 class AdsAd
 {
     /** @var  integer $id */

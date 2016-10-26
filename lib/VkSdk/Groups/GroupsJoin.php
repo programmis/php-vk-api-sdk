@@ -34,13 +34,10 @@ class GroupsJoin extends Request
             return $json;
         }
 
-        if (
-        isset($json->response)
-        ) {
+        if (isset($json->response)) {
             return true;
         }
 
         return false;
     }
-
 }

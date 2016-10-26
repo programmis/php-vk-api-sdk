@@ -8,7 +8,6 @@
 
 namespace VkSdk\Ads;
 
-
 use VkSdk\Includes\Request;
 
 class AdsDeleteAds extends Request
@@ -52,9 +51,7 @@ class AdsDeleteAds extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response
-        ) {
+        if (isset($json->response) && $json->response) {
             return true;
         }
 

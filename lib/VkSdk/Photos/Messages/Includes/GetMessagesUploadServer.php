@@ -6,7 +6,6 @@ use VkSdk\Includes\Request;
 
 class GetMessagesUploadServer extends Request
 {
-
     private $upload_url;
     private $album_id;
     private $user_id;
@@ -48,5 +47,4 @@ class GetMessagesUploadServer extends Request
         }
         return false;
     }
-
 }

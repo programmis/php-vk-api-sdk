@@ -4,7 +4,6 @@ namespace VkSdk\Ads\Includes;
 
 class AdsCampaignSpecification
 {
-
     private $client_id = 0;
     private $name;
     private $day_limit;
@@ -80,6 +79,4 @@ class AdsCampaignSpecification
         $this->status = $status;
         return $this;
     }
-
-
 }

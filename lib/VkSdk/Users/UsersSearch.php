@@ -7,7 +7,6 @@ use VkSdk\Users\Includes\UserInfo;
 
 class UsersSearch extends Request
 {
-
     private $fields = [];
     private $count;
 
@@ -237,9 +236,8 @@ class UsersSearch extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response &&
-            isset($json->response->items) && $json->response->items
+        if (isset($json->response) && $json->response
+            && isset($json->response->items) && $json->response->items
         ) {
             $this->count = $json->response->count;
 
@@ -261,5 +259,4 @@ class UsersSearch extends Request
 
         return false;
     }
-
 }

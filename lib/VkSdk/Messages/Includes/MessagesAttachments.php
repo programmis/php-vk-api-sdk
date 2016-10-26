@@ -4,7 +4,6 @@ namespace VkSdk\Messages\Includes;
 
 class MessagesAttachments
 {
-
     private $type;
     private $owner_id;
     private $media_id;
@@ -56,5 +55,4 @@ class MessagesAttachments
 
         return $this->type . $this->owner_id . "_" . $this->media_id;
     }
-
 }

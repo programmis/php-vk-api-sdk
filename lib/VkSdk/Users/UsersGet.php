@@ -12,7 +12,6 @@ use VkSdk\Users\Includes\UserInfo;
  */
 class UsersGet extends Request
 {
-
     private $user_ids = [];
     private $fields = [];
 
@@ -85,5 +84,4 @@ class UsersGet extends Request
 
         return false;
     }
-
 }

@@ -6,7 +6,6 @@ use VkSdk\Includes\Request;
 
 class FriendsGet extends Request
 {
-
     private $count;
     private $fields = [];
     private $items = [];
@@ -84,9 +83,8 @@ class FriendsGet extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response &&
-            isset($json->response->count)
+        if (isset($json->response) && $json->response
+            && isset($json->response->count)
         ) {
             $this->count = $json->response->count;
             if (isset($json->response->items) && $json->response->items) {
@@ -97,5 +95,4 @@ class FriendsGet extends Request
 
         return false;
     }
-
 }

@@ -8,7 +8,6 @@ class PhotosCreateAlbum extends Request
 {
     private $id;
 
-
     public function setTitle($title)
     {
         $this->vkarg_title = $title;
@@ -54,8 +53,7 @@ class PhotosCreateAlbum extends Request
         $this->vkarg_privacy = $privacy;
         return $this;
     }
-    
-    
+
 
     public function getId()
     {
@@ -64,7 +62,7 @@ class PhotosCreateAlbum extends Request
 
     public function doRequest()
     {
-        $this->setMethod("photos.createAlbum");        
+        $this->setMethod("photos.createAlbum");
 
         $json = $this->execApi();
         if (!$json) {
@@ -75,9 +73,8 @@ class PhotosCreateAlbum extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response &&
-            isset($json->response->id) && $json->response->id
+        if (isset($json->response) && $json->response
+            && isset($json->response->id) && $json->response->id
         ) {
             $this->id = $json->response->id;
 
@@ -86,5 +83,4 @@ class PhotosCreateAlbum extends Request
 
         return false;
     }
-
 }

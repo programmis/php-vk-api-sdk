@@ -8,7 +8,6 @@
 
 namespace VkSdk\Ads;
 
-
 use VkSdk\Includes\Request;
 
 class AdsCreateTargetGroup extends Request
@@ -59,9 +58,8 @@ class AdsCreateTargetGroup extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response &&
-            isset($json->response->id) && $json->response->id
+        if (isset($json->response) && $json->response
+            && isset($json->response->id) && $json->response->id
         ) {
             $this->id = $json->response->id;
             $this->pixel = $json->response->pixel;

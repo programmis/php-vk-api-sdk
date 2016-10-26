@@ -7,7 +7,6 @@ use VkSdk\Includes\Request;
 
 class AdsGetTargetingStats extends Request
 {
-
     private $audience_count;
     private $recommended_cpc;
     private $recommended_cpm;
@@ -92,11 +91,10 @@ class AdsGetTargetingStats extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response &&
-            isset($json->response->audience_count) &&
-            isset($json->response->recommended_cpc) &&
-            isset($json->response->recommended_cpm)
+        if (isset($json->response) && $json->response
+            && isset($json->response->audience_count)
+            && isset($json->response->recommended_cpc)
+            && isset($json->response->recommended_cpm)
         ) {
             $this->audience_count = $json->response->audience_count;
             $this->recommended_cpc = $json->response->recommended_cpc;
@@ -106,5 +104,4 @@ class AdsGetTargetingStats extends Request
 
         return false;
     }
-
 }

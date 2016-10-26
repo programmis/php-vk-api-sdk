@@ -8,7 +8,6 @@
 
 namespace VkSdk\Ads;
 
-
 use VkSdk\Includes\Request;
 
 class AdsGetRejectionReason extends Request
@@ -40,9 +39,7 @@ class AdsGetRejectionReason extends Request
             return $json;
         }
 
-        if (
-            isset($json->response) && $json->response
-        ) {
+        if (isset($json->response) && $json->response) {
             return true;
         }
 
