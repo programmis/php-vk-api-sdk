@@ -20,11 +20,11 @@ php -r "if (hash_file('SHA384', 'composer-setup.php') === 'e115a8dc7871f15d85314
 php composer-setup.php <br>
 php -r "unlink('composer-setup.php');" 
 
-**3) Install SDK:**
+**2) Install SDK:**
 
 php composer.phar require programmis/php-vk-api-sdk
 
-**4) Get token vkontakte:**
+**3) Get token vkontakte:**
 
 http://oauth.vk.com/authorize?client_id=3682744&v=5.7&scope=friends,wall,offline&redirect_uri=http://oauth.vk.com/blank.html&display=page&response_type=token <br>
 in the address bar: <br>
