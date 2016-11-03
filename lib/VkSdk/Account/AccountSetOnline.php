@@ -45,7 +45,7 @@ class AccountSetOnline extends Request
     /**
      * В случае успешного выполнения метода будет возвращён true.
      *
-     * @inheritdoc
+     * {@inheritdoc}
      */
     public function doRequest()
     {

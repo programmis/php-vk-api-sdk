@@ -84,7 +84,7 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         $json = json_decode($content);
 
         if (isset($json->response)) {
-            $this->json_response = $json->response;
+            $this->json_response = $json;
         }
         if (isset($json->error) && $json->error) {
             if (isset($json->error->error_code) && $json->error->error_code) {
@@ -122,7 +122,7 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
             return false;
         }
 
-        return $json;
+        return true;
     }
 
     /**
@@ -158,6 +158,9 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     }
 
     /**
+     * В случае неудачи ошибки можно посмотреть
+     * вызвав методы getErrorCode и getErrorMsg
+     *
      * @return bool
      */
     abstract public function doRequest();
