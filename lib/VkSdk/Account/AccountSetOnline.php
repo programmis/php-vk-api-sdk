@@ -4,19 +4,51 @@ namespace VkSdk\Account;
 
 use VkSdk\Includes\Request;
 
+/**
+ * Помечает текущего пользователя как online на 15 минут.
+ *
+ * Class AccountSetOnline
+ *
+ * @see https://vk.com/dev/account.setOnline
+ *
+ * @package VkSdk\Account
+ */
 class AccountSetOnline extends Request
 {
+    /**
+     * возможны ли видеозвонки для данного устройства
+     * флаг, может принимать значения 1 или 0
+     *
+     * @param int $voip
+     *
+     * @return $this
+     */
     public function setVoip($voip)
     {
         $this->vkarg_voip = $voip;
+
         return $this;
     }
 
+    /** @inheritdoc */
+    public function getMethod()
+    {
+        return "account.setOnline";
+    }
+
+    /** @inheritdoc */
+    public function getApiVersion()
+    {
+        return '5.60';
+    }
+
+    /**
+     * В случае успешного выполнения метода будет возвращён true.
+     *
+     * @inheritdoc
+     */
     public function doRequest()
     {
-        $this->setMethod("account.setOnline");
-
-
         $json = $this->execApi();
         if (!$json) {
             return false;

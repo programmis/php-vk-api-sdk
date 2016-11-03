@@ -5,6 +5,10 @@ namespace VkSdk\Includes;
 use logger\Logger;
 use Psr\Log\LoggerInterface;
 
+/**
+ * Class Request
+ * @package VkSdk\Includes
+ */
 abstract class Request extends \ApiRator\Includes\Request implements VkInterface
 {
     /** @var int $error_code */
@@ -32,9 +36,7 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         parent::__construct(self::MAGIC_PREFIX, $logger);
     }
 
-    /**
-     * @return string
-     */
+    /** @inheritdoc */
     public function getAccessToken()
     {
         return self::$access_token;
@@ -76,6 +78,7 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         return $this->json_response;
     }
 
+    /** @inheritdoc */
     public function answerProcessing($content)
     {
         $json = json_decode($content);
@@ -138,6 +141,7 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         return $symbol;
     }
 
+    /** @inheritdoc */
     public function getResultApiUrl()
     {
         $cnt = 0;
@@ -153,5 +157,8 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         return $url;
     }
 
+    /**
+     * @return bool
+     */
     abstract public function doRequest();
 }
