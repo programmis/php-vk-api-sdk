@@ -54,6 +54,7 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         if (isset($json->error) && $json->error) {
             if (isset($json->error->error_code) && $json->error->error_code) {
                 if ($json->error->error_code == self::ERROR_CODE_CAPTCHA_NEEDED) {
+                    /** TODO: connect php-antigate-api-sdk */
                     /*
                     if( $need_captcha_response ){
                         if(is_object($json) && isset($json->error->captcha_sid) && isset($json->error->captcha_img)) {
