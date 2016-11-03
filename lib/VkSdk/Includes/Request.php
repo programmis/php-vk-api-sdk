@@ -10,7 +10,7 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
 {
     private $error_code;
     private $error_msg;
-    private $response;
+    private $json_response;
 
     public function __construct(LoggerInterface $loggerInterface = null)
     {
@@ -33,9 +33,9 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     /**
      * @return mixed
      */
-    public function getResponse()
+    public function getJsonResponse()
     {
-        return $this->response;
+        return $this->json_response;
     }
 
     public function answerProcessing($content)
@@ -43,7 +43,7 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         $json = json_decode($content);
 
         if (isset($json->response)) {
-            $this->response = $json->response;
+            $this->json_response = $json->response;
         }
         if (isset($json->error) && $json->error) {
             if (isset($json->error->error_code) && $json->error->error_code) {
