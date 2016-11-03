@@ -142,7 +142,7 @@ class BoardCreateComment extends Request
     /** @inheritdoc */
     public function getMethod()
     {
-        return "board.addComment";
+        return "board.createComment";
     }
 
     /** @inheritdoc */
