@@ -20,11 +20,17 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         parent::__construct(self::MAGIC_PREFIX, $loggerInterface);
     }
 
+    /**
+     * @return int
+     */
     public function getErrorCode()
     {
         return $this->error_code;
     }
 
+    /**
+     * @return string
+     */
     public function getErrorMsg()
     {
         return $this->error_msg;
@@ -47,7 +53,7 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         }
         if (isset($json->error) && $json->error) {
             if (isset($json->error->error_code) && $json->error->error_code) {
-                if ($json->error->error_code == 14) {
+                if ($json->error->error_code == self::ERROR_CODE_CAPTCHA_NEEDED) {
                     /*
                     if( $need_captcha_response ){
                         if(is_object($json) && isset($json->error->captcha_sid) && isset($json->error->captcha_img)) {
@@ -74,10 +80,10 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
             }
             if (isset($json->error->error_msg) && $json->error->error_msg) {
                 $this->error_msg = $json->error->error_msg;
-                $this->logger->error($this->error_msg);
+                $this->logger->error("#" . $this->error_code . " " . $this->error_msg);
             }
 
-            return -1;
+            return false;
         }
 
         return $json;
