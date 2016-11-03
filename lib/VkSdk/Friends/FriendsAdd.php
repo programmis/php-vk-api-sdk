@@ -23,15 +23,19 @@ use VkSdk\Includes\Request;
  */
 class FriendsAdd extends Request
 {
+    const RESULT_REQUEST_SEND = 1;
+    const RESULT_REQUEST_ACCEPT = 2;
+    const RESULT_REQUEST_RESEND = 4;
+
     /**
      * @var int $result
      */
     private $result;
 
     /**
-     * 1 — заявка на добавление данного пользователя в друзья отправлена;
-     * 2 — заявка на добавление в друзья от данного пользователя одобрена;
-     * 4 — повторная отправка заявки.
+     * RESULT_REQUEST_SEND — заявка на добавление данного пользователя в друзья отправлена;
+     * RESULT_REQUEST_ACCEPT — заявка на добавление в друзья от данного пользователя одобрена;
+     * RESULT_REQUEST_RESEND — повторная отправка заявки.
      *
      * @return int
      */
@@ -41,17 +45,16 @@ class FriendsAdd extends Request
     }
 
     /**
-     * 1, если необходимо отклонить входящую заявку
+     * true, если необходимо отклонить входящую заявку
      * (оставить пользователя в подписчиках).
-     * флаг, может принимать значения 1 или 0
      *
-     * @param int $follow
+     * @param bool $follow
      *
      * @return $this
      */
     public function setFollow($follow)
     {
-        $this->vkarg_follow = $follow;
+        $this->vkarg_follow = $follow ? '1' : '0';
 
         return $this;
     }

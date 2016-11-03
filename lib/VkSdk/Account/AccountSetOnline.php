@@ -17,15 +17,14 @@ class AccountSetOnline extends Request
 {
     /**
      * возможны ли видеозвонки для данного устройства
-     * флаг, может принимать значения 1 или 0
      *
-     * @param int $voip
+     * @param bool $voip
      *
      * @return $this
      */
     public function setVoip($voip)
     {
-        $this->vkarg_voip = $voip;
+        $this->vkarg_voip = $voip ? '1' : '0';
 
         return $this;
     }

@@ -67,17 +67,16 @@ class BoardCreateComment extends Request
     }
 
     /**
-     * 1 — сообщение будет опубликовано от имени группы,
-     * 0 — сообщение будет опубликовано от имени пользователя (по умолчанию).
-     * флаг, может принимать значения 1 или 0
+     * true — сообщение будет опубликовано от имени группы,
+     * false — сообщение будет опубликовано от имени пользователя (по умолчанию).
      *
-     * @param int $from_group
+     * @param bool $from_group
      *
      * @return $this
      */
     public function setFromGroup($from_group)
     {
-        $this->vkarg_from_group = $from_group;
+        $this->vkarg_from_group = $from_group ? '1' : '0';
 
         return $this;
     }
