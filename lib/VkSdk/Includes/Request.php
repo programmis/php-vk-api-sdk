@@ -97,9 +97,6 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
             $access_token = Config::getParam('access_token', true);
         }
         $version = $this->getApiVersion();
-        if (!$version) {
-            $version = self::API_VERSION;
-        }
 
         $url = self::API_URL . $this->getMethod() . "?v=" . $version . "&access_token=" . $access_token;
 
