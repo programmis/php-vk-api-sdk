@@ -7,6 +7,7 @@ use VkSdk\Wall\Includes\WallAttachments;
 
 /**
  * Добавляет новый комментарий в обсуждении.
+ * Требуются права доступа: groups.
  *
  * Class BoardCreateComment
  *
@@ -183,12 +184,14 @@ class BoardCreateComment extends Request
 
         $result = $this->execApi();
 
-        if ($json = $this->getJsonResponse()) {
+        if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
                 $this->comment_id = $json->response;
+
+                return true;
             }
         }
 
-        return $result;
+        return false;
     }
 }

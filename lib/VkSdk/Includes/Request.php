@@ -158,7 +158,7 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     }
 
     /**
-     * В случае неудачи ошибки можно посмотреть
+     * В случае неудачи, ошибки можно посмотреть
      * вызвав методы getErrorCode и getErrorMsg
      *
      * @return bool
