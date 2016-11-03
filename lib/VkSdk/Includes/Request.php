@@ -2,9 +2,9 @@
 
 namespace VkSdk\Includes;
 
+use logger\Logger;
 use Psr\Log\LoggerInterface;
 use VkSdk\Config\Config;
-use VkSdk\Logger\Logger;
 
 abstract class Request extends \ApiRator\Includes\Request implements VkInterface
 {
