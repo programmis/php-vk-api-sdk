@@ -148,6 +148,269 @@ class UserInfo
     private $occupation;
     /** @var bool $online */
     private $online;
+    /** @var UserPersonal $personal */
+    private $personal;
+    /** @var string $photo_50 */
+    private $photo_50;
+    /** @var string $photo_100 */
+    private $photo_100;
+    /** @var string $photo_200_orig */
+    private $photo_200_orig;
+    /** @var string $photo_200 */
+    private $photo_200;
+    /** @var string $photo_400_orig */
+    private $photo_400_orig;
+    /** @var string $photo_id */
+    private $photo_id;
+    /** @var string $photo_max */
+    private $photo_max;
+    /** @var string $photo_max_orig */
+    private $photo_max_orig;
+    /** @var string $quotes */
+    private $quotes;
+
+    /**
+     * любимые цитаты.
+     *
+     * @return string
+     */
+    public function getQuotes()
+    {
+        return $this->quotes;
+    }
+
+    /**
+     * @param string $quotes
+     *
+     * @return UserInfo
+     */
+    public function setQuotes($quotes)
+    {
+        $this->quotes = $quotes;
+
+        return $this;
+    }
+
+    /**
+     * url фотографии пользователя максимального размера.
+     * Может быть возвращена фотография, имеющая ширину как 400,
+     * так и 200 пикселей. В случае отсутствия у пользователя
+     * фотографии возвращается http://vk.com/images/camera_a.gif.
+     *
+     * @return string
+     */
+    public function getPhotoMaxOrig()
+    {
+        return $this->photo_max_orig;
+    }
+
+    /**
+     * @param string $photo_max_orig
+     *
+     * @return UserInfo
+     */
+    public function setPhotoMaxOrig($photo_max_orig)
+    {
+        $this->photo_max_orig = $photo_max_orig;
+
+        return $this;
+    }
+
+    /**
+     * url квадратной фотографии пользователя с максимальной шириной.
+     * Может быть возвращена фотография, имеющая ширину как 200,
+     * так и 100 пикселей. В случае отсутствия у пользователя
+     * фотографии возвращается http://vk.com/images/camera_b.gif.
+     *
+     * @return string
+     */
+    public function getPhotoMax()
+    {
+        return $this->photo_max;
+    }
+
+    /**
+     * @param string $photo_max
+     *
+     * @return UserInfo
+     */
+    public function setPhotoMax($photo_max)
+    {
+        $this->photo_max = $photo_max;
+
+        return $this;
+    }
+
+    /**
+     * строковый идентификатор главной фотографии профиля
+     * пользователя в формате {user_id}_{photo_id}, например,
+     * 6492_192164258. Обратите внимание, это поле может
+     * отсутствовать в ответе.
+     *
+     * @return string
+     */
+    public function getPhotoId()
+    {
+        return $this->photo_id;
+    }
+
+    /**
+     * @param string $photo_id
+     *
+     * @return UserInfo
+     */
+    public function setPhotoId($photo_id)
+    {
+        $this->photo_id = $photo_id;
+
+        return $this;
+    }
+
+    /**
+     * url фотографии пользователя, имеющей ширину 400 пикселей.
+     * Если у пользователя отсутствует фотография такого размера,
+     * в ответе вернется https://vk.com/images/camera_400.png.
+     *
+     * @return string
+     */
+    public function getPhoto400Orig()
+    {
+        return $this->photo_400_orig;
+    }
+
+    /**
+     * @param string $photo_400_orig
+     *
+     * @return UserInfo
+     */
+    public function setPhoto400Orig($photo_400_orig)
+    {
+        $this->photo_400_orig = $photo_400_orig;
+
+        return $this;
+    }
+
+    /**
+     * url квадратной фотографии пользователя,
+     * имеющей ширину 200 пикселей. Если у пользователя
+     * отсутствует фотография таких размеров,
+     * в ответе вернется https://vk.com/images/camera_200.png
+     *
+     * @return string
+     */
+    public function getPhoto200()
+    {
+        return $this->photo_200;
+    }
+
+    /**
+     * @param string $photo_200
+     *
+     * @return UserInfo
+     */
+    public function setPhoto200($photo_200)
+    {
+        $this->photo_200 = $photo_200;
+
+        return $this;
+    }
+
+    /**
+     * url фотографии пользователя,
+     * имеющей ширину 200 пикселей.
+     * В случае отсутствия у пользователя фотографии
+     * возвращается http://vk.com/images/camera_a.gif.
+     *
+     * @return string
+     */
+    public function getPhoto200Orig()
+    {
+        return $this->photo_200_orig;
+    }
+
+    /**
+     * @param string $photo_200_orig
+     *
+     * @return UserInfo
+     */
+    public function setPhoto200Orig($photo_200_orig)
+    {
+        $this->photo_200_orig = $photo_200_orig;
+
+        return $this;
+    }
+
+    /**
+     * url квадратной фотографии пользователя,
+     * имеющей ширину 100 пикселей. В случае отсутствия
+     * у пользователя фотографии
+     * возвращается http://vk.com/images/camera_b.gif.
+     *
+     * @return string
+     */
+    public function getPhoto100()
+    {
+        return $this->photo_100;
+    }
+
+    /**
+     * @param string $photo_100
+     *
+     * @return UserInfo
+     */
+    public function setPhoto100($photo_100)
+    {
+        $this->photo_100 = $photo_100;
+
+        return $this;
+    }
+
+    /**
+     * url квадратной фотографии пользователя,
+     * имеющей ширину 50 пикселей. В случае отсутствия
+     * у пользователя фотографии
+     * возвращается http://vk.com/images/camera_c.gif.
+     *
+     * @return string
+     */
+    public function getPhoto50()
+    {
+        return $this->photo_50;
+    }
+
+    /**
+     * @param string $photo_50
+     *
+     * @return UserInfo
+     */
+    public function setPhoto50($photo_50)
+    {
+        $this->photo_50 = $photo_50;
+
+        return $this;
+    }
+
+    /**
+     * информация о полях из раздела «Жизненная позиция».
+     *
+     * @return UserPersonal
+     */
+    public function getPersonal()
+    {
+        return $this->personal;
+    }
+
+    /**
+     * @param UserPersonal $personal
+     *
+     * @return UserInfo
+     */
+    public function setPersonal($personal)
+    {
+        $this->personal = $personal;
+
+        return $this;
+    }
 
     /**
      * информация о том, находится ли пользователь сейчас на сайте.
