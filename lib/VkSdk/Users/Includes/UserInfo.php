@@ -136,6 +136,102 @@ class UserInfo
     private $lists;
     /** @var string $maiden_name */
     private $maiden_name;
+    /** @var UserMilitary $military */
+    private $military;
+    /** @var string $movies */
+    private $movies;
+    /** @var string $music */
+    private $music;
+    /** @var string $nickname */
+    private $nickname;
+
+    /**
+     * никнейм (отчество) пользователя.
+     *
+     * @return string
+     */
+    public function getNickname()
+    {
+        return $this->nickname;
+    }
+
+    /**
+     * @param string $nickname
+     *
+     * @return UserInfo
+     */
+    public function setNickname($nickname)
+    {
+        $this->nickname = $nickname;
+
+        return $this;
+    }
+
+    /**
+     * содержимое поля «Любимая музыка» из профиля пользователя.
+     *
+     * @return string
+     */
+    public function getMusic()
+    {
+        return $this->music;
+    }
+
+    /**
+     * @param string $music
+     *
+     * @return UserInfo
+     */
+    public function setMusic($music)
+    {
+        $this->music = $music;
+
+        return $this;
+    }
+
+    /**
+     * содержимое поля «Любимые фильмы» из профиля пользователя.
+     *
+     * @return string
+     */
+    public function getMovies()
+    {
+        return $this->movies;
+    }
+
+    /**
+     * @param string $movies
+     *
+     * @return UserInfo
+     */
+    public function setMovies($movies)
+    {
+        $this->movies = $movies;
+
+        return $this;
+    }
+
+    /**
+     * информация о военной службе пользователя
+     *
+     * @return UserMilitary
+     */
+    public function getMilitary()
+    {
+        return $this->military;
+    }
+
+    /**
+     * @param UserMilitary $military
+     *
+     * @return UserInfo
+     */
+    public function setMilitary($military)
+    {
+        $this->military = $military;
+
+        return $this;
+    }
 
     /**
      * девичья фамилия.
