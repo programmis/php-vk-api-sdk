@@ -55,6 +55,8 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     }
 
     /**
+     * возвращает код ошибки
+     *
      * @return int
      */
     public function getErrorCode()
@@ -63,6 +65,8 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     }
 
     /**
+     * возвращает сообщение из ошибки
+     *
      * @return string
      */
     public function getErrorMsg()
@@ -160,6 +164,9 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     /**
      * В случае неудачи, ошибки можно посмотреть
      * вызвав методы getErrorCode и getErrorMsg
+     *
+     * @uses \VkSdk\Includes\Request::getErrorCode
+     * @uses \VkSdk\Includes\Request::getErrorMsg
      *
      * @return bool
      */

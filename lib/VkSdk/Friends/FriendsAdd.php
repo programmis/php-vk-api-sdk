@@ -23,8 +23,17 @@ use VkSdk\Includes\Request;
  */
 class FriendsAdd extends Request
 {
+    /**
+     * заявка на добавление данного пользователя в друзья отправлена;
+     */
     const RESULT_REQUEST_SEND = 1;
+    /**
+     * заявка на добавление в друзья от данного пользователя одобрена;
+     */
     const RESULT_REQUEST_ACCEPT = 2;
+    /**
+     * повторная отправка заявки.
+     */
     const RESULT_REQUEST_RESEND = 4;
 
     /**
@@ -33,9 +42,7 @@ class FriendsAdd extends Request
     private $result;
 
     /**
-     * RESULT_REQUEST_SEND — заявка на добавление данного пользователя в друзья отправлена;
-     * RESULT_REQUEST_ACCEPT — заявка на добавление в друзья от данного пользователя одобрена;
-     * RESULT_REQUEST_RESEND — повторная отправка заявки.
+     * возвращает значения соответствующие константам RESULT_*
      *
      * @return int
      */
@@ -108,6 +115,8 @@ class FriendsAdd extends Request
      * результат можно посмотреть вызвав метод getResult
      *
      * {@inheritdoc}
+     *
+     * @uses FriendsAdd::getResult()
      */
     public function doRequest()
     {

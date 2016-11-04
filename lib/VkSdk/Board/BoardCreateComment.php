@@ -156,6 +156,8 @@ class BoardCreateComment extends Request
      * можно посмотреть вызвав метод getCommentId
      *
      * {@inheritdoc}
+     *
+     * @uses BoardCreateComment::getCommentId()
      */
     public function doRequest()
     {
