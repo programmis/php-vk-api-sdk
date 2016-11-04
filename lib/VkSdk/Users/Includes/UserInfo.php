@@ -18,8 +18,19 @@ use VkSdk\Database\Includes\Country;
  */
 class UserInfo
 {
+    /** страница пользователя удалена */
     const DEACTIVATED_DELETED = 'deleted';
+    /** страница пользователя заблокирована */
     const DEACTIVATED_BANNED = 'banned';
+
+    /** не является другом */
+    const FRIEND_STATUS_NOT = 0;
+    /** отправлена заявка/подписка пользователю */
+    const FRIEND_STATUS_SEND = 1;
+    /** имеется входящая заявка/подписка от пользователя */
+    const FRIEND_STATUS_RECEIVE = 2;
+    /** является другом */
+    const FRIEND_STATUS_YES = 3;
 
     /** @var int $id */
     private $id;
@@ -71,10 +82,593 @@ class UserInfo
     private $crop_photo;
     /** @var string $domain */
     private $domain;
+    /** @var UserEducation $education */
+    private $education;
+    /** @var array $exports */
+    private $exports;
+    /** @var string $first_name_nom */
+    private $first_name_nom;
+    /** @var string $first_name_gen */
+    private $first_name_gen;
+    /** @var string $first_name_dat */
+    private $first_name_dat;
+    /** @var string $first_name_acc */
+    private $first_name_acc;
+    /** @var string $first_name_ins */
+    private $first_name_ins;
+    /** @var string $first_name_abl */
+    private $first_name_abl;
+    /** @var int $followers_count */
+    private $followers_count;
+    /** @var int $friend_status */
+    private $friend_status;
+    /** @var string $games */
+    private $games;
+    /** @var bool $has_mobile */
+    private $has_mobile;
+    /** @var bool $has_photo */
+    private $has_photo;
+    /** @var string $home_town */
+    private $home_town;
+    /** @var string $interests */
+    private $interests;
+    /** @var bool $is_favorite */
+    private $is_favorite;
+    /** @var bool $is_friend */
+    private $is_friend;
+    /** @var bool $is_hidden_from_feed */
+    private $is_hidden_from_feed;
+    /** @var string $last_name_nom */
+    private $last_name_nom;
+    /** @var string $last_name_gen */
+    private $last_name_gen;
+    /** @var string $last_name_dat */
+    private $last_name_dat;
+    /** @var string $last_name_acc */
+    private $last_name_acc;
+    /** @var string $last_name_ins */
+    private $last_name_ins;
+    /** @var string $last_name_abl */
+    private $last_name_abl;
 
     private $sex = 0;
     private $photo_50;
     private $last_seen = [];
+
+    /**
+     * фамилия в именительном падеже
+     *
+     * @return string
+     */
+    public function getLastNameNom()
+    {
+        return $this->last_name_nom;
+    }
+
+    /**
+     * @param string $last_name_nom
+     *
+     * @return UserInfo
+     */
+    public function setLastNameNom($last_name_nom)
+    {
+        $this->last_name_nom = $last_name_nom;
+
+        return $this;
+    }
+
+    /**
+     * фамилия в родительном падеже
+     *
+     * @return string
+     */
+    public function getLastNameGen()
+    {
+        return $this->last_name_gen;
+    }
+
+    /**
+     * @param string $last_name_gen
+     *
+     * @return UserInfo
+     */
+    public function setLastNameGen($last_name_gen)
+    {
+        $this->last_name_gen = $last_name_gen;
+
+        return $this;
+    }
+
+    /**
+     * фамилия в дательном падеже
+     *
+     * @return string
+     */
+    public function getLastNameDat()
+    {
+        return $this->last_name_dat;
+    }
+
+    /**
+     * @param string $last_name_dat
+     *
+     * @return UserInfo
+     */
+    public function setLastNameDat($last_name_dat)
+    {
+        $this->last_name_dat = $last_name_dat;
+
+        return $this;
+    }
+
+    /**
+     * фамилия в винительном падеже
+     *
+     * @return string
+     */
+    public function getLastNameAcc()
+    {
+        return $this->last_name_acc;
+    }
+
+    /**
+     * @param string $last_name_acc
+     *
+     * @return UserInfo
+     */
+    public function setLastNameAcc($last_name_acc)
+    {
+        $this->last_name_acc = $last_name_acc;
+
+        return $this;
+    }
+
+    /**
+     * фамилия в творительном падеже
+     *
+     * @return string
+     */
+    public function getLastNameIns()
+    {
+        return $this->last_name_ins;
+    }
+
+    /**
+     * @param string $last_name_ins
+     *
+     * @return UserInfo
+     */
+    public function setLastNameIns($last_name_ins)
+    {
+        $this->last_name_ins = $last_name_ins;
+
+        return $this;
+    }
+
+    /**
+     * фамилия в предложном падеже
+     *
+     * @return string
+     */
+    public function getLastNameAbl()
+    {
+        return $this->last_name_abl;
+    }
+
+    /**
+     * @param string $last_name_abl
+     *
+     * @return UserInfo
+     */
+    public function setLastNameAbl($last_name_abl)
+    {
+        $this->last_name_abl = $last_name_abl;
+
+        return $this;
+    }
+
+    /**
+     * информация о том, скрыт ли пользователь из ленты
+     * новостей текущего пользователя.
+     *
+     * @return boolean
+     */
+    public function isIsHiddenFromFeed()
+    {
+        return $this->is_hidden_from_feed;
+    }
+
+    /**
+     * @param int $is_hidden_from_feed
+     *
+     * @return UserInfo
+     */
+    public function setIsHiddenFromFeed($is_hidden_from_feed)
+    {
+        $this->is_hidden_from_feed = $is_hidden_from_feed ? true : false;
+
+        return $this;
+    }
+
+    /**
+     * информация о том, является ли пользователь
+     * другом текущего пользователя.
+     *
+     * @return boolean
+     */
+    public function isIsFriend(): bool
+    {
+        return $this->is_friend;
+    }
+
+    /**
+     * @param int $is_friend
+     *
+     * @return UserInfo
+     */
+    public function setIsFriend($is_friend)
+    {
+        $this->is_friend = $is_friend ? true : false;
+
+        return $this;
+    }
+
+    /**
+     * информация о том, есть ли пользователь
+     * в закладках у текущего пользователя.
+     *
+     * @return boolean
+     */
+    public function isIsFavorite()
+    {
+        return $this->is_favorite;
+    }
+
+    /**
+     * @param int $is_favorite
+     *
+     * @return UserInfo
+     */
+    public function setIsFavorite($is_favorite)
+    {
+        $this->is_favorite = $is_favorite ? true : false;
+
+        return $this;
+    }
+
+    /**
+     * содержимое поля «Интересы» из профиля.
+     *
+     * @return string
+     */
+    public function getInterests()
+    {
+        return $this->interests;
+    }
+
+    /**
+     * @param string $interests
+     *
+     * @return UserInfo
+     */
+    public function setInterests($interests)
+    {
+        $this->interests = $interests;
+
+        return $this;
+    }
+
+    /**
+     * название родного города пользователя.
+     *
+     * @return string
+     */
+    public function getHomeTown()
+    {
+        return $this->home_town;
+    }
+
+    /**
+     * @param string $home_town
+     *
+     * @return UserInfo
+     */
+    public function setHomeTown($home_town)
+    {
+        $this->home_town = $home_town;
+
+        return $this;
+    }
+
+    /**
+     * если текущий пользователь
+     * установил фотографию для профиля.
+     *
+     * @return boolean
+     */
+    public function isHasPhoto()
+    {
+        return $this->has_photo;
+    }
+
+    /**
+     * @param int $has_photo
+     *
+     * @return UserInfo
+     */
+    public function setHasPhoto($has_photo)
+    {
+        $this->has_photo = $has_photo ? true : false;
+
+        return $this;
+    }
+
+    /**
+     * информация о том, известен ли номер мобильного
+     * телефона пользователя.
+     *
+     * @return boolean
+     */
+    public function isHasMobile()
+    {
+        return $this->has_mobile;
+    }
+
+    /**
+     * @param int $has_mobile
+     *
+     * @return UserInfo
+     */
+    public function setHasMobile($has_mobile)
+    {
+        $this->has_mobile = $has_mobile ? true : false;
+
+        return $this;
+    }
+
+    /**
+     * содержимое поля «Любимые игры» из профиля пользователя.
+     *
+     * @return string
+     */
+    public function getGames()
+    {
+        return $this->games;
+    }
+
+    /**
+     * @param string $games
+     *
+     * @return UserInfo
+     */
+    public function setGames($games)
+    {
+        $this->games = $games;
+
+        return $this;
+    }
+
+    /**
+     * статус дружбы с пользователем.
+     * см. FRIEND_STATUS_* константы
+     *
+     * @return int
+     */
+    public function getFriendStatus()
+    {
+        return $this->friend_status;
+    }
+
+    /**
+     * @param int $friend_status
+     *
+     * @return UserInfo
+     */
+    public function setFriendStatus($friend_status)
+    {
+        $this->friend_status = $friend_status;
+
+        return $this;
+    }
+
+    /**
+     * количество подписчиков пользователя.
+     *
+     * @return int
+     */
+    public function getFollowersCount()
+    {
+        return $this->followers_count;
+    }
+
+    /**
+     * @param int $followers_count
+     *
+     * @return UserInfo
+     */
+    public function setFollowersCount($followers_count)
+    {
+        $this->followers_count = $followers_count;
+
+        return $this;
+    }
+
+    /**
+     * имя в именительном падеже.
+     *
+     * @return string
+     */
+    public function getFirstNameNom()
+    {
+        return $this->first_name_nom;
+    }
+
+    /**
+     * @param string $first_name_nom
+     *
+     * @return UserInfo
+     */
+    public function setFirstNameNom($first_name_nom)
+    {
+        $this->first_name_nom = $first_name_nom;
+
+        return $this;
+    }
+
+    /**
+     * имя в родительном падеже.
+     *
+     * @return string
+     */
+    public function getFirstNameGen()
+    {
+        return $this->first_name_gen;
+    }
+
+    /**
+     * @param string $first_name_gen
+     *
+     * @return UserInfo
+     */
+    public function setFirstNameGen($first_name_gen)
+    {
+        $this->first_name_gen = $first_name_gen;
+
+        return $this;
+    }
+
+    /**
+     * имя в дательном падеже.
+     *
+     * @return string
+     */
+    public function getFirstNameDat()
+    {
+        return $this->first_name_dat;
+    }
+
+    /**
+     * @param string $first_name_dat
+     *
+     * @return UserInfo
+     */
+    public function setFirstNameDat($first_name_dat)
+    {
+        $this->first_name_dat = $first_name_dat;
+
+        return $this;
+    }
+
+    /**
+     * имя в винительном падеже.
+     *
+     * @return string
+     */
+    public function getFirstNameAcc()
+    {
+        return $this->first_name_acc;
+    }
+
+    /**
+     * @param string $first_name_acc
+     *
+     * @return UserInfo
+     */
+    public function setFirstNameAcc($first_name_acc)
+    {
+        $this->first_name_acc = $first_name_acc;
+
+        return $this;
+    }
+
+    /**
+     * имя в творительном падеже.
+     *
+     * @return string
+     */
+    public function getFirstNameIns()
+    {
+        return $this->first_name_ins;
+    }
+
+    /**
+     * @param string $first_name_ins
+     *
+     * @return UserInfo
+     */
+    public function setFirstNameIns($first_name_ins)
+    {
+        $this->first_name_ins = $first_name_ins;
+
+        return $this;
+    }
+
+    /**
+     * имя в предложном падеже.
+     *
+     * @return string
+     */
+    public function getFirstNameAbl()
+    {
+        return $this->first_name_abl;
+    }
+
+    /**
+     * @param string $first_name_abl
+     *
+     * @return UserInfo
+     */
+    public function setFirstNameAbl($first_name_abl)
+    {
+        $this->first_name_abl = $first_name_abl;
+
+        return $this;
+    }
+
+    /**
+     * внешние сервисы, в которые настроен экспорт
+     * из ВК (twitter, facebook, livejournal, instagram).
+     *
+     * @return array
+     */
+    public function getExports()
+    {
+        return $this->exports;
+    }
+
+    /**
+     * @param array $exports
+     *
+     * @return UserInfo
+     */
+    public function setExports($exports)
+    {
+        $this->exports = $exports;
+
+        return $this;
+    }
+
+    /**
+     * информация о высшем учебном заведении пользователя.
+     *
+     * @return UserEducation
+     */
+    public function getEducation()
+    {
+        return $this->education;
+    }
+
+    /**
+     * @param UserEducation $education
+     *
+     * @return UserInfo
+     */
+    public function setEducation($education)
+    {
+        $this->education = $education;
+
+        return $this;
+    }
 
     /**
      * короткий адрес страницы.
