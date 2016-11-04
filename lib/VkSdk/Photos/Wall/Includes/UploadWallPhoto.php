@@ -2,9 +2,9 @@
 
 namespace VkSdk\Photos\Wall\Includes;
 
-use VkSdk\Photos\Includes\Server;
+use VkSdk\Photos\Includes\ServerInterface;
 
-class UploadWallPhoto extends GetWallUploadServer implements Server
+class UploadWallPhoto extends GetWallUploadServer implements ServerInterface
 {
     /**
      * @var GetWallUploadServer

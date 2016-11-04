@@ -2,9 +2,9 @@
 
 namespace VkSdk\Photos\Owner\Includes;
 
-use VkSdk\Photos\Includes\Server;
+use VkSdk\Photos\Includes\ServerInterface;
 
-class UploadOwnerPhoto extends GetOwnerPhotoUploadServer implements Server
+class UploadOwnerPhoto extends GetOwnerPhotoUploadServer implements ServerInterface
 {
     /**
      * @var GetOwnerPhotoUploadServer

@@ -2,7 +2,7 @@
 
 namespace VkSdk\Photos\Includes;
 
-interface Server
+interface ServerInterface
 {
     public function checkUploadServer();
 }

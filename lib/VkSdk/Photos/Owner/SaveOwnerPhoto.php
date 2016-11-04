@@ -2,10 +2,10 @@
 
 namespace VkSdk\Photos\Owner;
 
-use VkSdk\Photos\Includes\Photo;
+use VkSdk\Photos\Includes\PhotoInterface;
 use VkSdk\Photos\Owner\Includes\UploadOwnerPhoto;
 
-class SaveOwnerPhoto extends UploadOwnerPhoto implements Photo
+class SaveOwnerPhoto extends UploadOwnerPhoto implements PhotoInterface
 {
     /**
      * @var  $vk_upload_photo UploadOwnerPhoto

@@ -2,10 +2,10 @@
 
 namespace VkSdk\Photos\Wall;
 
-use VkSdk\Photos\Includes\Photo;
+use VkSdk\Photos\Includes\PhotoInterface;
 use VkSdk\Photos\Wall\Includes\UploadWallPhoto;
 
-class SaveWallPhoto extends UploadWallPhoto implements Photo
+class SaveWallPhoto extends UploadWallPhoto implements PhotoInterface
 {
     /**
      * @var UploadWallPhoto

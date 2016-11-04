@@ -2,7 +2,7 @@
 
 namespace VkSdk\Photos\Includes;
 
-interface Photo
+interface PhotoInterface
 {
     public function checkUploadPhoto();
 }

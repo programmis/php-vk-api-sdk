@@ -2,9 +2,9 @@
 
 namespace VkSdk\Photos\Messages\Includes;
 
-use VkSdk\Photos\Includes\Server;
+use VkSdk\Photos\Includes\ServerInterface;
 
-class UploadMessagesPhoto extends GetMessagesUploadServer implements Server
+class UploadMessagesPhoto extends GetMessagesUploadServer implements ServerInterface
 {
     /**
      * @var GetMessagesUploadServer

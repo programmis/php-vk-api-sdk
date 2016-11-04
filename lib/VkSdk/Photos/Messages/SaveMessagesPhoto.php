@@ -2,10 +2,10 @@
 
 namespace VkSdk\Photos\Messages;
 
-use VkSdk\Photos\Includes\Photo;
+use VkSdk\Photos\Includes\PhotoInterface;
 use VkSdk\Photos\Messages\Includes\UploadMessagesPhoto;
 
-class SaveMessagesPhoto extends UploadMessagesPhoto implements Photo
+class SaveMessagesPhoto extends UploadMessagesPhoto implements PhotoInterface
 {
     /**
      * @var UploadMessagesPhoto
