@@ -67,10 +67,63 @@ class UserInfo
     private $counters;
     /** @var Country $country */
     private $country;
+    /** @var UserCropPhoto $crop_photo */
+    private $crop_photo;
+    /** @var string $domain */
+    private $domain;
 
     private $sex = 0;
     private $photo_50;
     private $last_seen = [];
+
+    /**
+     * короткий адрес страницы.
+     * Возвращается строка, содержащая короткий адрес страницы
+     * (например, andrew). Если он не назначен,
+     * возвращается "id"+user_id, например, id35828305.
+     *
+     * @return string
+     */
+    public function getDomain()
+    {
+        return $this->domain;
+    }
+
+    /**
+     * @param string $domain
+     *
+     * @return UserInfo
+     */
+    public function setDomain($domain)
+    {
+        $this->domain = $domain;
+
+        return $this;
+    }
+
+    /**
+     * возвращает данные о точках,
+     * по которым вырезаны профильная
+     * и миниатюрная фотографии пользователя.
+     *
+     * @return UserCropPhoto
+     */
+    public function getCropPhoto()
+    {
+        return $this->crop_photo;
+    }
+
+    /**
+     * @param UserCropPhoto $crop_photo
+     *
+     * @return UserInfo
+     */
+    public function setCropPhoto($crop_photo)
+    {
+        $this->crop_photo = $crop_photo;
+
+        return $this;
+    }
 
     /**
      * информация о стране, указанной на странице
