@@ -12,7 +12,7 @@ use VkSdk\Database\Includes\Country;
  *
  * Class UserInfo
  *
- * @see https://vk.com/dev/fields
+ * @see     https://vk.com/dev/fields
  *
  * @package VkSdk\Users\Includes
  */
@@ -130,10 +130,80 @@ class UserInfo
     private $last_name_ins;
     /** @var string $last_name_abl */
     private $last_name_abl;
+    /** @var UserLastSeen $last_seen */
+    private $last_seen;
+    /** @var array $lists */
+    private $lists;
+    /** @var string $maiden_name */
+    private $maiden_name;
 
-    private $sex = 0;
-    private $photo_50;
-    private $last_seen = [];
+    /**
+     * девичья фамилия.
+     *
+     * @return string
+     */
+    public function getMaidenName()
+    {
+        return $this->maiden_name;
+    }
+
+    /**
+     * @param string $maiden_name
+     *
+     * @return UserInfo
+     */
+    public function setMaidenName($maiden_name)
+    {
+        $this->maiden_name = $maiden_name;
+
+        return $this;
+    }
+
+    /**
+     * идентификаторы списков друзей,
+     * в которых состоит пользователь.
+     * Поле доступно только для метода friends.get.
+     *
+     * @return array
+     */
+    public function getLists()
+    {
+        return $this->lists;
+    }
+
+    /**
+     * @param string $lists
+     *
+     * @return UserInfo
+     */
+    public function setLists($lists)
+    {
+        $this->lists = explode(',', $lists);
+
+        return $this;
+    }
+
+    /**
+     * время последнего посещения
+     *
+     * @return UserLastSeen
+     */
+    public function getLastSeen()
+    {
+        return $this->last_seen;
+    }
+
+    /**
+     * @param UserLastSeen $last_seen
+     *
+     * @return UserInfo
+     */
+    public function setLastSeen($last_seen)
+    {
+        $this->last_seen = $last_seen;
+
+        return $this;
+    }
 
     /**
      * фамилия в именительном падеже
@@ -1098,6 +1168,7 @@ class UserInfo
 
     /**
      * @param string $activities
+     *
      * @return UserInfo
      */
     public function setActivities($activities)
@@ -1119,11 +1190,13 @@ class UserInfo
 
     /**
      * @param string $about
+     *
      * @return UserInfo
      */
     public function setAbout($about)
     {
         $this->about = $about;
+
         return $this;
     }
 
@@ -1142,6 +1215,7 @@ class UserInfo
 
     /**
      * @param boolean $hidden
+     *
      * @return UserInfo
      */
     public function setHidden($hidden)
@@ -1183,6 +1257,7 @@ class UserInfo
     public function setId($id)
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -1194,18 +1269,6 @@ class UserInfo
     public function getId()
     {
         return $this->id;
-    }
-
-    public function setLastSeen($time, $platform)
-    {
-        $this->last_seen['time'] = $time;
-        $this->last_seen['platform'] = $platform;
-        return $this;
-    }
-
-    public function getLastSeen()
-    {
-        return $this->last_seen;
     }
 
     /**
@@ -1250,28 +1313,5 @@ class UserInfo
     public function getLastName()
     {
         return $this->last_name;
-    }
-
-    public function setSex($sex)
-    {
-        $this->sex = $sex;
-        return $this;
-    }
-
-    public function setPhoto50($photo_50)
-    {
-        $this->photo_50 = $photo_50;
-        return $this;
-    }
-
-    public function getPhoto50()
-    {
-        return $this->photo_50;
-    }
-
-
-    public function getSex()
-    {
-        return $this->sex;
     }
 }
