@@ -144,6 +144,60 @@ class UserInfo
     private $music;
     /** @var string $nickname */
     private $nickname;
+    /** @var UserOccupation $occupation */
+    private $occupation;
+    /** @var bool $online */
+    private $online;
+
+    /**
+     * информация о том, находится ли пользователь сейчас на сайте.
+     * Если пользователь использует мобильное приложение
+     * либо мобильную версию сайта, возвращается
+     * дополнительное поле online_mobile, содержащее 1.
+     * При этом, если используется именно приложение,
+     * дополнительно возвращается поле online_app,
+     * содержащее его идентификатор.
+     *
+     * @return boolean
+     */
+    public function isOnline()
+    {
+        return $this->online;
+    }
+
+    /**
+     * @param int $online
+     *
+     * @return UserInfo
+     */
+    public function setOnline($online)
+    {
+        $this->online = $online ? true : false;
+
+        return $this;
+    }
+
+    /**
+     * информация о текущем роде занятия пользователя
+     *
+     * @return UserOccupation
+     */
+    public function getOccupation()
+    {
+        return $this->occupation;
+    }
+
+    /**
+     * @param UserOccupation $occupation
+     *
+     * @return UserInfo
+     */
+    public function setOccupation($occupation)
+    {
+        $this->occupation = $occupation;
+
+        return $this;
+    }
 
     /**
      * никнейм (отчество) пользователя.
