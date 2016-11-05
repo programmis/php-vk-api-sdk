@@ -32,6 +32,23 @@ class UserInfo
     /** является другом */
     const FRIEND_STATUS_YES = 3;
 
+    /** не женат/не замужем; */
+    const RELATION_NOT_MARRIED = 1;
+    /** есть друг/есть подруга; */
+    const RELATION_HAVE_FRIEND = 2;
+    /** помолвлен/помолвлена; */
+    const RELATION_ENGAGED = 3;
+    /** женат/замужем; */
+    const RELATION_MARRIED = 4;
+    /** всё сложно; */
+    const RELATION_COMPLICATED = 5;
+    /** в активном поиске; */
+    const RELATION_SEARCH = 6;
+    /** влюблён/влюблена; */
+    const RELATION_LOVE = 7;
+    /** не указано. */
+    const RELATION_NOT_INDICATED = 0;
+
     /** @var int $id */
     private $id;
     /** @var string $first_name */
@@ -168,6 +185,58 @@ class UserInfo
     private $photo_max_orig;
     /** @var string $quotes */
     private $quotes;
+    /** @var UserRelative[] $relatives */
+    private $relatives;
+    /** @var int $relation */
+    private $relation;
+
+    /**
+     * семейное положение пользователя
+     * см. RELATION_* константы
+     * Если в семейном положении указан другой пользователь,
+     * дополнительно возвращается объект relation_partner,
+     * содержащий id и имя этого человека.
+     *
+     * @return int
+     */
+    public function getRelation()
+    {
+        return $this->relation;
+    }
+
+    /**
+     * @param int $relation
+     *
+     * @return UserInfo
+     */
+    public function setRelation($relation)
+    {
+        $this->relation = $relation;
+
+        return $this;
+    }
+
+    /**
+     * список родственников текущего пользователя
+     *
+     * @return UserRelative[]
+     */
+    public function getRelatives()
+    {
+        return $this->relatives;
+    }
+
+    /**
+     * @param UserRelative $relative
+     *
+     * @return UserInfo
+     */
+    public function addRelatives($relative)
+    {
+        $this->relatives[] = $relative;
+
+        return $this;
+    }
 
     /**
      * любимые цитаты.
@@ -1126,7 +1195,7 @@ class UserInfo
      */
     public function setExports($exports)
     {
-        $this->exports = $exports;
+        $this->exports = explode(',', $exports);
 
         return $this;
     }
