@@ -49,6 +49,13 @@ class UserInfo
     /** не указано. */
     const RELATION_NOT_INDICATED = 0;
 
+    /** женский */
+    const SEX_FEMALE = 1;
+    /** мужской */
+    const SEX_MALE = 2;
+    /** пол не указан */
+    const SEX_NOT_INDICATED = 0;
+
     /** @var int $id */
     private $id;
     /** @var string $first_name */
@@ -191,6 +198,205 @@ class UserInfo
     private $relation;
     /** @var UserRelationPartner $relation_partner */
     private $relation_partner;
+    /** @var UserSchool[] $schools */
+    private $schools;
+    /** @var string $screen_name */
+    private $screen_name;
+    /** @var int $sex */
+    private $sex;
+    /** @var string $site */
+    private $site;
+    /** @var string $status */
+    private $status;
+    /** @var string $status_audio */
+    private $status_audio;
+    /** @var int $timezone */
+    private $timezone;
+    /** @var string $tv */
+    private $tv;
+
+    /**
+     * любимые телешоу.
+     *
+     * @return string
+     */
+    public function getTv()
+    {
+        return $this->tv;
+    }
+
+    /**
+     * @param string $tv
+     *
+     * @return UserInfo
+     */
+    public function setTv($tv)
+    {
+        $this->tv = $tv;
+
+        return $this;
+    }
+
+    /**
+     * временная зона пользователя. Возвращается только
+     * при запросе информации о текущем пользователе.
+     *
+     * @return int
+     */
+    public function getTimezone()
+    {
+        return $this->timezone;
+    }
+
+    /**
+     * @param int $timezone
+     *
+     * @return UserInfo
+     */
+    public function setTimezone($timezone)
+    {
+        $this->timezone = $timezone;
+
+        return $this;
+    }
+
+    /**
+     * информация о транслируемой композиции
+     *
+     * @return string
+     */
+    public function getStatusAudio()
+    {
+        return $this->status_audio;
+    }
+
+    /**
+     * @param string $status_audio
+     *
+     * @return UserInfo
+     */
+    public function setStatusAudio($status_audio)
+    {
+        $this->status_audio = $status_audio;
+
+        return $this;
+    }
+
+    /**
+     * статус пользователя. Возвращается строка,
+     * содержащая текст статуса, расположенного в профиле
+     * под именем пользователя. Если у пользователя
+     * включена опция «Транслировать в статус играющую музыку»,
+     * будет возвращено дополнительное поле status_audio,
+     * содержащее информацию о транслируемой композиции.
+     *
+     * @return string
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param string $status
+     *
+     * @return UserInfo
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * адрес сайта, указанный в профиле сайт пользователя.
+     *
+     * @return string
+     */
+    public function getSite()
+    {
+        return $this->site;
+    }
+
+    /**
+     * @param string $site
+     *
+     * @return UserInfo
+     */
+    public function setSite($site)
+    {
+        $this->site = $site;
+
+        return $this;
+    }
+
+    /**
+     * пол пользователя.
+     * см. SEX_* константы
+     *
+     * @return int
+     */
+    public function getSex()
+    {
+        return $this->sex;
+    }
+
+    /**
+     * @param int $sex
+     *
+     * @return UserInfo
+     */
+    public function setSex($sex)
+    {
+        $this->sex = $sex;
+
+        return $this;
+    }
+
+    /**
+     * короткое имя страницы пользователя.
+     *
+     * @return string
+     */
+    public function getScreenName()
+    {
+        return $this->screen_name;
+    }
+
+    /**
+     * @param string $screen_name
+     *
+     * @return UserInfo
+     */
+    public function setScreenName($screen_name)
+    {
+        $this->screen_name = $screen_name;
+
+        return $this;
+    }
+
+    /**
+     * список школ, в которых учился пользователь.
+     *
+     * @return UserSchool[]
+     */
+    public function getSchools()
+    {
+        return $this->schools;
+    }
+
+    /**
+     * @param UserSchool $school
+     *
+     * @return UserInfo
+     */
+    public function addSchool($school)
+    {
+        $this->schools[] = $school;
+
+        return $this;
+    }
 
     /**
      * партнер в семейном положении
@@ -255,7 +461,7 @@ class UserInfo
      *
      * @return UserInfo
      */
-    public function addRelatives($relative)
+    public function addRelative($relative)
     {
         $this->relatives[] = $relative;
 
