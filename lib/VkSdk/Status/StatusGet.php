@@ -8,6 +8,8 @@ use VkSdk\Includes\Request;
 /**
  * Получает текст статуса пользователя или сообщества.
  *
+ * @see https://vk.com/dev/status.get
+ *
  * Class StatusGet
  * @package VkSdk\Status
  */
