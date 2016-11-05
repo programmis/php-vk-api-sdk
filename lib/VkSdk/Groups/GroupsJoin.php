@@ -64,7 +64,6 @@ class GroupsJoin extends Request
     {
         $this->setRequiredParams('group_id');
 
-
         $result = $this->execApi();
 
         if ($result && ($json = $this->getJsonResponse())) {
