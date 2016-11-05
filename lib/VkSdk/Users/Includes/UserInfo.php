@@ -189,6 +189,30 @@ class UserInfo
     private $relatives;
     /** @var int $relation */
     private $relation;
+    /** @var UserRelationPartner $relation_partner */
+    private $relation_partner;
+
+    /**
+     * партнер в семейном положении
+     *
+     * @return UserRelationPartner
+     */
+    public function getRelationPartner()
+    {
+        return $this->relation_partner;
+    }
+
+    /**
+     * @param UserRelationPartner $relation_partner
+     *
+     * @return UserInfo
+     */
+    public function setRelationPartner($relation_partner)
+    {
+        $this->relation_partner = $relation_partner;
+
+        return $this;
+    }
 
     /**
      * семейное положение пользователя
