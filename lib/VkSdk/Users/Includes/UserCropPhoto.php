@@ -9,8 +9,8 @@
 namespace VkSdk\Users\Includes;
 
 use lib\AutoFillObject;
+use VkSdk\Objects\Photo;
 use VkSdk\Photos\Includes\Crop;
-use VkSdk\Photos\Includes\Photo;
 use VkSdk\Photos\Includes\Rect;
 
 /**
@@ -98,5 +98,12 @@ class UserCropPhoto
         $this->rect = $rect;
 
         return $this;
+    }
+
+    public function objectFields()
+    {
+        return [
+            'photo' => '\VkSdk\Objects\Photo'
+        ];
     }
 }

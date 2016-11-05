@@ -6,15 +6,16 @@
  * Time: 21:12
  */
 
-namespace VkSdk\Photos\Includes;
+namespace VkSdk\Objects;
 
 /**
  * Объект photo, описывающий фотографию
  *
  * @see https://vk.com/dev/photo
+ * @see https://vk.com/dev/objects/photo
  *
  * Class Photo
- * @package VkSdk\Photos\Includes
+ * @package VkSdk\Objects
  */
 class Photo
 {

@@ -6,7 +6,7 @@
  * Time: 21:44
  */
 
-namespace VkSdk\Audio\Includes;
+namespace VkSdk\Objects;
 
 use lib\AutoFillObject;
 
@@ -15,10 +15,10 @@ use lib\AutoFillObject;
  *
  * @see https://vk.com/dev/objects/audio
  *
- * Class AudioInfo
- * @package VkSdk\Audio\Includes
+ * Class Audio
+ * @package VkSdk\Objects
  */
-class AudioInfo
+class Audio
 {
     use AutoFillObject;
 
@@ -58,7 +58,7 @@ class AudioInfo
     /**
      * @param int $id
      *
-     * @return AudioInfo
+     * @return Audio
      */
     public function setId($id)
     {
@@ -80,7 +80,7 @@ class AudioInfo
     /**
      * @param int $owner_id
      *
-     * @return AudioInfo
+     * @return Audio
      */
     public function setOwnerId($owner_id)
     {
@@ -102,7 +102,7 @@ class AudioInfo
     /**
      * @param string $artist
      *
-     * @return AudioInfo
+     * @return Audio
      */
     public function setArtist($artist)
     {
@@ -124,7 +124,7 @@ class AudioInfo
     /**
      * @param string $title
      *
-     * @return AudioInfo
+     * @return Audio
      */
     public function setTitle($title)
     {
@@ -146,7 +146,7 @@ class AudioInfo
     /**
      * @param int $duration
      *
-     * @return AudioInfo
+     * @return Audio
      */
     public function setDuration($duration)
     {
@@ -168,7 +168,7 @@ class AudioInfo
     /**
      * @param string $url
      *
-     * @return AudioInfo
+     * @return Audio
      */
     public function setUrl($url)
     {
@@ -190,7 +190,7 @@ class AudioInfo
     /**
      * @param int $lyrics_id
      *
-     * @return AudioInfo
+     * @return Audio
      */
     public function setLyricsId($lyrics_id)
     {
@@ -212,7 +212,7 @@ class AudioInfo
     /**
      * @param int $album_id
      *
-     * @return AudioInfo
+     * @return Audio
      */
     public function setAlbumId($album_id)
     {
@@ -235,7 +235,7 @@ class AudioInfo
     /**
      * @param int $genre_id
      *
-     * @return AudioInfo
+     * @return Audio
      */
     public function setGenreId($genre_id)
     {
@@ -257,7 +257,7 @@ class AudioInfo
     /**
      * @param int $date
      *
-     * @return AudioInfo
+     * @return Audio
      */
     public function setDate($date)
     {
@@ -280,7 +280,7 @@ class AudioInfo
     /**
      * @param boolean $no_search
      *
-     * @return AudioInfo
+     * @return Audio
      */
     public function setNoSearch($no_search)
     {

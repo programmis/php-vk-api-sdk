@@ -2,7 +2,7 @@
 
 namespace VkSdk\Messages\Includes;
 
-class MessagesAttachments
+class MessagesAttachment
 {
     private $type;
     private $owner_id;

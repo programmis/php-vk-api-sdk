@@ -3,7 +3,7 @@
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
-use VkSdk\Messages\Includes\MessagesAttachments;
+use VkSdk\Messages\Includes\MessagesAttachment;
 
 class MessagesSend extends Request
 {
@@ -79,7 +79,7 @@ class MessagesSend extends Request
         return $this;
     }
 
-    public function addAttachment(MessagesAttachments $attachments)
+    public function addAttachment(MessagesAttachment $attachments)
     {
         return $this->attachments[] = $attachments;
     }

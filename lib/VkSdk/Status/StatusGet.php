@@ -2,8 +2,8 @@
 
 namespace VkSdk\Status;
 
-use VkSdk\Audio\Includes\AudioInfo;
 use VkSdk\Includes\Request;
+use VkSdk\Objects\Audio;
 
 /**
  * Получает текст статуса пользователя или сообщества.
@@ -17,13 +17,13 @@ class StatusGet extends Request
 {
     /** @var string $text */
     private $text;
-    /** @var AudioInfo $audio */
+    /** @var Audio $audio */
     private $audio;
 
     /**
      * информация о прослушиваемой аудиозаписи
      *
-     * @return AudioInfo
+     * @return Audio
      */
     public function getAudio()
     {
@@ -102,7 +102,7 @@ class StatusGet extends Request
                     $this->text = $json->response->text;
                 }
                 if (isset($json->response->audio)) {
-                    $this->audio = new AudioInfo();
+                    $this->audio = new Audio();
                     $this->audio->fillByJson($json->response->audio);
                 }
 
