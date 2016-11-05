@@ -214,6 +214,78 @@ class UserInfo
     private $timezone;
     /** @var string $tv */
     private $tv;
+    /** @var UserUniversity[] $universities */
+    private $universities;
+    /** @var bool $verified */
+    private $verified;
+    /** @var bool $wall_comments */
+    private $wall_comments;
+
+    /**
+     * информация о том, включены ли комментарии на стене
+     *
+     * @return boolean
+     */
+    public function isWallComments()
+    {
+        return $this->wall_comments;
+    }
+
+    /**
+     * @param int $wall_comments
+     *
+     * @return UserInfo
+     */
+    public function setWallComments($wall_comments)
+    {
+        $this->wall_comments = $wall_comments ? true : false;
+
+        return $this;
+    }
+
+    /**
+     * если страница пользователя верифицирована
+     *
+     * @return boolean
+     */
+    public function isVerified()
+    {
+        return $this->verified;
+    }
+
+    /**
+     * @param int $verified
+     *
+     * @return UserInfo
+     */
+    public function setVerified($verified)
+    {
+        $this->verified = $verified ? true : false;
+
+        return $this;
+    }
+
+    /**
+     * список вузов, в которых учился пользователь.
+     *
+     * @return UserUniversity[]
+     */
+    public function getUniversities()
+    {
+        return $this->universities;
+    }
+
+    /**
+     * @param UserUniversity $university
+     *
+     * @return UserInfo
+     */
+    public function addUniversity($university)
+    {
+        $this->universities[] = $university;
+
+        return $this;
+    }
 
     /**
      * любимые телешоу.
