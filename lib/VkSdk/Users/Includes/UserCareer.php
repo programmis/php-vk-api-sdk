@@ -8,6 +8,8 @@
 
 namespace VkSdk\Users\Includes;
 
+use lib\AutoFillObject;
+
 /**
  * информация о карьере пользователя.
  *
@@ -16,6 +18,8 @@ namespace VkSdk\Users\Includes;
  */
 class UserCareer
 {
+    use AutoFillObject;
+
     /** @var int $group_id */
     private $group_id;
     /** @var string $company */

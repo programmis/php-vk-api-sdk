@@ -8,6 +8,8 @@
 
 namespace VkSdk\Users\Includes;
 
+use lib\AutoFillObject;
+
 /**
  * информация о текущем роде занятия пользователя.
  *
@@ -16,6 +18,8 @@ namespace VkSdk\Users\Includes;
  */
 class UserOccupation
 {
+    use AutoFillObject;
+
     /** работа; */
     const TYPE_WORK = 'work';
     /** среднее образование; */

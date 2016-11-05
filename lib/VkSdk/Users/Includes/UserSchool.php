@@ -8,6 +8,8 @@
 
 namespace VkSdk\Users\Includes;
 
+use lib\AutoFillObject;
+
 /**
  * школа, в которой учился пользователь
  *
@@ -16,6 +18,8 @@ namespace VkSdk\Users\Includes;
  */
 class UserSchool
 {
+    use AutoFillObject;
+
     /** школа */
     const TYPE_SCHOOL = 0;
     /** гимназия */

@@ -8,6 +8,8 @@
 
 namespace VkSdk\Users\Includes;
 
+use lib\AutoFillObject;
+
 /**
  * время последнего посещения
  *
@@ -16,6 +18,8 @@ namespace VkSdk\Users\Includes;
  */
 class UserLastSeen
 {
+    use AutoFillObject;
+
     /** мобильная версия; */
     const PLATFORM_MOBILE = 1;
     /** приложение для iPhone; */

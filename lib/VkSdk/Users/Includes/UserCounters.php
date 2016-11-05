@@ -8,6 +8,8 @@
 
 namespace VkSdk\Users\Includes;
 
+use lib\AutoFillObject;
+
 /**
  * количество различных объектов у пользователя.
  *
@@ -16,6 +18,8 @@ namespace VkSdk\Users\Includes;
  */
 class UserCounters
 {
+    use AutoFillObject;
+
     /** @var int $albums */
     private $albums;
     /** @var int $videos */

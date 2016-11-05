@@ -8,6 +8,8 @@
 
 namespace VkSdk\Users\Includes;
 
+use lib\AutoFillObject;
+
 /**
  * родственник текущего пользователя
  *
@@ -16,6 +18,8 @@ namespace VkSdk\Users\Includes;
  */
 class UserRelative
 {
+    use AutoFillObject;
+
     const TYPE_CHILD = 'child';
     const TYPE_SIBLING = 'sibling';
     const TYPE_PARENT = 'parent';

@@ -3,6 +3,7 @@
 namespace VkSdk\Friends;
 
 use VkSdk\Includes\Request;
+use VkSdk\Users\Includes\UserInfo;
 
 /**
  * Возвращает список идентификаторов друзей пользователя
@@ -11,7 +12,7 @@ use VkSdk\Includes\Request;
  *
  * Class FriendsGet
  *
- * @see https://vk.com/dev/friends.get
+ * @see     https://vk.com/dev/friends.get
  *
  * @package VkSdk\Friends
  */
@@ -83,15 +84,54 @@ class FriendsGet extends Request
      */
     const NAME_CASE_ABL = 'abl';
 
+    /** @var int $count */
     private $count;
+    /** @var array $fields */
     private $fields = [];
+    /** @var array $ids */
     private $ids = [];
+    /** @var UserInfo[] $users */
+    private $users;
 
+    /**
+     * При использовании параметра fields
+     * возвращает список объектов пользователей
+     *
+     * @return UserInfo[]
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+
+    /**
+     * @param UserInfo $user
+     *
+     * @return $this
+     */
+    public function addUser($user)
+    {
+        $this->users[] = $user;
+
+        return $this;
+    }
+
+    /**
+     * список идентификаторов (id) друзей пользователя,
+     * если метод addField не использовался
+     *
+     * @return array
+     */
     public function getIds()
     {
         return $this->ids;
     }
 
+    /**
+     * количество записей в результате
+     *
+     * @return int
+     */
     public function getCount()
     {
         return $this->count;
@@ -228,7 +268,7 @@ class FriendsGet extends Request
      * (id) друзей пользователя, которые можно посмотреть вызвав метод getIds,
      * если метод addField не использовался.
      * При использовании метода addField возвращает список объектов
-     * пользователей, но не более 5000.
+     * пользователей (метод getUsers), но не более 5000.
      * колличество возвращенных записей можно посмотреть вызвав метод getCount
      *
      * {@inheritdoc}
@@ -242,13 +282,25 @@ class FriendsGet extends Request
         $result = $this->execApi();
 
         if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response) && $json->response
-                && isset($json->response->count)
-            ) {
-                $this->count = $json->response->count;
-                if (isset($json->response->items) && $json->response->items) {
-                    $this->ids = $json->response->items;
+            if (isset($json->response) && $json->response) {
+                if (isset($json->response->count)) {
+                    $this->count = $json->response->count;
                 }
+                if (isset($json->response->items)
+                    && $json->response->items
+                    && isset($json->response->items[0])
+                ) {
+                    if (is_object($json->response->items[0])) {
+                        foreach ($json->response->items as $item) {
+                            $user = new UserInfo();
+                            $user->fillByJson($item);
+                            $this->addUser($user);
+                        }
+                    } else {
+                        $this->ids = $json->response->items;
+                    }
+                }
+
                 return true;
             }
         }

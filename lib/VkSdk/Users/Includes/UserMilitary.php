@@ -8,6 +8,8 @@
 
 namespace VkSdk\Users\Includes;
 
+use lib\AutoFillObject;
+
 /**
  * информация о военной службе пользователя
  *
@@ -16,6 +18,8 @@ namespace VkSdk\Users\Includes;
  */
 class UserMilitary
 {
+    use AutoFillObject;
+
     /** @var string $unit\ */
     private $unit;
     /** @var int $unit_id */

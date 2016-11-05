@@ -8,6 +8,7 @@
 
 namespace VkSdk\Users\Includes;
 
+use lib\AutoFillObject;
 use VkSdk\Photos\Includes\Crop;
 use VkSdk\Photos\Includes\Photo;
 use VkSdk\Photos\Includes\Rect;
@@ -22,6 +23,8 @@ use VkSdk\Photos\Includes\Rect;
  */
 class UserCropPhoto
 {
+    use AutoFillObject;
+
     /** @var Photo $photo */
     private $photo;
     /** @var Crop $crop */

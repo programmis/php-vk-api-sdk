@@ -8,6 +8,8 @@
 
 namespace VkSdk\Database\Includes;
 
+use lib\AutoFillObject;
+
 /**
  * информация о стране
  *
@@ -16,6 +18,8 @@ namespace VkSdk\Database\Includes;
  */
 class Country
 {
+    use AutoFillObject;
+
     /** @var int $id */
     private $id;
     /** @var string $title */

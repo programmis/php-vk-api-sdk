@@ -8,6 +8,8 @@
 
 namespace VkSdk\Users\Includes;
 
+use lib\AutoFillObject;
+
 /**
  * партнер пользователя
  *
@@ -16,10 +18,58 @@ namespace VkSdk\Users\Includes;
  */
 class UserRelationPartner
 {
+    use AutoFillObject;
+
     /** @var int $id */
     private $id;
-    /** @var string $name */
-    private $name;
+    /** @var string $first_name */
+    private $first_name;
+    /** @var string $last_name */
+    private $last_name;
+
+    /**
+     * имя
+     *
+     * @return string
+     */
+    public function getFirstName()
+    {
+        return $this->first_name;
+    }
+
+    /**
+     * @param string $first_name
+     *
+     * @return UserRelationPartner
+     */
+    public function setFirstName($first_name)
+    {
+        $this->first_name = $first_name;
+
+        return $this;
+    }
+
+    /**
+     * фамилия
+     *
+     * @return string
+     */
+    public function getLastName()
+    {
+        return $this->last_name;
+    }
+
+    /**
+     * @param string $last_name
+     *
+     * @return UserRelationPartner
+     */
+    public function setLastName($last_name)
+    {
+        $this->last_name = $last_name;
+
+        return $this;
+    }
 
     /**
      * идентификатор
@@ -39,28 +89,6 @@ class UserRelationPartner
     public function setId($id)
     {
         $this->id = $id;
-
-        return $this;
-    }
-
-    /**
-     * имя
-     *
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     *
-     * @return UserRelationPartner
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
 
         return $this;
     }

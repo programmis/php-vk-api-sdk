@@ -15,7 +15,8 @@
         "php": ">=5.3.0",
         "symfony/yaml": "2.*|3.*",
         "programmis/api-rator": "1.*",
-        "programmis/colorful-logger": "0.*"
+        "programmis/colorful-logger": "0.*",
+        "programmis/auto-fill-object": "0.*"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8",

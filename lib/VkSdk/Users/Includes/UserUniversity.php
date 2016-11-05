@@ -8,6 +8,8 @@
 
 namespace VkSdk\Users\Includes;
 
+use lib\AutoFillObject;
+
 /**
  * вуз, в котором учился пользователь
  *
@@ -16,6 +18,8 @@ namespace VkSdk\Users\Includes;
  */
 class UserUniversity
 {
+    use AutoFillObject;
+
     /** @var int $id */
     private $id;
     /** @var int $country */

@@ -8,6 +8,8 @@
 
 namespace VkSdk\Users\Includes;
 
+use lib\AutoFillObject;
+
 /**
  * информация о полях из раздела «Жизненная позиция».
  *
@@ -16,6 +18,8 @@ namespace VkSdk\Users\Includes;
  */
 class UserPersonal
 {
+    use AutoFillObject;
+
     /** коммунистические; */
     const POLITICAL_COMMUNIST = 1;
     /** социалистические; */

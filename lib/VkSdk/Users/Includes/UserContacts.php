@@ -8,6 +8,8 @@
 
 namespace VkSdk\Users\Includes;
 
+use lib\AutoFillObject;
+
 /**
  * информация о телефонных номерах пользователя.
  *
@@ -16,6 +18,8 @@ namespace VkSdk\Users\Includes;
  */
 class UserContacts
 {
+    use AutoFillObject;
+
     /** @var string $mobile_phone */
     private $mobile_phone;
     /** @var string $home_phone */

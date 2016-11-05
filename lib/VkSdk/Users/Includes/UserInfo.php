@@ -2,6 +2,7 @@
 
 namespace VkSdk\Users\Includes;
 
+use lib\AutoFillObject;
 use VkSdk\Database\Includes\City;
 use VkSdk\Database\Includes\Country;
 
@@ -18,6 +19,8 @@ use VkSdk\Database\Includes\Country;
  */
 class UserInfo
 {
+    use AutoFillObject;
+
     /** страница пользователя удалена */
     const DEACTIVATED_DELETED = 'deleted';
     /** страница пользователя заблокирована */
@@ -88,26 +91,12 @@ class UserInfo
     private $can_send_friend_request;
     /** @var bool $can_write_private_message */
     private $can_write_private_message;
-    /** @var UserCareer $career */
-    private $career;
-    /** @var City $city */
-    private $city;
     /** @var int $common_count */
     private $common_count;
     /** @var mixed $connections */
     private $connections;
-    /** @var UserContacts $contacts */
-    private $contacts;
-    /** @var UserCounters $counters */
-    private $counters;
-    /** @var Country $country */
-    private $country;
-    /** @var UserCropPhoto $crop_photo */
-    private $crop_photo;
     /** @var string $domain */
     private $domain;
-    /** @var UserEducation $education */
-    private $education;
     /** @var array $exports */
     private $exports;
     /** @var string $first_name_nom */
@@ -154,26 +143,18 @@ class UserInfo
     private $last_name_ins;
     /** @var string $last_name_abl */
     private $last_name_abl;
-    /** @var UserLastSeen $last_seen */
-    private $last_seen;
     /** @var array $lists */
     private $lists;
     /** @var string $maiden_name */
     private $maiden_name;
-    /** @var UserMilitary $military */
-    private $military;
     /** @var string $movies */
     private $movies;
     /** @var string $music */
     private $music;
     /** @var string $nickname */
     private $nickname;
-    /** @var UserOccupation $occupation */
-    private $occupation;
     /** @var bool $online */
     private $online;
-    /** @var UserPersonal $personal */
-    private $personal;
     /** @var string $photo_50 */
     private $photo_50;
     /** @var string $photo_100 */
@@ -192,14 +173,8 @@ class UserInfo
     private $photo_max_orig;
     /** @var string $quotes */
     private $quotes;
-    /** @var UserRelative[] $relatives */
-    private $relatives;
     /** @var int $relation */
     private $relation;
-    /** @var UserRelationPartner $relation_partner */
-    private $relation_partner;
-    /** @var UserSchool[] $schools */
-    private $schools;
     /** @var string $screen_name */
     private $screen_name;
     /** @var int $sex */
@@ -214,12 +189,71 @@ class UserInfo
     private $timezone;
     /** @var string $tv */
     private $tv;
-    /** @var UserUniversity[] $universities */
-    private $universities;
     /** @var bool $verified */
     private $verified;
     /** @var bool $wall_comments */
     private $wall_comments;
+    /** @var UserUniversity[] $universities */
+    private $universities;
+    /** @var UserRelationPartner $relation_partner */
+    private $relation_partner;
+    /** @var UserSchool[] $schools */
+    private $schools;
+    /** @var UserRelative[] $relatives */
+    private $relatives;
+    /** @var UserOccupation $occupation */
+    private $occupation;
+    /** @var UserPersonal $personal */
+    private $personal;
+    /** @var UserLastSeen $last_seen */
+    private $last_seen;
+    /** @var UserMilitary $military */
+    private $military;
+    /** @var UserContacts $contacts */
+    private $contacts;
+    /** @var UserCounters $counters */
+    private $counters;
+    /** @var Country $country */
+    private $country;
+    /** @var UserCropPhoto $crop_photo */
+    private $crop_photo;
+    /** @var UserEducation $education */
+    private $education;
+    /** @var UserCareer $career */
+    private $career;
+    /** @var City $city */
+    private $city;
+
+    /** @inheritdoc */
+    public function objectFields()
+    {
+        return [
+            'career'           => '\VkSdk\Users\Includes\UserCareer',
+            'city'             => '\VkSdk\Database\Includes\City',
+            'education'        => '\VkSdk\Users\Includes\UserEducation',
+            'crop_photo'       => '\VkSdk\Users\Includes\UserCropPhoto',
+            'country'          => '\VkSdk\Database\Includes\Country',
+            'counters'         => '\VkSdk\Users\Includes\UserCounters',
+            'contacts'         => '\VkSdk\Users\Includes\UserContacts',
+            'last_seen'        => '\VkSdk\Users\Includes\UserLastSeen',
+            'military'         => '\VkSdk\Users\Includes\UserMilitary',
+            'personal'         => '\VkSdk\Users\Includes\UserPersonal',
+            'occupation'       => '\VkSdk\Users\Includes\UserOccupation',
+            'relatives'        => [
+                'class'  => '\VkSdk\Users\Includes\UserRelative',
+                'method' => 'addRelative'
+            ],
+            'schools'          => [
+                'class'  => '\VkSdk\Users\Includes\UserSchool',
+                'method' => 'addSchool'
+            ],
+            'relation_partner' => '\VkSdk\Users\Includes\UserRelationPartner',
+            'universities'     => [
+                'class'  => '\VkSdk\Users\Includes\UserUniversity',
+                'method' => 'addUniversity'
+            ]
+        ];
+    }
 
     /**
      * информация о том, включены ли комментарии на стене
