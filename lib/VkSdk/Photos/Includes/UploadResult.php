@@ -35,6 +35,46 @@ class UploadResult
     private $message_code;
     /** @var int $profile_aid */
     private $profile_aid;
+    /** @var string $crop_hash */
+    private $crop_hash;
+    /** @var string $crop_data */
+    private $crop_data;
+
+    /**
+     * @return string
+     */
+    public function getCropHash()
+    {
+        return $this->crop_hash;
+    }
+
+    /**
+     * @param string $crop_hash
+     */
+    public function setCropHash($crop_hash)
+    {
+        $this->crop_hash = $crop_hash;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCropData()
+    {
+        return $this->crop_data;
+    }
+
+    /**
+     * @param string $crop_data
+     */
+    public function setCropData($crop_data)
+    {
+        $this->crop_data = $crop_data;
+
+        return $this;
+    }
 
     /**
      * @return array
