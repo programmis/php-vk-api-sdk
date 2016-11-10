@@ -3,6 +3,7 @@
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
+use VkSdk\Photos\Includes\UploadResult;
 
 /**
  * Returns the server address for market photo upload.
@@ -16,6 +17,47 @@ class PhotosGetMarketUploadServer extends Request
      * @var string
      */
     private $upload_url;
+
+    /**
+     * @var UploadResult $uploadResult
+     */
+    private $uploadResult;
+
+    /**
+     * @return UploadResult
+     */
+    public function getUploadResult()
+    {
+        return $this->uploadResult;
+    }
+
+    /**
+     * @param array $files
+     *
+     * @return bool
+     */
+    public function upload($files)
+    {
+        $result = $this->uploadFiles($this->getUploadUrl(), $files);
+        if ($result && ($json = $this->getJsonResponse())) {
+            $this->uploadResult = new UploadResult();
+            $this->uploadResult->fillByJson($json);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
+     * URL to upload the photo
+     *
+     * @return string
+     */
+    public function getUploadUrl()
+    {
+        return $this->upload_url;
+    }
 
     /**
      * result in $this->getUploadUrl();
@@ -52,16 +94,6 @@ class PhotosGetMarketUploadServer extends Request
     public function getMethod()
     {
         return "photos.getMarketUploadServer";
-    }
-
-    /**
-     * URL to upload the photo
-     *
-     * @return string
-     */
-    public function getUploadUrl()
-    {
-        return $this->upload_url;
     }
 
     /**
