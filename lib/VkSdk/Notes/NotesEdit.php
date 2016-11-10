@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Notes;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits a note of the current user.
  * Class NotesEdit
- *
  * @package VkSdk\Notes
  */
 class NotesEdit extends Request
@@ -17,7 +17,7 @@ class NotesEdit extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * @return $this

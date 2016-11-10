@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of tags on a photo.
  * Class PhotosGetTags
- *
  * @package VkSdk\Photos
  */
 class PhotosGetTags extends Request

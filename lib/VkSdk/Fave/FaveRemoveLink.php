@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Fave;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Removes link from the user's faves.
  * Class FaveRemoveLink
- *
  * @package VkSdk\Fave
  */
 class FaveRemoveLink extends Request
@@ -17,7 +17,7 @@ class FaveRemoveLink extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

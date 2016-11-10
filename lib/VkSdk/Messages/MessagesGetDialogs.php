@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Messages\Includes\Dialog;
 /**
  * Returns a list of the current user's conversations.
  * Class MessagesGetDialogs
- *
  * @package VkSdk\Messages
  */
 class MessagesGetDialogs extends Request
@@ -19,17 +19,17 @@ class MessagesGetDialogs extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Dialog[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var integer
      */
-    public $unread_dialogs;
+    private $unread_dialogs;
 
     /**
      * @return $this

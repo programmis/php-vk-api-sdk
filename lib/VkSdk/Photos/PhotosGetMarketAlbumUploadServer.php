@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns the server address for market album photo upload.
  * Class PhotosGetMarketAlbumUploadServer
- *
  * @package VkSdk\Photos
  */
 class PhotosGetMarketAlbumUploadServer extends Request
@@ -15,7 +15,7 @@ class PhotosGetMarketAlbumUploadServer extends Request
     /**
      * @var string
      */
-    public $upload_url;
+    private $upload_url;
 
     /**
      * {@inheritdoc}

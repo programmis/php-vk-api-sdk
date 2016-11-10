@@ -1,33 +1,37 @@
 <?php
+
 namespace VkSdk\Photos\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class PhotoSizes
- *
  * @package VkSdk\Photos\Includes
  */
 class PhotoSizes
 {
 
-    /**
-     * @var integer
-     */
-    public $height;
-
-    /**
-     * @var string
-     */
-    public $src;
-
-    /**
-     * @var string
-     */
-    public $type;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $width;
+    private $height;
+
+    /**
+     * @var string
+     */
+    private $src;
+
+    /**
+     * @var string
+     */
+    private $type;
+
+    /**
+     * @var integer
+     */
+    private $width;
 
     /**
      * Height in px

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Leads;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of last user actions for the offer.
  * Class LeadsGetUsers
- *
  * @package VkSdk\Leads
  */
 class LeadsGetUsers extends Request

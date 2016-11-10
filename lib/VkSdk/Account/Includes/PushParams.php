@@ -1,139 +1,143 @@
 <?php
+
 namespace VkSdk\Account\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class PushParams
- *
  * @package VkSdk\Account\Includes
  */
 class PushParams
 {
 
-    /**
-     * See constants of class OnoffOptions
-     *
-     * @var string
-     */
-    public $app_request;
+    use AutoFillObject;
 
     /**
      * See constants of class OnoffOptions
      *
      * @var string
      */
-    public $birthday;
-
-    /**
-     * @var array(array)
-     */
-    public $chat;
-
-    /**
-     * @var array(array)
-     */
-    public $comment;
+    private $app_request;
 
     /**
      * See constants of class OnoffOptions
      *
      * @var string
      */
-    public $event_soon;
+    private $birthday;
+
+    /**
+     * @var array
+     */
+    private $chat;
+
+    /**
+     * @var array
+     */
+    private $comment;
 
     /**
      * See constants of class OnoffOptions
      *
      * @var string
      */
-    public $friend;
+    private $event_soon;
 
     /**
      * See constants of class OnoffOptions
      *
      * @var string
      */
-    public $friend_accepted;
+    private $friend;
 
     /**
      * See constants of class OnoffOptions
      *
      * @var string
      */
-    public $friend_found;
+    private $friend_accepted;
 
     /**
      * See constants of class OnoffOptions
      *
      * @var string
      */
-    public $group_accepted;
+    private $friend_found;
 
     /**
      * See constants of class OnoffOptions
      *
      * @var string
      */
-    public $group_invite;
-
-    /**
-     * @var array(array)
-     */
-    public $like;
-
-    /**
-     * @var array(array)
-     */
-    public $mention;
-
-    /**
-     * @var array(array)
-     */
-    public $msg;
+    private $group_accepted;
 
     /**
      * See constants of class OnoffOptions
      *
      * @var string
      */
-    public $new_post;
+    private $group_invite;
 
     /**
-     * @var array(array)
+     * @var array
      */
-    public $photos_tag;
+    private $like;
 
     /**
-     * See constants of class OnoffOptions
-     *
-     * @var string
+     * @var array
      */
-    public $reply;
+    private $mention;
 
     /**
-     * @var array(array)
+     * @var array
      */
-    public $repost;
-
-    /**
-     * See constants of class OnoffOptions
-     *
-     * @var string
-     */
-    public $sdk_open;
+    private $msg;
 
     /**
      * See constants of class OnoffOptions
      *
      * @var string
      */
-    public $wall_post;
+    private $new_post;
+
+    /**
+     * @var array
+     */
+    private $photos_tag;
 
     /**
      * See constants of class OnoffOptions
      *
      * @var string
      */
-    public $wall_publish;
+    private $reply;
+
+    /**
+     * @var array
+     */
+    private $repost;
+
+    /**
+     * See constants of class OnoffOptions
+     *
+     * @var string
+     */
+    private $sdk_open;
+
+    /**
+     * See constants of class OnoffOptions
+     *
+     * @var string
+     */
+    private $wall_post;
+
+    /**
+     * See constants of class OnoffOptions
+     *
+     * @var string
+     */
+    private $wall_publish;
 
     /**
      * @return string(string)
@@ -176,7 +180,7 @@ class PushParams
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getChat()
     {
@@ -196,7 +200,7 @@ class PushParams
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getComment()
     {
@@ -336,7 +340,7 @@ class PushParams
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getLike()
     {
@@ -356,7 +360,7 @@ class PushParams
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getMention()
     {
@@ -376,7 +380,7 @@ class PushParams
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getMsg()
     {
@@ -416,7 +420,7 @@ class PushParams
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getPhotosTag()
     {
@@ -456,7 +460,7 @@ class PushParams
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getRepost()
     {

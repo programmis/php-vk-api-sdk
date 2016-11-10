@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Apps;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Sends a request to another user in an app that uses VK authorization.
  * Class AppsSendRequest
- *
  * @package VkSdk\Apps
  */
 class AppsSendRequest extends Request

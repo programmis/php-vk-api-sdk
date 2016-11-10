@@ -1,5 +1,8 @@
 <?php
+
 namespace VkSdk\Database\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class City
@@ -8,32 +11,34 @@ namespace VkSdk\Database\Includes;
 class City
 {
 
+    use AutoFillObject;
+
     /**
      * @var string
      */
-    public $area;
+    private $area;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $important;
+    private $important;
 
     /**
      * @var string
      */
-    public $region;
+    private $region;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * Area title

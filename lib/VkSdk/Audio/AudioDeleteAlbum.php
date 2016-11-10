@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes an audio album.
  * Class AudioDeleteAlbum
- *
  * @package VkSdk\Audio
  */
 class AudioDeleteAlbum extends Request
@@ -17,7 +17,7 @@ class AudioDeleteAlbum extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

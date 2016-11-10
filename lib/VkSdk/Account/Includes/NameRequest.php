@@ -1,33 +1,37 @@
 <?php
+
 namespace VkSdk\Account\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class NameRequest
- *
  * @package VkSdk\Account\Includes
  */
 class NameRequest
 {
 
+    use AutoFillObject;
+
     /**
      * @var string
      */
-    public $first_name;
+    private $first_name;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $last_name;
+    private $last_name;
 
     /**
      * @var string
      */
-    public $status;
+    private $status;
 
     /**
      * First name in request

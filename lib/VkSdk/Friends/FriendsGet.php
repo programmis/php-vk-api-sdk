@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Friends;
 
 use lib\AutoFillObject;
@@ -8,8 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of user IDs or detailed information about a user's friends.
  * Class FriendsGet
-
-*
  * @package VkSdk\Friends
  */
 class FriendsGet extends Request
@@ -50,20 +49,20 @@ class FriendsGet extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var UserXtrLists[]
      */
-    public $items;
+    private $items;
 
     /**
      * Profile fields to return. Sample values: 'uid', 'first_name', 'last_name', 'nickname', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'domain', 'has_mobile', 'rate', 'contacts', 'education'.;
      * see FieldsValues::FIELD_* constants
      *
-* @return $this
+     * @return $this
      *
-     * @param string $field
+*@param string $field
      */
     public function addField($field)
     {
@@ -120,9 +119,10 @@ class FriendsGet extends Request
     /**
      * Number of friends to return.
      *
-*@return $this
+     * @return $this
+
      *
-     * @param integer $count
+*@param integer $count
      */
     public function setCount($count)
     {
@@ -163,12 +163,11 @@ class FriendsGet extends Request
     /**
      * Profile fields to return. Sample values: 'uid', 'first_name', 'last_name', 'nickname', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'domain', 'has_mobile', 'rate', 'contacts', 'education'.;
      * see FieldsValues::FIELD_* constants
+
      *
-     * @return $this
-
-
-*
-*@param array $fields
+*@return $this
+     *
+     * @param array $fields
      */
     public function setFields(array $fields)
     {
@@ -181,7 +180,6 @@ class FriendsGet extends Request
      * ID of the friend list returned by the  method to be used as the source. This parameter is taken into account only when the uid parameter is set to the current user ID.; ; This parameter is available only for .;
      *
      * @return $this
-
      *
      * @param integer $list_id
      */
@@ -196,10 +194,10 @@ class FriendsGet extends Request
      * Case for declension of user name and surname: ; 'nom' — nominative (default) ; 'gen' — genitive ; 'dat' — dative ; 'acc' — accusative ; 'ins' — instrumental ; 'abl' — prepositional
      * see self::NAME_CASE_* constants
      *
-     *@return $this
+     * @return $this
 
      *
-     * @param string $name_case
+*@param string $name_case
      */
     public function setNameCase($name_case)
     {
@@ -211,9 +209,10 @@ class FriendsGet extends Request
     /**
      * Offset needed to return a specific subset of friends.
      *
-*@return $this
+     * @return $this
+
      *
-     * @param integer $offset
+*@param integer $offset
      */
     public function setOffset($offset)
     {
@@ -248,5 +247,5 @@ class FriendsGet extends Request
         $this->vkarg_user_id = $user_id;
 
         return $this;
-    }
+	}
 }

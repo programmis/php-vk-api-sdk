@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Allow to set  server URL for the community. ; ;
  * Class GroupsSetCallbackServer
- *
  * @package VkSdk\Groups
  */
 class GroupsSetCallbackServer extends Request
@@ -15,12 +15,12 @@ class GroupsSetCallbackServer extends Request
     /**
      * @var string
      */
-    public $state;
+    private $state;
 
     /**
      * @var integer
      */
-    public $state_code;
+    private $state_code;
 
     /**
      * {@inheritdoc}

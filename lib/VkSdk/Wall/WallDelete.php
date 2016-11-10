@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes a post from a user wall or community wall.
  * Class WallDelete
- *
  * @package VkSdk\Wall
  */
 class WallDelete extends Request
@@ -17,7 +17,7 @@ class WallDelete extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

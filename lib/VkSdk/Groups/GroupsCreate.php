@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Creates a new community.
  * Class GroupsCreate
- *
  * @package VkSdk\Groups
  */
 class GroupsCreate extends Request
@@ -34,7 +34,7 @@ class GroupsCreate extends Request
     /**
      * @var Group
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

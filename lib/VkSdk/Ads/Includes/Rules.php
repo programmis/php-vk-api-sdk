@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Ads\Includes;
 
 use lib\AutoFillObject;
 
 /**
  * Class Rules
- *
  * @package VkSdk\Ads\Includes
  */
 class Rules
@@ -16,12 +16,12 @@ class Rules
     /**
      * @var Paragraphs[]
      */
-    public $paragraphs;
+    private $paragraphs;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @return $this

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Users;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns information whether a user installed the application.
  * Class UsersIsAppUser
- *
  * @package VkSdk\Users
  */
 class UsersIsAppUser extends Request
@@ -17,7 +17,7 @@ class UsersIsAppUser extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

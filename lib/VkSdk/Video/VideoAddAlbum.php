@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Creates an empty album for videos.
  * Class VideoAddAlbum
- *
  * @package VkSdk\Video
  */
 class VideoAddAlbum extends Request
@@ -15,7 +15,7 @@ class VideoAddAlbum extends Request
     /**
      * @var integer
      */
-    public $album_id;
+    private $album_id;
 
     /**
      * new access permissions for the album.; Possible values: ; *'0' – all users;; *'1' – friends only;; *'2' – friends and friends of friends;; *'3' – "only me".

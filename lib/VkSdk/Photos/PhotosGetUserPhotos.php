@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Photos\Includes\Photo;
 /**
  * Returns a list of photos in which a user is tagged.
  * Class PhotosGetUserPhotos
- *
  * @package VkSdk\Photos
  */
 class PhotosGetUserPhotos extends Request
@@ -19,12 +19,12 @@ class PhotosGetUserPhotos extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Photo[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

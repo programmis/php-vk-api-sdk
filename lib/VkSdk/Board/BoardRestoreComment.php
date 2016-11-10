@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Board;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Restores a comment deleted from a topic on a community's discussion board.
  * Class BoardRestoreComment
- *
  * @package VkSdk\Board
  */
 class BoardRestoreComment extends Request
@@ -17,7 +17,7 @@ class BoardRestoreComment extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

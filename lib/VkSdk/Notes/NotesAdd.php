@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Notes;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Creates a new note for the current user.
  * Class NotesAdd
- *
  * @package VkSdk\Notes
  */
 class NotesAdd extends Request

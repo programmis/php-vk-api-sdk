@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Fave;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Market\Includes\Item;
 /**
  * Returns market items bookmarked by current user.
  * Class FaveGetMarketItems
- *
  * @package VkSdk\Fave
  */
 class FaveGetMarketItems extends Request
@@ -19,12 +19,12 @@ class FaveGetMarketItems extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Item[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

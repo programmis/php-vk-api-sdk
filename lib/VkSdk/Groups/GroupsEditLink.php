@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Allows to edit a link in the community.
  * Class GroupsEditLink
- *
  * @package VkSdk\Groups
  */
 class GroupsEditLink extends Request
@@ -17,7 +17,7 @@ class GroupsEditLink extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

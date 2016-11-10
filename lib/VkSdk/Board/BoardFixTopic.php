@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Board;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Pins a topic (fixes its place) to the top of a community's discussion board.
  * Class BoardFixTopic
- *
  * @package VkSdk\Board
  */
 class BoardFixTopic extends Request
@@ -17,7 +17,7 @@ class BoardFixTopic extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

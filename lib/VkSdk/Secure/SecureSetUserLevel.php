@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Secure;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Sets user game level in the application which can be seen by his/her friends.
  * Class SecureSetUserLevel
- *
  * @package VkSdk\Secure
  */
 class SecureSetUserLevel extends Request
@@ -17,7 +17,7 @@ class SecureSetUserLevel extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * @return $this

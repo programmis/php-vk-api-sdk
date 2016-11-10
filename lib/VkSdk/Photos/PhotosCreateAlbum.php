@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Photos\Includes\PhotoAlbumFull;
 /**
  * Creates an empty photo album.
  * Class PhotosCreateAlbum
- *
  * @package VkSdk\Photos
  */
 class PhotosCreateAlbum extends Request
@@ -19,7 +19,7 @@ class PhotosCreateAlbum extends Request
     /**
      * @var PhotoAlbumFull
      */
-    public $response;
+    private $response;
 
     /**
      * @return $this

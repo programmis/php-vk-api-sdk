@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Notifications\Includes;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Wall\Includes\WallpostAttachment;
 
 /**
  * Class Feedback
- *
  * @package VkSdk\Notifications\Includes
  */
 class Feedback
@@ -19,37 +19,37 @@ class Feedback
     /**
      * @var WallpostAttachment[]
      */
-    public $attachments;
+    private $attachments;
 
     /**
      * @var integer
      */
-    public $from_id;
+    private $from_id;
 
     /**
      * @var Geo
      */
-    public $geo;
+    private $geo;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var LikesInfo
      */
-    public $likes;
+    private $likes;
 
     /**
      * @var string
      */
-    public $text;
+    private $text;
 
     /**
      * @var integer
      */
-    public $to_id;
+    private $to_id;
 
     /**
      * @return $this

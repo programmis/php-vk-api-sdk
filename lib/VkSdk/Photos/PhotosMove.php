@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Moves a photo from one album to another.
  * Class PhotosMove
- *
  * @package VkSdk\Photos
  */
 class PhotosMove extends Request
@@ -17,7 +17,7 @@ class PhotosMove extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

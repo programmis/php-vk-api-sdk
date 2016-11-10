@@ -1,28 +1,32 @@
 <?php
+
 namespace VkSdk\Ads\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class TargStats
- *
  * @package VkSdk\Ads\Includes
  */
 class TargStats
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $audience_count;
+    private $audience_count;
 
     /**
      * @var number
      */
-    public $recommended_cpc;
+    private $recommended_cpc;
 
     /**
      * @var number
      */
-    public $recommended_cpm;
+    private $recommended_cpm;
 
     /**
      * Audience

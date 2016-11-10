@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns the number of photo albums belonging to a user or community.
  * Class PhotosGetAlbumsCount
- *
  * @package VkSdk\Photos
  */
 class PhotosGetAlbumsCount extends Request

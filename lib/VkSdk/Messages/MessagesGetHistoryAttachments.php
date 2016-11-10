@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Messages\Includes\AttachmentsHistory;
 /**
  * Returns media files from the dialog or group chat.
  * Class MessagesGetHistoryAttachments
- *
  * @package VkSdk\Messages
  */
 class MessagesGetHistoryAttachments extends Request
@@ -27,12 +27,12 @@ class MessagesGetHistoryAttachments extends Request
     /**
      * @var AttachmentsHistory[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var string
      */
-    public $next_from;
+    private $next_from;
 
     /**
      * Additional  to return.

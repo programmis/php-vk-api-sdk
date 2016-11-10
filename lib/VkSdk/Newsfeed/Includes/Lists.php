@@ -1,35 +1,39 @@
 <?php
+
 namespace VkSdk\Newsfeed\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Lists
- *
  * @package VkSdk\Newsfeed\Includes
  */
 class Lists
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $no_reposts;
+    private $no_reposts;
 
     /**
-     * @var array(array)
+     * @var array
      */
-    public $source_ids;
+    private $source_ids;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * List ID
@@ -76,7 +80,7 @@ class Lists
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getSourceIds()
     {

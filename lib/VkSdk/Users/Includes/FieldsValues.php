@@ -1,9 +1,9 @@
 <?php
+
 namespace VkSdk\Users\Includes;
 
 /**
  * Class FieldsValues
- *
  * @package VkSdk\Users\Includes
  */
 class FieldsValues

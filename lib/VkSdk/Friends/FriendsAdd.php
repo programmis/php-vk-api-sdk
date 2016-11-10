@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Friends;
 
 use VkSdk\Includes\Request;
@@ -6,8 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Approves or creates a friend request.
  * Class FriendsAdd
-
-*
  * @package VkSdk\Friends
  */
 class FriendsAdd extends Request
@@ -49,9 +48,9 @@ class FriendsAdd extends Request
     /**
      * '1' to pass an incoming request to followers list.
      *
-*@return $this
+     * @return $this
      *
-     * @param boolean $follow
+*@param boolean $follow
      */
     public function setFollow($follow)
     {
@@ -63,9 +62,10 @@ class FriendsAdd extends Request
     /**
      * Text of the message (up to 500 characters) for the friend request, if any.
      *
-     *@return $this
+     * @return $this
+
      *
-     * @param string $text
+*@param string $text
      */
     public function setText($text)
     {
@@ -77,9 +77,10 @@ class FriendsAdd extends Request
     /**
      * ID of the user whose friend request will be approved or to whom a friend request will be sent.
      *
-*@return $this
+     * @return $this
+
      *
-     * @param integer $user_id
+*@param integer $user_id
      */
     public function setUserId($user_id)
     {

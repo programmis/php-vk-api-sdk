@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Pages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Allows to clear the cache of particular 'external' pages which may be attached to VK posts.
  * Class PagesClearCache
- *
  * @package VkSdk\Pages
  */
 class PagesClearCache extends Request
@@ -17,7 +17,7 @@ class PagesClearCache extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

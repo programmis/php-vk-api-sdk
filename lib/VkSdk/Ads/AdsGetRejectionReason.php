@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a reason of ad rejection for pre-moderation.
  * Class AdsGetRejectionReason
- *
  * @package VkSdk\Ads
  */
 class AdsGetRejectionReason extends Request
@@ -19,7 +19,7 @@ class AdsGetRejectionReason extends Request
     /**
      * @var RejectReason
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

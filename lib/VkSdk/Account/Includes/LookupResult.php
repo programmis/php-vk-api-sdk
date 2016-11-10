@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Account\Includes;
 
 use lib\AutoFillObject;
 
 /**
  * Class LookupResult
- *
  * @package VkSdk\Account\Includes
  */
 class LookupResult
@@ -16,12 +16,12 @@ class LookupResult
     /**
      * @var UserXtrContacts[]
      */
-    public $found;
+    private $found;
 
     /**
-     * @var array(array)
+     * @var array
      */
-    public $other;
+    private $other;
 
     /**
      * @return $this
@@ -56,7 +56,7 @@ class LookupResult
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getOther()
     {

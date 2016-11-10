@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Restores a post deleted from a user wall or community wall.
  * Class WallRestore
- *
  * @package VkSdk\Wall
  */
 class WallRestore extends Request
@@ -17,7 +17,7 @@ class WallRestore extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

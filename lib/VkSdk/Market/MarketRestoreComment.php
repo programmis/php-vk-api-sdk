@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Restores a recently deleted comment
  * Class MarketRestoreComment
- *
  * @package VkSdk\Market
  */
 class MarketRestoreComment extends Request
@@ -17,7 +17,7 @@ class MarketRestoreComment extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

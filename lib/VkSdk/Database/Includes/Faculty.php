@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Database\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Faculty
- *
  * @package VkSdk\Database\Includes
  */
 class Faculty
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * Faculty ID

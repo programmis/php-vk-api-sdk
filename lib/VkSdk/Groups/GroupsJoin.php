@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * With this method you can join the group or public page, and also confirm your participation in an event.
  * Class GroupsJoin
- *
  * @package VkSdk\Groups
  */
 class GroupsJoin extends Request
@@ -14,11 +14,10 @@ class GroupsJoin extends Request
 
     /**
      * See constants of class OkResponse
-
-*
-* @var integer
+     *
+     * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

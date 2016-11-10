@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes a video album.
  * Class VideoDeleteAlbum
- *
  * @package VkSdk\Video
  */
 class VideoDeleteAlbum extends Request
@@ -17,7 +17,7 @@ class VideoDeleteAlbum extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

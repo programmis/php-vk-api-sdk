@@ -1,48 +1,52 @@
 <?php
+
 namespace VkSdk\Groups\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class LinksItem
- *
  * @package VkSdk\Groups\Includes
  */
 class LinksItem
 {
 
+    use AutoFillObject;
+
     /**
      * @var string
      */
-    public $desc;
+    private $desc;
 
     /**
      * @var integer
      */
-    public $edit_title;
+    private $edit_title;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $name;
+    private $name;
 
     /**
      * @var string
      */
-    public $photo_100;
+    private $photo_100;
 
     /**
      * @var string
      */
-    public $photo_50;
+    private $photo_50;
 
     /**
      * @var string
      */
-    public $url;
+    private $url;
 
     /**
      * Link description

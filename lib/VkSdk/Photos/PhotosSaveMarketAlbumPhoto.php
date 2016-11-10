@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Saves market album photos after successful uploading.
  * Class PhotosSaveMarketAlbumPhoto
- *
  * @package VkSdk\Photos
  */
 class PhotosSaveMarketAlbumPhoto extends Request

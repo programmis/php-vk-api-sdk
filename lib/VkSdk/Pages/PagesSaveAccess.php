@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Pages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Saves modified read and edit access settings for a wiki page.
  * Class PagesSaveAccess
- *
  * @package VkSdk\Pages
  */
 class PagesSaveAccess extends Request

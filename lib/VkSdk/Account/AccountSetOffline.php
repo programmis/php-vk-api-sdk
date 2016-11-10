@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Marks a current user as offline.
  * Class AccountSetOffline
- *
  * @package VkSdk\Account
  */
 class AccountSetOffline extends Request
@@ -17,7 +17,7 @@ class AccountSetOffline extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

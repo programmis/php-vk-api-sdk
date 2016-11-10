@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds a video to a user or community page.
  * Class VideoAdd
- *
  * @package VkSdk\Video
  */
 class VideoAdd extends Request
@@ -17,7 +17,7 @@ class VideoAdd extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

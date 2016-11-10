@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Messages\Includes;
 
 use lib\AutoFillObject;
 
 /**
  * Class ChatFull
- *
  * @package VkSdk\Messages\Includes
  */
 class ChatFull
@@ -16,42 +16,42 @@ class ChatFull
     /**
      * @var integer
      */
-    public $admin_id;
+    private $admin_id;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $photo_100;
+    private $photo_100;
 
     /**
      * @var string
      */
-    public $photo_200;
+    private $photo_200;
 
     /**
      * @var string
      */
-    public $photo_50;
+    private $photo_50;
 
     /**
      * @var ChatPushSettings
      */
-    public $push_settings;
+    private $push_settings;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * @var UserXtrInvitedBy[]
      */
-    public $users;
+    private $users;
 
     /**
      * @return $this

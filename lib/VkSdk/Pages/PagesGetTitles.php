@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Pages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of wiki pages in a group.
  * Class PagesGetTitles
- *
  * @package VkSdk\Pages
  */
 class PagesGetTitles extends Request

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Board;
 
 use lib\AutoFillObject;
@@ -11,7 +12,6 @@ use VkSdk\Users\Includes\User;
 /**
  * Returns a list of comments on a topic on a community's discussion board.
  * Class BoardGetComments
- *
  * @package VkSdk\Board
  */
 class BoardGetComments extends Request
@@ -22,27 +22,27 @@ class BoardGetComments extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Group[]
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var TopicComment[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var TopicPoll
      */
-    public $poll;
+    private $poll;
 
     /**
      * @var User[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * @return $this

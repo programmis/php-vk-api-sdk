@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall\Includes;
 
 use lib\AutoFillObject;
@@ -6,7 +7,6 @@ use VkSdk\Photos\Includes\Photo;
 
 /**
  * Class Link
- *
  * @package VkSdk\Wall\Includes
  */
 class Link
@@ -17,59 +17,59 @@ class Link
     /**
      * @var LinkButton
      */
-    public $button;
+    private $button;
 
     /**
      * @var string
      */
-    public $caption;
+    private $caption;
 
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $is_external;
+    private $is_external;
 
     /**
      * @var Photo
      */
-    public $photo;
+    private $photo;
 
     /**
      * @var string
      */
-    public $preview_page;
+    private $preview_page;
 
     /**
      * @var string
      */
-    public $preview_url;
+    private $preview_url;
 
     /**
      * @var LinkProduct
      */
-    public $product;
+    private $product;
 
     /**
      * @var LinkRating
      */
-    public $rating;
+    private $rating;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var string
      */
-    public $url;
+    private $url;
 
     /**
      * @return LinkButton

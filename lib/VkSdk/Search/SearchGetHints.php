@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Search;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Allows the programmer to do a quick search for any substring.
  * Class SearchGetHints
- *
  * @package VkSdk\Search
  */
 class SearchGetHints extends Request

@@ -1,33 +1,37 @@
 <?php
+
 namespace VkSdk\Leads\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Checked
- *
  * @package VkSdk\Leads\Includes
  */
 class Checked
 {
 
-    /**
-     * @var string
-     */
-    public $reason;
+    use AutoFillObject;
 
     /**
      * @var string
      */
-    public $result;
+    private $reason;
 
     /**
      * @var string
      */
-    public $sid;
+    private $result;
 
     /**
      * @var string
      */
-    public $start_link;
+    private $sid;
+
+    /**
+     * @var string
+     */
+    private $start_link;
 
     /**
      * Reason why user can't start the lead

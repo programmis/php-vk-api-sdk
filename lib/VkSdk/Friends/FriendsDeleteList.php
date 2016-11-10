@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Friends;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes a friend list of the current user.
  * Class FriendsDeleteList
- *
  * @package VkSdk\Friends
  */
 class FriendsDeleteList extends Request
@@ -17,7 +17,7 @@ class FriendsDeleteList extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

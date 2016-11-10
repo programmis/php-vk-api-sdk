@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Messages\Includes\Message;
 /**
  * Returns a list of the current user's private messages that match search criteria.
  * Class MessagesSearch
- *
  * @package VkSdk\Messages
  */
 class MessagesSearch extends Request
@@ -19,12 +19,12 @@ class MessagesSearch extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Message[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

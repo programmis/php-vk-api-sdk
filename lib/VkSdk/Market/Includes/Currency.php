@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Market\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Currency
- *
  * @package VkSdk\Market\Includes
  */
 class Currency
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * Currency ID

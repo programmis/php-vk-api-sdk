@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Board;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Closes a topic on a community's discussion board so that comments cannot be posted.
  * Class BoardCloseTopic
- *
  * @package VkSdk\Board
  */
 class BoardCloseTopic extends Request
@@ -17,7 +17,7 @@ class BoardCloseTopic extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

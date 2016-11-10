@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits clients of an advertising agency.
  * Class AdsUpdateClients
- *
  * @package VkSdk\Ads
  */
 class AdsUpdateClients extends Request

@@ -1,51 +1,55 @@
 <?php
+
 namespace VkSdk\Account\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Info
- *
  * @package VkSdk\Account\Includes
  */
 class Info
 {
 
+    use AutoFillObject;
+
     /**
      * @var string
      */
-    public $country;
+    private $country;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $https_required;
+    private $https_required;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $intro;
+    private $intro;
 
     /**
      * @var integer
      */
-    public $lang;
-
-    /**
-     * See constants of class BoolInt
-     *
-     * @var integer
-     */
-    public $no_wall_replies;
+    private $lang;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $own_posts_default;
+    private $no_wall_replies;
+
+    /**
+     * See constants of class BoolInt
+     *
+     * @var integer
+     */
+    private $own_posts_default;
 
     /**
      * Country code

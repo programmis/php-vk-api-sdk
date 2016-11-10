@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Orders;
 
 use lib\AutoFillObject;
@@ -7,7 +8,6 @@ use VkSdk\Orders\Includes\Amount;
 
 /**
  * Class OrdersGetAmount
- *
  * @package VkSdk\Orders
  */
 class OrdersGetAmount extends Request
@@ -18,7 +18,7 @@ class OrdersGetAmount extends Request
     /**
      * @var Amount
      */
-    public $response;
+    private $response;
 
     /**
      * @return $this

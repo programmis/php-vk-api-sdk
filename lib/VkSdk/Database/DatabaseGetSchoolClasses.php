@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Database;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of school classes specified for the country.
  * Class DatabaseGetSchoolClasses
- *
  * @package VkSdk\Database
  */
 class DatabaseGetSchoolClasses extends Request

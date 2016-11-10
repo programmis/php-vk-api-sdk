@@ -1,38 +1,42 @@
 <?php
+
 namespace VkSdk\Users\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Military
- *
  * @package VkSdk\Users\Includes
  */
 class Military
 {
 
-    /**
-     * @var integer
-     */
-    public $country_id;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $from;
+    private $country_id;
+
+    /**
+     * @var integer
+     */
+    private $from;
 
     /**
      * @var string
      */
-    public $unit;
+    private $unit;
 
     /**
      * @var integer
      */
-    public $unit_id;
+    private $unit_id;
 
     /**
      * @var integer
      */
-    public $until;
+    private $until;
 
     /**
      * Country ID

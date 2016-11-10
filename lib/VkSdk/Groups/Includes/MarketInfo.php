@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups\Includes;
 
 use lib\AutoFillObject;
@@ -6,7 +7,6 @@ use VkSdk\Market\Includes\Currency;
 
 /**
  * Class MarketInfo
- *
  * @package VkSdk\Groups\Includes
  */
 class MarketInfo
@@ -17,39 +17,39 @@ class MarketInfo
     /**
      * @var integer
      */
-    public $contact_id;
+    private $contact_id;
 
     /**
      * @var Currency
      */
-    public $currency;
+    private $currency;
 
     /**
      * @var string
      */
-    public $currency_text;
+    private $currency_text;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $enabled;
+    private $enabled;
 
     /**
      * @var integer
      */
-    public $main_album_id;
+    private $main_album_id;
 
     /**
      * @var integer
      */
-    public $price_max;
+    private $price_max;
 
     /**
      * @var integer
      */
-    public $price_min;
+    private $price_min;
 
     /**
      * Contact person ID

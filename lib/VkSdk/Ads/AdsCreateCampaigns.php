@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Creates advertising campaigns.
  * Class AdsCreateCampaigns
- *
  * @package VkSdk\Ads
  */
 class AdsCreateCampaigns extends Request

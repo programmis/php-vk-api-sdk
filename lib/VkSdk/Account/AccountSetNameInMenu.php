@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Sets an application screen name (up to 17 characters), that is shown to the user in the left menu.
  * Class AccountSetNameInMenu
- *
  * @package VkSdk\Account
  */
 class AccountSetNameInMenu extends Request
@@ -17,7 +17,7 @@ class AccountSetNameInMenu extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

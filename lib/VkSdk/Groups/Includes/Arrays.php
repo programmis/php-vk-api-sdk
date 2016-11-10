@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Groups\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Arrays
- *
  * @package VkSdk\Groups\Includes
  */
 class Arrays
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
-     * @var array(array)
+     * @var array
      */
-    public $items;
+    private $items;
 
     /**
      * Communities number
@@ -42,7 +46,7 @@ class Arrays
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getItems()
     {

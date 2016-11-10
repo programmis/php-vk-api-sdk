@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Places;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Places\Includes\Checkin;
 /**
  * Returns a list of user check-ins at locations according to the set parameters.
  * Class PlacesGetCheckins
- *
  * @package VkSdk\Places
  */
 class PlacesGetCheckins extends Request
@@ -19,12 +19,12 @@ class PlacesGetCheckins extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Checkin[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

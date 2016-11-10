@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Pages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Saves the text of a wiki page.
  * Class PagesSave
- *
  * @package VkSdk\Pages
  */
 class PagesSave extends Request

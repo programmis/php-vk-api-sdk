@@ -1,25 +1,29 @@
 <?php
+
 namespace VkSdk\Messages\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class LastActivity
- *
  * @package VkSdk\Messages\Includes
  */
 class LastActivity
 {
+
+    use AutoFillObject;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $online;
+    private $online;
 
     /**
      * @var integer
      */
-    public $time;
+    private $time;
 
     /**
      * Information whether user is online

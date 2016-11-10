@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Photos\Includes\CommentXtrPid;
 /**
  * Returns a list of comments on a specific photo album or all albums of the user sorted in reverse chronological order.
  * Class PhotosGetAllComments
- *
  * @package VkSdk\Photos
  */
 class PhotosGetAllComments extends Request
@@ -19,12 +19,12 @@ class PhotosGetAllComments extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var CommentXtrPid[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

@@ -1,28 +1,32 @@
 <?php
+
 namespace VkSdk\Docs\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class DocTypes
- *
  * @package VkSdk\Docs\Includes
  */
 class DocTypes
 {
 
-    /**
-     * @var integer
-     */
-    public $count;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $id;
+    private $count;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * Number of docs

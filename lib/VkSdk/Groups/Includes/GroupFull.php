@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups\Includes;
 
 use lib\AutoFillObject;
@@ -7,7 +8,6 @@ use VkSdk\Base\Objects;
 
 /**
  * Class GroupFull
- *
  * @package VkSdk\Groups\Includes
  */
 class GroupFull
@@ -18,224 +18,224 @@ class GroupFull
     /**
      * @var string
      */
-    public $activity;
+    private $activity;
 
     /**
      * @var integer
      */
-    public $admin_level;
+    private $admin_level;
 
     /**
      * @var integer
      */
-    public $age_limits;
-
-    /**
-     * See constants of class BoolInt
-     *
-     * @var integer
-     */
-    public $can_create_topic;
+    private $age_limits;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $can_message;
+    private $can_create_topic;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $can_post;
+    private $can_message;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $can_see_all_posts;
+    private $can_post;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $can_upload_video;
+    private $can_see_all_posts;
+
+    /**
+     * See constants of class BoolInt
+     *
+     * @var integer
+     */
+    private $can_upload_video;
 
     /**
      * @var Objects
      */
-    public $city;
+    private $city;
 
     /**
      * @var ContactsItem[]
      */
-    public $contacts;
+    private $contacts;
 
     /**
      * @var CountersGroup
      */
-    public $counters;
+    private $counters;
 
     /**
      * @var Country
      */
-    public $country;
+    private $country;
 
     /**
      * @var string
      */
-    public $deactivated;
+    private $deactivated;
 
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @var integer
      */
-    public $finish_date;
+    private $finish_date;
 
     /**
      * @var integer
      */
-    public $fixed_post;
+    private $fixed_post;
 
     /**
      * @var string
      */
-    public $id;
+    private $id;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $is_admin;
+    private $is_admin;
 
     /**
      * @var integer
      */
-    public $is_closed;
-
-    /**
-     * See constants of class BoolInt
-     *
-     * @var integer
-     */
-    public $is_favorite;
+    private $is_closed;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $is_member;
+    private $is_favorite;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $is_messages_allowed;
+    private $is_member;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $is_subscribed;
+    private $is_messages_allowed;
+
+    /**
+     * See constants of class BoolInt
+     *
+     * @var integer
+     */
+    private $is_subscribed;
 
     /**
      * @var LinksItem[]
      */
-    public $links;
+    private $links;
 
     /**
      * @var integer
      */
-    public $main_album_id;
+    private $main_album_id;
 
     /**
      * @var integer
      */
-    public $main_section;
+    private $main_section;
 
     /**
      * @var MarketInfo
      */
-    public $market;
+    private $market;
 
     /**
      * @var integer
      */
-    public $member_status;
+    private $member_status;
 
     /**
      * @var integer
      */
-    public $members_count;
+    private $members_count;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var string
      */
-    public $photo_100;
+    private $photo_100;
 
     /**
      * @var string
      */
-    public $photo_200;
+    private $photo_200;
 
     /**
      * @var string
      */
-    public $photo_50;
+    private $photo_50;
 
     /**
      * @var string
      */
-    public $screen_name;
+    private $screen_name;
 
     /**
      * @var string
      */
-    public $site;
+    private $site;
 
     /**
      * @var integer
      */
-    public $start_date;
+    private $start_date;
 
     /**
      * @var string
      */
-    public $status;
+    private $status;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $verified;
+    private $verified;
 
     /**
      * @var string
      */
-    public $wiki_page;
+    private $wiki_page;
 
     /**
      * @return $this
@@ -607,7 +607,6 @@ class GroupFull
 
     /**
      * Community ID
-     *
      * @return string
      */
     public function getId()
@@ -781,7 +780,6 @@ class GroupFull
 
     /**
      * Community's main photo album ID
-     *
      * @return integer
      */
     public function getMainAlbumId()
@@ -803,7 +801,6 @@ class GroupFull
 
     /**
      * Main section of community
-     *
      * @return integer
      */
     public function getMainSection()
@@ -845,7 +842,6 @@ class GroupFull
 
     /**
      * Community members number
-     *
      * @return integer
      */
     public function getMembersCount()
@@ -867,7 +863,6 @@ class GroupFull
 
     /**
      * Current user's member status
-     *
      * @return integer
      */
     public function getMemberStatus()
@@ -889,7 +884,6 @@ class GroupFull
 
     /**
      * Community name
-     *
      * @return string
      */
     public function getName()
@@ -911,7 +905,6 @@ class GroupFull
 
     /**
      * URL of square photo of the community with 100 pixels in width
-     *
      * @return string
      */
     public function getPhoto100()
@@ -933,7 +926,6 @@ class GroupFull
 
     /**
      * URL of square photo of the community with 200 pixels in width
-     *
      * @return string
      */
     public function getPhoto200()
@@ -955,7 +947,6 @@ class GroupFull
 
     /**
      * URL of square photo of the community with 50 pixels in width
-     *
      * @return string
      */
     public function getPhoto50()
@@ -977,7 +968,6 @@ class GroupFull
 
     /**
      * Domain of the community page
-     *
      * @return string
      */
     public function getScreenName()
@@ -999,7 +989,6 @@ class GroupFull
 
     /**
      * Community's website
-     *
      * @return string
      */
     public function getSite()
@@ -1021,7 +1010,6 @@ class GroupFull
 
     /**
      * Start date of event in Unixtime
-     *
      * @return integer
      */
     public function getStartDate()
@@ -1043,7 +1031,6 @@ class GroupFull
 
     /**
      * Community status
-     *
      * @return string
      */
     public function getStatus()
@@ -1065,7 +1052,6 @@ class GroupFull
 
     /**
      * Community type
-     *
      * @return string
      */
     public function getType()
@@ -1087,7 +1073,6 @@ class GroupFull
 
     /**
      * Information whether community is verified
-     *
      * @return integer
      */
     public function getVerified()
@@ -1109,7 +1094,6 @@ class GroupFull
 
     /**
      * Community's main wiki page title
-     *
      * @return string
      */
     public function getWikiPage()

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds an item to one or multiple collections.
  * Class MarketAddToAlbum
- *
  * @package VkSdk\Market
  */
 class MarketAddToAlbum extends Request
@@ -17,7 +17,7 @@ class MarketAddToAlbum extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * Collections IDs to add  item to.

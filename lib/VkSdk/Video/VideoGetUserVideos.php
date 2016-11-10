@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use lib\AutoFillObject;
@@ -10,7 +11,6 @@ use VkSdk\Video\Includes\Video;
 /**
  * Returns list of videos in which the user is tagged.
  * Class VideoGetUserVideos
- *
  * @package VkSdk\Video
  */
 class VideoGetUserVideos extends Request
@@ -21,22 +21,22 @@ class VideoGetUserVideos extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var GroupFull[]
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var Video[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var UserMin[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * @return $this

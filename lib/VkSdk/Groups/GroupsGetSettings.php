@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns community settings.
  * Class GroupsGetSettings
- *
  * @package VkSdk\Groups
  */
 class GroupsGetSettings extends Request
@@ -19,7 +19,7 @@ class GroupsGetSettings extends Request
     /**
      * @var GroupSettings
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

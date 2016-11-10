@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Storage;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Saves a value of variable with the name set by 'key' parameter.
  * Class StorageSet
- *
  * @package VkSdk\Storage
  */
 class StorageSet extends Request
@@ -17,7 +17,7 @@ class StorageSet extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

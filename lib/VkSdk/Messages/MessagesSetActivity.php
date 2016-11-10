@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Changes the status of a user as typing in a conversation.
  * Class MessagesSetActivity
- *
  * @package VkSdk\Messages
  */
 class MessagesSetActivity extends Request
@@ -17,7 +17,7 @@ class MessagesSetActivity extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

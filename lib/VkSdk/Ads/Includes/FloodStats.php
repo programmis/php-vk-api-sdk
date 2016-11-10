@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Ads\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class FloodStats
- *
  * @package VkSdk\Ads\Includes
  */
 class FloodStats
 {
 
-    /**
-     * @var integer
-     */
-    public $left;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $refresh;
+    private $left;
+
+    /**
+     * @var integer
+     */
+    private $refresh;
 
     /**
      * Requests left

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of users on a community blacklist.
  * Class GroupsGetBanned
- *
  * @package VkSdk\Groups
  */
 class GroupsGetBanned extends Request
@@ -19,12 +19,12 @@ class GroupsGetBanned extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var UserXtrBanInfo[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

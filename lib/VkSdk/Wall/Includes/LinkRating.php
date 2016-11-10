@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Wall\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class LinkRating
- *
  * @package VkSdk\Wall\Includes
  */
 class LinkRating
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $reviews_count;
+    private $reviews_count;
 
     /**
      * @var number
      */
-    public $stars;
+    private $stars;
 
     /**
      * Count of reviews

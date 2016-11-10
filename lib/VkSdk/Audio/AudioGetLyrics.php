@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns lyrics associated with an audio file.
  * Class AudioGetLyrics
- *
  * @package VkSdk\Audio
  */
 class AudioGetLyrics extends Request
@@ -19,7 +19,7 @@ class AudioGetLyrics extends Request
     /**
      * @var Lyrics
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

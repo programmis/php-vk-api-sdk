@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Secure;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds user activity information to an application
  * Class SecureAddAppEvent
- *
  * @package VkSdk\Secure
  */
 class SecureAddAppEvent extends Request
@@ -17,7 +17,7 @@ class SecureAddAppEvent extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

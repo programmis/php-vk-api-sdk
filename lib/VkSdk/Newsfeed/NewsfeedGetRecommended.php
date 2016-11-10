@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Newsfeed;
 
 use lib\AutoFillObject;
@@ -10,7 +11,6 @@ use VkSdk\Users\Includes\UserFull;
 /**
  * ; Returns a list of newsfeeds recommended to the current user.
  * Class NewsfeedGetRecommended
- *
  * @package VkSdk\Newsfeed
  */
 class NewsfeedGetRecommended extends Request
@@ -21,27 +21,27 @@ class NewsfeedGetRecommended extends Request
     /**
      * @var GroupFull[]
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var Item[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var string
      */
-    public $new_from;
+    private $new_from;
 
     /**
      * @var string
      */
-    public $new_offset;
+    private $new_offset;
 
     /**
      * @var UserFull[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * Additional fields of  and  to return.

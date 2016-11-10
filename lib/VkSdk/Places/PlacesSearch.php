@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Places;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Places\Includes\PlaceFull;
 /**
  * Returns a list of locations that match the search criteria.
  * Class PlacesSearch
- *
  * @package VkSdk\Places
  */
 class PlacesSearch extends Request
@@ -19,12 +19,12 @@ class PlacesSearch extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var PlaceFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

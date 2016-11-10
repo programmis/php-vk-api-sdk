@@ -1,53 +1,57 @@
 <?php
+
 namespace VkSdk\Base;
+
+use lib\AutoFillObject;
 
 /**
  * Class Sticker
- *
  * @package VkSdk\Base
  */
 class Sticker
 {
 
-    /**
-     * @var integer
-     */
-    public $height;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $id;
-
-    /**
-     * @var string
-     */
-    public $photo_128;
-
-    /**
-     * @var string
-     */
-    public $photo_256;
-
-    /**
-     * @var string
-     */
-    public $photo_352;
-
-    /**
-     * @var string
-     */
-    public $photo_64;
+    private $height;
 
     /**
      * @var integer
      */
-    public $product_id;
+    private $id;
+
+    /**
+     * @var string
+     */
+    private $photo_128;
+
+    /**
+     * @var string
+     */
+    private $photo_256;
+
+    /**
+     * @var string
+     */
+    private $photo_352;
+
+    /**
+     * @var string
+     */
+    private $photo_64;
 
     /**
      * @var integer
      */
-    public $width;
+    private $product_id;
+
+    /**
+     * @var integer
+     */
+    private $width;
 
     /**
      * Hieght in px

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Polls;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Polls\Includes\Poll;
 /**
  * Creates polls that can be attached to the users' or communities' posts.
  * Class PollsCreate
- *
  * @package VkSdk\Polls
  */
 class PollsCreate extends Request
@@ -19,7 +19,7 @@ class PollsCreate extends Request
     /**
      * @var Poll
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

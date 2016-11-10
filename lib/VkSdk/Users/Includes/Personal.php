@@ -1,53 +1,57 @@
 <?php
+
 namespace VkSdk\Users\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Personal
- *
  * @package VkSdk\Users\Includes
  */
 class Personal
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $alcohol;
+    private $alcohol;
 
     /**
      * @var string
      */
-    public $inspired_by;
+    private $inspired_by;
 
     /**
-     * @var array(array)
+     * @var array
      */
-    public $langs;
-
-    /**
-     * @var integer
-     */
-    public $life_main;
+    private $langs;
 
     /**
      * @var integer
      */
-    public $people_main;
+    private $life_main;
 
     /**
      * @var integer
      */
-    public $political;
+    private $people_main;
+
+    /**
+     * @var integer
+     */
+    private $political;
 
     /**
      * @var string
      */
-    public $religion;
+    private $religion;
 
     /**
      * @var integer
      */
-    public $smoking;
+    private $smoking;
 
     /**
      * User's views on alcohol
@@ -94,7 +98,7 @@ class Personal
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getLangs()
     {

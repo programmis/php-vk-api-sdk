@@ -1,28 +1,32 @@
 <?php
+
 namespace VkSdk\Photos\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class PhotoUpload
- *
  * @package VkSdk\Photos\Includes
  */
 class PhotoUpload
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $album_id;
+    private $album_id;
 
     /**
      * @var string
      */
-    public $upload_url;
+    private $upload_url;
 
     /**
      * @var integer
      */
-    public $user_id;
+    private $user_id;
 
     /**
      * Album ID

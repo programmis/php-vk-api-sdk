@@ -1,83 +1,87 @@
 <?php
+
 namespace VkSdk\Places\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class PlaceFull
- *
  * @package VkSdk\Places\Includes
  */
 class PlaceFull
 {
 
-    /**
-     * @var string
-     */
-    public $address;
-
-    /**
-     * @var integer
-     */
-    public $checkins;
-
-    /**
-     * @var integer
-     */
-    public $city;
-
-    /**
-     * @var integer
-     */
-    public $country;
-
-    /**
-     * @var integer
-     */
-    public $created;
-
-    /**
-     * @var integer
-     */
-    public $distance;
-
-    /**
-     * @var integer
-     */
-    public $group_id;
+    use AutoFillObject;
 
     /**
      * @var string
      */
-    public $group_photo;
-
-    /**
-     * @var string
-     */
-    public $icon;
+    private $address;
 
     /**
      * @var integer
      */
-    public $id;
+    private $checkins;
+
+    /**
+     * @var integer
+     */
+    private $city;
+
+    /**
+     * @var integer
+     */
+    private $country;
+
+    /**
+     * @var integer
+     */
+    private $created;
+
+    /**
+     * @var integer
+     */
+    private $distance;
+
+    /**
+     * @var integer
+     */
+    private $group_id;
+
+    /**
+     * @var string
+     */
+    private $group_photo;
+
+    /**
+     * @var string
+     */
+    private $icon;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var number
      */
-    public $latitude;
+    private $latitude;
 
     /**
      * @var number
      */
-    public $longitude;
+    private $longitude;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * Place address

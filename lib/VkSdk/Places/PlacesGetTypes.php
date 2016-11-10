@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Places;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of all types of locations.
  * Class PlacesGetTypes
- *
  * @package VkSdk\Places
  */
 class PlacesGetTypes extends Request

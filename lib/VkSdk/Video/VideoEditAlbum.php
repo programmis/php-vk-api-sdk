@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits the title of a video album.
  * Class VideoEditAlbum
- *
  * @package VkSdk\Video
  */
 class VideoEditAlbum extends Request
@@ -17,7 +17,7 @@ class VideoEditAlbum extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * new access permissions for the album.; Possible values: ; *'0' – all users;; *'1' – friends only;; *'2' – friends and friends of friends;; *'3' – "only me".

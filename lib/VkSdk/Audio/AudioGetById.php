@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns information about audio files by their IDs.
  * Class AudioGetById
- *
  * @package VkSdk\Audio
  */
 class AudioGetById extends Request

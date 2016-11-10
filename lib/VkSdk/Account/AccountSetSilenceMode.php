@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Mutes push notifications for the set period of time.
  * Class AccountSetSilenceMode
- *
  * @package VkSdk\Account
  */
 class AccountSetSilenceMode extends Request
@@ -17,7 +17,7 @@ class AccountSetSilenceMode extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

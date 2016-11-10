@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Reorders an audio file, placing it between other specified audio files.
  * Class AudioReorder
- *
  * @package VkSdk\Audio
  */
 class AudioReorder extends Request
@@ -17,7 +17,7 @@ class AudioReorder extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

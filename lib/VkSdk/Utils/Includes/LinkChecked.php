@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Utils\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class LinkChecked
- *
  * @package VkSdk\Utils\Includes
  */
 class LinkChecked
 {
 
-    /**
-     * @var string
-     */
-    public $link;
+    use AutoFillObject;
 
     /**
      * @var string
      */
-    public $status;
+    private $link;
+
+    /**
+     * @var string
+     */
+    private $status;
 
     /**
      * Link URL

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall;
 
 use lib\AutoFillObject;
@@ -10,7 +11,6 @@ use VkSdk\Wall\Includes\WallpostFull;
 /**
  * Returns information about reposts of a post on user wall or community wall.
  * Class WallGetReposts
- *
  * @package VkSdk\Wall
  */
 class WallGetReposts extends Request
@@ -21,17 +21,17 @@ class WallGetReposts extends Request
     /**
      * @var Group[]
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var WallpostFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var User[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * @return $this

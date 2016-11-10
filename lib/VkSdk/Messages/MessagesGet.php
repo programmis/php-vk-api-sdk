@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Messages\Includes\Message;
 /**
  * Returns a list of the current user's incoming or outgoing private messages.
  * Class MessagesGet
- *
  * @package VkSdk\Messages
  */
 class MessagesGet extends Request
@@ -19,12 +19,12 @@ class MessagesGet extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Message[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this
@@ -63,9 +63,8 @@ class MessagesGet extends Request
 
     /**
      * Total number
-
-*
-     * @return integer
+     *
+*@return integer
      */
     public function getCount()
     {
@@ -74,12 +73,11 @@ class MessagesGet extends Request
 
     /**
      * Number of messages to return.
+
      *
-     * @return $this
-
-
-*
-     * @param integer $count
+*@return $this
+     *
+*@param integer $count
      */
     public function setCount($count)
     {
@@ -134,9 +132,10 @@ class MessagesGet extends Request
     /**
      * Offset needed to return a specific subset of messages.
      *
-     *@return $this
+     * @return $this
+
      *
-     * @param integer $offset
+*@param integer $offset
      */
     public function setOffset($offset)
     {
@@ -147,12 +146,11 @@ class MessagesGet extends Request
 
     /**
      * '1' — to return outgoing messages; '0' — to return incoming messages (default)
+
      *
-     * @return $this
-
-
-*
-*@param boolean $out
+*@return $this
+     *
+     * @param boolean $out
      */
     public function setOut($out)
     {
@@ -187,5 +185,5 @@ class MessagesGet extends Request
         $this->vkarg_time_offset = $time_offset;
 
         return $this;
-    }
+	}
 }

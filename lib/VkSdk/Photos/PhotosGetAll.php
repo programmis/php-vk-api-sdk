@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Photos\Includes\PhotoFullXtrRealOffset;
 /**
  * Returns a list of photos belonging to a user or community, in reverse chronological order.
  * Class PhotosGetAll
- *
  * @package VkSdk\Photos
  */
 class PhotosGetAll extends Request
@@ -19,19 +19,19 @@ class PhotosGetAll extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var PhotoFullXtrRealOffset[]
      */
-    public $items;
+    private $items;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $more;
+    private $more;
 
     /**
      * @return $this

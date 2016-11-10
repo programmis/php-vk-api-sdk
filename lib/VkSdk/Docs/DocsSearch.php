@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Docs;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of documents matching the search criteria.
  * Class DocsSearch
- *
  * @package VkSdk\Docs
  */
 class DocsSearch extends Request
@@ -19,12 +19,12 @@ class DocsSearch extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Doc[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages\Includes;
 
 use lib\AutoFillObject;
@@ -9,7 +10,6 @@ use VkSdk\Video\Includes\Video;
 
 /**
  * Class AttachmentsHistory
- *
  * @package VkSdk\Messages\Includes
  */
 class AttachmentsHistory
@@ -20,32 +20,32 @@ class AttachmentsHistory
     /**
      * @var Full
      */
-    public $audio;
+    private $audio;
 
     /**
      * @var Doc
      */
-    public $doc;
+    private $doc;
 
     /**
      * @var MessageLink
      */
-    public $link;
+    private $link;
 
     /**
      * @var Photo
      */
-    public $photo;
+    private $photo;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * @var Video
      */
-    public $video;
+    private $video;
 
     /**
      * @return Full

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns information whether sending messages from the community to current user is allowed.
  * Class MessagesIsMessagesFromGroupAllowed
- *
  * @package VkSdk\Messages
  */
 class MessagesIsMessagesFromGroupAllowed extends Request
@@ -17,7 +17,7 @@ class MessagesIsMessagesFromGroupAllowed extends Request
      *
      * @var integer
      */
-    public $is_allowed;
+    private $is_allowed;
 
     /**
      * {@inheritdoc}

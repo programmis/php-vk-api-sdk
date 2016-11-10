@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use lib\AutoFillObject;
@@ -10,7 +11,6 @@ use VkSdk\Wall\Includes\Comment;
 /**
  * Returns a list of comments on a video.
  * Class VideoGetComments
- *
  * @package VkSdk\Video
  */
 class VideoGetComments extends Request
@@ -21,22 +21,22 @@ class VideoGetComments extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var GroupFull[]
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var Comment[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var UserMin[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * @return $this

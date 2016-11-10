@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Board;
 
 use lib\AutoFillObject;
@@ -9,7 +10,6 @@ use VkSdk\Users\Includes\UserMin;
 /**
  * Returns a list of topics on a community's discussion board.
  * Class BoardGetTopics
- *
  * @package VkSdk\Board
  */
 class BoardGetTopics extends Request
@@ -22,29 +22,29 @@ class BoardGetTopics extends Request
      *
      * @var integer
      */
-    public $can_add_topics;
+    private $can_add_topics;
 
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * See constants of class DefaultOrder
      *
      * @var integer
      */
-    public $default_order;
+    private $default_order;
 
     /**
      * @var Topic[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var UserMin[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * @return $this

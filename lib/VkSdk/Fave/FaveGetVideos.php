@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Fave;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Video\Includes\Video;
 /**
  * Returns a list of videos that the current user has liked.;
  * Class FaveGetVideos
- *
  * @package VkSdk\Fave
  */
 class FaveGetVideos extends Request
@@ -19,12 +19,12 @@ class FaveGetVideos extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Video[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

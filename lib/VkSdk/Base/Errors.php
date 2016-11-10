@@ -1,9 +1,9 @@
 <?php
+
 namespace VkSdk\Base;
 
 /**
  * Class Errors
- *
  * @package VkSdk\Base
  */
 class Errors

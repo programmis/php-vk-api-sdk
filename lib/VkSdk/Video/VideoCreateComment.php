@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds a new comment on a video.
  * Class VideoCreateComment
- *
  * @package VkSdk\Video
  */
 class VideoCreateComment extends Request

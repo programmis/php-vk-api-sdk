@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Video\Includes\AlbumFull;
 /**
  * Returns video album info
  * Class VideoGetAlbumById
- *
  * @package VkSdk\Video
  */
 class VideoGetAlbumById extends Request
@@ -19,7 +19,7 @@ class VideoGetAlbumById extends Request
     /**
      * @var AlbumFull
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

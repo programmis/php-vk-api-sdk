@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Wall\Includes\Comment;
 /**
  * Returns comments list for an item.
  * Class MarketGetComments
- *
  * @package VkSdk\Market
  */
 class MarketGetComments extends Request
@@ -29,12 +29,12 @@ class MarketGetComments extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Comment[]
      */
-    public $items;
+    private $items;
 
     /**
      * List of additional profile fields to return. See the [vk.com/dev/fields|details]

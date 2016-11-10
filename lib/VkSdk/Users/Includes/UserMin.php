@@ -1,38 +1,42 @@
 <?php
+
 namespace VkSdk\Users\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class UserMin
- *
  * @package VkSdk\Users\Includes
  */
 class UserMin
 {
 
-    /**
-     * @var string
-     */
-    public $deactivated;
+    use AutoFillObject;
 
     /**
      * @var string
      */
-    public $first_name;
+    private $deactivated;
+
+    /**
+     * @var string
+     */
+    private $first_name;
 
     /**
      * @var integer
      */
-    public $hidden;
+    private $hidden;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $last_name;
+    private $last_name;
 
     /**
      * Returns if a profile is deleted or blocked

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Photos\Includes\PhotoFull;
 /**
  * Returns a list of a user's or community's photos.
  * Class PhotosGet
- *
  * @package VkSdk\Photos
  */
 class PhotosGet extends Request
@@ -19,12 +19,12 @@ class PhotosGet extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var PhotoFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

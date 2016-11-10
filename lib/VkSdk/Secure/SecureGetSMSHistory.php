@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Secure;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Shows a list of SMS notifications sent by the application using  method.
  * Class SecureGetSMSHistory
- *
  * @package VkSdk\Secure
  */
 class SecureGetSMSHistory extends Request

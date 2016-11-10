@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Leads;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Leads\Includes\Checked;
 /**
  * Checks if the user can start the lead.
  * Class LeadsCheckUser
- *
  * @package VkSdk\Leads
  */
 class LeadsCheckUser extends Request
@@ -19,7 +19,7 @@ class LeadsCheckUser extends Request
     /**
      * @var Checked
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

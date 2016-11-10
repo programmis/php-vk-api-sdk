@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Newsfeed;
 
 use lib\AutoFillObject;
@@ -10,7 +11,6 @@ use VkSdk\Users\Includes\UserFull;
 /**
  * Returns data required to show newsfeed for the current user.
  * Class NewsfeedGet
- *
  * @package VkSdk\Newsfeed
  */
 class NewsfeedGet extends Request
@@ -21,17 +21,17 @@ class NewsfeedGet extends Request
     /**
      * @var GroupFull[]
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var Item[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var UserFull[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * Additional fields of  and  to return.

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Fave;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Users\Includes\UserMin;
 /**
  * Returns a list of users whom the current user has bookmarked.; ;
  * Class FaveGetUsers
- *
  * @package VkSdk\Fave
  */
 class FaveGetUsers extends Request
@@ -19,12 +19,12 @@ class FaveGetUsers extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var UserMin[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

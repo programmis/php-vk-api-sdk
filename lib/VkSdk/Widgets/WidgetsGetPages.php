@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Widgets;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Widgets\Includes\WidgetPage;
 /**
  * Gets a list of application/site pages where the  or  is installed.
  * Class WidgetsGetPages
- *
  * @package VkSdk\Widgets
  */
 class WidgetsGetPages extends Request
@@ -19,12 +19,12 @@ class WidgetsGetPages extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var WidgetPage[]
      */
-    public $pages;
+    private $pages;
 
     /**
      * @return $this

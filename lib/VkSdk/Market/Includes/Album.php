@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market\Includes;
 
 use lib\AutoFillObject;
@@ -6,7 +7,6 @@ use VkSdk\Photos\Includes\Photo;
 
 /**
  * Class Album
- *
  * @package VkSdk\Market\Includes
  */
 class Album
@@ -17,32 +17,32 @@ class Album
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $owner_id;
 
     /**
      * @var Photo
      */
-    public $photo;
+    private $photo;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var integer
      */
-    public $updated_time;
+    private $updated_time;
 
     /**
      * Items number

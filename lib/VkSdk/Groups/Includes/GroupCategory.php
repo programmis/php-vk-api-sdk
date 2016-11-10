@@ -1,28 +1,32 @@
 <?php
+
 namespace VkSdk\Groups\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class GroupCategory
- *
  * @package VkSdk\Groups\Includes
  */
 class GroupCategory
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
-     * @var array(array)
+     * @var array
      */
-    public $subcategories;
+    private $subcategories;
 
     /**
      * Category ID
@@ -69,7 +73,7 @@ class GroupCategory
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getSubcategories()
     {

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Creates a group to re-target ads for users who visited advertiser's site (viewed information about the product, registered, etc.).
  * Class AdsCreateTargetGroup
- *
  * @package VkSdk\Ads
  */
 class AdsCreateTargetGroup extends Request
@@ -15,12 +15,12 @@ class AdsCreateTargetGroup extends Request
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $pixel;
+    private $pixel;
 
     /**
      * {@inheritdoc}

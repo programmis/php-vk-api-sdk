@@ -1,33 +1,37 @@
 <?php
+
 namespace VkSdk\Wall\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Graffiti
- *
  * @package VkSdk\Wall\Includes
  */
 class Graffiti
 {
 
-    /**
-     * @var integer
-     */
-    public $id;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $id;
+
+    /**
+     * @var integer
+     */
+    private $owner_id;
 
     /**
      * @var string
      */
-    public $photo_200;
+    private $photo_200;
 
     /**
      * @var string
      */
-    public $photo_586;
+    private $photo_586;
 
     /**
      * Graffiti ID

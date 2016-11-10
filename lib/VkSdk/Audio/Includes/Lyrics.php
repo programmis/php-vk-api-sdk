@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Audio\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Lyrics
- *
  * @package VkSdk\Audio\Includes
  */
 class Lyrics
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $lyrics_id;
+    private $lyrics_id;
 
     /**
      * @var string
      */
-    public $text;
+    private $text;
 
     /**
      * Lyrics ID

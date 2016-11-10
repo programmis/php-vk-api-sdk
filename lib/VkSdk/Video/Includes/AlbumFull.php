@@ -1,53 +1,57 @@
 <?php
+
 namespace VkSdk\Video\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class AlbumFull
- *
  * @package VkSdk\Video\Includes
  */
 class AlbumFull
 {
 
-    /**
-     * @var integer
-     */
-    public $count;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $id;
+    private $count;
 
     /**
      * @var integer
      */
-    public $is_system;
+    private $id;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $is_system;
+
+    /**
+     * @var integer
+     */
+    private $owner_id;
 
     /**
      * @var string
      */
-    public $photo_160;
+    private $photo_160;
 
     /**
      * @var string
      */
-    public $photo_320;
+    private $photo_320;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var integer
      */
-    public $updated_time;
+    private $updated_time;
 
     /**
      * Total number of videos in album

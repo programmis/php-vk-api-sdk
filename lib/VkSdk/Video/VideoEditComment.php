@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits the text of a comment on a video.
  * Class VideoEditComment
- *
  * @package VkSdk\Video
  */
 class VideoEditComment extends Request
@@ -17,7 +17,7 @@ class VideoEditComment extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * List of objects attached to the comment, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media attachment owner.; '<media_id>' — Media attachment ID. ; ; Example:; "photo100172_166443618,photo66748_265827614"

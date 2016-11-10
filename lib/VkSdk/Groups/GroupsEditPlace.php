@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits the place in community.
  * Class GroupsEditPlace
- *
  * @package VkSdk\Groups
  */
 class GroupsEditPlace extends Request
@@ -15,14 +15,14 @@ class GroupsEditPlace extends Request
     /**
      * @var string
      */
-    public $address;
+    private $address;
 
     /**
      * See constants of class OkResponse
      *
      * @var integer
      */
-    public $success;
+    private $success;
 
     /**
      * {@inheritdoc}

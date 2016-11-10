@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use lib\AutoFillObject;
@@ -10,7 +11,6 @@ use VkSdk\Video\Includes\CatBlock;
 /**
  * Returns video catalog
  * Class VideoGetCatalog
- *
  * @package VkSdk\Video
  */
 class VideoGetCatalog extends Request
@@ -21,22 +21,22 @@ class VideoGetCatalog extends Request
     /**
      * @var GroupFull[]
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var CatBlock[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var string
      */
-    public $next;
+    private $next;
 
     /**
      * @var UserFull[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * list of requested catalog sections

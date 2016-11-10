@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Change push settings.
  * Class AccountSetPushSettings
- *
  * @package VkSdk\Account
  */
 class AccountSetPushSettings extends Request
@@ -17,7 +17,7 @@ class AccountSetPushSettings extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * New value for the key in a .

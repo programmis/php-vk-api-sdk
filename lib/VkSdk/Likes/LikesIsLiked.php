@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Likes;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Checks for the object in the 'Likes' list of the specified user.
  * Class LikesIsLiked
- *
  * @package VkSdk\Likes
  */
 class LikesIsLiked extends Request
@@ -17,14 +17,14 @@ class LikesIsLiked extends Request
      *
      * @var integer
      */
-    public $copied;
+    private $copied;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $liked;
+    private $liked;
 
     /**
      * {@inheritdoc}

@@ -1,28 +1,32 @@
 <?php
+
 namespace VkSdk\Ads\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class LinkStatus
- *
  * @package VkSdk\Ads\Includes
  */
 class LinkStatus
 {
 
-    /**
-     * @var string
-     */
-    public $description;
+    use AutoFillObject;
 
     /**
      * @var string
      */
-    public $redirect_url;
+    private $description;
 
     /**
      * @var string
      */
-    public $status;
+    private $redirect_url;
+
+    /**
+     * @var string
+     */
+    private $status;
 
     /**
      * Reject reason

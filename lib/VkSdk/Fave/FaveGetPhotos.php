@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Fave;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Photos\Includes\Photo;
 /**
  * Returns a list of photos that the current user has liked.; ;
  * Class FaveGetPhotos
- *
  * @package VkSdk\Fave
  */
 class FaveGetPhotos extends Request
@@ -19,12 +19,12 @@ class FaveGetPhotos extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Photo[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

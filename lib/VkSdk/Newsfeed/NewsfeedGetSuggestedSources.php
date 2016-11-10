@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Newsfeed;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns communities and users that current user is suggested to follow.
  * Class NewsfeedGetSuggestedSources
- *
  * @package VkSdk\Newsfeed
  */
 class NewsfeedGetSuggestedSources extends Request

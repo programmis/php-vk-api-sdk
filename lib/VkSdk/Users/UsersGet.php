@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Users;
 
 use VkSdk\Includes\Request;
@@ -6,8 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns detailed information on users.
  * Class UsersGet
-
-*
  * @package VkSdk\Users
  */
 class UsersGet extends Request

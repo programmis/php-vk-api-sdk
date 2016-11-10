@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Newsfeed;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Newsfeed\Includes\Lists;
 /**
  * Returns a list of newsfeeds followed by the current user.
  * Class NewsfeedGetLists
- *
  * @package VkSdk\Newsfeed
  */
 class NewsfeedGetLists extends Request
@@ -19,12 +19,12 @@ class NewsfeedGetLists extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Lists[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos\Includes;
 
 use lib\AutoFillObject;
@@ -7,7 +8,6 @@ use VkSdk\Wall\Includes\CommentAttachment;
 
 /**
  * Class CommentXtrPid
- *
  * @package VkSdk\Photos\Includes
  */
 class CommentXtrPid
@@ -18,47 +18,47 @@ class CommentXtrPid
     /**
      * @var CommentAttachment[]
      */
-    public $attachments;
+    private $attachments;
 
     /**
      * @var integer
      */
-    public $date;
+    private $date;
 
     /**
      * @var integer
      */
-    public $from_id;
+    private $from_id;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var LikesInfo
      */
-    public $likes;
+    private $likes;
 
     /**
      * @var integer
      */
-    public $pid;
+    private $pid;
 
     /**
      * @var integer
      */
-    public $reply_to_comment;
+    private $reply_to_comment;
 
     /**
      * @var integer
      */
-    public $reply_to_user;
+    private $reply_to_user;
 
     /**
      * @var string
      */
-    public $text;
+    private $text;
 
     /**
      * @return $this

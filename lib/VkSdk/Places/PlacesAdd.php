@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Places;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds a new location to the location database.
  * Class PlacesAdd
- *
  * @package VkSdk\Places
  */
 class PlacesAdd extends Request
@@ -15,7 +15,7 @@ class PlacesAdd extends Request
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * {@inheritdoc}

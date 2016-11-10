@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Messages\Includes\LongpollParams;
 /**
  * Returns data required for connection to a Long Poll server.
  * Class MessagesGetLongPollServer
- *
  * @package VkSdk\Messages
  */
 class MessagesGetLongPollServer extends Request
@@ -19,7 +19,7 @@ class MessagesGetLongPollServer extends Request
     /**
      * @var LongpollParams
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

@@ -1,33 +1,37 @@
 <?php
+
 namespace VkSdk\Friends\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class RequestsXtrMessage
- *
  * @package VkSdk\Friends\Includes
  */
 class RequestsXtrMessage
 {
 
-    /**
-     * @var string
-     */
-    public $from;
+    use AutoFillObject;
 
     /**
      * @var string
      */
-    public $message;
+    private $from;
+
+    /**
+     * @var string
+     */
+    private $message;
 
     /**
      * @var object
      */
-    public $mutual;
+    private $mutual;
 
     /**
      * @var integer
      */
-    public $user_id;
+    private $user_id;
 
     /**
      * ID of the user by whom friend has been suggested

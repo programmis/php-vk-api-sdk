@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Base;
 
 use lib\AutoFillObject;
 
 /**
  * Class Geo
- *
  * @package VkSdk\Base
  */
 class Geo
@@ -16,22 +16,22 @@ class Geo
     /**
      * @var string
      */
-    public $coordinates;
+    private $coordinates;
 
     /**
      * @var Place
      */
-    public $place;
+    private $place;
 
     /**
      * @var integer
      */
-    public $showmap;
+    private $showmap;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * String with coordinates

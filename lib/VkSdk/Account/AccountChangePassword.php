@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Changes a user password after access is successfully restored with the  method.
  * Class AccountChangePassword
- *
  * @package VkSdk\Account
  */
 class AccountChangePassword extends Request
@@ -15,12 +15,12 @@ class AccountChangePassword extends Request
     /**
      * @var string
      */
-    public $secret;
+    private $secret;
 
     /**
      * @var string
      */
-    public $token;
+    private $token;
 
     /**
      * {@inheritdoc}

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Likes;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Users\Includes\UserMin;
 /**
  * Returns a list of IDs of users who added the specified object to their 'Likes' list.
  * Class LikesGetList
- *
  * @package VkSdk\Likes
  */
 class LikesGetList extends Request
@@ -19,12 +19,12 @@ class LikesGetList extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var UserMin[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

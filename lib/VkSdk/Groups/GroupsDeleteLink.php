@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Allows to delete a link from the community.
  * Class GroupsDeleteLink
- *
  * @package VkSdk\Groups
  */
 class GroupsDeleteLink extends Request
@@ -17,7 +17,7 @@ class GroupsDeleteLink extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

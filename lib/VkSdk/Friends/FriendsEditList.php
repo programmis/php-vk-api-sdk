@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Friends;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits a friend list of the current user.
  * Class FriendsEditList
- *
  * @package VkSdk\Friends
  */
 class FriendsEditList extends Request
@@ -17,7 +17,7 @@ class FriendsEditList extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * (Applies if 'user_ids' parameter is not set.); User IDs to add to the friend list.

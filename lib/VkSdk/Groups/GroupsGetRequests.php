@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Users\Includes\UserFull;
 /**
  * Returns a list of requests to the community.
  * Class GroupsGetRequests
- *
  * @package VkSdk\Groups
  */
 class GroupsGetRequests extends Request
@@ -19,12 +19,12 @@ class GroupsGetRequests extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var UserFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * Profile fields to return.;

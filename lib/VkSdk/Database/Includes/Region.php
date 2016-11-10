@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Database\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Region
- *
  * @package VkSdk\Database\Includes
  */
 class Region
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * Region ID

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Newsfeed;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Creates and edits user newsfeed lists
  * Class NewsfeedSaveList
- *
  * @package VkSdk\Newsfeed
  */
 class NewsfeedSaveList extends Request

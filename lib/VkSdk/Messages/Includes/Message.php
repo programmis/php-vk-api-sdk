@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages\Includes;
 
 use lib\AutoFillObject;
@@ -6,7 +7,6 @@ use VkSdk\Base\Geo;
 
 /**
  * Class Message
- *
  * @package VkSdk\Messages\Includes
  */
 class Message
@@ -17,106 +17,106 @@ class Message
     /**
      * @var integer
      */
-    public $admin_id;
+    private $admin_id;
 
     /**
      * @var Message[]
      */
-    public $attachments;
+    private $attachments;
 
     /**
      * @var string
      */
-    public $body;
+    private $body;
 
     /**
-     * @var array(array)
+     * @var array
      */
-    public $chat_active;
-
-    /**
-     * @var integer
-     */
-    public $chat_id;
+    private $chat_active;
 
     /**
      * @var integer
      */
-    public $date;
+    private $chat_id;
+
+    /**
+     * @var integer
+     */
+    private $date;
 
     /**
      * @var boolean
      */
-    public $deleted;
+    private $deleted;
 
     /**
      * @var Message[]
      */
-    public $fwd_messages;
+    private $fwd_messages;
 
     /**
      * @var Geo
      */
-    public $geo;
+    private $geo;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var boolean
      */
-    public $important;
+    private $important;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $out;
+    private $out;
 
     /**
      * @var string
      */
-    public $photo_100;
+    private $photo_100;
 
     /**
      * @var string
      */
-    public $photo_200;
+    private $photo_200;
 
     /**
      * @var string
      */
-    public $photo_50;
+    private $photo_50;
 
     /**
      * @var integer
      */
-    public $random_id;
+    private $random_id;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $read_state;
+    private $read_state;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var integer
      */
-    public $user_id;
+    private $user_id;
 
     /**
      * @var integer
      */
-    public $users_count;
+    private $users_count;
 
     /**
      * Chat administrator ID
@@ -183,7 +183,7 @@ class Message
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getChatActive()
     {

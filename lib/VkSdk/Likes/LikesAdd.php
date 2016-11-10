@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Likes;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds the specified object to the 'Likes' list of the current user.
  * Class LikesAdd
- *
  * @package VkSdk\Likes
  */
 class LikesAdd extends Request
@@ -15,7 +15,7 @@ class LikesAdd extends Request
     /**
      * @var integer
      */
-    public $likes;
+    private $likes;
 
     /**
      * {@inheritdoc}

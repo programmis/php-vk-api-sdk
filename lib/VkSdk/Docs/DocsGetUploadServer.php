@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Docs;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns the server address for document upload.
  * Class DocsGetUploadServer
- *
  * @package VkSdk\Docs
  */
 class DocsGetUploadServer extends Request
@@ -15,7 +15,7 @@ class DocsGetUploadServer extends Request
     /**
      * @var string
      */
-    public $upload_url;
+    private $upload_url;
 
     /**
      * {@inheritdoc}

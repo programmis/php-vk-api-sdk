@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Friends;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Declines a friend request or deletes a user from the current user's friend list.
  * Class FriendsDelete
- *
  * @package VkSdk\Friends
  */
 class FriendsDelete extends Request
@@ -15,29 +15,29 @@ class FriendsDelete extends Request
     /**
      * @var integer
      */
-    public $friend_deleted;
+    private $friend_deleted;
 
     /**
      * @var integer
      */
-    public $in_request_deleted;
+    private $in_request_deleted;
 
     /**
      * @var integer
      */
-    public $out_request_deleted;
+    private $out_request_deleted;
 
     /**
      * See constants of class OkResponse
      *
      * @var integer
      */
-    public $success;
+    private $success;
 
     /**
      * @var integer
      */
-    public $suggestion_deleted;
+    private $suggestion_deleted;
 
     /**
      * {@inheritdoc}

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits the caption of a photo.
  * Class PhotosEdit
- *
  * @package VkSdk\Photos
  */
 class PhotosEdit extends Request
@@ -17,7 +17,7 @@ class PhotosEdit extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

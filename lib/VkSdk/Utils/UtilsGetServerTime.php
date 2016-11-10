@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Utils;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns the current time of the VK server.
  * Class UtilsGetServerTime
- *
  * @package VkSdk\Utils
  */
 class UtilsGetServerTime extends Request

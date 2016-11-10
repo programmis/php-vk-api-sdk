@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Video\Includes\TagInfo;
 /**
  * Returns a list of videos with tags that have not been viewed.
  * Class VideoGetNewTags
- *
  * @package VkSdk\Video
  */
 class VideoGetNewTags extends Request
@@ -19,12 +19,12 @@ class VideoGetNewTags extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var TagInfo[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

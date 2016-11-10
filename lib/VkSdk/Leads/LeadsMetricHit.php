@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Leads;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Counts the metric event.
  * Class LeadsMetricHit
- *
  * @package VkSdk\Leads
  */
 class LeadsMetricHit extends Request
@@ -15,12 +15,12 @@ class LeadsMetricHit extends Request
     /**
      * @var string
      */
-    public $redirect_link;
+    private $redirect_link;
 
     /**
      * @var boolean
      */
-    public $result;
+    private $result;
 
     /**
      * {@inheritdoc}

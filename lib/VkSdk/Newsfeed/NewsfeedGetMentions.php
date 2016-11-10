@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Newsfeed;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Wall\Includes\WallpostToId;
 /**
  * Returns a list of posts on user walls in which the current user is mentioned.;
  * Class NewsfeedGetMentions
- *
  * @package VkSdk\Newsfeed
  */
 class NewsfeedGetMentions extends Request
@@ -19,12 +19,12 @@ class NewsfeedGetMentions extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var WallpostToId[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

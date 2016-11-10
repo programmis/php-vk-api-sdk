@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Docs;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Copies a document to a user's or community's document list.
  * Class DocsAdd
- *
  * @package VkSdk\Docs
  */
 class DocsAdd extends Request
@@ -15,7 +15,7 @@ class DocsAdd extends Request
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * {@inheritdoc}

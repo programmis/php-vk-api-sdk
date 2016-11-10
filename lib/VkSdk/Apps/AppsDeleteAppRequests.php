@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Apps;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes all request notifications from the current app.
  * Class AppsDeleteAppRequests
- *
  * @package VkSdk\Apps
  */
 class AppsDeleteAppRequests extends Request
@@ -17,7 +17,7 @@ class AppsDeleteAppRequests extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

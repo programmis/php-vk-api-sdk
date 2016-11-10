@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall\Includes;
 
 use lib\AutoFillObject;
@@ -6,7 +7,6 @@ use VkSdk\Base\Geo;
 
 /**
  * Class Wallpost
- *
  * @package VkSdk\Wall\Includes
  */
 class Wallpost
@@ -17,54 +17,54 @@ class Wallpost
     /**
      * @var Wallpost[]
      */
-    public $attachments;
+    private $attachments;
 
     /**
      * @var integer
      */
-    public $date;
+    private $date;
 
     /**
      * @var integer
      */
-    public $from_id;
+    private $from_id;
 
     /**
      * @var Geo
      */
-    public $geo;
+    private $geo;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $owner_id;
 
     /**
      * @var PostSource
      */
-    public $post_source;
+    private $post_source;
 
     /**
      * See constants of class PostType
      *
      * @var string
      */
-    public $post_type;
+    private $post_type;
 
     /**
      * @var integer
      */
-    public $signer_id;
+    private $signer_id;
 
     /**
      * @var string
      */
-    public $text;
+    private $text;
 
     /**
      * @return Wallpost[]

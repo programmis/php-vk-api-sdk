@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Restores recently deleted item
  * Class MarketRestore
- *
  * @package VkSdk\Market
  */
 class MarketRestore extends Request
@@ -17,7 +17,7 @@ class MarketRestore extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

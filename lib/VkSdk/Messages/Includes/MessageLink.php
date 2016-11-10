@@ -1,33 +1,37 @@
 <?php
+
 namespace VkSdk\Messages\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class MessageLink
- *
  * @package VkSdk\Messages\Includes
  */
 class MessageLink
 {
 
-    /**
-     * @var string
-     */
-    public $description;
+    use AutoFillObject;
 
     /**
      * @var string
      */
-    public $image_src;
+    private $description;
 
     /**
      * @var string
      */
-    public $title;
+    private $image_src;
 
     /**
      * @var string
      */
-    public $url;
+    private $title;
+
+    /**
+     * @var string
+     */
+    private $url;
 
     /**
      * Link description

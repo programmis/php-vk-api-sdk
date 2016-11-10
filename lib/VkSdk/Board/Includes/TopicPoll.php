@@ -1,55 +1,59 @@
 <?php
+
 namespace VkSdk\Board\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class TopicPoll
- *
  * @package VkSdk\Board\Includes
  */
 class TopicPoll
 {
 
-    /**
-     * @var integer
-     */
-    public $answer_id;
-
-    /**
-     * @var array(array)
-     */
-    public $answers;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $created;
+    private $answer_id;
+
+    /**
+     * @var array
+     */
+    private $answers;
+
+    /**
+     * @var integer
+     */
+    private $created;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $is_closed;
+    private $is_closed;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $owner_id;
 
     /**
      * @var integer
      */
-    public $poll_id;
+    private $poll_id;
 
     /**
      * @var string
      */
-    public $question;
+    private $question;
 
     /**
      * @var string
      */
-    public $votes;
+    private $votes;
 
     /**
      * Current user's answer ID
@@ -74,7 +78,7 @@ class TopicPoll
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getAnswers()
     {

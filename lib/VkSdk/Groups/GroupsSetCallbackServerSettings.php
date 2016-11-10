@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Allow to set  server settings.
  * Class GroupsSetCallbackServerSettings
- *
  * @package VkSdk\Groups
  */
 class GroupsSetCallbackServerSettings extends Request
@@ -17,7 +17,7 @@ class GroupsSetCallbackServerSettings extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

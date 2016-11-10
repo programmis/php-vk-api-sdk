@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Hides a video catalog section from a user.
  * Class VideoHideCatalogSection
- *
  * @package VkSdk\Video
  */
 class VideoHideCatalogSection extends Request
@@ -17,7 +17,7 @@ class VideoHideCatalogSection extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

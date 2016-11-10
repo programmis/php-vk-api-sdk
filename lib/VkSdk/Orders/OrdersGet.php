@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Orders;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of orders.
  * Class OrdersGet
- *
  * @package VkSdk\Orders
  */
 class OrdersGet extends Request

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Secure;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Sets a counter which is shown to the user in bold in the left menu.
  * Class SecureSetCounter
- *
  * @package VkSdk\Secure
  */
 class SecureSetCounter extends Request
@@ -17,7 +17,7 @@ class SecureSetCounter extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * @return $this

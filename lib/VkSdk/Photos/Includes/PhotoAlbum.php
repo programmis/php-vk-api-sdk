@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Photos\Includes;
 
 use lib\AutoFillObject;
 
 /**
  * Class PhotoAlbum
- *
  * @package VkSdk\Photos\Includes
  */
 class PhotoAlbum
@@ -16,42 +16,42 @@ class PhotoAlbum
     /**
      * @var integer
      */
-    public $created;
+    private $created;
 
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $owner_id;
 
     /**
      * @var integer
      */
-    public $size;
+    private $size;
 
     /**
      * @var Photo
      */
-    public $thumb;
+    private $thumb;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var integer
      */
-    public $updated;
+    private $updated;
 
     /**
      * Date when the album has been created in Unixtime

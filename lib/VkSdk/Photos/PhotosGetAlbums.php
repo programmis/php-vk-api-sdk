@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Photos\Includes\PhotoAlbumFull;
 /**
  * Returns a list of a user's or community's photo albums.
  * Class PhotosGetAlbums
- *
  * @package VkSdk\Photos
  */
 class PhotosGetAlbums extends Request
@@ -19,12 +19,12 @@ class PhotosGetAlbums extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var PhotoAlbumFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * Album IDs.

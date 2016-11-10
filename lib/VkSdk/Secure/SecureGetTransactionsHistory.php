@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Secure;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Shows history of votes transaction between users and the application.
  * Class SecureGetTransactionsHistory
- *
  * @package VkSdk\Secure
  */
 class SecureGetTransactionsHistory extends Request

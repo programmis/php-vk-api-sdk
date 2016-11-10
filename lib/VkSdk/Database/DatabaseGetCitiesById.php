@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Database;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns information about cities by their IDs.
  * Class DatabaseGetCitiesById
- *
  * @package VkSdk\Database
  */
 class DatabaseGetCitiesById extends Request

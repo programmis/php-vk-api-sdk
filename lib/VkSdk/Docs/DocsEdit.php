@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Docs;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits a document.
  * Class DocsEdit
- *
  * @package VkSdk\Docs
  */
 class DocsEdit extends Request
@@ -17,7 +17,7 @@ class DocsEdit extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * Document tags.

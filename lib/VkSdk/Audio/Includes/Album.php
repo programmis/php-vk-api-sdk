@@ -1,28 +1,32 @@
 <?php
+
 namespace VkSdk\Audio\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Album
- *
  * @package VkSdk\Audio\Includes
  */
 class Album
 {
 
-    /**
-     * @var integer
-     */
-    public $id;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $id;
+
+    /**
+     * @var integer
+     */
+    private $owner_id;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * Album ID

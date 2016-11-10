@@ -1,48 +1,52 @@
 <?php
+
 namespace VkSdk\Leads\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Lead
- *
  * @package VkSdk\Leads\Includes
  */
 class Lead
 {
 
-    /**
-     * @var integer
-     */
-    public $completed;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $cost;
+    private $completed;
+
+    /**
+     * @var integer
+     */
+    private $cost;
 
     /**
      * @var object
      */
-    public $days;
+    private $days;
 
     /**
      * @var integer
      */
-    public $impressions;
+    private $impressions;
 
     /**
      * @var integer
      */
-    public $limit;
+    private $limit;
 
     /**
      * @var integer
      */
-    public $spent;
+    private $spent;
 
     /**
      * @var integer
      */
-    public $started;
+    private $started;
 
     /**
      * Completed offers number

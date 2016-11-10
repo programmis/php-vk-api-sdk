@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of the communities to which a user belongs.; ;
  * Class GroupsGet
- *
  * @package VkSdk\Groups
  */
 class GroupsGet extends Request
@@ -19,12 +19,12 @@ class GroupsGet extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var GroupFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * Profile fields to return.;

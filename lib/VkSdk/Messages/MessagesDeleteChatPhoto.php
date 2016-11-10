@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Messages\Includes\Chat;
 /**
  * Deletes a chat's cover picture.
  * Class MessagesDeleteChatPhoto
- *
  * @package VkSdk\Messages
  */
 class MessagesDeleteChatPhoto extends Request
@@ -19,12 +19,12 @@ class MessagesDeleteChatPhoto extends Request
     /**
      * @var Chat
      */
-    public $chat;
+    private $chat;
 
     /**
      * @var integer
      */
-    public $message_id;
+    private $message_id;
 
     /**
      * {@inheritdoc}

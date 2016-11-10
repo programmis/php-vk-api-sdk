@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes an audio file from a user page or community page.
  * Class AudioDelete
- *
  * @package VkSdk\Audio
  */
 class AudioDelete extends Request
@@ -17,7 +17,7 @@ class AudioDelete extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

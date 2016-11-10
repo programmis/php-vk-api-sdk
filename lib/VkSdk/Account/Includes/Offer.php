@@ -1,58 +1,62 @@
 <?php
+
 namespace VkSdk\Account\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Offer
- *
  * @package VkSdk\Account\Includes
  */
 class Offer
 {
 
+    use AutoFillObject;
+
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $img;
+    private $img;
 
     /**
      * @var string
      */
-    public $instruction;
+    private $instruction;
 
     /**
      * @var string
      */
-    public $instruction_html;
+    private $instruction_html;
 
     /**
      * @var integer
      */
-    public $price;
+    private $price;
 
     /**
      * @var string
      */
-    public $short_description;
+    private $short_description;
 
     /**
      * @var string
      */
-    public $tag;
+    private $tag;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * Offer description

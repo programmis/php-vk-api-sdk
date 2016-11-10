@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Utils;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Utils\Includes\DomainResolved;
 /**
  * Detects a type of object (e.g., user, community, application) and its ID by screen name.
  * Class UtilsResolveScreenName
- *
  * @package VkSdk\Utils
  */
 class UtilsResolveScreenName extends Request
@@ -19,7 +19,7 @@ class UtilsResolveScreenName extends Request
     /**
      * @var DomainResolved
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

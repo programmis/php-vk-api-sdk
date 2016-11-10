@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall;
 
 use lib\AutoFillObject;
@@ -10,7 +11,6 @@ use VkSdk\Wall\Includes\Comment;
 /**
  * Returns a list of comments on a post on a user wall or community wall.
  * Class WallGetComments
- *
  * @package VkSdk\Wall
  */
 class WallGetComments extends Request
@@ -21,22 +21,22 @@ class WallGetComments extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Group[]
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var Comment[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var User[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * @return $this

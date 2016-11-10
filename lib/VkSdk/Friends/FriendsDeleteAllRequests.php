@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Friends;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Marks all incoming friend requests as viewed.
  * Class FriendsDeleteAllRequests
- *
  * @package VkSdk\Friends
  */
 class FriendsDeleteAllRequests extends Request
@@ -17,7 +17,7 @@ class FriendsDeleteAllRequests extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

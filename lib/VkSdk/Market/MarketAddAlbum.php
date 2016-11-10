@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Creates new collection of items
  * Class MarketAddAlbum
- *
  * @package VkSdk\Market
  */
 class MarketAddAlbum extends Request
@@ -15,7 +15,7 @@ class MarketAddAlbum extends Request
     /**
      * @var integer
      */
-    public $market_album_id;
+    private $market_album_id;
 
     /**
      * {@inheritdoc}

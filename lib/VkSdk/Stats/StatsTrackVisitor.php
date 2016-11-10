@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Stats;
 
 use VkSdk\Includes\Request;
 
 /**
  * Class StatsTrackVisitor
- *
  * @package VkSdk\Stats
  */
 class StatsTrackVisitor extends Request
@@ -16,7 +16,7 @@ class StatsTrackVisitor extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

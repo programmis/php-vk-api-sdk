@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Removes an item from one or multiple collections.
  * Class MarketRemoveFromAlbum
- *
  * @package VkSdk\Market
  */
 class MarketRemoveFromAlbum extends Request
@@ -17,7 +17,7 @@ class MarketRemoveFromAlbum extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * Collections IDs to remove item from.

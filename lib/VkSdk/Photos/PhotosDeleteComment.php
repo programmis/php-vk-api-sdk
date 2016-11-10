@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes a comment on the photo.
  * Class PhotosDeleteComment
- *
  * @package VkSdk\Photos
  */
 class PhotosDeleteComment extends Request
@@ -17,7 +17,7 @@ class PhotosDeleteComment extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

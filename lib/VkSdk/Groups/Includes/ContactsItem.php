@@ -1,33 +1,37 @@
 <?php
+
 namespace VkSdk\Groups\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class ContactsItem
- *
  * @package VkSdk\Groups\Includes
  */
 class ContactsItem
 {
 
-    /**
-     * @var string
-     */
-    public $desc;
+    use AutoFillObject;
 
     /**
      * @var string
      */
-    public $email;
+    private $desc;
 
     /**
      * @var string
      */
-    public $phone;
+    private $email;
+
+    /**
+     * @var string
+     */
+    private $phone;
 
     /**
      * @var integer
      */
-    public $user_id;
+    private $user_id;
 
     /**
      * Contact description

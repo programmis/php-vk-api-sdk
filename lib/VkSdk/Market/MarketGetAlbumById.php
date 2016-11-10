@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Market\Includes\Album;
 /**
  * Returns items album's data
  * Class MarketGetAlbumById
- *
  * @package VkSdk\Market
  */
 class MarketGetAlbumById extends Request
@@ -19,12 +19,12 @@ class MarketGetAlbumById extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Album[]
      */
-    public $items;
+    private $items;
 
     /**
      * collections identifiers to obtain data from

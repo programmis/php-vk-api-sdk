@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Notes;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds a new comment on a note.
  * Class NotesCreateComment
- *
  * @package VkSdk\Notes
  */
 class NotesCreateComment extends Request

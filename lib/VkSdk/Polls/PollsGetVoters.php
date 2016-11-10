@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Polls;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of IDs of users who selected specific answers in the poll.
  * Class PollsGetVoters
- *
  * @package VkSdk\Polls
  */
 class PollsGetVoters extends Request

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Pages;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Pages\Includes\WikipageFull;
 /**
  * Returns the text of one of the previous versions of a wiki page.
  * Class PagesGetVersion
- *
  * @package VkSdk\Pages
  */
 class PagesGetVersion extends Request
@@ -19,7 +19,7 @@ class PagesGetVersion extends Request
     /**
      * @var WikipageFull
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

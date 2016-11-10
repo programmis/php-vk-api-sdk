@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Docs;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes a user or community document.
  * Class DocsDelete
- *
  * @package VkSdk\Docs
  */
 class DocsDelete extends Request
@@ -17,7 +17,7 @@ class DocsDelete extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

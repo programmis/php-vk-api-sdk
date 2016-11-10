@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of audio files from the "Popular".
  * Class AudioGetPopular
- *
  * @package VkSdk\Audio
  */
 class AudioGetPopular extends Request

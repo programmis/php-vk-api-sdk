@@ -1,33 +1,37 @@
 <?php
+
 namespace VkSdk\Apps\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Leaderboard
- *
  * @package VkSdk\Apps\Includes
  */
 class Leaderboard
 {
 
-    /**
-     * @var integer
-     */
-    public $level;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $points;
+    private $level;
 
     /**
      * @var integer
      */
-    public $score;
+    private $points;
 
     /**
      * @var integer
      */
-    public $user_id;
+    private $score;
+
+    /**
+     * @var integer
+     */
+    private $user_id;
 
     /**
      * Level

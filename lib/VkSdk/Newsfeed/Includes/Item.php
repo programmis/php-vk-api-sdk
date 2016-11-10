@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Newsfeed\Includes;
 
 use lib\AutoFillObject;
@@ -7,7 +8,6 @@ use VkSdk\Base\LikesInfo;
 
 /**
  * Class Item
- *
  * @package VkSdk\Newsfeed\Includes
  */
 class Item
@@ -18,37 +18,37 @@ class Item
     /**
      * @var CommentsInfo
      */
-    public $comments;
+    private $comments;
 
     /**
      * @var integer
      */
-    public $date;
+    private $date;
 
     /**
      * @var LikesInfo
      */
-    public $likes;
+    private $likes;
 
     /**
      * @var integer
      */
-    public $post_id;
+    private $post_id;
 
     /**
      * @var integer
      */
-    public $source_id;
+    private $source_id;
 
     /**
      * @var string
      */
-    public $text;
+    private $text;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * @return CommentsInfo

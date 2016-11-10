@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Polls;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes the current user's vote from the selected answer in the poll.
  * Class PollsDeleteVote
- *
  * @package VkSdk\Polls
  */
 class PollsDeleteVote extends Request
@@ -17,7 +17,7 @@ class PollsDeleteVote extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Marks and unmarks messages as important (starred).
  * Class MessagesMarkAsImportant
- *
  * @package VkSdk\Messages
  */
 class MessagesMarkAsImportant extends Request

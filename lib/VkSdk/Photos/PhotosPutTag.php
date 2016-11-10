@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds a tag on the photo.
  * Class PhotosPutTag
- *
  * @package VkSdk\Photos
  */
 class PhotosPutTag extends Request

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds a comment to a post on a user wall or community wall.
  * Class WallCreateComment
- *
  * @package VkSdk\Wall
  */
 class WallCreateComment extends Request
@@ -15,7 +15,7 @@ class WallCreateComment extends Request
     /**
      * @var integer
      */
-    public $comment_id;
+    private $comment_id;
 
     /**
      * (Required if 'message' is not set.) List of media objects attached to the comment, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media ojbect:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media owner.; '<media_id>' — Media ID. ; ; For example:; "photo100172_166443618,photo66748_265827614"

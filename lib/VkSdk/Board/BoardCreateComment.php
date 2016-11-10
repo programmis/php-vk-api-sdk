@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Board;
 
 use VkSdk\Includes\Request;
@@ -6,8 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds a comment on a topic on a community's discussion board.
  * Class BoardCreateComment
-
-*
  * @package VkSdk\Board
  */
 class BoardCreateComment extends Request
@@ -62,11 +61,10 @@ class BoardCreateComment extends Request
 
     /**
      * (Required if 'text' is not set.) List of media objects attached to the comment, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media object:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media owner. ; '<media_id>' — Media ID.
-
-*
-*@return $this
      *
-     * @param array $attachments
+     * @return $this
+     *
+*@param array $attachments
      */
     public function setAttachments(array $attachments)
     {
@@ -78,9 +76,10 @@ class BoardCreateComment extends Request
     /**
      * '1' — to post the comment as by the community; '0' — to post the comment as by the user (default)
      *
-*@return $this
+     * @return $this
+
      *
-     * @param boolean $from_group
+*@param boolean $from_group
      */
     public function setFromGroup($from_group)
     {
@@ -91,12 +90,11 @@ class BoardCreateComment extends Request
 
     /**
      * ID of the community that owns the discussion board.
+
      *
-     * @return $this
-
-
-*
-*@param integer $group_id
+*@return $this
+     *
+     * @param integer $group_id
      */
     public function setGroupId($group_id)
     {
@@ -109,7 +107,6 @@ class BoardCreateComment extends Request
      * Unique identifier to avoid repeated comments.
      *
      * @return $this
-
      *
      * @param string $guid
      */
@@ -123,10 +120,10 @@ class BoardCreateComment extends Request
     /**
      * (Required if 'attachments' is not set.) Text of the comment.
      *
-     *@return $this
+     * @return $this
 
      *
-     * @param string $message
+*@param string $message
      */
     public function setMessage($message)
     {
@@ -138,9 +135,10 @@ class BoardCreateComment extends Request
     /**
      * Sticker ID.
      *
-*@return $this
+     * @return $this
+
      *
-     * @param integer $sticker_id
+*@param integer $sticker_id
      */
     public function setStickerId($sticker_id)
     {
@@ -151,15 +149,16 @@ class BoardCreateComment extends Request
 
     /**
      * ID of the topic to be commented on.
+
      *
-     * @return $this
+*@return $this
      *
-*@param integer $topic_id
+     * @param integer $topic_id
      */
     public function setTopicId($topic_id)
     {
         $this->vkarg_topic_id = $topic_id;
 
         return $this;
-    }
+	}
 }

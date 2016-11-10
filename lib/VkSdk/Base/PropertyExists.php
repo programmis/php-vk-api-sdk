@@ -1,9 +1,9 @@
 <?php
+
 namespace VkSdk\Base;
 
 /**
  * Class PropertyExists
- *
  * @package VkSdk\Base
  */
 class PropertyExists

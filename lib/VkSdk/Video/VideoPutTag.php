@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds a tag on a video.
  * Class VideoPutTag
- *
  * @package VkSdk\Video
  */
 class VideoPutTag extends Request

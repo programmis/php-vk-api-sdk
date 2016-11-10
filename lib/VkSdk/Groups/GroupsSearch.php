@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of communities matching the search criteria.
  * Class GroupsSearch
- *
  * @package VkSdk\Groups
  */
 class GroupsSearch extends Request
@@ -19,12 +19,12 @@ class GroupsSearch extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Group[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

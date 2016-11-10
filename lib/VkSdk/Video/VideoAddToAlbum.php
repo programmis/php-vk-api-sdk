@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
 
 /**
  * Class VideoAddToAlbum
- *
  * @package VkSdk\Video
  */
 class VideoAddToAlbum extends Request
@@ -16,7 +16,7 @@ class VideoAddToAlbum extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * @return $this

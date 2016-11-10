@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Polls;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds the current user's vote to the selected answer in the poll.
  * Class PollsAddVote
- *
  * @package VkSdk\Polls
  */
 class PollsAddVote extends Request
@@ -17,7 +17,7 @@ class PollsAddVote extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

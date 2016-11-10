@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Database;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns information about countries by their IDs.
  * Class DatabaseGetCountriesById
- *
  * @package VkSdk\Database
  */
 class DatabaseGetCountriesById extends Request

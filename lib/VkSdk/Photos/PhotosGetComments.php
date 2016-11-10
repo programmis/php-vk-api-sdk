@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use lib\AutoFillObject;
@@ -10,7 +11,6 @@ use VkSdk\Wall\Includes\Comment;
 /**
  * Returns a list of comments on a photo.
  * Class PhotosGetComments
- *
  * @package VkSdk\Photos
  */
 class PhotosGetComments extends Request
@@ -21,27 +21,27 @@ class PhotosGetComments extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var GroupFull[]
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var Comment[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var UserFull[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * @var integer
      */
-    public $real_offset;
+    private $real_offset;
 
     /**
      * @return $this

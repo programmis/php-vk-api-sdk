@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Database;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns list of chairs on a specified faculty.
  * Class DatabaseGetChairs
- *
  * @package VkSdk\Database
  */
 class DatabaseGetChairs extends Request
@@ -19,12 +19,12 @@ class DatabaseGetChairs extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Objects[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

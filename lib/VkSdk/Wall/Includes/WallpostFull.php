@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall\Includes;
 
 use lib\AutoFillObject;
@@ -9,7 +10,6 @@ use VkSdk\Base\RepostsInfo;
 
 /**
  * Class WallpostFull
- *
  * @package VkSdk\Wall\Includes
  */
 class WallpostFull
@@ -20,99 +20,99 @@ class WallpostFull
     /**
      * @var WallpostAttachment[]
      */
-    public $attachments;
+    private $attachments;
 
     /**
      * @var integer
      */
-    public $can_delete;
+    private $can_delete;
 
     /**
      * @var integer
      */
-    public $can_edit;
+    private $can_edit;
 
     /**
      * @var integer
      */
-    public $can_pin;
+    private $can_pin;
 
     /**
      * @var CommentsInfo
      */
-    public $comments;
+    private $comments;
 
     /**
      * @var Wallpost[]
      */
-    public $copy_history;
+    private $copy_history;
 
     /**
      * @var integer
      */
-    public $created_by;
+    private $created_by;
 
     /**
      * @var integer
      */
-    public $date;
+    private $date;
 
     /**
      * @var integer
      */
-    public $from_id;
+    private $from_id;
 
     /**
      * @var Geo
      */
-    public $geo;
+    private $geo;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $is_pinned;
+    private $is_pinned;
 
     /**
      * @var LikesInfo
      */
-    public $likes;
+    private $likes;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $owner_id;
 
     /**
      * @var PostSource
      */
-    public $post_source;
+    private $post_source;
 
     /**
      * See constants of class PostType
      *
      * @var string
      */
-    public $post_type;
+    private $post_type;
 
     /**
      * @var RepostsInfo
      */
-    public $reposts;
+    private $reposts;
 
     /**
      * @var integer
      */
-    public $signer_id;
+    private $signer_id;
 
     /**
      * @var string
      */
-    public $text;
+    private $text;
 
     /**
      * @return $this

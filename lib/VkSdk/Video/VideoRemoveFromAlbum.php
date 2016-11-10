@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
 
 /**
  * Class VideoRemoveFromAlbum
- *
  * @package VkSdk\Video
  */
 class VideoRemoveFromAlbum extends Request
@@ -16,7 +16,7 @@ class VideoRemoveFromAlbum extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * @return $this

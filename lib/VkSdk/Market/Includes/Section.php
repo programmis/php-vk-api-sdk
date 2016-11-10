@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Market\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Section
- *
  * @package VkSdk\Market\Includes
  */
 class Section
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * Section ID

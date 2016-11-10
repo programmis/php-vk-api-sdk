@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of possible ad categories.
  * Class AdsGetCategories
- *
  * @package VkSdk\Ads
  */
 class AdsGetCategories extends Request

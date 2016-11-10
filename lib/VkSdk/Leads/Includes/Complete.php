@@ -1,42 +1,46 @@
 <?php
+
 namespace VkSdk\Leads\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Complete
- *
  * @package VkSdk\Leads\Includes
  */
 class Complete
 {
 
-    /**
-     * @var integer
-     */
-    public $cost;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $limit;
+    private $cost;
 
     /**
      * @var integer
      */
-    public $spent;
+    private $limit;
+
+    /**
+     * @var integer
+     */
+    private $spent;
 
     /**
      * See constants of class OkResponse
      *
      * @var integer
      */
-    public $success;
+    private $success;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $test_mode;
+    private $test_mode;
 
     /**
      * Offer cost

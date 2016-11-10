@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Messages\Includes\Message;
 /**
  * Returns messages by their IDs.
  * Class MessagesGetById
- *
  * @package VkSdk\Messages
  */
 class MessagesGetById extends Request
@@ -19,12 +19,12 @@ class MessagesGetById extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Message[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

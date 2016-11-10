@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns an upload link for chat cover pictures.
  * Class PhotosGetChatUploadServer
- *
  * @package VkSdk\Photos
  */
 class PhotosGetChatUploadServer extends Request
@@ -15,7 +15,7 @@ class PhotosGetChatUploadServer extends Request
     /**
      * @var string
      */
-    public $upload_url;
+    private $upload_url;
 
     /**
      * {@inheritdoc}

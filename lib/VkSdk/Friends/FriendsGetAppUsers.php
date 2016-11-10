@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Friends;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of IDs of the current user's friends who installed the application.
  * Class FriendsGetAppUsers
- *
  * @package VkSdk\Friends
  */
 class FriendsGetAppUsers extends Request

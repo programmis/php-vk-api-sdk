@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Denies sending message from community to the current user.
  * Class MessagesDenyMessagesFromCommunity
- *
  * @package VkSdk\Messages
  */
 class MessagesDenyMessagesFromCommunity extends Request
@@ -17,7 +17,7 @@ class MessagesDenyMessagesFromCommunity extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

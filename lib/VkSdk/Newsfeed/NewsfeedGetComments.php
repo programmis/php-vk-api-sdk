@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Newsfeed;
 
 use lib\AutoFillObject;
@@ -10,7 +11,6 @@ use VkSdk\Users\Includes\UserFull;
 /**
  * Returns a list of comments in the current user's newsfeed.
  * Class NewsfeedGetComments
- *
  * @package VkSdk\Newsfeed
  */
 class NewsfeedGetComments extends Request
@@ -21,22 +21,22 @@ class NewsfeedGetComments extends Request
     /**
      * @var GroupFull[]
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var Item[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var string
      */
-    public $next_from;
+    private $next_from;
 
     /**
      * @var UserFull[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * Additional fields of  and  to return.

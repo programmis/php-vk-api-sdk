@@ -1,21 +1,25 @@
 <?php
+
 namespace VkSdk\Orders\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Amount
- *
  * @package VkSdk\Orders\Includes
  */
 class Amount
 {
 
-    /**
-     * @var array(array)
-     */
-    public $amounts;
+    use AutoFillObject;
 
     /**
-     * @return array(array)[]
+     * @var array
+     */
+    private $amounts;
+
+    /**
+     * @return array
      */
     public function getAmounts()
     {

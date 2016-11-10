@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Users;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Users\Includes\UserFull;
 /**
  * Returns a list of users matching the search criteria.
  * Class UsersSearch
- *
  * @package VkSdk\Users
  */
 class UsersSearch extends Request
@@ -19,12 +19,12 @@ class UsersSearch extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var UserFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online';
@@ -380,7 +380,6 @@ class UsersSearch extends Request
 
     /**
      * Search query string (e.g., 'Vasya Babich').
-     *
      * @return $this
      *
      * @param string $q
@@ -476,7 +475,6 @@ class UsersSearch extends Request
 
     /**
      * '1' — female; '2' — male; '0' — any (default)
-     *
      * @return $this
      *
      * @param integer $sex
@@ -490,7 +488,6 @@ class UsersSearch extends Request
 
     /**
      * Sort order:; '1' — by date registered; '0' — by rating
-     *
      * @return $this
      *
      * @param integer $sort
@@ -504,7 +501,6 @@ class UsersSearch extends Request
 
     /**
      * Relationship status:; '1' — Not married; '2' — In a relationship; '3' — Engaged; '4' — Married; '5' — It's complicated; '6' — Actively searching; '7' — In love
-     *
      * @return $this
      *
      * @param integer $status

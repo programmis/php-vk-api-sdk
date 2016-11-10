@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Database;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of cities.
  * Class DatabaseGetCities
- *
  * @package VkSdk\Database
  */
 class DatabaseGetCities extends Request
@@ -19,12 +19,12 @@ class DatabaseGetCities extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var City[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

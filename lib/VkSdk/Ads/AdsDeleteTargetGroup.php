@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes a retarget group.
  * Class AdsDeleteTargetGroup
- *
  * @package VkSdk\Ads
  */
 class AdsDeleteTargetGroup extends Request
@@ -17,7 +17,7 @@ class AdsDeleteTargetGroup extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

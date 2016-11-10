@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Friends;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns information about the current user's incoming and outgoing friend requests.
  * Class FriendsGetRequests
- *
  * @package VkSdk\Friends
  */
 class FriendsGetRequests extends Request
@@ -19,12 +19,12 @@ class FriendsGetRequests extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var RequestsXtrMessage[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this
@@ -73,11 +73,10 @@ class FriendsGetRequests extends Request
 
     /**
      * Number of friend requests to return (default 100, maximum 1000).
-
-*
-*@return $this
      *
-     * @param integer $count
+     * @return $this
+     *
+*@param integer $count
      */
     public function setCount($count)
     {
@@ -118,9 +117,10 @@ class FriendsGetRequests extends Request
     /**
      * '1' — to return response messages from users who have sent a friend request or, if 'suggested' is set to '1', to return a list of suggested friends
      *
-*@return $this
+     * @return $this
+
      *
-     * @param boolean $extended
+*@param boolean $extended
      */
     public function setExtended($extended)
     {
@@ -132,9 +132,10 @@ class FriendsGetRequests extends Request
     /**
      * '1' — to return a list of mutual friends (up to 20), if any
      *
-*@return $this
+     * @return $this
+
      *
-     * @param boolean $need_mutual
+*@param boolean $need_mutual
      */
     public function setNeedMutual($need_mutual)
     {
@@ -145,12 +146,11 @@ class FriendsGetRequests extends Request
 
     /**
      * Offset needed to return a specific subset of friend requests.
+
      *
-     * @return $this
-
-
-*
-     * @param integer $offset
+*@return $this
+     *
+*@param integer $offset
      */
     public function setOffset($offset)
     {
@@ -162,10 +162,10 @@ class FriendsGetRequests extends Request
     /**
      * '1' — to return outgoing requests; '0' — to return incoming requests (default)
      *
-     *@return $this
+     * @return $this
 
      *
-     * @param boolean $out
+*@param boolean $out
      */
     public function setOut($out)
     {
@@ -177,9 +177,10 @@ class FriendsGetRequests extends Request
     /**
      * Sort order:; '1' — by number of mutual friends; '0' — by date
      *
-*@return $this
+     * @return $this
+
      *
-     * @param integer $sort
+*@param integer $sort
      */
     public function setSort($sort)
     {
@@ -190,15 +191,16 @@ class FriendsGetRequests extends Request
 
     /**
      * '1' — to return a list of suggested friends; '0' — to return friend requests (default)
+
      *
-     * @return $this
+*@return $this
      *
-*@param boolean $suggested
+     * @param boolean $suggested
      */
     public function setSuggested($suggested)
     {
         $this->vkarg_suggested = $suggested;
 
         return $this;
-    }
+	}
 }

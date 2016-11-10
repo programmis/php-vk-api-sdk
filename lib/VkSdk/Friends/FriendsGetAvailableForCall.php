@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Friends;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Users\Includes\UserFull;
 /**
  * Returns a list of friends who can be called by the current user.
  * Class FriendsGetAvailableForCall
- *
  * @package VkSdk\Friends
  */
 class FriendsGetAvailableForCall extends Request
@@ -49,12 +49,12 @@ class FriendsGetAvailableForCall extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var UserFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * Profile fields to return. Sample values: 'uid', 'first_name', 'last_name', 'nickname', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'domain', 'has_mobile', 'rate', 'contacts', 'education'.;

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Apps;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns user score in app
  * Class AppsGetScore
- *
  * @package VkSdk\Apps
  */
 class AppsGetScore extends Request

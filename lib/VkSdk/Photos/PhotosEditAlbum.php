@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits information about a photo album.
  * Class PhotosEditAlbum
- *
  * @package VkSdk\Photos
  */
 class PhotosEditAlbum extends Request
@@ -17,7 +17,7 @@ class PhotosEditAlbum extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * @return $this

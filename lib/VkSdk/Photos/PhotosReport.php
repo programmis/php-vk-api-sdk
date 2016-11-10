@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Reports (submits a complaint about) a photo.;
  * Class PhotosReport
- *
  * @package VkSdk\Photos
  */
 class PhotosReport extends Request
@@ -17,7 +17,7 @@ class PhotosReport extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

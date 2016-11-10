@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Secure;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Secure\Includes\TokenChecked;
 /**
  * Checks the user authentification in 'IFrame' and 'Flash' apps using the 'access_token' parameter.
  * Class SecureCheckToken
- *
  * @package VkSdk\Secure
  */
 class SecureCheckToken extends Request
@@ -19,7 +19,7 @@ class SecureCheckToken extends Request
     /**
      * @var TokenChecked
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

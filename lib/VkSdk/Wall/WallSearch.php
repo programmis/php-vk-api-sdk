@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall;
 
 use lib\AutoFillObject;
@@ -10,7 +11,6 @@ use VkSdk\Wall\Includes\WallpostFull;
 /**
  * Allows to search posts on user or community walls.
  * Class WallSearch
- *
  * @package VkSdk\Wall
  */
 class WallSearch extends Request
@@ -21,22 +21,22 @@ class WallSearch extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var GroupFull[]
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var WallpostFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var UserFull[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * @return $this

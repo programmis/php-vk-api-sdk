@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Users;
 
 use lib\AutoFillObject;
@@ -9,7 +10,6 @@ use VkSdk\Users\Includes\Items;
 /**
  * Returns a list of IDs of users and communities followed by the user.
  * Class UsersGetSubscriptions
- *
  * @package VkSdk\Users
  */
 class UsersGetSubscriptions extends Request
@@ -20,22 +20,22 @@ class UsersGetSubscriptions extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Arrays
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var Items[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var Arrays
      */
-    public $users;
+    private $users;
 
     /**
      * @return $this

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Messages\Includes\Message;
 /**
  * Returns message history for the specified user or group chat.
  * Class MessagesGetHistory
- *
  * @package VkSdk\Messages
  */
 class MessagesGetHistory extends Request
@@ -19,17 +19,17 @@ class MessagesGetHistory extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Message[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var integer
      */
-    public $unread;
+    private $unread;
 
     /**
      * @return $this

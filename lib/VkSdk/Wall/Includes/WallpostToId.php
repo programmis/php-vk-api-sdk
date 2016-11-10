@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall\Includes;
 
 use lib\AutoFillObject;
@@ -9,7 +10,6 @@ use VkSdk\Base\RepostsInfo;
 
 /**
  * Class WallpostToId
- *
  * @package VkSdk\Wall\Includes
  */
 class WallpostToId
@@ -20,84 +20,84 @@ class WallpostToId
     /**
      * @var WallpostAttachment[]
      */
-    public $attachments;
+    private $attachments;
 
     /**
      * @var CommentsInfo
      */
-    public $comments;
+    private $comments;
 
     /**
      * @var integer
      */
-    public $copy_owner_id;
+    private $copy_owner_id;
 
     /**
      * @var integer
      */
-    public $copy_post_id;
+    private $copy_post_id;
 
     /**
      * @var integer
      */
-    public $date;
+    private $date;
 
     /**
      * @var integer
      */
-    public $from_id;
+    private $from_id;
 
     /**
      * @var Geo
      */
-    public $geo;
+    private $geo;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var LikesInfo
      */
-    public $likes;
+    private $likes;
 
     /**
      * @var integer
      */
-    public $post_id;
+    private $post_id;
 
     /**
      * @var PostSource
      */
-    public $post_source;
+    private $post_source;
 
     /**
      * See constants of class PostType
      *
      * @var string
      */
-    public $post_type;
+    private $post_type;
 
     /**
      * @var RepostsInfo
      */
-    public $reposts;
+    private $reposts;
 
     /**
      * @var integer
      */
-    public $signer_id;
+    private $signer_id;
 
     /**
      * @var string
      */
-    public $text;
+    private $text;
 
     /**
      * @var integer
      */
-    public $to_id;
+    private $to_id;
 
     /**
      * @return $this

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Auth;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Completes a user's registration (begun with the  method) using an authorization code.
  * Class AuthConfirm
- *
  * @package VkSdk\Auth
  */
 class AuthConfirm extends Request
@@ -15,12 +15,12 @@ class AuthConfirm extends Request
     /**
      * @var integer
      */
-    public $success;
+    private $success;
 
     /**
      * @var integer
      */
-    public $user_id;
+    private $user_id;
 
     /**
      * {@inheritdoc}

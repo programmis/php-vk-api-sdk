@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes one or more messages.
  * Class MessagesDelete
- *
  * @package VkSdk\Messages
  */
 class MessagesDelete extends Request
@@ -17,7 +17,7 @@ class MessagesDelete extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * Message IDs.

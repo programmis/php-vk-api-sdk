@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Base;
+
+use lib\AutoFillObject;
 
 /**
  * Class RepostsInfo
- *
  * @package VkSdk\Base
  */
 class RepostsInfo
 {
 
-    /**
-     * @var integer
-     */
-    public $count;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $user_reposted;
+    private $count;
+
+    /**
+     * @var integer
+     */
+    private $user_reposted;
 
     /**
      * Reposts number

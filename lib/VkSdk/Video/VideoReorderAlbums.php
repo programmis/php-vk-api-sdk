@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Reorders the album in the list of user video albums.
  * Class VideoReorderAlbums
- *
  * @package VkSdk\Video
  */
 class VideoReorderAlbums extends Request
@@ -17,7 +17,7 @@ class VideoReorderAlbums extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

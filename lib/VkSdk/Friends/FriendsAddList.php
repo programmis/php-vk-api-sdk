@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Friends;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Creates a new friend list for the current user.
  * Class FriendsAddList
- *
  * @package VkSdk\Friends
  */
 class FriendsAddList extends Request
@@ -15,7 +15,7 @@ class FriendsAddList extends Request
     /**
      * @var integer
      */
-    public $list_id;
+    private $list_id;
 
     /**
      * IDs of users to be added to the friend list.;

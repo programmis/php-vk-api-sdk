@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Users\Includes\UserMin;
 /**
  * Returns a user's blacklist.
  * Class AccountGetBanned
- *
  * @package VkSdk\Account
  */
 class AccountGetBanned extends Request
@@ -19,12 +19,12 @@ class AccountGetBanned extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var UserMin[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

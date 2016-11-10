@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes all private messages in a conversation.
  * Class MessagesDeleteDialog
- *
  * @package VkSdk\Messages
  */
 class MessagesDeleteDialog extends Request
@@ -17,7 +17,7 @@ class MessagesDeleteDialog extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

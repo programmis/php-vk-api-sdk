@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits the title of a chat.
  * Class MessagesEditChat
- *
  * @package VkSdk\Messages
  */
 class MessagesEditChat extends Request
@@ -17,7 +17,7 @@ class MessagesEditChat extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

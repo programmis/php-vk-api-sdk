@@ -1,62 +1,66 @@
 <?php
+
 namespace VkSdk\Board\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Topic
- *
  * @package VkSdk\Board\Includes
  */
 class Topic
 {
 
-    /**
-     * @var integer
-     */
-    public $comments;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $created;
+    private $comments;
 
     /**
      * @var integer
      */
-    public $created_by;
+    private $created;
 
     /**
      * @var integer
      */
-    public $id;
+    private $created_by;
 
     /**
-     * See constants of class BoolInt
-     *
      * @var integer
      */
-    public $is_closed;
+    private $id;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $is_fixed;
+    private $is_closed;
+
+    /**
+     * See constants of class BoolInt
+     *
+     * @var integer
+     */
+    private $is_fixed;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var integer
      */
-    public $updated;
+    private $updated;
 
     /**
      * @var integer
      */
-    public $updated_by;
+    private $updated_by;
 
     /**
      * Comments number

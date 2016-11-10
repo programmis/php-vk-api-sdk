@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes user from the blacklist.
  * Class AccountUnbanUser
- *
  * @package VkSdk\Account
  */
 class AccountUnbanUser extends Request
@@ -17,7 +17,7 @@ class AccountUnbanUser extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Apps\Includes;
 
 use lib\AutoFillObject;
@@ -6,7 +7,6 @@ use VkSdk\Photos\Includes\Photo;
 
 /**
  * Class App
- *
  * @package VkSdk\Apps\Includes
  */
 class App
@@ -17,127 +17,127 @@ class App
     /**
      * @var integer
      */
-    public $author_group;
+    private $author_group;
 
     /**
      * @var integer
      */
-    public $author_id;
+    private $author_id;
 
     /**
      * @var string
      */
-    public $author_url;
+    private $author_url;
 
     /**
      * @var string
      */
-    public $banner_1120;
+    private $banner_1120;
 
     /**
      * @var string
      */
-    public $banner_560;
+    private $banner_560;
 
     /**
      * @var integer
      */
-    public $catalog_position;
+    private $catalog_position;
 
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @var string
      */
-    public $genre;
+    private $genre;
 
     /**
      * @var integer
      */
-    public $genre_id;
+    private $genre_id;
 
     /**
      * @var string
      */
-    public $icon_139;
+    private $icon_139;
 
     /**
      * @var string
      */
-    public $icon_150;
+    private $icon_150;
 
     /**
      * @var string
      */
-    public $icon_278;
+    private $icon_278;
 
     /**
      * @var string
      */
-    public $icon_75;
+    private $icon_75;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $international;
+    private $international;
 
     /**
      * @var integer
      */
-    public $is_in_catalog;
+    private $is_in_catalog;
 
     /**
      * @var integer
      */
-    public $leaderboard_type;
+    private $leaderboard_type;
 
     /**
      * @var integer
      */
-    public $members_count;
+    private $members_count;
 
     /**
      * @var integer
      */
-    public $platform_id;
+    private $platform_id;
 
     /**
      * @var integer
      */
-    public $published_date;
+    private $published_date;
 
     /**
      * @var string
      */
-    public $screen_name;
+    private $screen_name;
 
     /**
      * @var Photo[]
      */
-    public $screenshots;
+    private $screenshots;
 
     /**
      * @var string
      */
-    public $section;
+    private $section;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * @return $this
@@ -635,7 +635,6 @@ class App
 
     /**
      * Application section name
-     *
      * @return string
      */
     public function getSection()
@@ -657,7 +656,6 @@ class App
 
     /**
      * Application title
-     *
      * @return string
      */
     public function getTitle()
@@ -679,7 +677,6 @@ class App
 
     /**
      * Application type
-     *
      * @return string
      */
     public function getType()

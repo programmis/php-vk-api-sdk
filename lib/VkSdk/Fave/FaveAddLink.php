@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Fave;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds a link to user faves.
  * Class FaveAddLink
- *
  * @package VkSdk\Fave
  */
 class FaveAddLink extends Request
@@ -17,7 +17,7 @@ class FaveAddLink extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

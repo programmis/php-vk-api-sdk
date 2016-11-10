@@ -1,75 +1,79 @@
 <?php
+
 namespace VkSdk\Audio\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Full
- *
  * @package VkSdk\Audio\Includes
  */
 class Full
 {
 
-    /**
-     * @var string
-     */
-    public $access_key;
-
-    /**
-     * @var integer
-     */
-    public $album_id;
+    use AutoFillObject;
 
     /**
      * @var string
      */
-    public $artist;
+    private $access_key;
 
     /**
      * @var integer
      */
-    public $date;
+    private $album_id;
+
+    /**
+     * @var string
+     */
+    private $artist;
 
     /**
      * @var integer
      */
-    public $duration;
+    private $date;
 
     /**
      * @var integer
      */
-    public $genre_id;
+    private $duration;
 
     /**
      * @var integer
      */
-    public $id;
+    private $genre_id;
 
     /**
      * @var integer
      */
-    public $lyrics_id;
+    private $id;
+
+    /**
+     * @var integer
+     */
+    private $lyrics_id;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $no_search;
+    private $no_search;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $owner_id;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var string
      */
-    public $url;
+    private $url;
 
     /**
      * Access key for the audio

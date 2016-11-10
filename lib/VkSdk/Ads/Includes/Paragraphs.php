@@ -1,18 +1,22 @@
 <?php
+
 namespace VkSdk\Ads\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Paragraphs
- *
  * @package VkSdk\Ads\Includes
  */
 class Paragraphs
 {
 
+    use AutoFillObject;
+
     /**
      * @var string
      */
-    public $paragraph;
+    private $paragraph;
 
     /**
      * Rules paragraph

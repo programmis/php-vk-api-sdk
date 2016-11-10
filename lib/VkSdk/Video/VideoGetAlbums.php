@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Video\Includes\AlbumFull;
 /**
  * Returns a list of video albums owned by a user or community.
  * Class VideoGetAlbums
- *
  * @package VkSdk\Video
  */
 class VideoGetAlbums extends Request
@@ -19,12 +19,12 @@ class VideoGetAlbums extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var AlbumFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

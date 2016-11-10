@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use lib\AutoFillObject;
@@ -10,7 +11,6 @@ use VkSdk\Video\Includes\Video;
 /**
  * Returns a list of videos under the set search criterion.
  * Class VideoSearch
- *
  * @package VkSdk\Video
  */
 class VideoSearch extends Request
@@ -21,22 +21,22 @@ class VideoSearch extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var GroupFull[]
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var Video[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var UserMin[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * Filters to apply:; 'youtube' — return YouTube videos only; 'vimeo' — return Vimeo videos only; 'short' — return short videos only; 'long' — return long videos only

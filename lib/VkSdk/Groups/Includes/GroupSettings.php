@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups\Includes;
 
 use lib\AutoFillObject;
@@ -6,7 +7,6 @@ use VkSdk\Base\Place;
 
 /**
  * Class GroupSettings
- *
  * @package VkSdk\Groups\Includes
  */
 class GroupSettings
@@ -17,101 +17,101 @@ class GroupSettings
     /**
      * @var integer
      */
-    public $access;
+    private $access;
 
     /**
      * @var string
      */
-    public $address;
+    private $address;
 
     /**
      * @var integer
      */
-    public $audio;
+    private $audio;
 
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @var integer
      */
-    public $docs;
+    private $docs;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $obscene_filter;
+    private $obscene_filter;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $obscene_stopwords;
+    private $obscene_stopwords;
 
     /**
      * @var string
      */
-    public $obscene_words;
+    private $obscene_words;
 
     /**
      * @var integer
      */
-    public $photos;
+    private $photos;
 
     /**
      * @var Place
      */
-    public $place;
+    private $place;
 
     /**
      * @var string
      */
-    public $rss;
+    private $rss;
 
     /**
      * @var integer
      */
-    public $subject;
+    private $subject;
 
     /**
      * @var SubjectItem[]
      */
-    public $subject_list;
+    private $subject_list;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var integer
      */
-    public $topics;
+    private $topics;
 
     /**
      * @var integer
      */
-    public $video;
+    private $video;
 
     /**
      * @var integer
      */
-    public $wall;
+    private $wall;
 
     /**
      * @var string
      */
-    public $website;
+    private $website;
 
     /**
      * @var integer
      */
-    public $wiki;
+    private $wiki;
 
     /**
      * @return $this

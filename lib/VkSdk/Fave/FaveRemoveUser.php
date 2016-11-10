@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Fave;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Removes a profile from user faves.
  * Class FaveRemoveUser
- *
  * @package VkSdk\Fave
  */
 class FaveRemoveUser extends Request
@@ -17,7 +17,7 @@ class FaveRemoveUser extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

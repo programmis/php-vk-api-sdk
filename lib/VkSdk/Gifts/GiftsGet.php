@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Gifts;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of user gifts.
  * Class GiftsGet
- *
  * @package VkSdk\Gifts
  */
 class GiftsGet extends Request
@@ -19,12 +19,12 @@ class GiftsGet extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Gift[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

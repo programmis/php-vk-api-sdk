@@ -1,9 +1,9 @@
 <?php
+
 namespace VkSdk\Wall\Includes;
 
 /**
  * Class ServicesValues
- *
  * @package VkSdk\Wall\Includes
  */
 class ServicesValues

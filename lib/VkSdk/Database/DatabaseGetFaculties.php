@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Database;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of faculties (i.e., university departments).;
  * Class DatabaseGetFaculties
- *
  * @package VkSdk\Database
  */
 class DatabaseGetFaculties extends Request
@@ -19,12 +19,12 @@ class DatabaseGetFaculties extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Faculty[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

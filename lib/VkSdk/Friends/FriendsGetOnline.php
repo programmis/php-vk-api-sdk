@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Friends;
 
 use VkSdk\Includes\Request;
@@ -6,21 +7,20 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of user IDs of a user's friends who are online.
  * Class FriendsGetOnline
- *
  * @package VkSdk\Friends
  */
 class FriendsGetOnline extends Request
 {
 
     /**
-     * @var array(array)
+     * @var array
      */
-    public $online;
+    private $online;
 
     /**
-     * @var array(array)
+     * @var array
      */
-    public $online_mobile;
+    private $online_mobile;
 
     /**
      * {@inheritdoc}
@@ -56,7 +56,7 @@ class FriendsGetOnline extends Request
     /**
      * User ID
      *
-     * @return array(array)[]
+     * @return array
      */
     public function getOnline()
     {
@@ -66,7 +66,7 @@ class FriendsGetOnline extends Request
     /**
      * User ID
      *
-     * @return array(array)[]
+     * @return array
      */
     public function getOnlineMobile()
     {

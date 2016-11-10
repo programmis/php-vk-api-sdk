@@ -1,33 +1,37 @@
 <?php
+
 namespace VkSdk\Base;
+
+use lib\AutoFillObject;
 
 /**
  * Class LikesInfo
- *
  * @package VkSdk\Base
  */
 class LikesInfo
 {
 
-    /**
-     * @var integer
-     */
-    public $can_like;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $can_publish;
+    private $can_like;
 
     /**
      * @var integer
      */
-    public $count;
+    private $can_publish;
 
     /**
      * @var integer
      */
-    public $user_likes;
+    private $count;
+
+    /**
+     * @var integer
+     */
+    private $user_likes;
 
     /**
      * Information whether current user can like the post

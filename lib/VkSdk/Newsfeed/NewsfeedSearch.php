@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Newsfeed;
 
 use lib\AutoFillObject;
@@ -10,7 +11,6 @@ use VkSdk\Wall\Includes\WallpostFull;
 /**
  * Returns search results by statuses.;
  * Class NewsfeedSearch
- *
  * @package VkSdk\Newsfeed
  */
 class NewsfeedSearch extends Request
@@ -21,17 +21,17 @@ class NewsfeedSearch extends Request
     /**
      * @var GroupFull[]
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var WallpostFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var UserFull[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * Additional fields of  and  to return.

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds user to the banlist.
  * Class AccountBanUser
- *
  * @package VkSdk\Account
  */
 class AccountBanUser extends Request
@@ -17,7 +17,7 @@ class AccountBanUser extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

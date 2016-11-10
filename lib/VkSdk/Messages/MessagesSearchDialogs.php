@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of the current user's conversations that match search criteria.
  * Class MessagesSearchDialogs
- *
  * @package VkSdk\Messages
  */
 class MessagesSearchDialogs extends Request

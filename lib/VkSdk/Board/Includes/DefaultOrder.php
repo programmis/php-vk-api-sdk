@@ -1,10 +1,10 @@
 <?php
+
 namespace VkSdk\Board\Includes;
 
 /**
  * Sort type
  * Class DefaultOrder
- *
  * @package VkSdk\Board\Includes
  */
 class DefaultOrder

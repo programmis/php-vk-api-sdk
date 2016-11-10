@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Friends;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of user IDs of the mutual friends of two users.
  * Class FriendsGetMutual
- *
  * @package VkSdk\Friends
  */
 class FriendsGetMutual extends Request

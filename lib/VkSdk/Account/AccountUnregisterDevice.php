@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Unsubscribes a device from push notifications.
  * Class AccountUnregisterDevice
- *
  * @package VkSdk\Account
  */
 class AccountUnregisterDevice extends Request
@@ -17,7 +17,7 @@ class AccountUnregisterDevice extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

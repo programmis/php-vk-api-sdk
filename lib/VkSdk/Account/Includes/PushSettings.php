@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Account\Includes;
 
 use lib\AutoFillObject;
 
 /**
  * Class PushSettings
- *
  * @package VkSdk\Account\Includes
  */
 class PushSettings
@@ -16,24 +16,24 @@ class PushSettings
     /**
      * @var object
      */
-    public $conversations;
+    private $conversations;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $disabled;
+    private $disabled;
 
     /**
      * @var integer
      */
-    public $disabled_until;
+    private $disabled_until;
 
     /**
      * @var PushParams
      */
-    public $settings;
+    private $settings;
 
     /**
      * @return object

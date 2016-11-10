@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Newsfeed;
 
 use lib\AutoFillObject;
@@ -9,7 +10,6 @@ use VkSdk\Users\Includes\UserFull;
 /**
  * Returns a list of users and communities banned from the current user's newsfeed.
  * Class NewsfeedGetBanned
- *
  * @package VkSdk\Newsfeed
  */
 class NewsfeedGetBanned extends Request
@@ -50,12 +50,12 @@ class NewsfeedGetBanned extends Request
     /**
      * @var UserFull[]
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var GroupFull[]
      */
-    public $members;
+    private $members;
 
     /**
      * Profile fields to return.; ;

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall\Includes;
 
 use lib\AutoFillObject;
@@ -14,7 +15,6 @@ use VkSdk\Video\Includes\Video;
 
 /**
  * Class WallpostAttachment
- *
  * @package VkSdk\Wall\Includes
  */
 class WallpostAttachment
@@ -25,82 +25,82 @@ class WallpostAttachment
     /**
      * @var PhotoAlbum
      */
-    public $album;
+    private $album;
 
     /**
      * @var AppPost
      */
-    public $app;
+    private $app;
 
     /**
      * @var Full
      */
-    public $audio;
+    private $audio;
 
     /**
      * @var Doc
      */
-    public $doc;
+    private $doc;
 
     /**
      * @var Graffiti
      */
-    public $graffiti;
+    private $graffiti;
 
     /**
      * @var Link
      */
-    public $link;
+    private $link;
 
     /**
      * @var Item
      */
-    public $market;
+    private $market;
 
     /**
      * @var Album
      */
-    public $market_market_album;
+    private $market_market_album;
 
     /**
      * @var AttachedNote
      */
-    public $note;
+    private $note;
 
     /**
      * @var WikipageFull
      */
-    public $page;
+    private $page;
 
     /**
      * @var Photo
      */
-    public $photo;
+    private $photo;
 
     /**
-     * @var array(array)
+     * @var array
      */
-    public $photos_list;
+    private $photos_list;
 
     /**
      * @var Poll
      */
-    public $poll;
+    private $poll;
 
     /**
      * @var PostedPhoto
      */
-    public $posted_photo;
+    private $posted_photo;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * @var Video
      */
-    public $video;
+    private $video;
 
     /**
      * @return PhotoAlbum
@@ -323,7 +323,7 @@ class WallpostAttachment
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getPhotosList()
     {

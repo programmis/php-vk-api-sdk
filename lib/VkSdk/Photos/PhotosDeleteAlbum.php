@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes a photo album belonging to the current user.
  * Class PhotosDeleteAlbum
- *
  * @package VkSdk\Photos
  */
 class PhotosDeleteAlbum extends Request
@@ -17,7 +17,7 @@ class PhotosDeleteAlbum extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

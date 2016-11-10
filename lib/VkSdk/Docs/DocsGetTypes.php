@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Docs;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns documents types available for current user.
  * Class DocsGetTypes
- *
  * @package VkSdk\Docs
  */
 class DocsGetTypes extends Request
@@ -19,12 +19,12 @@ class DocsGetTypes extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var DocTypes[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

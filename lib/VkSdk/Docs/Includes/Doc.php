@@ -1,63 +1,67 @@
 <?php
+
 namespace VkSdk\Docs\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Doc
- *
  * @package VkSdk\Docs\Includes
  */
 class Doc
 {
 
-    /**
-     * @var string
-     */
-    public $access_key;
-
-    /**
-     * @var integer
-     */
-    public $date;
+    use AutoFillObject;
 
     /**
      * @var string
      */
-    public $ext;
+    private $access_key;
 
     /**
      * @var integer
      */
-    public $id;
+    private $date;
+
+    /**
+     * @var string
+     */
+    private $ext;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $id;
+
+    /**
+     * @var integer
+     */
+    private $owner_id;
 
     /**
      * @var object
      */
-    public $preview;
+    private $preview;
 
     /**
      * @var integer
      */
-    public $size;
+    private $size;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var integer
      */
-    public $type;
+    private $type;
 
     /**
      * @var string
      */
-    public $url;
+    private $url;
 
     /**
      * Access key for the document

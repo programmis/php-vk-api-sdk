@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Moves audio files to an album.
  * Class AudioMoveToAlbum
- *
  * @package VkSdk\Audio
  */
 class AudioMoveToAlbum extends Request
@@ -17,7 +17,7 @@ class AudioMoveToAlbum extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * IDs of the audio files to be moved.; "NOTE: An album can hold up to 1000 audio files.";

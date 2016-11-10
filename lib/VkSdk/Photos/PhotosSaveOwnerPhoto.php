@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Saves  a profile or community photo.
  * Class PhotosSaveOwnerPhoto
- *
  * @package VkSdk\Photos
  */
 class PhotosSaveOwnerPhoto extends Request
@@ -15,12 +15,12 @@ class PhotosSaveOwnerPhoto extends Request
     /**
      * @var string
      */
-    public $photo_hash;
+    private $photo_hash;
 
     /**
      * @var string
      */
-    public $photo_src;
+    private $photo_src;
 
     /**
      * {@inheritdoc}

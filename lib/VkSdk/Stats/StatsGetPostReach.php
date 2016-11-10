@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Stats;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns stats for a wall post.
  * Class StatsGetPostReach
- *
  * @package VkSdk\Stats
  */
 class StatsGetPostReach extends Request

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns the size of targeting audience, and also recommended values for CPC and CPM.
  * Class AdsGetTargetingStats
- *
  * @package VkSdk\Ads
  */
 class AdsGetTargetingStats extends Request
@@ -19,7 +19,7 @@ class AdsGetTargetingStats extends Request
     /**
      * @var TargStats
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

@@ -1,9 +1,9 @@
 <?php
+
 namespace VkSdk\Friends\Includes;
 
 /**
  * Class FieldsValues
- *
  * @package VkSdk\Friends\Includes
  */
 class FieldsValues

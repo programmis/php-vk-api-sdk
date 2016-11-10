@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns the server address to [https://vk.com/dev/upload_files_2?f=8.%20Uploading%20Audio%20Files|upload audio files].
  * Class AudioGetUploadServer
- *
  * @package VkSdk\Audio
  */
 class AudioGetUploadServer extends Request
@@ -15,7 +15,7 @@ class AudioGetUploadServer extends Request
     /**
      * @var string
      */
-    public $upload_url;
+    private $upload_url;
 
     /**
      * {@inheritdoc}

@@ -1,116 +1,120 @@
 <?php
+
 namespace VkSdk\Video\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Video
- *
  * @package VkSdk\Video\Includes
  */
 class Video
 {
 
+    use AutoFillObject;
+
     /**
      * @var string
      */
-    public $access_key;
+    private $access_key;
 
     /**
      * @var integer
      */
-    public $adding_date;
+    private $adding_date;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $can_add;
+    private $can_add;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $can_edit;
+    private $can_edit;
 
     /**
      * @var integer
      */
-    public $comments;
+    private $comments;
 
     /**
      * @var integer
      */
-    public $date;
+    private $date;
 
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @var integer
      */
-    public $duration;
+    private $duration;
 
     /**
      * @var object
      */
-    public $files;
+    private $files;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * See constants of class PropertyExists
      *
      * @var integer
      */
-    public $live;
+    private $live;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $owner_id;
 
     /**
      * @var string
      */
-    public $photo_130;
+    private $photo_130;
 
     /**
      * @var string
      */
-    public $photo_320;
+    private $photo_320;
 
     /**
      * @var string
      */
-    public $photo_800;
+    private $photo_800;
 
     /**
      * @var string
      */
-    public $player;
+    private $player;
 
     /**
      * See constants of class PropertyExists
      *
      * @var integer
      */
-    public $processing;
+    private $processing;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var integer
      */
-    public $views;
+    private $views;
 
     /**
      * Video access key

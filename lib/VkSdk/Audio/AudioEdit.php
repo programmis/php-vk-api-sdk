@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits an audio file on a user or community page.;
  * Class AudioEdit
- *
  * @package VkSdk\Audio
  */
 class AudioEdit extends Request

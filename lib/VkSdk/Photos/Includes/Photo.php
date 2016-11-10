@@ -1,103 +1,107 @@
 <?php
+
 namespace VkSdk\Photos\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Photo
- *
  * @package VkSdk\Photos\Includes
  */
 class Photo
 {
 
+    use AutoFillObject;
+
     /**
      * @var string
      */
-    public $access_key;
+    private $access_key;
 
     /**
      * @var integer
      */
-    public $album_id;
+    private $album_id;
 
     /**
      * @var integer
      */
-    public $date;
+    private $date;
 
     /**
      * @var integer
      */
-    public $height;
+    private $height;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var number
      */
-    public $lat;
+    private $lat;
 
     /**
      * @var number
      */
-    public $long;
+    private $long;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $owner_id;
 
     /**
      * @var string
      */
-    public $photo_1280;
+    private $photo_1280;
 
     /**
      * @var string
      */
-    public $photo_130;
+    private $photo_130;
 
     /**
      * @var string
      */
-    public $photo_604;
+    private $photo_604;
 
     /**
      * @var string
      */
-    public $photo_75;
+    private $photo_75;
 
     /**
      * @var string
      */
-    public $photo_807;
+    private $photo_807;
 
     /**
      * @var integer
      */
-    public $post_id;
+    private $post_id;
 
     /**
      * @var Photo[]
      */
-    public $sizes;
+    private $sizes;
 
     /**
      * @var string
      */
-    public $text;
+    private $text;
 
     /**
      * @var integer
      */
-    public $user_id;
+    private $user_id;
 
     /**
      * @var integer
      */
-    public $width;
+    private $width;
 
     /**
      * Access key for the photo

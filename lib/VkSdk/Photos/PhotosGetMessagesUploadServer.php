@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Photos\Includes\PhotoUpload;
 /**
  * Returns the server address for photo upload in a private message for a user.
  * Class PhotosGetMessagesUploadServer
- *
  * @package VkSdk\Photos
  */
 class PhotosGetMessagesUploadServer extends Request
@@ -19,7 +19,7 @@ class PhotosGetMessagesUploadServer extends Request
     /**
      * @var PhotoUpload
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

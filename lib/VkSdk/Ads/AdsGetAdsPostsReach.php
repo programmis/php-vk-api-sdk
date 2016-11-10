@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Allows to get detailed information about the ad post reach.
  * Class AdsGetAdsPostsReach
- *
  * @package VkSdk\Ads
  */
 class AdsGetAdsPostsReach extends Request

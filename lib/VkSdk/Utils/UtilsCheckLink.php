@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Utils;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Utils\Includes\LinkChecked;
 /**
  * Checks whether a link is blocked in VK.
  * Class UtilsCheckLink
- *
  * @package VkSdk\Utils
  */
 class UtilsCheckLink extends Request
@@ -19,7 +19,7 @@ class UtilsCheckLink extends Request
     /**
      * @var LinkChecked
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

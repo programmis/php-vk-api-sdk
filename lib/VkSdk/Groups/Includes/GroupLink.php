@@ -1,42 +1,46 @@
 <?php
+
 namespace VkSdk\Groups\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class GroupLink
- *
  * @package VkSdk\Groups\Includes
  */
 class GroupLink
 {
 
+    use AutoFillObject;
+
     /**
      * @var string
      */
-    public $desc;
+    private $desc;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $edit_title;
+    private $edit_title;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $image_processing;
+    private $image_processing;
 
     /**
      * @var string
      */
-    public $url;
+    private $url;
 
     /**
      * Link description

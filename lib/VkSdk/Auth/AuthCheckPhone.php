@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Auth;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Checks a user's phone number for correctness.
  * Class AuthCheckPhone
- *
  * @package VkSdk\Auth
  */
 class AuthCheckPhone extends Request
@@ -17,7 +17,7 @@ class AuthCheckPhone extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

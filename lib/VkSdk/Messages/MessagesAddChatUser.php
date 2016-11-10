@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds a new user to a chat.
  * Class MessagesAddChatUser
- *
  * @package VkSdk\Messages
  */
 class MessagesAddChatUser extends Request
@@ -17,7 +17,7 @@ class MessagesAddChatUser extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

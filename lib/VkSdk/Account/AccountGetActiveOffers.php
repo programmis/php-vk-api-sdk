@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of active ads (offers) which executed by the user will bring him/her respective number of votes to his balance in the application.
  * Class AccountGetActiveOffers
- *
  * @package VkSdk\Account
  */
 class AccountGetActiveOffers extends Request
@@ -19,12 +19,12 @@ class AccountGetActiveOffers extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Offer[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

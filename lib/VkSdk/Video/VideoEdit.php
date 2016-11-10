@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits information about a video on a user or community page.
  * Class VideoEdit
- *
  * @package VkSdk\Video
  */
 class VideoEdit extends Request
@@ -17,7 +17,7 @@ class VideoEdit extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * Privacy settings for comments in a .

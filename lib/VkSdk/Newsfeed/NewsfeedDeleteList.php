@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Newsfeed;
 
 use VkSdk\Includes\Request;
 
 /**
  * Class NewsfeedDeleteList
- *
  * @package VkSdk\Newsfeed
  */
 class NewsfeedDeleteList extends Request
@@ -16,7 +16,7 @@ class NewsfeedDeleteList extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

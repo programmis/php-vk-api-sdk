@@ -1,25 +1,29 @@
 <?php
+
 namespace VkSdk\Leads\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Start
- *
  * @package VkSdk\Leads\Includes
  */
 class Start
 {
+
+    use AutoFillObject;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $test_mode;
+    private $test_mode;
 
     /**
      * @var string
      */
-    public $vk_sid;
+    private $vk_sid;
 
     /**
      * Information whether test mode is enabled

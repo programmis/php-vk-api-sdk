@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Notes;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Restores a deleted comment on a note.
  * Class NotesRestoreComment
- *
  * @package VkSdk\Notes
  */
 class NotesRestoreComment extends Request
@@ -17,7 +17,7 @@ class NotesRestoreComment extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

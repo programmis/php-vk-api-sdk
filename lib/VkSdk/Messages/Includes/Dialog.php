@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Messages\Includes;
 
 use lib\AutoFillObject;
 
 /**
  * Class Dialog
- *
  * @package VkSdk\Messages\Includes
  */
 class Dialog
@@ -16,22 +16,22 @@ class Dialog
     /**
      * @var integer
      */
-    public $in_read;
+    private $in_read;
 
     /**
      * @var Message
      */
-    public $message;
+    private $message;
 
     /**
      * @var integer
      */
-    public $out_read;
+    private $out_read;
 
     /**
      * @var integer
      */
-    public $unread;
+    private $unread;
 
     /**
      * ID of the last message read by current user

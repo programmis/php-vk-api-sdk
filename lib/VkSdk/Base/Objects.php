@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Base;
+
+use lib\AutoFillObject;
 
 /**
  * Class Objects
- *
  * @package VkSdk\Base
  */
 class Objects
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * Object ID

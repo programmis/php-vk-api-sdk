@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Groups\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class MemberRole
- *
  * @package VkSdk\Groups\Includes
  */
 class MemberRole
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $role;
+    private $role;
 
     /**
      * User ID

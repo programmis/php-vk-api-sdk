@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Polls;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns detailed information about a poll by its ID.
  * Class PollsGetById
- *
  * @package VkSdk\Polls
  */
 class PollsGetById extends Request

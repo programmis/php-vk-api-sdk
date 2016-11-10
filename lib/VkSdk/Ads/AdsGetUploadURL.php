@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns URL to upload an ad photo to.
  * Class AdsGetUploadURL
- *
  * @package VkSdk\Ads
  */
 class AdsGetUploadURL extends Request

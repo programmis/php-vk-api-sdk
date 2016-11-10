@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Board;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes a topic from a community's discussion board.
  * Class BoardDeleteTopic
- *
  * @package VkSdk\Board
  */
 class BoardDeleteTopic extends Request
@@ -17,7 +17,7 @@ class BoardDeleteTopic extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

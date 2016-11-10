@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Creates a new comment for an item.
  * Class MarketCreateComment
- *
  * @package VkSdk\Market
  */
 class MarketCreateComment extends Request

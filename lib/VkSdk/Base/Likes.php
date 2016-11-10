@@ -1,25 +1,29 @@
 <?php
+
 namespace VkSdk\Base;
+
+use lib\AutoFillObject;
 
 /**
  * Class Likes
- *
  * @package VkSdk\Base
  */
 class Likes
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $user_likes;
+    private $user_likes;
 
     /**
      * Likes number

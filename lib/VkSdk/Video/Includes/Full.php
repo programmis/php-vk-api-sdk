@@ -1,152 +1,156 @@
 <?php
+
 namespace VkSdk\Video\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Full
- *
  * @package VkSdk\Video\Includes
  */
 class Full
 {
 
-    /**
-     * @var string
-     */
-    public $access_key;
-
-    /**
-     * @var integer
-     */
-    public $adding_date;
-
-    /**
-     * See constants of class BoolInt
-     *
-     * @var integer
-     */
-    public $can_add;
-
-    /**
-     * See constants of class BoolInt
-     *
-     * @var integer
-     */
-    public $can_comment;
-
-    /**
-     * See constants of class BoolInt
-     *
-     * @var integer
-     */
-    public $can_edit;
-
-    /**
-     * See constants of class BoolInt
-     *
-     * @var integer
-     */
-    public $can_repost;
-
-    /**
-     * @var integer
-     */
-    public $comments;
-
-    /**
-     * @var integer
-     */
-    public $date;
+    use AutoFillObject;
 
     /**
      * @var string
      */
-    public $description;
+    private $access_key;
 
     /**
      * @var integer
      */
-    public $duration;
+    private $adding_date;
 
     /**
-     * @var object
+     * See constants of class BoolInt
+     *
+     * @var integer
      */
-    public $files;
+    private $can_add;
+
+    /**
+     * See constants of class BoolInt
+     *
+     * @var integer
+     */
+    private $can_comment;
+
+    /**
+     * See constants of class BoolInt
+     *
+     * @var integer
+     */
+    private $can_edit;
+
+    /**
+     * See constants of class BoolInt
+     *
+     * @var integer
+     */
+    private $can_repost;
 
     /**
      * @var integer
      */
-    public $id;
+    private $comments;
+
+    /**
+     * @var integer
+     */
+    private $date;
+
+    /**
+     * @var string
+     */
+    private $description;
+
+    /**
+     * @var integer
+     */
+    private $duration;
 
     /**
      * @var object
      */
-    public $likes;
+    private $files;
+
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var object
+     */
+    private $likes;
 
     /**
      * See constants of class PropertyExists
      *
      * @var integer
      */
-    public $live;
+    private $live;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $owner_id;
 
     /**
      * @var string
      */
-    public $photo_130;
+    private $photo_130;
 
     /**
      * @var string
      */
-    public $photo_320;
+    private $photo_320;
 
     /**
      * @var string
      */
-    public $photo_800;
+    private $photo_800;
 
     /**
      * @var string
      */
-    public $player;
+    private $player;
 
     /**
-     * @var array(array)
+     * @var array
      */
-    public $privacy_comment;
+    private $privacy_comment;
 
     /**
-     * @var array(array)
+     * @var array
      */
-    public $privacy_view;
+    private $privacy_view;
 
     /**
      * See constants of class PropertyExists
      *
      * @var integer
      */
-    public $processing;
+    private $processing;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $repeat;
+    private $repeat;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var integer
      */
-    public $views;
+    private $views;
 
     /**
      * Video access key
@@ -563,7 +567,7 @@ class Full
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getPrivacyComment()
     {
@@ -583,7 +587,7 @@ class Full
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getPrivacyView()
     {
@@ -626,7 +630,6 @@ class Full
 
     /**
      * Information whether the video is repeated
-     *
      * @return integer
      */
     public function getRepeat()
@@ -648,7 +651,6 @@ class Full
 
     /**
      * Video title
-     *
      * @return string
      */
     public function getTitle()
@@ -670,7 +672,6 @@ class Full
 
     /**
      * Number of views
-     *
      * @return integer
      */
     public function getViews()

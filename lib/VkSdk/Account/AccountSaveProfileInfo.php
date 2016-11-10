@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits current profile info.
  * Class AccountSaveProfileInfo
- *
  * @package VkSdk\Account
  */
 class AccountSaveProfileInfo extends Request
@@ -21,12 +21,12 @@ class AccountSaveProfileInfo extends Request
      *
      * @var integer
      */
-    public $changed;
+    private $changed;
 
     /**
      * @var NameRequest
      */
-    public $name_request;
+    private $name_request;
 
     /**
      * {@inheritdoc}

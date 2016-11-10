@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Market\Includes;
 
 use lib\AutoFillObject;
 
 /**
  * Class Category
- *
  * @package VkSdk\Market\Includes
  */
 class Category
@@ -16,17 +16,17 @@ class Category
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var Section
      */
-    public $section;
+    private $section;
 
     /**
      * Category ID

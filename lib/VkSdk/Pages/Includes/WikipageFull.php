@@ -1,96 +1,100 @@
 <?php
+
 namespace VkSdk\Pages\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class WikipageFull
- *
  * @package VkSdk\Pages\Includes
  */
 class WikipageFull
 {
 
-    /**
-     * @var integer
-     */
-    public $created;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $creator_id;
+    private $created;
+
+    /**
+     * @var integer
+     */
+    private $creator_id;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $current_user_can_edit;
+    private $current_user_can_edit;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $current_user_can_edit_access;
+    private $current_user_can_edit_access;
 
     /**
      * @var integer
      */
-    public $edited;
+    private $edited;
 
     /**
      * @var integer
      */
-    public $editor_id;
+    private $editor_id;
 
     /**
      * @var integer
      */
-    public $group_id;
+    private $group_id;
 
     /**
      * @var string
      */
-    public $html;
+    private $html;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $source;
+    private $source;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var string
      */
-    public $view_url;
+    private $view_url;
 
     /**
      * @var integer
      */
-    public $views;
+    private $views;
 
     /**
      * See constants of class PrivacySettings
      *
      * @var integer
      */
-    public $who_can_edit;
+    private $who_can_edit;
 
     /**
      * See constants of class PrivacySettings
      *
      * @var integer
      */
-    public $who_can_view;
+    private $who_can_view;
 
     /**
      * Date when the page has been created in Unixtime

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Users;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Users\Includes\UserFull;
 /**
  * Indexes current user location and returns nearby users.
  * Class UsersGetNearby
- *
  * @package VkSdk\Users
  */
 class UsersGetNearby extends Request
@@ -19,12 +19,12 @@ class UsersGetNearby extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var UserFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * list of additional fields to return.; Available values: sex, bdate, city, country, photo_50, photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, online_mobile, domain, has_mobile, contacts, connections, site, education, universities, schools, can_post, can_see_all_posts, can_see_audio, can_write_private_message, status, last_seen, common_count, relation, relatives, counters, screen_name, maiden_name, timezone, occupation

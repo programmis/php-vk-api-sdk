@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Wall\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class LinkButton
- *
  * @package VkSdk\Wall\Includes
  */
 class LinkButton
 {
 
-    /**
-     * @var string
-     */
-    public $title;
+    use AutoFillObject;
 
     /**
      * @var string
      */
-    public $url;
+    private $title;
+
+    /**
+     * @var string
+     */
+    private $url;
 
     /**
      * Button title

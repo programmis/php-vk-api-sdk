@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Market\Includes;
 
 use lib\AutoFillObject;
 
 /**
  * Class Price
- *
  * @package VkSdk\Market\Includes
  */
 class Price
@@ -16,17 +16,17 @@ class Price
     /**
      * @var string
      */
-    public $amount;
+    private $amount;
 
     /**
      * @var Currency
      */
-    public $currency;
+    private $currency;
 
     /**
      * @var string
      */
-    public $text;
+    private $text;
 
     /**
      * Amount

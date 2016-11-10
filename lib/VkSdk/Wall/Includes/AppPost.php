@@ -1,33 +1,37 @@
 <?php
+
 namespace VkSdk\Wall\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class AppPost
- *
  * @package VkSdk\Wall\Includes
  */
 class AppPost
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var string
      */
-    public $photo_130;
+    private $photo_130;
 
     /**
      * @var string
      */
-    public $photo_604;
+    private $photo_604;
 
     /**
      * Application ID

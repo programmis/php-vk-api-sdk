@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Market\Includes\Category;
 /**
  * Returns a list of market categories.
  * Class MarketGetCategories
- *
  * @package VkSdk\Market
  */
 class MarketGetCategories extends Request
@@ -19,12 +19,12 @@ class MarketGetCategories extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Category[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

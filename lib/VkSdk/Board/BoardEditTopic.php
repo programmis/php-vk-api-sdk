@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Board;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits the title of a topic on a community's discussion board.
  * Class BoardEditTopic
- *
  * @package VkSdk\Board
  */
 class BoardEditTopic extends Request
@@ -17,7 +17,7 @@ class BoardEditTopic extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

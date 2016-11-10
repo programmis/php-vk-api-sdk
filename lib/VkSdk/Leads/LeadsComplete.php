@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Leads;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Leads\Includes\Complete;
 /**
  * Completes the lead started by user.
  * Class LeadsComplete
- *
  * @package VkSdk\Leads
  */
 class LeadsComplete extends Request
@@ -19,7 +19,7 @@ class LeadsComplete extends Request
     /**
      * @var Complete
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

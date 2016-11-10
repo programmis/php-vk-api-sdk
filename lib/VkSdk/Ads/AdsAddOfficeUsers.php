@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds managers and/or supervisors to advertising account.
  * Class AdsAddOfficeUsers
- *
  * @package VkSdk\Ads
  */
 class AdsAddOfficeUsers extends Request

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes a comment on a video.
  * Class VideoDeleteComment
- *
  * @package VkSdk\Video
  */
 class VideoDeleteComment extends Request
@@ -17,7 +17,7 @@ class VideoDeleteComment extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

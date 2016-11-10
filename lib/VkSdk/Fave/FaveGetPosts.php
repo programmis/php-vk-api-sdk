@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Fave;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Wall\Includes\WallpostFull;
 /**
  * Returns a list of wall posts that the current user has liked.;
  * Class FaveGetPosts
- *
  * @package VkSdk\Fave
  */
 class FaveGetPosts extends Request
@@ -19,12 +19,12 @@ class FaveGetPosts extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var WallpostFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

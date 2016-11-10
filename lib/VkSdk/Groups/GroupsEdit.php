@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits a community.
  * Class GroupsEdit
- *
  * @package VkSdk\Groups
  */
 class GroupsEdit extends Request
@@ -32,7 +32,7 @@ class GroupsEdit extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * Market delivery cities (if only one country is specified).
@@ -459,7 +459,6 @@ class GroupsEdit extends Request
 
     /**
      * Organizer phone number (for events).
-     *
      * @return $this
      *
      * @param string $phone
@@ -473,7 +472,6 @@ class GroupsEdit extends Request
 
     /**
      * Photos settings. Possible values:; *'0' – disabled;; *'1' – open;; *'2' – limited (for groups and events only).;
-     *
      * @return $this
      *
      * @param integer $photos
@@ -487,7 +485,6 @@ class GroupsEdit extends Request
 
     /**
      * Places settings (for public pages only). Possible values:; *'0' – disabled;; *'1' – enabled.;
-     *
      * @return $this
      *
      * @param boolean $places
@@ -557,7 +554,6 @@ class GroupsEdit extends Request
 
     /**
      * Community screen name.
-     *
      * @return $this
      *
      * @param string $screen_name

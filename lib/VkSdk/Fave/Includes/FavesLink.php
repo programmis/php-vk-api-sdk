@@ -1,48 +1,52 @@
 <?php
+
 namespace VkSdk\Fave\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class FavesLink
- *
  * @package VkSdk\Fave\Includes
  */
 class FavesLink
 {
 
+    use AutoFillObject;
+
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $photo_100;
+    private $photo_100;
 
     /**
      * @var string
      */
-    public $photo_200;
+    private $photo_200;
 
     /**
      * @var string
      */
-    public $photo_50;
+    private $photo_50;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var string
      */
-    public $url;
+    private $url;
 
     /**
      * Link description

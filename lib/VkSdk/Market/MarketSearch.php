@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Market\Includes\ItemFull;
 /**
  * Searches market items in a community's catalog
  * Class MarketSearch
- *
  * @package VkSdk\Market
  */
 class MarketSearch extends Request
@@ -29,12 +29,12 @@ class MarketSearch extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var ItemFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

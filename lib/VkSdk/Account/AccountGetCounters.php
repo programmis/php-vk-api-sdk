@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns non-null values of user counters.
  * Class AccountGetCounters
- *
  * @package VkSdk\Account
  */
 class AccountGetCounters extends Request
@@ -19,7 +19,7 @@ class AccountGetCounters extends Request
     /**
      * @var Counters
      */
-    public $response;
+    private $response;
 
     /**
      * Counters to be returned (friends, messages, photos, videos, notes, gifts, events, groups, sdk).

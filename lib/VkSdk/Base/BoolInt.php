@@ -1,9 +1,9 @@
 <?php
+
 namespace VkSdk\Base;
 
 /**
  * Class BoolInt
- *
  * @package VkSdk\Base
  */
 class BoolInt

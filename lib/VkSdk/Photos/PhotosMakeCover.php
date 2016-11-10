@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Makes a photo into an album cover.
  * Class PhotosMakeCover
- *
  * @package VkSdk\Photos
  */
 class PhotosMakeCover extends Request
@@ -17,7 +17,7 @@ class PhotosMakeCover extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

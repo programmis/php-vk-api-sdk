@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Auth;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Registers a new user by phone number.
  * Class AuthSignup
- *
  * @package VkSdk\Auth
  */
 class AuthSignup extends Request
@@ -15,7 +15,7 @@ class AuthSignup extends Request
     /**
      * @var string
      */
-    public $sid;
+    private $sid;
 
     /**
      * {@inheritdoc}

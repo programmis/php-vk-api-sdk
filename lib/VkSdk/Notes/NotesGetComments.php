@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Notes;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Notes\Includes\NoteComment;
 /**
  * Returns a list of comments on a note.
  * Class NotesGetComments
- *
  * @package VkSdk\Notes
  */
 class NotesGetComments extends Request
@@ -19,12 +19,12 @@ class NotesGetComments extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var NoteComment[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

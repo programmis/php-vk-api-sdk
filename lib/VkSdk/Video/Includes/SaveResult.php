@@ -1,38 +1,42 @@
 <?php
+
 namespace VkSdk\Video\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class SaveResult
- *
  * @package VkSdk\Video\Includes
  */
 class SaveResult
 {
 
+    use AutoFillObject;
+
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $owner_id;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var string
      */
-    public $upload_url;
+    private $upload_url;
 
     /**
      * @var integer
      */
-    public $video_id;
+    private $video_id;
 
     /**
      * Video description

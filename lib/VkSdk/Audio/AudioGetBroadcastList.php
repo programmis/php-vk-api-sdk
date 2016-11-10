@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of the user's friends and communities that are broadcasting music in their statuses.
  * Class AudioGetBroadcastList
- *
  * @package VkSdk\Audio
  */
 class AudioGetBroadcastList extends Request

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes an item.
  * Class MarketDelete
- *
  * @package VkSdk\Market
  */
 class MarketDelete extends Request
@@ -17,7 +17,7 @@ class MarketDelete extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

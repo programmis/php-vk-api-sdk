@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Widgets\Includes;
 
 use lib\AutoFillObject;
@@ -10,7 +11,6 @@ use VkSdk\Wall\Includes\PostSource;
 
 /**
  * Class WidgetComment
- *
  * @package VkSdk\Widgets\Includes
  */
 class WidgetComment
@@ -21,72 +21,72 @@ class WidgetComment
     /**
      * @var CommentAttachment[]
      */
-    public $attachments;
+    private $attachments;
 
     /**
      * @var integer
      */
-    public $can_delete;
+    private $can_delete;
 
     /**
      * @var CommentReplies
      */
-    public $comments;
+    private $comments;
 
     /**
      * @var integer
      */
-    public $date;
+    private $date;
 
     /**
      * @var integer
      */
-    public $from_id;
+    private $from_id;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var LikesInfo
      */
-    public $likes;
+    private $likes;
 
     /**
      * @var CommentMedia
      */
-    public $media;
+    private $media;
 
     /**
      * @var PostSource
      */
-    public $post_source;
+    private $post_source;
 
     /**
      * @var integer
      */
-    public $post_type;
+    private $post_type;
 
     /**
      * @var RepostsInfo
      */
-    public $reposts;
+    private $reposts;
 
     /**
      * @var string
      */
-    public $text;
+    private $text;
 
     /**
      * @var integer
      */
-    public $to_id;
+    private $to_id;
 
     /**
      * @var UserFull
      */
-    public $user;
+    private $user;
 
     /**
      * @return $this

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Secure;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns payment balance of the application in hundredth of a vote.
  * Class SecureGetAppBalance
- *
  * @package VkSdk\Secure
  */
 class SecureGetAppBalance extends Request

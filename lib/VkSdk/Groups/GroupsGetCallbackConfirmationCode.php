@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns Callback API confirmation code for the community.
  * Class GroupsGetCallbackConfirmationCode
- *
  * @package VkSdk\Groups
  */
 class GroupsGetCallbackConfirmationCode extends Request
@@ -15,7 +15,7 @@ class GroupsGetCallbackConfirmationCode extends Request
     /**
      * @var string
      */
-    public $code;
+    private $code;
 
     /**
      * {@inheritdoc}

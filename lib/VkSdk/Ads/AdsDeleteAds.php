@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Archives ads.
  * Class AdsDeleteAds
- *
  * @package VkSdk\Ads
  */
 class AdsDeleteAds extends Request

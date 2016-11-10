@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Sends a complaint to the item.
  * Class MarketReport
- *
  * @package VkSdk\Market
  */
 class MarketReport extends Request
@@ -52,7 +52,7 @@ class MarketReport extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

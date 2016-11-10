@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Restores a previously deleted comment on a video.
  * Class VideoRestoreComment
- *
  * @package VkSdk\Video
  */
 class VideoRestoreComment extends Request
@@ -17,7 +17,7 @@ class VideoRestoreComment extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Users;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Reports (submits a complain about) a user.;
  * Class UsersReport
- *
  * @package VkSdk\Users
  */
 class UsersReport extends Request
@@ -17,7 +17,7 @@ class UsersReport extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

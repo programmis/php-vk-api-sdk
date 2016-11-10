@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Messages\Includes\ChatFull;
 /**
  * Returns information about a chat.
  * Class MessagesGetChat
- *
  * @package VkSdk\Messages
  */
 class MessagesGetChat extends Request
@@ -49,7 +49,7 @@ class MessagesGetChat extends Request
     /**
      * @var ChatFull
      */
-    public $response;
+    private $response;
 
     /**
      * Chat IDs.

@@ -1,79 +1,83 @@
 <?php
+
 namespace VkSdk\Groups\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class GroupXtrInvitedBy
- *
  * @package VkSdk\Groups\Includes
  */
 class GroupXtrInvitedBy
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $admin_level;
+    private $admin_level;
 
     /**
      * @var string
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $invited_by;
+    private $invited_by;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $is_admin;
+    private $is_admin;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $is_closed;
+    private $is_closed;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $is_member;
+    private $is_member;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var string
      */
-    public $photo_100;
+    private $photo_100;
 
     /**
      * @var string
      */
-    public $photo_200;
+    private $photo_200;
 
     /**
      * @var string
      */
-    public $photo_50;
+    private $photo_50;
 
     /**
      * @var string
      */
-    public $screen_name;
+    private $screen_name;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * Level of current user's credentials as manager

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Likes;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes the specified object from the 'Likes' list of the current user.
  * Class LikesDelete
- *
  * @package VkSdk\Likes
  */
 class LikesDelete extends Request
@@ -15,7 +15,7 @@ class LikesDelete extends Request
     /**
      * @var integer
      */
-    public $likes;
+    private $likes;
 
     /**
      * {@inheritdoc}

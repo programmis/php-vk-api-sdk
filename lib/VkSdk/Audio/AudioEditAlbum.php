@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits the title of an audio album.
  * Class AudioEditAlbum
- *
  * @package VkSdk\Audio
  */
 class AudioEditAlbum extends Request
@@ -17,7 +17,7 @@ class AudioEditAlbum extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

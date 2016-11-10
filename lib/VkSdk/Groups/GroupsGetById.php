@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns information about communities by their IDs.
  * Class GroupsGetById
- *
  * @package VkSdk\Groups
  */
 class GroupsGetById extends Request

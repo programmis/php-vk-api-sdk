@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Saves audio files after successful [https://vk.com/dev/upload_files_2?f=8.%20Uploading%20Audio%20Files|uploading].
  * Class AudioSave
- *
  * @package VkSdk\Audio
  */
 class AudioSave extends Request

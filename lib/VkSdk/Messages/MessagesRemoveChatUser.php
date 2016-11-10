@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Allows the current user to leave a chat or, if the current user started the chat, allows the user to remove another user from the chat.
  * Class MessagesRemoveChatUser
- *
  * @package VkSdk\Messages
  */
 class MessagesRemoveChatUser extends Request
@@ -17,7 +17,7 @@ class MessagesRemoveChatUser extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

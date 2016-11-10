@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Subscribes an iOS/Android/Windows Phone-based device to receive push notifications
  * Class AccountRegisterDevice
- *
  * @package VkSdk\Account
  */
 class AccountRegisterDevice extends Request
@@ -17,7 +17,7 @@ class AccountRegisterDevice extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

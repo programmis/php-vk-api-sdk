@@ -1,33 +1,37 @@
 <?php
+
 namespace VkSdk\Wall\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class PostedPhoto
- *
  * @package VkSdk\Wall\Includes
  */
 class PostedPhoto
 {
 
-    /**
-     * @var integer
-     */
-    public $id;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $id;
+
+    /**
+     * @var integer
+     */
+    private $owner_id;
 
     /**
      * @var string
      */
-    public $photo_130;
+    private $photo_130;
 
     /**
      * @var string
      */
-    public $photo_604;
+    private $photo_604;
 
     /**
      * Photo ID

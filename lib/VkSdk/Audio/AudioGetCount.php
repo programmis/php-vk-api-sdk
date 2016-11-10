@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns the total number of audio files on a user or community page.
  * Class AudioGetCount
- *
  * @package VkSdk\Audio
  */
 class AudioGetCount extends Request

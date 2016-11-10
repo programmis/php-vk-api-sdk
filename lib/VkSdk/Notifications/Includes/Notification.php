@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Notifications\Includes;
 
 use lib\AutoFillObject;
 
 /**
  * Class Notification
- *
  * @package VkSdk\Notifications\Includes
  */
 class Notification
@@ -16,23 +16,23 @@ class Notification
     /**
      * @var integer
      */
-    public $date;
+    private $date;
 
     /**
      * @var Feedback
      */
-    public $feedback;
-    public $parent;
+    private $feedback;
+    private $parent;
 
     /**
      * @var Reply
      */
-    public $reply;
+    private $reply;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * Date when the event has been occured

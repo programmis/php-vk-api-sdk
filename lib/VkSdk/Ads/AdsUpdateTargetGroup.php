@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits a retarget group.
  * Class AdsUpdateTargetGroup
- *
  * @package VkSdk\Ads
  */
 class AdsUpdateTargetGroup extends Request
@@ -17,7 +17,7 @@ class AdsUpdateTargetGroup extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

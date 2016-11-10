@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of suggested audio files based on a user's playlist or a particular audio file.
  * Class AudioGetRecommendations
- *
  * @package VkSdk\Audio
  */
 class AudioGetRecommendations extends Request

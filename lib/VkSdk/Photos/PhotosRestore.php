@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Restores a deleted photo.
  * Class PhotosRestore
- *
  * @package VkSdk\Photos
  */
 class PhotosRestore extends Request
@@ -17,7 +17,7 @@ class PhotosRestore extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

@@ -1,35 +1,39 @@
 <?php
+
 namespace VkSdk\Secure\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class TokenChecked
- *
  * @package VkSdk\Secure\Includes
  */
 class TokenChecked
 {
 
-    /**
-     * @var integer
-     */
-    public $date;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $expire;
+    private $date;
+
+    /**
+     * @var integer
+     */
+    private $expire;
 
     /**
      * See constants of class OkResponse
      *
      * @var integer
      */
-    public $success;
+    private $success;
 
     /**
      * @var integer
      */
-    public $user_id;
+    private $user_id;
 
     /**
      * Date when access_token has been generated in Unixtime

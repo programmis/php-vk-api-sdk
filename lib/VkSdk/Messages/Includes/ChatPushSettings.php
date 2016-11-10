@@ -1,25 +1,29 @@
 <?php
+
 namespace VkSdk\Messages\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class ChatPushSettings
- *
  * @package VkSdk\Messages\Includes
  */
 class ChatPushSettings
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $disabled_until;
+    private $disabled_until;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $sound;
+    private $sound;
 
     /**
      * Time until that notifications are disabled

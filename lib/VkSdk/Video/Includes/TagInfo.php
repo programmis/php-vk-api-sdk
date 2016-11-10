@@ -1,131 +1,135 @@
 <?php
+
 namespace VkSdk\Video\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class TagInfo
- *
  * @package VkSdk\Video\Includes
  */
 class TagInfo
 {
 
+    use AutoFillObject;
+
     /**
      * @var string
      */
-    public $access_key;
+    private $access_key;
 
     /**
      * @var integer
      */
-    public $adding_date;
+    private $adding_date;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $can_add;
+    private $can_add;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $can_edit;
+    private $can_edit;
 
     /**
      * @var integer
      */
-    public $comments;
+    private $comments;
 
     /**
      * @var integer
      */
-    public $date;
+    private $date;
 
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @var integer
      */
-    public $duration;
+    private $duration;
 
     /**
      * @var object
      */
-    public $files;
+    private $files;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * See constants of class PropertyExists
      *
      * @var integer
      */
-    public $live;
+    private $live;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $owner_id;
 
     /**
      * @var string
      */
-    public $photo_130;
+    private $photo_130;
 
     /**
      * @var string
      */
-    public $photo_320;
+    private $photo_320;
 
     /**
      * @var string
      */
-    public $photo_800;
+    private $photo_800;
 
     /**
      * @var integer
      */
-    public $placer_id;
+    private $placer_id;
 
     /**
      * @var string
      */
-    public $player;
+    private $player;
 
     /**
      * See constants of class PropertyExists
      *
      * @var integer
      */
-    public $processing;
+    private $processing;
 
     /**
      * @var integer
      */
-    public $tag_created;
+    private $tag_created;
 
     /**
      * @var integer
      */
-    public $tag_id;
+    private $tag_id;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var integer
      */
-    public $views;
+    private $views;
 
     /**
      * Video access key
@@ -545,7 +549,6 @@ class TagInfo
 
     /**
      * Tag ID
-     *
      * @return integer
      */
     public function getTagId()
@@ -567,7 +570,6 @@ class TagInfo
 
     /**
      * Video title
-     *
      * @return string
      */
     public function getTitle()
@@ -589,7 +591,6 @@ class TagInfo
 
     /**
      * Number of views
-     *
      * @return integer
      */
     public function getViews()

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Video\Includes\SaveResult;
 /**
  * Returns a server address (required for upload) and video data.
  * Class VideoSave
- *
  * @package VkSdk\Video
  */
 class VideoSave extends Request
@@ -19,7 +19,7 @@ class VideoSave extends Request
     /**
      * @var SaveResult
      */
-    public $response;
+    private $response;
 
     /**
      * @return $this

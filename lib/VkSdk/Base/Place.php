@@ -1,68 +1,72 @@
 <?php
+
 namespace VkSdk\Base;
+
+use lib\AutoFillObject;
 
 /**
  * Class Place
- *
  * @package VkSdk\Base
  */
 class Place
 {
 
-    /**
-     * @var string
-     */
-    public $address;
-
-    /**
-     * @var integer
-     */
-    public $checkins;
-
-    /**
-     * @var integer
-     */
-    public $city;
-
-    /**
-     * @var integer
-     */
-    public $country;
-
-    /**
-     * @var integer
-     */
-    public $created;
+    use AutoFillObject;
 
     /**
      * @var string
      */
-    public $icon;
+    private $address;
 
     /**
      * @var integer
      */
-    public $id;
+    private $checkins;
+
+    /**
+     * @var integer
+     */
+    private $city;
+
+    /**
+     * @var integer
+     */
+    private $country;
+
+    /**
+     * @var integer
+     */
+    private $created;
+
+    /**
+     * @var string
+     */
+    private $icon;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var number
      */
-    public $latitude;
+    private $latitude;
 
     /**
      * @var number
      */
-    public $longitude;
+    private $longitude;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * Place address

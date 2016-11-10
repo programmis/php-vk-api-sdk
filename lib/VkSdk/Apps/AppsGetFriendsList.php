@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Apps;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Users\Includes\UserFull;
 /**
  * Creates friends list for requests and invites in current app.
  * Class AppsGetFriendsList
- *
  * @package VkSdk\Apps
  */
 class AppsGetFriendsList extends Request
@@ -29,12 +29,12 @@ class AppsGetFriendsList extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var UserFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * Additional profile fields, see .

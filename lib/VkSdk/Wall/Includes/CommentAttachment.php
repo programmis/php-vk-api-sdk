@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall\Includes;
 
 use lib\AutoFillObject;
@@ -13,7 +14,6 @@ use VkSdk\Video\Includes\Video;
 
 /**
  * Class CommentAttachment
- *
  * @package VkSdk\Wall\Includes
  */
 class CommentAttachment
@@ -24,57 +24,57 @@ class CommentAttachment
     /**
      * @var Full
      */
-    public $audio;
+    private $audio;
 
     /**
      * @var Doc
      */
-    public $doc;
+    private $doc;
 
     /**
      * @var Link
      */
-    public $link;
+    private $link;
 
     /**
      * @var Item
      */
-    public $market;
+    private $market;
 
     /**
      * @var Album
      */
-    public $market_market_album;
+    private $market_market_album;
 
     /**
      * @var AttachedNote
      */
-    public $note;
+    private $note;
 
     /**
      * @var WikipageFull
      */
-    public $page;
+    private $page;
 
     /**
      * @var Photo
      */
-    public $photo;
+    private $photo;
 
     /**
      * @var Sticker
      */
-    public $sticker;
+    private $sticker;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * @var Video
      */
-    public $video;
+    private $video;
 
     /**
      * @return Full

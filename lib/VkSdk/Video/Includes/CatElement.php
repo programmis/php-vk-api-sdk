@@ -1,108 +1,112 @@
 <?php
+
 namespace VkSdk\Video\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class CatElement
- *
  * @package VkSdk\Video\Includes
  */
 class CatElement
 {
 
-    /**
-     * @var integer
-     */
-    public $can_add;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $can_edit;
+    private $can_add;
 
     /**
      * @var integer
      */
-    public $comments;
+    private $can_edit;
 
     /**
      * @var integer
      */
-    public $count;
+    private $comments;
 
     /**
      * @var integer
      */
-    public $date;
+    private $count;
+
+    /**
+     * @var integer
+     */
+    private $date;
 
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @var integer
      */
-    public $duration;
+    private $duration;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $is_private;
+    private $is_private;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $owner_id;
 
     /**
      * @var string
      */
-    public $photo_130;
+    private $photo_130;
 
     /**
      * @var string
      */
-    public $photo_160;
+    private $photo_160;
 
     /**
      * @var string
      */
-    public $photo_320;
+    private $photo_320;
 
     /**
      * @var string
      */
-    public $photo_640;
+    private $photo_640;
 
     /**
      * @var string
      */
-    public $photo_800;
+    private $photo_800;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * @var integer
      */
-    public $updated_time;
+    private $updated_time;
 
     /**
      * @var integer
      */
-    public $views;
+    private $views;
 
     /**
      * Information whether current user can add the video

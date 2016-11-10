@@ -1,28 +1,32 @@
 <?php
+
 namespace VkSdk\Widgets\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class CommentReplies
- *
  * @package VkSdk\Widgets\Includes
  */
 class CommentReplies
 {
 
-    /**
-     * @var integer
-     */
-    public $can_post;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $count;
+    private $can_post;
+
+    /**
+     * @var integer
+     */
+    private $count;
 
     /**
      * @var CommentReplies[]
      */
-    public $replies;
+    private $replies;
 
     /**
      * Information whether current user can comment the post

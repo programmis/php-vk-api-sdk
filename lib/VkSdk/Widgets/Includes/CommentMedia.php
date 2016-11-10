@@ -1,33 +1,37 @@
 <?php
+
 namespace VkSdk\Widgets\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class CommentMedia
- *
  * @package VkSdk\Widgets\Includes
  */
 class CommentMedia
 {
 
-    /**
-     * @var integer
-     */
-    public $item_id;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $item_id;
+
+    /**
+     * @var integer
+     */
+    private $owner_id;
 
     /**
      * @var string
      */
-    public $thumb_src;
+    private $thumb_src;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * Media item ID

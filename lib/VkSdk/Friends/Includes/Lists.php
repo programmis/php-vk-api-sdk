@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Friends\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Lists
- *
  * @package VkSdk\Friends\Includes
  */
 class Lists
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * List ID

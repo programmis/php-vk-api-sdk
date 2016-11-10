@@ -1,78 +1,82 @@
 <?php
+
 namespace VkSdk\Places\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Checkin
- *
  * @package VkSdk\Places\Includes
  */
 class Checkin
 {
 
-    /**
-     * @var integer
-     */
-    public $date;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $distance;
+    private $date;
 
     /**
      * @var integer
      */
-    public $id;
+    private $distance;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var number
      */
-    public $latitude;
+    private $latitude;
 
     /**
      * @var number
      */
-    public $longitude;
+    private $longitude;
 
     /**
      * @var integer
      */
-    public $place_city;
+    private $place_city;
 
     /**
      * @var integer
      */
-    public $place_country;
+    private $place_country;
 
     /**
      * @var string
      */
-    public $place_icon;
+    private $place_icon;
 
     /**
      * @var integer
      */
-    public $place_id;
+    private $place_id;
 
     /**
      * @var string
      */
-    public $place_title;
+    private $place_title;
 
     /**
      * @var string
      */
-    public $place_type;
+    private $place_type;
 
     /**
      * @var string
      */
-    public $text;
+    private $text;
 
     /**
      * @var integer
      */
-    public $user_id;
+    private $user_id;
 
     /**
      * Date when the checkin has been added in Unixtime

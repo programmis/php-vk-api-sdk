@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits an item.
  * Class MarketEdit
- *
  * @package VkSdk\Market
  */
 class MarketEdit extends Request
@@ -17,7 +17,7 @@ class MarketEdit extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * IDs of additional photos.

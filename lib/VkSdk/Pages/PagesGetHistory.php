@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Pages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of all previous versions of a wiki page.
  * Class PagesGetHistory
- *
  * @package VkSdk\Pages
  */
 class PagesGetHistory extends Request

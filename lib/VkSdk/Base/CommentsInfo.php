@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Base;
+
+use lib\AutoFillObject;
 
 /**
  * Class CommentsInfo
- *
  * @package VkSdk\Base
  */
 class CommentsInfo
 {
 
-    /**
-     * @var integer
-     */
-    public $can_post;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $count;
+    private $can_post;
+
+    /**
+     * @var integer
+     */
+    private $count;
 
     /**
      * Information whether current user can comment the post

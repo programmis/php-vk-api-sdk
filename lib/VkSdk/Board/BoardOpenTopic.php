@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Board;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Re-opens a previously closed topic on a community's discussion board.
  * Class BoardOpenTopic
- *
  * @package VkSdk\Board
  */
 class BoardOpenTopic extends Request
@@ -17,7 +17,7 @@ class BoardOpenTopic extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

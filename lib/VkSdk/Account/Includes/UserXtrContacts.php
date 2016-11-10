@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account\Includes;
 
 use lib\AutoFillObject;
@@ -18,7 +19,6 @@ use VkSdk\Users\Includes\UserMin;
 
 /**
  * Class UserXtrContacts
- *
  * @package VkSdk\Account\Includes
  */
 class UserXtrContacts
@@ -29,448 +29,448 @@ class UserXtrContacts
     /**
      * @var string
      */
-    public $about;
+    private $about;
 
     /**
      * @var string
      */
-    public $activities;
+    private $activities;
 
     /**
      * @var string
      */
-    public $activity;
+    private $activity;
 
     /**
      * @var string
      */
-    public $bdate;
+    private $bdate;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $blacklisted;
+    private $blacklisted;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $blacklisted_by_me;
+    private $blacklisted_by_me;
 
     /**
      * @var string
      */
-    public $books;
+    private $books;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $can_post;
+    private $can_post;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $can_see_all_posts;
+    private $can_see_all_posts;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $can_see_audio;
+    private $can_see_audio;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $can_send_friend_request;
+    private $can_send_friend_request;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $can_write_private_message;
+    private $can_write_private_message;
 
     /**
      * @var Career[]
      */
-    public $career;
+    private $career;
 
     /**
      * @var Objects
      */
-    public $city;
+    private $city;
 
     /**
      * @var integer
      */
-    public $common_count;
+    private $common_count;
 
     /**
      * @var string
      */
-    public $contact;
+    private $contact;
 
     /**
      * @var Country
      */
-    public $country;
+    private $country;
 
     /**
      * @var CropPhoto
      */
-    public $crop_photo;
+    private $crop_photo;
 
     /**
      * @var string
      */
-    public $deactivated;
+    private $deactivated;
 
     /**
      * @var string
      */
-    public $domain;
+    private $domain;
 
     /**
      * @var string
      */
-    public $education_form;
+    private $education_form;
 
     /**
      * @var string
      */
-    public $education_status;
+    private $education_status;
 
     /**
      * @var object
      */
-    public $exports;
+    private $exports;
 
     /**
      * @var string
      */
-    public $facebook;
+    private $facebook;
 
     /**
      * @var string
      */
-    public $facebook_name;
+    private $facebook_name;
 
     /**
      * @var integer
      */
-    public $faculty;
+    private $faculty;
 
     /**
      * @var string
      */
-    public $faculty_name;
+    private $faculty_name;
 
     /**
      * @var string
      */
-    public $first_name;
+    private $first_name;
 
     /**
      * @var integer
      */
-    public $followers_count;
+    private $followers_count;
 
     /**
      * @var integer
      */
-    public $friend_status;
+    private $friend_status;
 
     /**
      * @var string
      */
-    public $games;
+    private $games;
 
     /**
      * @var integer
      */
-    public $graduation;
+    private $graduation;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $has_mobile;
+    private $has_mobile;
 
     /**
      * @var integer
      */
-    public $has_photo;
+    private $has_photo;
 
     /**
      * @var integer
      */
-    public $hidden;
+    private $hidden;
 
     /**
      * @var string
      */
-    public $home_phone;
+    private $home_phone;
 
     /**
      * @var string
      */
-    public $home_town;
+    private $home_town;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $instagram;
+    private $instagram;
 
     /**
      * @var string
      */
-    public $interests;
+    private $interests;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $is_favorite;
+    private $is_favorite;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $is_friend;
+    private $is_friend;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $is_hidden_from_feed;
+    private $is_hidden_from_feed;
 
     /**
      * @var string
      */
-    public $last_name;
+    private $last_name;
 
     /**
      * @var LastSeen
      */
-    public $last_seen;
+    private $last_seen;
 
     /**
      * @var string
      */
-    public $livejournal;
+    private $livejournal;
 
     /**
      * @var string
      */
-    public $maiden_name;
+    private $maiden_name;
 
     /**
      * @var Military[]
      */
-    public $military;
+    private $military;
 
     /**
      * @var string
      */
-    public $mobile_phone;
+    private $mobile_phone;
 
     /**
      * @var string
      */
-    public $movies;
+    private $movies;
 
     /**
      * @var string
      */
-    public $music;
+    private $music;
 
     /**
      * @var string
      */
-    public $nickname;
+    private $nickname;
 
     /**
      * @var Occupation
      */
-    public $occupation;
+    private $occupation;
 
     /**
      * @var integer
      */
-    public $online;
+    private $online;
 
     /**
      * @var Personal
      */
-    public $personal;
+    private $personal;
 
     /**
      * @var string
      */
-    public $photo_100;
+    private $photo_100;
 
     /**
      * @var string
      */
-    public $photo_200;
+    private $photo_200;
 
     /**
      * @var string
      */
-    public $photo_200_orig;
+    private $photo_200_orig;
 
     /**
      * @var string
      */
-    public $photo_400_orig;
+    private $photo_400_orig;
 
     /**
      * @var string
      */
-    public $photo_50;
+    private $photo_50;
 
     /**
      * @var string
      */
-    public $photo_id;
+    private $photo_id;
 
     /**
      * @var string
      */
-    public $photo_max;
+    private $photo_max;
 
     /**
      * @var string
      */
-    public $photo_max_orig;
+    private $photo_max_orig;
 
     /**
      * @var string
      */
-    public $quotes;
+    private $quotes;
 
     /**
      * @var integer
      */
-    public $relation;
+    private $relation;
 
     /**
      * @var UserMin
      */
-    public $relation_partner;
+    private $relation_partner;
 
     /**
      * @var Relative[]
      */
-    public $relatives;
+    private $relatives;
 
     /**
      * @var integer
      */
-    public $request_sent;
+    private $request_sent;
 
     /**
      * @var School[]
      */
-    public $schools;
+    private $schools;
 
     /**
      * @var string
      */
-    public $screen_name;
+    private $screen_name;
 
     /**
      * @var integer
      */
-    public $sex;
+    private $sex;
 
     /**
      * @var string
      */
-    public $site;
+    private $site;
 
     /**
      * @var string
      */
-    public $skype;
+    private $skype;
 
     /**
      * @var integer
      */
-    public $sort_num;
+    private $sort_num;
 
     /**
      * @var string
      */
-    public $status;
+    private $status;
 
     /**
      * @var Full
      */
-    public $status_audio;
+    private $status_audio;
 
     /**
      * @var integer
      */
-    public $timezone;
+    private $timezone;
 
     /**
      * @var string
      */
-    public $tv;
+    private $tv;
 
     /**
      * @var string
      */
-    public $twitter;
+    private $twitter;
 
     /**
      * @var University[]
      */
-    public $universities;
+    private $universities;
 
     /**
      * @var integer
      */
-    public $university;
+    private $university;
 
     /**
      * @var string
      */
-    public $university_name;
+    private $university_name;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $verified;
+    private $verified;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $wall_comments;
+    private $wall_comments;
 
     /**
      * @return $this
@@ -942,7 +942,6 @@ class UserXtrContacts
 
     /**
      * Domain name of the user's page
-     *
      * @return string
      */
     public function getDomain()
@@ -1028,7 +1027,6 @@ class UserXtrContacts
 
     /**
      * User's Facebook account
-     *
      * @return string
      */
     public function getFacebook()
@@ -1050,7 +1048,6 @@ class UserXtrContacts
 
     /**
      * User's Facebook name
-     *
      * @return string
      */
     public function getFacebookName()
@@ -1072,7 +1069,6 @@ class UserXtrContacts
 
     /**
      * Faculty ID
-     *
      * @return integer
      */
     public function getFaculty()
@@ -1094,7 +1090,6 @@ class UserXtrContacts
 
     /**
      * Faculty name
-     *
      * @return string
      */
     public function getFacultyName()
@@ -1116,7 +1111,6 @@ class UserXtrContacts
 
     /**
      * User first name
-     *
      * @return string
      */
     public function getFirstName()
@@ -1138,7 +1132,6 @@ class UserXtrContacts
 
     /**
      * Number of user's followers
-     *
      * @return integer
      */
     public function getFollowersCount()
@@ -1160,7 +1153,6 @@ class UserXtrContacts
 
     /**
      * Friend status for current user
-     *
      * @return integer
      */
     public function getFriendStatus()
@@ -1182,7 +1174,6 @@ class UserXtrContacts
 
     /**
      * User's favorite games
-     *
      * @return string
      */
     public function getGames()
@@ -1204,7 +1195,6 @@ class UserXtrContacts
 
     /**
      * Graduation year
-     *
      * @return integer
      */
     public function getGraduation()
@@ -1226,7 +1216,6 @@ class UserXtrContacts
 
     /**
      * Information whether the user specified his phone number
-     *
      * @return integer
      */
     public function getHasMobile()
@@ -1248,7 +1237,6 @@ class UserXtrContacts
 
     /**
      * Information whether the user has main photo
-     *
      * @return integer
      */
     public function getHasPhoto()
@@ -1270,7 +1258,6 @@ class UserXtrContacts
 
     /**
      * Returns if a profile is hidden.
-     *
      * @return integer
      */
     public function getHidden()
@@ -1292,7 +1279,6 @@ class UserXtrContacts
 
     /**
      * User's mobile phone number
-     *
      * @return string
      */
     public function getHomePhone()
@@ -1314,7 +1300,6 @@ class UserXtrContacts
 
     /**
      * User hometown
-     *
      * @return string
      */
     public function getHomeTown()
@@ -1336,7 +1321,6 @@ class UserXtrContacts
 
     /**
      * User ID
-     *
      * @return integer
      */
     public function getId()
@@ -1358,7 +1342,6 @@ class UserXtrContacts
 
     /**
      * User's Instagram account
-     *
      * @return string
      */
     public function getInstagram()
@@ -1380,7 +1363,6 @@ class UserXtrContacts
 
     /**
      * User's interests
-     *
      * @return string
      */
     public function getInterests()
@@ -1402,7 +1384,6 @@ class UserXtrContacts
 
     /**
      * Information whether the requested user is in faves of current user
-     *
      * @return integer
      */
     public function getIsFavorite()
@@ -1424,7 +1405,6 @@ class UserXtrContacts
 
     /**
      * Information whether the user is a friend of current user
-     *
      * @return integer
      */
     public function getIsFriend()
@@ -1446,7 +1426,6 @@ class UserXtrContacts
 
     /**
      * Information whether the requested user is hidden from current user's newsfeed
-     *
      * @return integer
      */
     public function getIsHiddenFromFeed()
@@ -1468,7 +1447,6 @@ class UserXtrContacts
 
     /**
      * User last name
-     *
      * @return string
      */
     public function getLastName()
@@ -1510,7 +1488,6 @@ class UserXtrContacts
 
     /**
      * User's Livejournal account
-     *
      * @return string
      */
     public function getLivejournal()
@@ -1532,7 +1509,6 @@ class UserXtrContacts
 
     /**
      * User maiden name
-     *
      * @return string
      */
     public function getMaidenName()
@@ -1574,7 +1550,6 @@ class UserXtrContacts
 
     /**
      * Information whether current user can see
-     *
      * @return string
      */
     public function getMobilePhone()
@@ -1596,7 +1571,6 @@ class UserXtrContacts
 
     /**
      * User's favorite movies
-     *
      * @return string
      */
     public function getMovies()
@@ -1618,7 +1592,6 @@ class UserXtrContacts
 
     /**
      * User's favorite music
-     *
      * @return string
      */
     public function getMusic()
@@ -1640,7 +1613,6 @@ class UserXtrContacts
 
     /**
      * User nickname
-     *
      * @return string
      */
     public function getNickname()
@@ -1682,7 +1654,6 @@ class UserXtrContacts
 
     /**
      * Information whether the user is online
-     *
      * @return integer
      */
     public function getOnline()
@@ -1724,7 +1695,6 @@ class UserXtrContacts
 
     /**
      * URL of square photo of the user with 100 pixels in width
-     *
      * @return string
      */
     public function getPhoto100()
@@ -1746,7 +1716,6 @@ class UserXtrContacts
 
     /**
      * URL of square photo of the user with 200 pixels in width
-     *
      * @return string
      */
     public function getPhoto200()
@@ -1768,7 +1737,6 @@ class UserXtrContacts
 
     /**
      * URL of user's photo with 200 pixels in width
-     *
      * @return string
      */
     public function getPhoto200Orig()
@@ -1790,7 +1758,6 @@ class UserXtrContacts
 
     /**
      * URL of user's photo with 400 pixels in width
-     *
      * @return string
      */
     public function getPhoto400Orig()
@@ -1812,7 +1779,6 @@ class UserXtrContacts
 
     /**
      * URL of square photo of the user with 50 pixels in width
-     *
      * @return string
      */
     public function getPhoto50()
@@ -1834,7 +1800,6 @@ class UserXtrContacts
 
     /**
      * ID of the user's main photo
-     *
      * @return string
      */
     public function getPhotoId()
@@ -1856,7 +1821,6 @@ class UserXtrContacts
 
     /**
      * URL of square photo of the user with maximum width
-     *
      * @return string
      */
     public function getPhotoMax()
@@ -1878,7 +1842,6 @@ class UserXtrContacts
 
     /**
      * URL of user's photo of maximum size
-     *
      * @return string
      */
     public function getPhotoMaxOrig()
@@ -1900,7 +1863,6 @@ class UserXtrContacts
 
     /**
      * Favorite quotes
-     *
      * @return string
      */
     public function getQuotes()
@@ -1922,7 +1884,6 @@ class UserXtrContacts
 
     /**
      * User relationship status
-     *
      * @return integer
      */
     public function getRelation()
@@ -2024,7 +1985,6 @@ class UserXtrContacts
 
     /**
      * Domain name of the user's page
-     *
      * @return string
      */
     public function getScreenName()
@@ -2090,7 +2050,6 @@ class UserXtrContacts
 
     /**
      * User's Skype nickname
-     *
      * @return string
      */
     public function getSkype()
@@ -2174,7 +2133,6 @@ class UserXtrContacts
 
     /**
      * User's timezone
-     *
      * @return integer
      */
     public function getTimezone()
@@ -2218,7 +2176,6 @@ class UserXtrContacts
 
     /**
      * User's Twitter account
-     *
      * @return string
      */
     public function getTwitter()
@@ -2282,7 +2239,6 @@ class UserXtrContacts
 
     /**
      * University name
-     *
      * @return string
      */
     public function getUniversityName()
@@ -2304,7 +2260,6 @@ class UserXtrContacts
 
     /**
      * Information whether the user is verified
-     *
      * @return integer
      */
     public function getVerified()
@@ -2326,7 +2281,6 @@ class UserXtrContacts
 
     /**
      * Information whether current user can comment wall posts
-     *
      * @return integer
      */
     public function getWallComments()

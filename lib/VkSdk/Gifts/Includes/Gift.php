@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Gifts\Includes;
 
 use lib\AutoFillObject;
 
 /**
  * Class Gift
- *
  * @package VkSdk\Gifts\Includes
  */
 class Gift
@@ -16,37 +16,37 @@ class Gift
     /**
      * @var integer
      */
-    public $date;
+    private $date;
 
     /**
      * @var integer
      */
-    public $from_id;
+    private $from_id;
 
     /**
      * @var Layout
      */
-    public $gift;
+    private $gift;
 
     /**
      * @var string
      */
-    public $gift_hash;
+    private $gift_hash;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $message;
+    private $message;
 
     /**
      * @var integer
      */
-    public $privacy;
+    private $privacy;
 
     /**
      * Date when gist has been sent in Unixtime

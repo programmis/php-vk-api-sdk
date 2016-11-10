@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Activates an audio broadcast to the status of a user or community.
  * Class AudioSetBroadcast
- *
  * @package VkSdk\Audio
  */
 class AudioSetBroadcast extends Request

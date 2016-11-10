@@ -1,9 +1,9 @@
 <?php
+
 namespace VkSdk\Polls\Includes;
 
 /**
  * Class FieldsValues
- *
  * @package VkSdk\Polls\Includes
  */
 class FieldsValues

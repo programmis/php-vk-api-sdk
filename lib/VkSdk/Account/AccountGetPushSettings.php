@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Gets settings of push notifications.
  * Class AccountGetPushSettings
- *
  * @package VkSdk\Account
  */
 class AccountGetPushSettings extends Request
@@ -19,7 +19,7 @@ class AccountGetPushSettings extends Request
     /**
      * @var PushSettings
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

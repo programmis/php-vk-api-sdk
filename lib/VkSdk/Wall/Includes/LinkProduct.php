@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall\Includes;
 
 use lib\AutoFillObject;
@@ -6,7 +7,6 @@ use VkSdk\Market\Includes\Price;
 
 /**
  * Class LinkProduct
- *
  * @package VkSdk\Wall\Includes
  */
 class LinkProduct
@@ -17,7 +17,7 @@ class LinkProduct
     /**
      * @var Price
      */
-    public $price;
+    private $price;
 
     /**
      * @return Price

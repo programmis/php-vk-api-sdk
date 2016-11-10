@@ -1,10 +1,10 @@
 <?php
+
 namespace VkSdk\Groups\Includes;
 
 /**
  * User's credentials as community admin
  * Class RoleOptions
- *
  * @package VkSdk\Groups\Includes
  */
 class RoleOptions

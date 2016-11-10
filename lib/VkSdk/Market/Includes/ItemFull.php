@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market\Includes;
 
 use lib\AutoFillObject;
@@ -7,7 +8,6 @@ use VkSdk\Photos\Includes\Photo;
 
 /**
  * Class ItemFull
- *
  * @package VkSdk\Market\Includes
  */
 class ItemFull
@@ -18,76 +18,76 @@ class ItemFull
     /**
      * @var integer
      */
-    public $availability;
+    private $availability;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $can_comment;
+    private $can_comment;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $can_repost;
+    private $can_repost;
 
     /**
      * @var Category
      */
-    public $category;
+    private $category;
 
     /**
      * @var integer
      */
-    public $date;
+    private $date;
 
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var Likes
      */
-    public $likes;
+    private $likes;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $owner_id;
 
     /**
      * @var Photo[]
      */
-    public $photos;
+    private $photos;
 
     /**
      * @var Price
      */
-    public $price;
+    private $price;
 
     /**
      * @var string
      */
-    public $thumb_photo;
+    private $thumb_photo;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var integer
      */
-    public $views_count;
+    private $views_count;
 
     /**
      * @return $this

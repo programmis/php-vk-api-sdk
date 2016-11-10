@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Storage;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a value of variable with the name set by key parameter.
  * Class StorageGet
- *
  * @package VkSdk\Storage
  */
 class StorageGet extends Request

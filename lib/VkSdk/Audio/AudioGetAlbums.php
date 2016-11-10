@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of audio albums of a user or community.
  * Class AudioGetAlbums
- *
  * @package VkSdk\Audio
  */
 class AudioGetAlbums extends Request
@@ -19,12 +19,12 @@ class AudioGetAlbums extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Album[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

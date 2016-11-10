@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use VkSdk\Includes\Request;
@@ -6,8 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Marks the current user as online for 15 minutes.
  * Class AccountSetOnline
-
-*
  * @package VkSdk\Account
  */
 class AccountSetOnline extends Request
@@ -15,11 +14,10 @@ class AccountSetOnline extends Request
 
     /**
      * See constants of class OkResponse
-
-*
-* @var integer
+     *
+     * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

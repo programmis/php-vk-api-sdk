@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Places;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns information about locations by their IDs.
  * Class PlacesGetById
- *
  * @package VkSdk\Places
  */
 class PlacesGetById extends Request

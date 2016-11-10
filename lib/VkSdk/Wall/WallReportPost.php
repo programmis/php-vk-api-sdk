@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Reports (submits a complaint about) a post on a user wall or community wall.;
  * Class WallReportPost
- *
  * @package VkSdk\Wall
  */
 class WallReportPost extends Request
@@ -17,7 +17,7 @@ class WallReportPost extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

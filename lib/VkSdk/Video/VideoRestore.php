@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Restores a previously deleted video.
  * Class VideoRestore
- *
  * @package VkSdk\Video
  */
 class VideoRestore extends Request
@@ -17,7 +17,7 @@ class VideoRestore extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

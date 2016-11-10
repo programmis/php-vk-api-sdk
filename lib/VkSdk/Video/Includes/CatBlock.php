@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Video\Includes;
 
 use lib\AutoFillObject;
 
 /**
  * Class CatBlock
- *
  * @package VkSdk\Video\Includes
  */
 class CatBlock
@@ -18,37 +18,37 @@ class CatBlock
      *
      * @var integer
      */
-    public $can_hide;
+    private $can_hide;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var CatElement[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var string
      */
-    public $next;
+    private $next;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * @var string
      */
-    public $view;
+    private $view;
 
     /**
      * @return $this

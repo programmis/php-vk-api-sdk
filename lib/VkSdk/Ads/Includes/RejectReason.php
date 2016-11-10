@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Ads\Includes;
 
 use lib\AutoFillObject;
 
 /**
  * Class RejectReason
- *
  * @package VkSdk\Ads\Includes
  */
 class RejectReason
@@ -16,12 +16,12 @@ class RejectReason
     /**
      * @var string
      */
-    public $comment;
+    private $comment;
 
     /**
      * @var Rules[]
      */
-    public $rules;
+    private $rules;
 
     /**
      * @return $this

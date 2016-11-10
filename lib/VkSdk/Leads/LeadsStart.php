@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Leads;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Leads\Includes\Start;
 /**
  * Creates new session for the user passing the offer.
  * Class LeadsStart
- *
  * @package VkSdk\Leads
  */
 class LeadsStart extends Request
@@ -19,7 +19,7 @@ class LeadsStart extends Request
     /**
      * @var Start
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

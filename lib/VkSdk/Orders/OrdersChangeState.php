@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Orders;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Changes order status.
  * Class OrdersChangeState
- *
  * @package VkSdk\Orders
  */
 class OrdersChangeState extends Request

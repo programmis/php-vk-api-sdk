@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Allows to add a link to the community.
  * Class GroupsAddLink
- *
  * @package VkSdk\Groups
  */
 class GroupsAddLink extends Request
@@ -19,7 +19,7 @@ class GroupsAddLink extends Request
     /**
      * @var GroupLink
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

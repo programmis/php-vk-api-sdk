@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Auth;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Allows to restore account access using a code received via SMS.; ; " This method is only available for apps with  access. "
  * Class AuthRestore
- *
  * @package VkSdk\Auth
  */
 class AuthRestore extends Request
@@ -15,12 +15,12 @@ class AuthRestore extends Request
     /**
      * @var string
      */
-    public $sid;
+    private $sid;
 
     /**
      * @var integer
      */
-    public $success;
+    private $success;
 
     /**
      * {@inheritdoc}

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Gets settings of the user in this application.
  * Class AccountGetAppPermissions
- *
  * @package VkSdk\Account
  */
 class AccountGetAppPermissions extends Request

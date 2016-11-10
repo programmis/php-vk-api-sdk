@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Creates an empty audio album.
  * Class AudioAddAlbum
- *
  * @package VkSdk\Audio
  */
 class AudioAddAlbum extends Request
@@ -15,7 +15,7 @@ class AudioAddAlbum extends Request
     /**
      * @var integer
      */
-    public $album_id;
+    private $album_id;
 
     /**
      * {@inheritdoc}

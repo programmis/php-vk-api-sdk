@@ -1,63 +1,67 @@
 <?php
+
 namespace VkSdk\Users\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class User
- *
  * @package VkSdk\Users\Includes
  */
 class User
 {
 
-    /**
-     * @var string
-     */
-    public $deactivated;
+    use AutoFillObject;
 
     /**
      * @var string
      */
-    public $first_name;
+    private $deactivated;
+
+    /**
+     * @var string
+     */
+    private $first_name;
 
     /**
      * @var integer
      */
-    public $hidden;
+    private $hidden;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $last_name;
+    private $last_name;
 
     /**
      * @var integer
      */
-    public $online;
+    private $online;
 
     /**
      * @var string
      */
-    public $photo_100;
+    private $photo_100;
 
     /**
      * @var string
      */
-    public $photo_50;
+    private $photo_50;
 
     /**
      * @var string
      */
-    public $screen_name;
+    private $screen_name;
 
     /**
      * @var integer
      */
-    public $sex;
+    private $sex;
 
     /**
      * Returns if a profile is deleted or blocked

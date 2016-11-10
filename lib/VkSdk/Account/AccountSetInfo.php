@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Allows to edit the current account info.
  * Class AccountSetInfo
- *
  * @package VkSdk\Account
  */
 class AccountSetInfo extends Request
@@ -17,7 +17,7 @@ class AccountSetInfo extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

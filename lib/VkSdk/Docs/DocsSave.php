@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Docs;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Saves a document after [https://vk.com/dev/upload_files_2?f=10.%2BUploading%2BDocuments|uploading it to a server].
  * Class DocsSave
- *
  * @package VkSdk\Docs
  */
 class DocsSave extends Request
@@ -19,7 +19,7 @@ class DocsSave extends Request
     /**
      * @var Doc
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

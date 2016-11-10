@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use lib\AutoFillObject;
@@ -10,7 +11,6 @@ use VkSdk\Video\Includes\Full;
 /**
  * Returns detailed information about videos.
  * Class VideoGet
- *
  * @package VkSdk\Video
  */
 class VideoGet extends Request
@@ -21,22 +21,22 @@ class VideoGet extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var GroupFull[]
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var Full[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var UserMin[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * @return $this

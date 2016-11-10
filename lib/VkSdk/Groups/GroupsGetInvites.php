@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use lib\AutoFillObject;
@@ -9,7 +10,6 @@ use VkSdk\Users\Includes\UserMin;
 /**
  * Returns a list of invitations to join communities and events.; ;
  * Class GroupsGetInvites
- *
  * @package VkSdk\Groups
  */
 class GroupsGetInvites extends Request
@@ -20,17 +20,17 @@ class GroupsGetInvites extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var GroupXtrInvitedBy[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var UserMin[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * @return $this

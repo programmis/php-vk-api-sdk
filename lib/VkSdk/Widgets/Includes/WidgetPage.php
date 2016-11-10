@@ -1,58 +1,62 @@
 <?php
+
 namespace VkSdk\Widgets\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class WidgetPage
- *
  * @package VkSdk\Widgets\Includes
  */
 class WidgetPage
 {
 
-    /**
-     * @var object
-     */
-    public $comments;
-
-    /**
-     * @var integer
-     */
-    public $date;
-
-    /**
-     * @var string
-     */
-    public $description;
-
-    /**
-     * @var integer
-     */
-    public $id;
+    use AutoFillObject;
 
     /**
      * @var object
      */
-    public $likes;
+    private $comments;
+
+    /**
+     * @var integer
+     */
+    private $date;
 
     /**
      * @var string
      */
-    public $page_id;
+    private $description;
+
+    /**
+     * @var integer
+     */
+    private $id;
+
+    /**
+     * @var object
+     */
+    private $likes;
 
     /**
      * @var string
      */
-    public $photo;
+    private $page_id;
 
     /**
      * @var string
      */
-    public $title;
+    private $photo;
 
     /**
      * @var string
      */
-    public $url;
+    private $title;
+
+    /**
+     * @var string
+     */
+    private $url;
 
     /**
      * @return object

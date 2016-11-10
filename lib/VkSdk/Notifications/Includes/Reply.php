@@ -1,28 +1,32 @@
 <?php
+
 namespace VkSdk\Notifications\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Reply
- *
  * @package VkSdk\Notifications\Includes
  */
 class Reply
 {
 
-    /**
-     * @var integer
-     */
-    public $date;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $id;
+    private $date;
 
     /**
      * @var integer
      */
-    public $text;
+    private $id;
+
+    /**
+     * @var integer
+     */
+    private $text;
 
     /**
      * Date when the reply has been created in Unixtime

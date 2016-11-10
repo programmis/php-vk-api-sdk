@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Photos\Includes\PhotoXtrTagInfo;
 /**
  * Returns a list of photos with tags that have not been viewed.
  * Class PhotosGetNewTags
- *
  * @package VkSdk\Photos
  */
 class PhotosGetNewTags extends Request
@@ -19,12 +19,12 @@ class PhotosGetNewTags extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var PhotoXtrTagInfo[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

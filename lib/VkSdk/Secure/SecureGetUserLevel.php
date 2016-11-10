@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Secure;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns one of the previously set game levels of one or more users in the application.
  * Class SecureGetUserLevel
- *
  * @package VkSdk\Secure
  */
 class SecureGetUserLevel extends Request

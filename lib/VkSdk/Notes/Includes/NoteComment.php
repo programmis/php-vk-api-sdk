@@ -1,48 +1,52 @@
 <?php
+
 namespace VkSdk\Notes\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class NoteComment
- *
  * @package VkSdk\Notes\Includes
  */
 class NoteComment
 {
 
-    /**
-     * @var integer
-     */
-    public $date;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $id;
+    private $date;
+
+    /**
+     * @var integer
+     */
+    private $id;
 
     /**
      * @var string
      */
-    public $message;
+    private $message;
 
     /**
      * @var integer
      */
-    public $nid;
+    private $nid;
 
     /**
      * @var integer
      */
-    public $oid;
+    private $oid;
 
     /**
      * @var integer
      */
-    public $reply_to;
+    private $reply_to;
 
     /**
      * @var integer
      */
-    public $uid;
+    private $uid;
 
     /**
      * Date when the comment has beed added in Unixtime

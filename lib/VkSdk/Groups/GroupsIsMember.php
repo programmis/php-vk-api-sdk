@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns information specifying whether a user is a member of a community.
  * Class GroupsIsMember
- *
  * @package VkSdk\Groups
  */
 class GroupsIsMember extends Request
@@ -17,28 +17,28 @@ class GroupsIsMember extends Request
      *
      * @var integer
      */
-    public $invitation;
+    private $invitation;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $member;
+    private $member;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $request;
+    private $request;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * User IDs.

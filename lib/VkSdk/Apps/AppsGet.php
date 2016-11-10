@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Apps;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns applications data.
  * Class AppsGet
- *
  * @package VkSdk\Apps
  */
 class AppsGet extends Request
@@ -69,12 +69,12 @@ class AppsGet extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var App[]
      */
-    public $items;
+    private $items;
 
     /**
      * List of application ID

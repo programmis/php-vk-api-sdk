@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Docs;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns detailed information about user or community documents.
  * Class DocsGet
- *
  * @package VkSdk\Docs
  */
 class DocsGet extends Request
@@ -19,12 +19,12 @@ class DocsGet extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Doc[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

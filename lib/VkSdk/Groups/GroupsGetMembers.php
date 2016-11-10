@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of community members.
  * Class GroupsGetMembers
- *
  * @package VkSdk\Groups
  */
 class GroupsGetMembers extends Request
@@ -19,12 +19,12 @@ class GroupsGetMembers extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var MemberRole[]
      */
-    public $items;
+    private $items;
 
     /**
      * List of additional fields to be returned. ; Available values: 'sex, bdate, city, country, photo_50, photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, online_mobile, lists, domain, has_mobile, contacts, connections, site, education, universities, schools, can_post, can_see_all_posts, can_see_audio, can_write_private_message, status, last_seen, common_count, relation, relatives, counters'.

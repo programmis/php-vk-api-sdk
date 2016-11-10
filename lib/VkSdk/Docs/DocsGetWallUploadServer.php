@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Docs;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns the server address for document upload onto a user's or community's wall.
  * Class DocsGetWallUploadServer
- *
  * @package VkSdk\Docs
  */
 class DocsGetWallUploadServer extends Request
@@ -15,7 +15,7 @@ class DocsGetWallUploadServer extends Request
     /**
      * @var string
      */
-    public $upload_url;
+    private $upload_url;
 
     /**
      * {@inheritdoc}

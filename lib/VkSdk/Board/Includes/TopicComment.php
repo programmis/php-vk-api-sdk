@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Board\Includes;
 
 use lib\AutoFillObject;
@@ -6,7 +7,6 @@ use VkSdk\Wall\Includes\CommentAttachment;
 
 /**
  * Class TopicComment
- *
  * @package VkSdk\Board\Includes
  */
 class TopicComment
@@ -17,32 +17,32 @@ class TopicComment
     /**
      * @var CommentAttachment[]
      */
-    public $attachments;
+    private $attachments;
 
     /**
      * @var integer
      */
-    public $date;
+    private $date;
 
     /**
      * @var integer
      */
-    public $from_id;
+    private $from_id;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $real_offset;
+    private $real_offset;
 
     /**
      * @var string
      */
-    public $text;
+    private $text;
 
     /**
      * @return $this

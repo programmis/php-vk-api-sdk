@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Allows to search the VK users using phone numbers, e-mail addresses and user IDs on other services.
  * Class AccountLookupContacts
- *
  * @package VkSdk\Account
  */
 class AccountLookupContacts extends Request
@@ -19,7 +19,7 @@ class AccountLookupContacts extends Request
     /**
      * @var LookupResult
      */
-    public $response;
+    private $response;
 
     /**
      * List of contacts separated with commas

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Notifications;
 
 use lib\AutoFillObject;
@@ -10,7 +11,6 @@ use VkSdk\Users\Includes\User;
 /**
  * Returns a list of notifications about other users' feedback to the current user's wall posts.
  * Class NotificationsGet
- *
  * @package VkSdk\Notifications
  */
 class NotificationsGet extends Request
@@ -21,27 +21,27 @@ class NotificationsGet extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Group[]
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var Notification[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var integer
      */
-    public $last_viewed;
+    private $last_viewed;
 
     /**
      * @var User[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * Type of notifications to return:; 'wall' — wall posts; 'mentions' — mentions in wall posts, comments, or topics; 'comments' — comments to wall posts, photos, and videos; 'likes'  — likes; 'reposted' — wall posts that are copied from the current user's wall; 'followers' — new followers; 'friends' — accepted friend requests

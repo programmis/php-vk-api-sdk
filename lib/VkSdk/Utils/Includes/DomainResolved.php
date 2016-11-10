@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Utils\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class DomainResolved
- *
  * @package VkSdk\Utils\Includes
  */
 class DomainResolved
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $object_id;
+    private $object_id;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * Object ID

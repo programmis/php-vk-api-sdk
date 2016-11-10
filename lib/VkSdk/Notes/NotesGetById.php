@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Notes;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Notes\Includes\Note;
 /**
  * Returns a note by its ID.
  * Class NotesGetById
- *
  * @package VkSdk\Notes
  */
 class NotesGetById extends Request
@@ -19,7 +19,7 @@ class NotesGetById extends Request
     /**
      * @var Note
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

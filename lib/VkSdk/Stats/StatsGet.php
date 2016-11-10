@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Stats;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns statistics of a community or an application.
  * Class StatsGet
- *
  * @package VkSdk\Stats
  */
 class StatsGet extends Request

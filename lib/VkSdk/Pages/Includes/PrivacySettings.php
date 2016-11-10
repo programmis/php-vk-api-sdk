@@ -1,9 +1,9 @@
 <?php
+
 namespace VkSdk\Pages\Includes;
 
 /**
  * Class PrivacySettings
- *
  * @package VkSdk\Pages\Includes
  */
 class PrivacySettings

@@ -1,60 +1,64 @@
 <?php
+
 namespace VkSdk\Notes\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Note
- *
  * @package VkSdk\Notes\Includes
  */
 class Note
 {
+
+    use AutoFillObject;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $can_comment;
+    private $can_comment;
 
     /**
      * @var integer
      */
-    public $comments;
+    private $comments;
 
     /**
      * @var integer
      */
-    public $date;
+    private $date;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $owner_id;
 
     /**
      * @var string
      */
-    public $text;
+    private $text;
 
     /**
      * @var string
      */
-    public $text_wiki;
+    private $text_wiki;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var string
      */
-    public $view_url;
+    private $view_url;
 
     /**
      * Information whether current user can comment the note

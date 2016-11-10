@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of audio files of a user or community.
  * Class AudioGet
- *
  * @package VkSdk\Audio
  */
 class AudioGet extends Request
@@ -19,12 +19,12 @@ class AudioGet extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Full[]
      */
-    public $items;
+    private $items;
 
     /**
      * IDs of the audio files to return.

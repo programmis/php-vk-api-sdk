@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of IDs of users participating in a chat.
  * Class MessagesGetChatUsers
- *
  * @package VkSdk\Messages
  */
 class MessagesGetChatUsers extends Request

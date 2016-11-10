@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Imports a list of advertiser's contacts to count VK registered users against the target group.
  * Class AdsImportTargetContacts
- *
  * @package VkSdk\Ads
  */
 class AdsImportTargetContacts extends Request

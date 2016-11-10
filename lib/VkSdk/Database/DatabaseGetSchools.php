@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Database;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of schools.
  * Class DatabaseGetSchools
- *
  * @package VkSdk\Database
  */
 class DatabaseGetSchools extends Request
@@ -19,12 +19,12 @@ class DatabaseGetSchools extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var School[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

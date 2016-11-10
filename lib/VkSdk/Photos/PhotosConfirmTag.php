@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Confirms a tag on a photo.
  * Class PhotosConfirmTag
- *
  * @package VkSdk\Photos
  */
 class PhotosConfirmTag extends Request
@@ -17,7 +17,7 @@ class PhotosConfirmTag extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

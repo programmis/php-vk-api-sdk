@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Pages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns HTML representation of the wiki markup.
  * Class PagesParseWiki
- *
  * @package VkSdk\Pages
  */
 class PagesParseWiki extends Request

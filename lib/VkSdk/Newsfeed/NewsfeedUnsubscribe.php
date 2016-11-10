@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Newsfeed;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Unsubscribes the current user from specified newsfeeds.
  * Class NewsfeedUnsubscribe
- *
  * @package VkSdk\Newsfeed
  */
 class NewsfeedUnsubscribe extends Request
@@ -17,7 +17,7 @@ class NewsfeedUnsubscribe extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Reorders the video in the video album.
  * Class VideoReorderVideos
- *
  * @package VkSdk\Video
  */
 class VideoReorderVideos extends Request
@@ -17,7 +17,7 @@ class VideoReorderVideos extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

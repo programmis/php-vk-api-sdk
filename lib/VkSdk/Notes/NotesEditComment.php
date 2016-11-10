@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Notes;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits a comment on a note.
  * Class NotesEditComment
- *
  * @package VkSdk\Notes
  */
 class NotesEditComment extends Request
@@ -17,7 +17,7 @@ class NotesEditComment extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds a new comment on the photo.
  * Class PhotosCreateComment
- *
  * @package VkSdk\Photos
  */
 class PhotosCreateComment extends Request

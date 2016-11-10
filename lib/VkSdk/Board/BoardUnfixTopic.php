@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Board;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Unpins a pinned topic from the top of a community's discussion board.
  * Class BoardUnfixTopic
- *
  * @package VkSdk\Board
  */
 class BoardUnfixTopic extends Request
@@ -17,7 +17,7 @@ class BoardUnfixTopic extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

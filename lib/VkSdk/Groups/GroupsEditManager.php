@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Allows to add, remove or edit the community manager .
  * Class GroupsEditManager
- *
  * @package VkSdk\Groups
  */
 class GroupsEditManager extends Request
@@ -17,7 +17,7 @@ class GroupsEditManager extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Chages item comment's text
  * Class MarketEditComment
- *
  * @package VkSdk\Market
  */
 class MarketEditComment extends Request
@@ -17,7 +17,7 @@ class MarketEditComment extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * Comma-separated list of objects attached to a comment. The field is submitted the following way: ; "'<owner_id>_<media_id>,<owner_id>_<media_id>'"; ; '' - media attachment type:; "'photo' - photo; 'video' - video; 'audio' - audio; 'doc' - document"; ; '<owner_id>' - media owner id; '<media_id>' - media attachment id; ; For example:; "photo100172_166443618,photo66748_265827614";

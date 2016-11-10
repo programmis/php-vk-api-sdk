@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Database;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of regions.
  * Class DatabaseGetRegions
- *
  * @package VkSdk\Database
  */
 class DatabaseGetRegions extends Request
@@ -19,12 +19,12 @@ class DatabaseGetRegions extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Region[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

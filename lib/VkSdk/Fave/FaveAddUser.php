@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Fave;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds a profile to user faves.
  * Class FaveAddUser
- *
  * @package VkSdk\Fave
  */
 class FaveAddUser extends Request
@@ -17,7 +17,7 @@ class FaveAddUser extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

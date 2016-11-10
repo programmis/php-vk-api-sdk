@@ -1,73 +1,77 @@
 <?php
+
 namespace VkSdk\Messages\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class UserXtrInvitedBy
- *
  * @package VkSdk\Messages\Includes
  */
 class UserXtrInvitedBy
 {
 
-    /**
-     * @var string
-     */
-    public $deactivated;
+    use AutoFillObject;
 
     /**
      * @var string
      */
-    public $first_name;
+    private $deactivated;
+
+    /**
+     * @var string
+     */
+    private $first_name;
 
     /**
      * @var integer
      */
-    public $hidden;
+    private $hidden;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $invited_by;
+    private $invited_by;
 
     /**
      * @var string
      */
-    public $last_name;
+    private $last_name;
 
     /**
      * @var integer
      */
-    public $online;
+    private $online;
 
     /**
      * @var string
      */
-    public $photo_100;
+    private $photo_100;
 
     /**
      * @var string
      */
-    public $photo_50;
+    private $photo_50;
 
     /**
      * @var string
      */
-    public $screen_name;
+    private $screen_name;
 
     /**
      * @var integer
      */
-    public $sex;
+    private $sex;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * Returns if a profile is deleted or blocked

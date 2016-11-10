@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Friends;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of user IDs of the current user's recently added friends.
  * Class FriendsGetRecent
- *
  * @package VkSdk\Friends
  */
 class FriendsGetRecent extends Request

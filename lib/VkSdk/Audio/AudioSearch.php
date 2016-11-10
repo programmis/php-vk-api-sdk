@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of audio matching the search criteria.
  * Class AudioSearch
- *
  * @package VkSdk\Audio
  */
 class AudioSearch extends Request
@@ -34,12 +34,12 @@ class AudioSearch extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Full[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

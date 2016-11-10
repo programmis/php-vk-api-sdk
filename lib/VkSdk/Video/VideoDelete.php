@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes a video from a user or community page.
  * Class VideoDelete
- *
  * @package VkSdk\Video
  */
 class VideoDelete extends Request
@@ -17,7 +17,7 @@ class VideoDelete extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

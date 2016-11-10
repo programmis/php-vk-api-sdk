@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Notifications;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Resets the counter of new notifications about other users' feedback to the current user's wall posts.
  * Class NotificationsMarkAsViewed
- *
  * @package VkSdk\Notifications
  */
 class NotificationsMarkAsViewed extends Request
@@ -17,7 +17,7 @@ class NotificationsMarkAsViewed extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

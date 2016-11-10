@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Fave;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of links that the current user has bookmarked.
  * Class FaveGetLinks
- *
  * @package VkSdk\Fave
  */
 class FaveGetLinks extends Request
@@ -19,12 +19,12 @@ class FaveGetLinks extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var FavesLink[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

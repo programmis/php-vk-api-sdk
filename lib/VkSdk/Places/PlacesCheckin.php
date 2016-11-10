@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Places;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Checks a user in at the specified location.
  * Class PlacesCheckin
- *
  * @package VkSdk\Places
  */
 class PlacesCheckin extends Request
@@ -15,7 +15,7 @@ class PlacesCheckin extends Request
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * List of services or websites (e.g., 'twitter', 'facebook') to which the check-in will be exported, if the user has set up the respective option.

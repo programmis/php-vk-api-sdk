@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a set of auto-suggestions for various targeting parameters.
  * Class AdsGetSuggestions
- *
  * @package VkSdk\Ads
  */
 class AdsGetSuggestions extends Request

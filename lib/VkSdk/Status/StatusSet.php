@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Status;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Sets a new status for the current user.
  * Class StatusSet
- *
  * @package VkSdk\Status
  */
 class StatusSet extends Request
@@ -14,11 +14,10 @@ class StatusSet extends Request
 
     /**
      * See constants of class OkResponse
-
-*
-* @var integer
+     *
+     * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

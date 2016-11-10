@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns statistics of performance indicators for ads, campaigns, clients or the whole account.
  * Class AdsGetStatistics
- *
  * @package VkSdk\Ads
  */
 class AdsGetStatistics extends Request

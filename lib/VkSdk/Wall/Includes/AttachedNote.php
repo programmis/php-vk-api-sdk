@@ -1,48 +1,52 @@
 <?php
+
 namespace VkSdk\Wall\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class AttachedNote
- *
  * @package VkSdk\Wall\Includes
  */
 class AttachedNote
 {
 
-    /**
-     * @var integer
-     */
-    public $comments;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $date;
+    private $comments;
 
     /**
      * @var integer
      */
-    public $id;
+    private $date;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $read_comments;
+    private $owner_id;
+
+    /**
+     * @var integer
+     */
+    private $read_comments;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var string
      */
-    public $view_url;
+    private $view_url;
 
     /**
      * Comments number

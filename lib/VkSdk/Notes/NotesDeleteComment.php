@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Notes;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes a comment on a note.
  * Class NotesDeleteComment
- *
  * @package VkSdk\Notes
  */
 class NotesDeleteComment extends Request
@@ -17,7 +17,7 @@ class NotesDeleteComment extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

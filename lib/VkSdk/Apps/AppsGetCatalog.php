@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Apps;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of applications (apps) available to users in the App Catalog.
  * Class AppsGetCatalog
- *
  * @package VkSdk\Apps
  */
 class AppsGetCatalog extends Request
@@ -19,12 +19,12 @@ class AppsGetCatalog extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var App[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

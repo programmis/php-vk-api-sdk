@@ -1,33 +1,37 @@
 <?php
+
 namespace VkSdk\Wall\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class PostSource
- *
  * @package VkSdk\Wall\Includes
  */
 class PostSource
 {
 
-    /**
-     * @var string
-     */
-    public $data;
+    use AutoFillObject;
 
     /**
      * @var string
      */
-    public $platform;
+    private $data;
 
     /**
      * @var string
      */
-    public $type;
+    private $platform;
 
     /**
      * @var string
      */
-    public $url;
+    private $type;
+
+    /**
+     * @var string
+     */
+    private $url;
 
     /**
      * Additional data

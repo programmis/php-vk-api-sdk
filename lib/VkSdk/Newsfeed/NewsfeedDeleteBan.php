@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Newsfeed;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Allows news from previously banned users and communities to be shown in the current user's newsfeed.
  * Class NewsfeedDeleteBan
- *
  * @package VkSdk\Newsfeed
  */
 class NewsfeedDeleteBan extends Request
@@ -17,7 +17,7 @@ class NewsfeedDeleteBan extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * @return $this

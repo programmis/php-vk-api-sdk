@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Users\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Relative
- *
  * @package VkSdk\Users\Includes
  */
 class Relative
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * Relative ID

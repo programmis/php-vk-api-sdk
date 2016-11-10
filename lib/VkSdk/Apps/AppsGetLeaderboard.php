@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Apps;
 
 use lib\AutoFillObject;
@@ -9,7 +10,6 @@ use VkSdk\Users\Includes\UserMin;
 /**
  * Returns players rating in the game.
  * Class AppsGetLeaderboard
- *
  * @package VkSdk\Apps
  */
 class AppsGetLeaderboard extends Request
@@ -20,17 +20,17 @@ class AppsGetLeaderboard extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Leaderboard[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var UserMin[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * @return $this

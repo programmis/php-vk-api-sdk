@@ -1,43 +1,47 @@
 <?php
+
 namespace VkSdk\Users\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Career
- *
  * @package VkSdk\Users\Includes
  */
 class Career
 {
 
-    /**
-     * @var integer
-     */
-    public $city_id;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $country_id;
+    private $city_id;
 
     /**
      * @var integer
      */
-    public $from;
+    private $country_id;
 
     /**
      * @var integer
      */
-    public $group_id;
+    private $from;
+
+    /**
+     * @var integer
+     */
+    private $group_id;
 
     /**
      * @var string
      */
-    public $position;
+    private $position;
 
     /**
      * @var integer
      */
-    public $until;
+    private $until;
 
     /**
      * City ID

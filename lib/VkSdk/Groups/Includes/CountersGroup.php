@@ -1,48 +1,52 @@
 <?php
+
 namespace VkSdk\Groups\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class CountersGroup
- *
  * @package VkSdk\Groups\Includes
  */
 class CountersGroup
 {
 
-    /**
-     * @var integer
-     */
-    public $albums;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $audios;
+    private $albums;
 
     /**
      * @var integer
      */
-    public $docs;
+    private $audios;
 
     /**
      * @var integer
      */
-    public $market;
+    private $docs;
 
     /**
      * @var integer
      */
-    public $photos;
+    private $market;
 
     /**
      * @var integer
      */
-    public $topics;
+    private $photos;
 
     /**
      * @var integer
      */
-    public $videos;
+    private $topics;
+
+    /**
+     * @var integer
+     */
+    private $videos;
 
     /**
      * Photo albums number

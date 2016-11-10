@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Allows sending messages from community to the current user.
  * Class MessagesAllowMessagesFromCommunity
- *
  * @package VkSdk\Messages
  */
 class MessagesAllowMessagesFromCommunity extends Request
@@ -17,7 +17,7 @@ class MessagesAllowMessagesFromCommunity extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

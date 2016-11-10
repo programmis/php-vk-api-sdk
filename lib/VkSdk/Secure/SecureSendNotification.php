@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Secure;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Sends notification to the user.
  * Class SecureSendNotification
- *
  * @package VkSdk\Secure
  */
 class SecureSendNotification extends Request

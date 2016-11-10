@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Reorders the collections list.
  * Class MarketReorderAlbums
- *
  * @package VkSdk\Market
  */
 class MarketReorderAlbums extends Request
@@ -17,7 +17,7 @@ class MarketReorderAlbums extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

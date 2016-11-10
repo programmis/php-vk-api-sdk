@@ -9,7 +9,6 @@ use VkSdk\Photos\Includes\PhotoUpload;
 /**
  * Returns the server address for photo upload.
  * Class PhotosGetUploadServer
- *
  * @package VkSdk\Photos
  */
 class PhotosGetUploadServer extends Request
@@ -20,7 +19,7 @@ class PhotosGetUploadServer extends Request
     /**
      * @var PhotoUpload
      */
-    public $response;
+    private $response;
 
     /**
      * @return PhotoUpload
@@ -39,8 +38,8 @@ class PhotosGetUploadServer extends Request
     {
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response)) {
-                $this->fillByJson($json->response);
+            if (isset($json->response) && $json->response) {
+                $this->fillByJson($json);
 
                 return true;
             }

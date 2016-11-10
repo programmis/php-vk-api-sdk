@@ -1,58 +1,62 @@
 <?php
+
 namespace VkSdk\Account\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Counters
- *
  * @package VkSdk\Account\Includes
  */
 class Counters
 {
 
-    /**
-     * @var integer
-     */
-    public $app_requests;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $events;
+    private $app_requests;
 
     /**
      * @var integer
      */
-    public $friends;
+    private $events;
 
     /**
      * @var integer
      */
-    public $gifts;
+    private $friends;
 
     /**
      * @var integer
      */
-    public $groups;
+    private $gifts;
 
     /**
      * @var integer
      */
-    public $messages;
+    private $groups;
 
     /**
      * @var integer
      */
-    public $notifications;
+    private $messages;
 
     /**
      * @var integer
      */
-    public $photos;
+    private $notifications;
 
     /**
      * @var integer
      */
-    public $videos;
+    private $photos;
+
+    /**
+     * @var integer
+     */
+    private $videos;
 
     /**
      * New app_requests number

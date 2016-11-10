@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Friends;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of the current user's friends whose phone numbers, validated or specified in a profile, are in a given list.
  * Class FriendsGetByPhones
- *
  * @package VkSdk\Friends
  */
 class FriendsGetByPhones extends Request

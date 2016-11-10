@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Saves a photo to a user's or community's wall after being uploaded.
  * Class PhotosSaveWallPhoto
- *
  * @package VkSdk\Photos
  */
 class PhotosSaveWallPhoto extends Request

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Board;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Creates a new topic on a community's discussion board.
  * Class BoardAddTopic
- *
  * @package VkSdk\Board
  */
 class BoardAddTopic extends Request

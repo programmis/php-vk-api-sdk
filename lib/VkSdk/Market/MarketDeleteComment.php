@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Deletes an item's comment
  * Class MarketDeleteComment
- *
  * @package VkSdk\Market
  */
 class MarketDeleteComment extends Request
@@ -17,7 +17,7 @@ class MarketDeleteComment extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

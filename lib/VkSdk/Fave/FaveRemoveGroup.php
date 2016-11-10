@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Fave;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Removes a community from user faves.
  * Class FaveRemoveGroup
- *
  * @package VkSdk\Fave
  */
 class FaveRemoveGroup extends Request
@@ -17,7 +17,7 @@ class FaveRemoveGroup extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

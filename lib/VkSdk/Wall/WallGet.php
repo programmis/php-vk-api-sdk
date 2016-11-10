@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall;
 
 use lib\AutoFillObject;
@@ -10,7 +11,6 @@ use VkSdk\Wall\Includes\WallpostFull;
 /**
  * Returns a list of posts on a user wall or community wall.
  * Class WallGet
- *
  * @package VkSdk\Wall
  */
 class WallGet extends Request
@@ -21,22 +21,22 @@ class WallGet extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var GroupFull[]
      */
-    public $groups;
+    private $groups;
 
     /**
      * @var WallpostFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * @var UserFull[]
      */
-    public $profiles;
+    private $profiles;
 
     /**
      * @return $this

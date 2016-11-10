@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Creates a chat with several participants.
  * Class MessagesCreateChat
- *
  * @package VkSdk\Messages
  */
 class MessagesCreateChat extends Request

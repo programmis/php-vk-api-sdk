@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns information about photos by their IDs.
  * Class PhotosGetById
- *
  * @package VkSdk\Photos
  */
 class PhotosGetById extends Request

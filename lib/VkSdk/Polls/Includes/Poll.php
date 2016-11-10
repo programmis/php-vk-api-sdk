@@ -1,48 +1,52 @@
 <?php
+
 namespace VkSdk\Polls\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Poll
- *
  * @package VkSdk\Polls\Includes
  */
 class Poll
 {
 
-    /**
-     * @var integer
-     */
-    public $answer_id;
-
-    /**
-     * @var array(array)
-     */
-    public $answers;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $created;
+    private $answer_id;
+
+    /**
+     * @var array
+     */
+    private $answers;
 
     /**
      * @var integer
      */
-    public $id;
+    private $created;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $id;
+
+    /**
+     * @var integer
+     */
+    private $owner_id;
 
     /**
      * @var string
      */
-    public $question;
+    private $question;
 
     /**
      * @var string
      */
-    public $votes;
+    private $votes;
 
     /**
      * Current user's answer ID
@@ -67,7 +71,7 @@ class Poll
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getAnswers()
     {

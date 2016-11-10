@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Status;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Status\Includes\Status;
 /**
  * Returns data required to show the status of a user or community.
  * Class StatusGet
- *
  * @package VkSdk\Status
  */
 class StatusGet extends Request
@@ -19,7 +19,7 @@ class StatusGet extends Request
     /**
      * @var Status
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

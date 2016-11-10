@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns the current account info.
  * Class AccountGetProfileInfo
- *
  * @package VkSdk\Account
  */
 class AccountGetProfileInfo extends Request
@@ -19,7 +19,7 @@ class AccountGetProfileInfo extends Request
     /**
      * @var UserSettings
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Market\Includes;
 
 use lib\AutoFillObject;
 
 /**
  * Class Item
- *
  * @package VkSdk\Market\Includes
  */
 class Item
@@ -16,47 +16,47 @@ class Item
     /**
      * @var integer
      */
-    public $availability;
+    private $availability;
 
     /**
      * @var Category
      */
-    public $category;
+    private $category;
 
     /**
      * @var integer
      */
-    public $date;
+    private $date;
 
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $owner_id;
 
     /**
      * @var Price
      */
-    public $price;
+    private $price;
 
     /**
      * @var string
      */
-    public $thumb_photo;
+    private $thumb_photo;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * Information whether the item is available

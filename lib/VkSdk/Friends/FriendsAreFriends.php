@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Friends;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Checks the current user's friendship status with other specified users.
  * Class FriendsAreFriends
- *
  * @package VkSdk\Friends
  */
 class FriendsAreFriends extends Request

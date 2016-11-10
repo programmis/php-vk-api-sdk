@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall\Includes;
 
 use lib\AutoFillObject;
@@ -6,7 +7,6 @@ use VkSdk\Base\LikesInfo;
 
 /**
  * Class Comment
- *
  * @package VkSdk\Wall\Includes
  */
 class Comment
@@ -17,47 +17,47 @@ class Comment
     /**
      * @var CommentAttachment[]
      */
-    public $attachments;
+    private $attachments;
 
     /**
      * @var integer
      */
-    public $date;
+    private $date;
 
     /**
      * @var integer
      */
-    public $from_id;
+    private $from_id;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var LikesInfo
      */
-    public $likes;
+    private $likes;
 
     /**
      * @var integer
      */
-    public $real_offset;
+    private $real_offset;
 
     /**
      * @var integer
      */
-    public $reply_to_comment;
+    private $reply_to_comment;
 
     /**
      * @var integer
      */
-    public $reply_to_user;
+    private $reply_to_user;
 
     /**
      * @var string
      */
-    public $text;
+    private $text;
 
     /**
      * @return $this

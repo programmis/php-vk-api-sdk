@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Polls;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Edits created polls
  * Class PollsEdit
- *
  * @package VkSdk\Polls
  */
 class PollsEdit extends Request
@@ -17,7 +17,7 @@ class PollsEdit extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

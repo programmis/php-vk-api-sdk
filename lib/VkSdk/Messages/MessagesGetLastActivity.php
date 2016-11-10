@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Messages\Includes\LastActivity;
 /**
  * Returns a user's current status and date of last activity.
  * Class MessagesGetLastActivity
- *
  * @package VkSdk\Messages
  */
 class MessagesGetLastActivity extends Request
@@ -19,7 +19,7 @@ class MessagesGetLastActivity extends Request
     /**
      * @var LastActivity
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

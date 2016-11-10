@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns information about current state of a counter — number of remaining runs of methods and time to the next counter nulling in seconds.
  * Class AdsGetFloodStats
- *
  * @package VkSdk\Ads
  */
 class AdsGetFloodStats extends Request
@@ -19,7 +19,7 @@ class AdsGetFloodStats extends Request
     /**
      * @var FloodStats
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

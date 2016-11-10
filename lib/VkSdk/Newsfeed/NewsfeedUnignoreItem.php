@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Newsfeed;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a hidden item to the newsfeed.
  * Class NewsfeedUnignoreItem
- *
  * @package VkSdk\Newsfeed
  */
 class NewsfeedUnignoreItem extends Request
@@ -17,7 +17,7 @@ class NewsfeedUnignoreItem extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

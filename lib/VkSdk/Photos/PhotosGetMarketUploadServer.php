@@ -7,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns the server address for market photo upload.
  * Class PhotosGetMarketUploadServer
- *
  * @package VkSdk\Photos
  */
 class PhotosGetMarketUploadServer extends Request
@@ -16,7 +15,7 @@ class PhotosGetMarketUploadServer extends Request
     /**
      * @var string
      */
-    public $upload_url;
+    private $upload_url;
 
     /**
      * result in $this->getUploadUrl();
@@ -29,8 +28,9 @@ class PhotosGetMarketUploadServer extends Request
 
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response, $json->response->upload_url)) {
+            if (isset($json->response) && $json->response) {
                 $this->upload_url = $json->response->upload_url;
+
                 return true;
             }
         }

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Allows to copy a photo to the "Saved photos" album
  * Class PhotosCopy
- *
  * @package VkSdk\Photos
  */
 class PhotosCopy extends Request

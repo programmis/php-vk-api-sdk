@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Notes;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Notes\Includes\Note;
 /**
  * Returns a list of notes created by a user.
  * Class NotesGet
- *
  * @package VkSdk\Notes
  */
 class NotesGet extends Request
@@ -19,12 +19,12 @@ class NotesGet extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Note[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

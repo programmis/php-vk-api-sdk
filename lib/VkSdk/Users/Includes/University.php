@@ -1,68 +1,72 @@
 <?php
+
 namespace VkSdk\Users\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class University
- *
  * @package VkSdk\Users\Includes
  */
 class University
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $chair;
+    private $chair;
 
     /**
      * @var string
      */
-    public $chair_name;
+    private $chair_name;
 
     /**
      * @var integer
      */
-    public $city;
+    private $city;
 
     /**
      * @var integer
      */
-    public $country;
+    private $country;
 
     /**
      * @var string
      */
-    public $education_form;
+    private $education_form;
 
     /**
      * @var string
      */
-    public $education_status;
+    private $education_status;
 
     /**
      * @var integer
      */
-    public $faculty;
+    private $faculty;
 
     /**
      * @var string
      */
-    public $faculty_name;
+    private $faculty_name;
 
     /**
      * @var integer
      */
-    public $graduation;
+    private $graduation;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * Chair ID

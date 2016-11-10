@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Messages\Includes\Chat;
 /**
  * Sets a previously-uploaded picture as the cover picture of a chat.
  * Class MessagesSetChatPhoto
- *
  * @package VkSdk\Messages
  */
 class MessagesSetChatPhoto extends Request
@@ -19,12 +19,12 @@ class MessagesSetChatPhoto extends Request
     /**
      * @var Chat
      */
-    public $chat;
+    private $chat;
 
     /**
      * @var integer
      */
-    public $message_id;
+    private $message_id;
 
     /**
      * {@inheritdoc}

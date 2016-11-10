@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Unpins the post on wall.
  * Class WallUnpin
- *
  * @package VkSdk\Wall
  */
 class WallUnpin extends Request
@@ -17,7 +17,7 @@ class WallUnpin extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Users\Includes;
 
 use lib\AutoFillObject;
@@ -6,7 +7,6 @@ use VkSdk\Photos\Includes\Photo;
 
 /**
  * Class CropPhoto
- *
  * @package VkSdk\Users\Includes
  */
 class CropPhoto
@@ -17,17 +17,17 @@ class CropPhoto
     /**
      * @var object
      */
-    public $crop;
+    private $crop;
 
     /**
      * @var Photo
      */
-    public $photo;
+    private $photo;
 
     /**
      * @var object
      */
-    public $rect;
+    private $rect;
 
     /**
      * @return object

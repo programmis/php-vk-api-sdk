@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Secure;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Sends 'SMS' notification to a user's mobile device.
  * Class SecureSendSMSNotification
- *
  * @package VkSdk\Secure
  */
 class SecureSendSMSNotification extends Request
@@ -17,7 +17,7 @@ class SecureSendSMSNotification extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns  server settings for the community.
  * Class GroupsGetCallbackServerSettings
- *
  * @package VkSdk\Groups
  */
 class GroupsGetCallbackServerSettings extends Request
@@ -15,12 +15,12 @@ class GroupsGetCallbackServerSettings extends Request
     /**
      * @var string
      */
-    public $secret_key;
+    private $secret_key;
 
     /**
      * @var string
      */
-    public $server_url;
+    private $server_url;
 
     /**
      * {@inheritdoc}

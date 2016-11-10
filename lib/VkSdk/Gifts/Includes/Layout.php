@@ -1,33 +1,37 @@
 <?php
+
 namespace VkSdk\Gifts\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Layout
- *
  * @package VkSdk\Gifts\Includes
  */
 class Layout
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $thumb_256;
+    private $thumb_256;
 
     /**
      * @var string
      */
-    public $thumb_48;
+    private $thumb_48;
 
     /**
      * @var string
      */
-    public $thumb_96;
+    private $thumb_96;
 
     /**
      * Gift ID

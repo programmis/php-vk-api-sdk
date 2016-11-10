@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
@@ -6,21 +7,20 @@ use VkSdk\Includes\Request;
 /**
  * Returns updates in user's private messages.
  * Class MessagesGetLongPollHistory
- *
  * @package VkSdk\Messages
  */
 class MessagesGetLongPollHistory extends Request
 {
 
     /**
-     * @var array(array)
+     * @var array
      */
-    public $history;
+    private $history;
 
     /**
      * @var object
      */
-    public $messages;
+    private $messages;
 
     /**
      * Additional  to return.
@@ -60,7 +60,7 @@ class MessagesGetLongPollHistory extends Request
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getHistory()
     {

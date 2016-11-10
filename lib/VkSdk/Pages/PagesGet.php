@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Pages;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Pages\Includes\WikipageFull;
 /**
  * Returns information about a wiki page.
  * Class PagesGet
- *
  * @package VkSdk\Pages
  */
 class PagesGet extends Request
@@ -19,7 +19,7 @@ class PagesGet extends Request
     /**
      * @var WikipageFull
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

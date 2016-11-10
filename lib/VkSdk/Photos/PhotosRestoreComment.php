@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Restores a deleted comment on a photo.
  * Class PhotosRestoreComment
- *
  * @package VkSdk\Photos
  */
 class PhotosRestoreComment extends Request
@@ -17,7 +17,7 @@ class PhotosRestoreComment extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

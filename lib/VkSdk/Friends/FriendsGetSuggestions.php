@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Friends;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Users\Includes\UserFull;
 /**
  * Returns a list of profiles of users whom the current user may know.
  * Class FriendsGetSuggestions
- *
  * @package VkSdk\Friends
  */
 class FriendsGetSuggestions extends Request
@@ -49,12 +49,12 @@ class FriendsGetSuggestions extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var UserFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online', 'counters'.;

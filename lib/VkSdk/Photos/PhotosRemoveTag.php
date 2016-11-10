@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Removes a tag from a photo.
  * Class PhotosRemoveTag
- *
  * @package VkSdk\Photos
  */
 class PhotosRemoveTag extends Request
@@ -17,7 +17,7 @@ class PhotosRemoveTag extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

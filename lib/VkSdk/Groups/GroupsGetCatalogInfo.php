@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns categories list for communities catalog
  * Class GroupsGetCatalogInfo
- *
  * @package VkSdk\Groups
  */
 class GroupsGetCatalogInfo extends Request
@@ -19,12 +19,12 @@ class GroupsGetCatalogInfo extends Request
     /**
      * @var GroupCategoryFull[]
      */
-    public $categories;
+    private $categories;
 
     /**
      * @var integer
      */
-    public $enabled;
+    private $enabled;
 
     /**
      * @return $this

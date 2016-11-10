@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns  notifications settings.
  * Class GroupsGetCallbackSettings
- *
  * @package VkSdk\Groups
  */
 class GroupsGetCallbackSettings extends Request
@@ -17,126 +17,126 @@ class GroupsGetCallbackSettings extends Request
      *
      * @var integer
      */
-    public $audio_new;
+    private $audio_new;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $board_post_delete;
+    private $board_post_delete;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $board_post_edit;
+    private $board_post_edit;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $board_post_new;
+    private $board_post_new;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $board_post_restore;
+    private $board_post_restore;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $group_join;
+    private $group_join;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $group_leave;
+    private $group_leave;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $market_comment_new;
+    private $market_comment_new;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $message_allow;
+    private $message_allow;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $message_deny;
+    private $message_deny;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $message_new;
+    private $message_new;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $photo_comment_new;
+    private $photo_comment_new;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $photo_new;
+    private $photo_new;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $video_comment_new;
+    private $video_comment_new;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $video_new;
+    private $video_new;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $wall_post_new;
+    private $wall_post_new;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $wall_reply_edit;
+    private $wall_reply_edit;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $wall_reply_new;
+    private $wall_reply_new;
 
     /**
      * {@inheritdoc}

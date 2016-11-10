@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Photos\Includes;
 
 use lib\AutoFillObject;
 
 /**
  * Class PhotoAlbumFull
- *
  * @package VkSdk\Photos\Includes
  */
 class PhotoAlbumFull
@@ -18,88 +18,88 @@ class PhotoAlbumFull
      *
      * @var integer
      */
-    public $can_upload;
+    private $can_upload;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $comments_disabled;
+    private $comments_disabled;
 
     /**
      * @var integer
      */
-    public $created;
+    private $created;
 
     /**
      * @var string
      */
-    public $description;
+    private $description;
 
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var integer
      */
-    public $owner_id;
+    private $owner_id;
 
     /**
-     * @var array(array)
+     * @var array
      */
-    public $privacy_comment;
+    private $privacy_comment;
 
     /**
-     * @var array(array)
+     * @var array
      */
-    public $privacy_view;
+    private $privacy_view;
 
     /**
      * @var integer
      */
-    public $size;
+    private $size;
 
     /**
      * @var PhotoSizes[]
      */
-    public $sizes;
+    private $sizes;
 
     /**
      * @var integer
      */
-    public $thumb_id;
+    private $thumb_id;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $thumb_is_last;
+    private $thumb_is_last;
 
     /**
      * @var string
      */
-    public $thumb_src;
+    private $thumb_src;
 
     /**
      * @var string
      */
-    public $title;
+    private $title;
 
     /**
      * @var integer
      */
-    public $updated;
+    private $updated;
 
     /**
      * See constants of class BoolInt
      *
      * @var integer
      */
-    public $upload_by_admins_only;
+    private $upload_by_admins_only;
 
     /**
      * @return $this
@@ -246,7 +246,7 @@ class PhotoAlbumFull
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getPrivacyComment()
     {
@@ -266,7 +266,7 @@ class PhotoAlbumFull
     }
 
     /**
-     * @return array(array)[]
+     * @return array
      */
     public function getPrivacyView()
     {

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Market;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Market\Includes\ItemFull;
 /**
  * Returns items list for a community.
  * Class MarketGet
- *
  * @package VkSdk\Market
  */
 class MarketGet extends Request
@@ -19,12 +19,12 @@ class MarketGet extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var ItemFull[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

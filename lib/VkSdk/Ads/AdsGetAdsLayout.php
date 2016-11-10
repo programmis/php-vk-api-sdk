@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns descriptions of ad layouts.
  * Class AdsGetAdsLayout
- *
  * @package VkSdk\Ads
  */
 class AdsGetAdsLayout extends Request

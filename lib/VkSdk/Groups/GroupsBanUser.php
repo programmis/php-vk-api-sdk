@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds a user to a community blacklist.
  * Class GroupsBanUser
- *
  * @package VkSdk\Groups
  */
 class GroupsBanUser extends Request
@@ -17,7 +17,7 @@ class GroupsBanUser extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

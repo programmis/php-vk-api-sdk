@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Reorders the album in the list of user albums.
  * Class PhotosReorderAlbums
- *
  * @package VkSdk\Photos
  */
 class PhotosReorderAlbums extends Request
@@ -17,7 +17,7 @@ class PhotosReorderAlbums extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

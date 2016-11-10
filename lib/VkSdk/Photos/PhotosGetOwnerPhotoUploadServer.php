@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns an upload server address for a profile or community photo.
  * Class PhotosGetOwnerPhotoUploadServer
- *
  * @package VkSdk\Photos
  */
 class PhotosGetOwnerPhotoUploadServer extends Request
@@ -15,7 +15,7 @@ class PhotosGetOwnerPhotoUploadServer extends Request
     /**
      * @var string
      */
-    public $upload_url;
+    private $upload_url;
 
     /**
      * {@inheritdoc}

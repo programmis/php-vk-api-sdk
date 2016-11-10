@@ -1,23 +1,27 @@
 <?php
+
 namespace VkSdk\Users\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class LastSeen
- *
  * @package VkSdk\Users\Includes
  */
 class LastSeen
 {
 
-    /**
-     * @var integer
-     */
-    public $platform;
+    use AutoFillObject;
 
     /**
      * @var integer
      */
-    public $time;
+    private $platform;
+
+    /**
+     * @var integer
+     */
+    private $time;
 
     /**
      * Type of the platform that used for the last authorization

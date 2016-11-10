@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of tags on a video.
  * Class VideoGetTags
- *
  * @package VkSdk\Video
  */
 class VideoGetTags extends Request

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Newsfeed;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Hides an item from the newsfeed.
  * Class NewsfeedIgnoreItem
- *
  * @package VkSdk\Newsfeed
  */
 class NewsfeedIgnoreItem extends Request
@@ -17,7 +17,7 @@ class NewsfeedIgnoreItem extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

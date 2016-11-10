@@ -1,28 +1,32 @@
 <?php
+
 namespace VkSdk\Messages\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class LongpollParams
- *
  * @package VkSdk\Messages\Includes
  */
 class LongpollParams
 {
 
-    /**
-     * @var string
-     */
-    public $key;
+    use AutoFillObject;
 
     /**
      * @var string
      */
-    public $server;
+    private $key;
+
+    /**
+     * @var string
+     */
+    private $server;
 
     /**
      * @var integer
      */
-    public $ts;
+    private $ts;
 
     /**
      * Key

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Video;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Reports (submits a complaint about) a video.
  * Class VideoReport
- *
  * @package VkSdk\Video
  */
 class VideoReport extends Request
@@ -17,7 +17,7 @@ class VideoReport extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

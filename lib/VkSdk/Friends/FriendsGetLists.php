@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Friends;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of the user's friend lists.
  * Class FriendsGetLists
- *
  * @package VkSdk\Friends
  */
 class FriendsGetLists extends Request
@@ -19,12 +19,12 @@ class FriendsGetLists extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var Lists[]
      */
-    public $items;
+    private $items;
 
     /**
      * @return $this

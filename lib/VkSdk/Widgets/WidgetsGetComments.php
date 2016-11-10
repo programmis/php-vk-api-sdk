@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Widgets;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Widgets\Includes\WidgetComment;
 /**
  * Gets a list of comments for the page added through the .
  * Class WidgetsGetComments
- *
  * @package VkSdk\Widgets
  */
 class WidgetsGetComments extends Request
@@ -19,12 +19,12 @@ class WidgetsGetComments extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
      * @var WidgetComment[]
      */
-    public $posts;
+    private $posts;
 
     /**
      * @return $this

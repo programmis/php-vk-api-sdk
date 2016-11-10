@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Status\Includes;
 
 use lib\AutoFillObject;
@@ -6,7 +7,6 @@ use VkSdk\Audio\Includes\Full;
 
 /**
  * Class Status
- *
  * @package VkSdk\Status\Includes
  */
 class Status
@@ -17,12 +17,12 @@ class Status
     /**
      * @var Full
      */
-    public $audio;
+    private $audio;
 
     /**
      * @var string
      */
-    public $text;
+    private $text;
 
     /**
      * @return Full

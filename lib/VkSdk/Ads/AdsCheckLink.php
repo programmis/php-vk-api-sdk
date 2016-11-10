@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Includes\Request;
 /**
  * Allows to check the ad link.
  * Class AdsCheckLink
- *
  * @package VkSdk\Ads
  */
 class AdsCheckLink extends Request
@@ -19,7 +19,7 @@ class AdsCheckLink extends Request
     /**
      * @var LinkStatus
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

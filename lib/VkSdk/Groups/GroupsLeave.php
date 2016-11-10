@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * With this method you can leave a group, public page, or event.; ;
  * Class GroupsLeave
- *
  * @package VkSdk\Groups
  */
 class GroupsLeave extends Request
@@ -17,7 +17,7 @@ class GroupsLeave extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

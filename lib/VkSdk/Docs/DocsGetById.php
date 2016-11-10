@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Docs;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns information about documents by their IDs.
  * Class DocsGetById
- *
  * @package VkSdk\Docs
  */
 class DocsGetById extends Request

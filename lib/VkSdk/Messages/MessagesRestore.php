@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Restores a deleted message.
  * Class MessagesRestore
- *
  * @package VkSdk\Messages
  */
 class MessagesRestore extends Request
@@ -17,7 +17,7 @@ class MessagesRestore extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

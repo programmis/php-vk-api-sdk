@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Saves a photo after being successfully uploaded. URL obtained with  method.
  * Class PhotosSaveMessagesPhoto
- *
  * @package VkSdk\Photos
  */
 class PhotosSaveMessagesPhoto extends Request

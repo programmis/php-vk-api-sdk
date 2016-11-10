@@ -1,28 +1,32 @@
 <?php
+
 namespace VkSdk\Users\Includes;
+
+use lib\AutoFillObject;
 
 /**
  * Class Occupation
- *
  * @package VkSdk\Users\Includes
  */
 class Occupation
 {
 
+    use AutoFillObject;
+
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var string
      */
-    public $type;
+    private $type;
 
     /**
      * ID of school, university, company group

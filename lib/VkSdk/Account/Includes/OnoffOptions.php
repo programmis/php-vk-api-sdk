@@ -1,10 +1,10 @@
 <?php
+
 namespace VkSdk\Account\Includes;
 
 /**
  * Settings parameters
  * Class OnoffOptions
- *
  * @package VkSdk\Account\Includes
  */
 class OnoffOptions

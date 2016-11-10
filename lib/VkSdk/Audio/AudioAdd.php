@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Audio;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Copies an audio file to a user page or community page.
  * Class AudioAdd
- *
  * @package VkSdk\Audio
  */
 class AudioAdd extends Request

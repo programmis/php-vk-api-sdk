@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Fave;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Adds a community to user faves.
  * Class FaveAddGroup
- *
  * @package VkSdk\Fave
  */
 class FaveAddGroup extends Request
@@ -17,7 +17,7 @@ class FaveAddGroup extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

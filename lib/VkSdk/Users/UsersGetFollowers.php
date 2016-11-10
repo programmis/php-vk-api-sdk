@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Users;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
  * Class UsersGetFollowers
- *
  * @package VkSdk\Users
  */
 class UsersGetFollowers extends Request
@@ -45,12 +45,12 @@ class UsersGetFollowers extends Request
     /**
      * @var integer
      */
-    public $count;
+    private $count;
 
     /**
-     * @var array(array)
+     * @var array
      */
-    public $items;
+    private $items;
 
     /**
      * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online'.;
@@ -117,7 +117,7 @@ class UsersGetFollowers extends Request
     /**
      * User ID
      *
-     * @return array(array)[]
+     * @return array
      */
     public function getItems()
     {

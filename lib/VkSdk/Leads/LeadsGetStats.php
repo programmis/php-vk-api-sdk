@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Leads;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Leads\Includes\Lead;
 /**
  * Returns lead stats data.
  * Class LeadsGetStats
- *
  * @package VkSdk\Leads
  */
 class LeadsGetStats extends Request
@@ -19,7 +19,7 @@ class LeadsGetStats extends Request
     /**
      * @var Lead
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

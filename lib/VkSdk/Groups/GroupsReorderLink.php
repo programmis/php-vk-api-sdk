@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Allows to reorder links in the community.
  * Class GroupsReorderLink
- *
  * @package VkSdk\Groups
  */
 class GroupsReorderLink extends Request
@@ -17,7 +17,7 @@ class GroupsReorderLink extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

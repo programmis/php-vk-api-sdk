@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Pins the post on wall.
  * Class WallPin
- *
  * @package VkSdk\Wall
  */
 class WallPin extends Request
@@ -17,7 +17,7 @@ class WallPin extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Ads;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Removes managers and/or supervisors from advertising account.
  * Class AdsRemoveOfficeUsers
- *
  * @package VkSdk\Ads
  */
 class AdsRemoveOfficeUsers extends Request

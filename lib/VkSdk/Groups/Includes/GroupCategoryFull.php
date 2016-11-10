@@ -1,11 +1,11 @@
 <?php
+
 namespace VkSdk\Groups\Includes;
 
 use lib\AutoFillObject;
 
 /**
  * Class GroupCategoryFull
- *
  * @package VkSdk\Groups\Includes
  */
 class GroupCategoryFull
@@ -16,27 +16,27 @@ class GroupCategoryFull
     /**
      * @var integer
      */
-    public $id;
+    private $id;
 
     /**
      * @var string
      */
-    public $name;
+    private $name;
 
     /**
      * @var integer
      */
-    public $page_count;
+    private $page_count;
 
     /**
      * @var Group[]
      */
-    public $page_previews;
+    private $page_previews;
 
     /**
      * @var GroupCategory[]
      */
-    public $subcategories;
+    private $subcategories;
 
     /**
      * @return $this

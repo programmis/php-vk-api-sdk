@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Groups;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Allows to approve join request to the community.
  * Class GroupsApproveRequest
- *
  * @package VkSdk\Groups
  */
 class GroupsApproveRequest extends Request
@@ -17,7 +17,7 @@ class GroupsApproveRequest extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * {@inheritdoc}

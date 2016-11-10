@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Newsfeed;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Prevents news from specified users and communities from appearing in the current user's newsfeed.
  * Class NewsfeedAddBan
- *
  * @package VkSdk\Newsfeed
  */
 class NewsfeedAddBan extends Request
@@ -17,7 +17,7 @@ class NewsfeedAddBan extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * @return $this

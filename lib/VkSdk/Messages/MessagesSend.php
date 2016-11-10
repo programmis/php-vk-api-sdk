@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Sends a message.
  * Class MessagesSend
- *
  * @package VkSdk\Messages
  */
 class MessagesSend extends Request

@@ -1,10 +1,10 @@
 <?php
+
 namespace VkSdk\Wall\Includes;
 
 /**
  * Post type
  * Class PostType
- *
  * @package VkSdk\Wall\Includes
  */
 class PostType

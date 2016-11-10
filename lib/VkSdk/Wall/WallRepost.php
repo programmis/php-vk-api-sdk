@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Wall;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Reposts (copies) an object to a user wall or community wall.
  * Class WallRepost
- *
  * @package VkSdk\Wall
  */
 class WallRepost extends Request
@@ -15,24 +15,24 @@ class WallRepost extends Request
     /**
      * @var integer
      */
-    public $likes_count;
+    private $likes_count;
 
     /**
      * @var integer
      */
-    public $post_id;
+    private $post_id;
 
     /**
      * @var integer
      */
-    public $reposts_count;
+    private $reposts_count;
 
     /**
      * See constants of class OkResponse
      *
      * @var integer
      */
-    public $success;
+    private $success;
 
     /**
      * {@inheritdoc}

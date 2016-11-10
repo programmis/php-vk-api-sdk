@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Messages;
 
 use VkSdk\Includes\Request;
@@ -6,7 +7,6 @@ use VkSdk\Includes\Request;
 /**
  * Marks messages as read.
  * Class MessagesMarkAsRead
- *
  * @package VkSdk\Messages
  */
 class MessagesMarkAsRead extends Request
@@ -17,7 +17,7 @@ class MessagesMarkAsRead extends Request
      *
      * @var integer
      */
-    public $response;
+    private $response;
 
     /**
      * IDs of messages to mark as read.

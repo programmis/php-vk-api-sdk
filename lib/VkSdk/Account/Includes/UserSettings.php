@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Account\Includes;
 
 use lib\AutoFillObject;
@@ -8,7 +9,6 @@ use VkSdk\Users\Includes\UserMin;
 
 /**
  * Class UserSettings
- *
  * @package VkSdk\Account\Includes
  */
 class UserSettings
@@ -19,87 +19,87 @@ class UserSettings
     /**
      * @var string
      */
-    public $bdate;
+    private $bdate;
 
     /**
      * @var integer
      */
-    public $bdate_visibility;
+    private $bdate_visibility;
 
     /**
      * @var Objects
      */
-    public $city;
+    private $city;
 
     /**
      * @var Country
      */
-    public $country;
+    private $country;
 
     /**
      * @var string
      */
-    public $first_name;
+    private $first_name;
 
     /**
      * @var string
      */
-    public $home_town;
+    private $home_town;
 
     /**
      * @var string
      */
-    public $last_name;
+    private $last_name;
 
     /**
      * @var string
      */
-    public $maiden_name;
+    private $maiden_name;
 
     /**
      * @var NameRequest
      */
-    public $name_request;
+    private $name_request;
 
     /**
      * @var string
      */
-    public $phone;
+    private $phone;
 
     /**
      * @var integer
      */
-    public $relation;
+    private $relation;
 
     /**
      * @var UserMin
      */
-    public $relation_partner;
+    private $relation_partner;
 
     /**
      * @var integer
      */
-    public $relation_pending;
+    private $relation_pending;
 
     /**
      * @var UserMin[]
      */
-    public $relation_requests;
+    private $relation_requests;
 
     /**
      * @var string
      */
-    public $screen_name;
+    private $screen_name;
 
     /**
      * @var integer
      */
-    public $sex;
+    private $sex;
 
     /**
      * @var string
      */
-    public $status;
+    private $status;
 
     /**
      * @return $this
