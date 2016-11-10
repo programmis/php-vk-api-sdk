@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Unsubscribes a device from push notifications.
+ *
  * Class AccountUnregisterDevice
  * @package VkSdk\Account
  */
 class AccountUnregisterDevice extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class AccountUnregisterDevice extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -27,6 +29,8 @@ class AccountUnregisterDevice extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
