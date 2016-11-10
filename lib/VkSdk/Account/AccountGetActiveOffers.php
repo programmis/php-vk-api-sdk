@@ -41,6 +41,8 @@ class AccountGetActiveOffers extends Request
     }
 
     /**
+     * result in $this->getCount(); and $this->getItems();
+     *
      * {@inheritdoc}
      */
     public function doRequest()

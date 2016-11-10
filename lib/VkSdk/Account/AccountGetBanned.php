@@ -8,12 +8,12 @@ use VkSdk\Users\Includes\UserMin;
 
 /**
  * Returns a user's blacklist.
+ *
  * Class AccountGetBanned
  * @package VkSdk\Account
  */
 class AccountGetBanned extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -39,6 +39,8 @@ class AccountGetBanned extends Request
     }
 
     /**
+     * result in $this->getCount(); and $this->getItems();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -46,6 +48,8 @@ class AccountGetBanned extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }
