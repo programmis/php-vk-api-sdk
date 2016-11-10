@@ -5,13 +5,14 @@ namespace VkSdk\Account;
 use VkSdk\Includes\Request;
 
 /**
- * Changes a user password after access is successfully restored with the  method.
+ * Changes a user password after access is
+ * successfully restored with the  method.
+ *
  * Class AccountChangePassword
  * @package VkSdk\Account
  */
 class AccountChangePassword extends Request
 {
-
     /**
      * @var string
      */
@@ -23,6 +24,8 @@ class AccountChangePassword extends Request
     private $token;
 
     /**
+     * result in $this->getSecret(); and $this->getToken();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -31,7 +34,14 @@ class AccountChangePassword extends Request
 
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response) && $json->response) {
+            if (isset(
+                $json->response,
+                $json->response->token,
+                $json->response->secret
+            )) {
+                $this->token  = $json->response->token;
+                $this->secret = $json->response->secret;
+
                 return true;
             }
         }
@@ -76,7 +86,8 @@ class AccountChangePassword extends Request
     }
 
     /**
-     * Hash received after a successful OAuth authorization with a code got by SMS.; (If the password is changed right after the access was restored)
+     * Hash received after a successful OAuth authorization with a code got by SMS.; (If the password is changed right
+     * after the access was restored)
      *
      * @return $this
      *
@@ -118,7 +129,8 @@ class AccountChangePassword extends Request
     }
 
     /**
-     * Session id received after the  method is executed.; (If the password is changed right after the access was restored)
+     * Session id received after the  method is executed.; (If the password is changed right after the access was
+     * restored)
      *
      * @return $this
      *
