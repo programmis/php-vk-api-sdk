@@ -3,16 +3,30 @@
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
+use VkSdk\Photos\Includes\PhotoFull;
 
 /**
  * Saves market photos after successful uploading.
  * Class PhotosSaveMarketPhoto
- * @package VkSdk\Photos
+ *
+*@package VkSdk\Photos
  */
 class PhotosSaveMarketPhoto extends Request
 {
+    /** @var PhotoFull[] */
+    private $photos = [];
 
     /**
+     * @return PhotoFull[]
+     */
+    public function getPhotos()
+    {
+        return $this->photos;
+    }
+
+    /**
+     * result in $this->getPhotos();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -22,6 +36,13 @@ class PhotosSaveMarketPhoto extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                foreach ($json->response as $item) {
+                    $photo = new PhotoFull();
+                    $photo->fillByJson($item);
+
+                    $this->photos[] = $photo;
+                }
+
                 return true;
             }
         }
