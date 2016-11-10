@@ -7,7 +7,8 @@ use VkSdk\Includes\Request;
 /**
  * Ads a new item to the market.
  * Class MarketAdd
- * @package VkSdk\Market
+ *
+*@package VkSdk\Market
  */
 class MarketAdd extends Request
 {
@@ -32,6 +33,7 @@ class MarketAdd extends Request
     }
 
     /**
+     * result in $this->getMarketItemId();
      * {@inheritdoc}
      */
     public function doRequest()
@@ -40,7 +42,9 @@ class MarketAdd extends Request
 
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response) && $json->response) {
+            if (isset($json->response, $json->response->market_item_id)) {
+                $this->market_item_id = $json->response->market_item_id;
+
                 return true;
             }
         }
