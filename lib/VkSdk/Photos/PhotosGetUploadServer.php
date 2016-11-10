@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use lib\AutoFillObject;
@@ -22,13 +23,25 @@ class PhotosGetUploadServer extends Request
     public $response;
 
     /**
+     * @return PhotoUpload
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
     {
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response) && $json->response) {
+            if (isset($json->response)) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }

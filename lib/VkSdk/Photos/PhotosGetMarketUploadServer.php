@@ -1,4 +1,5 @@
 <?php
+
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
