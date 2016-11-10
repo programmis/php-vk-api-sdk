@@ -8,12 +8,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Edits current profile info.
+ *
  * Class AccountSaveProfileInfo
  * @package VkSdk\Account
  */
 class AccountSaveProfileInfo extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -29,6 +29,8 @@ class AccountSaveProfileInfo extends Request
     private $name_request;
 
     /**
+     * result in $this->getChanged(); and $this->getNameRequest();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -36,6 +38,8 @@ class AccountSaveProfileInfo extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }
@@ -102,7 +106,10 @@ class AccountSaveProfileInfo extends Request
     }
 
     /**
-     * Birth date visibility. Returned values: ; * '1' – show birth date;; * '2' – show only month and date;; * '0' – hide birth date.
+     * Birth date visibility. Returned values: ;
+     * '1' – show birth date;;
+     * '2' – show only month and date;;
+     * '0' – hide birth date.
      *
      * @return $this
      *
@@ -116,7 +123,8 @@ class AccountSaveProfileInfo extends Request
     }
 
     /**
-     * ID of the name change request to be canceled. If this paremeter is sent, all the others are ignored.
+     * ID of the name change request to be canceled.
+     * If this paremeter is sent, all the others are ignored.
      *
      * @return $this
      *
@@ -214,7 +222,15 @@ class AccountSaveProfileInfo extends Request
     }
 
     /**
-     * User relationship status. Possible values: ; * '1' – single;; * '2' – in a relationship;; * '3' – engaged;; * '4' – married;; * '5' – it's complicated;; * '6' – actively searching;; * '7' – in love;; * '0' – not specified.
+     * User relationship status. Possible values: ;
+     * '1' – single;;
+     * '2' – in a relationship;;
+     * '3' – engaged;;
+     * '4' – married;;
+     * '5' – it's complicated;;
+     * '6' – actively searching;;
+     * '7' – in love;;
+     * '0' – not specified.
      *
      * @return $this
      *
@@ -256,7 +272,9 @@ class AccountSaveProfileInfo extends Request
     }
 
     /**
-     * User sex. Possible values: ; * '1' – female;; * '2' – male.
+     * User sex. Possible values: ;
+     * '1' – female;;
+     * '2' – male.
      *
      * @return $this
      *
