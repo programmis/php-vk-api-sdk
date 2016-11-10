@@ -18,6 +18,8 @@ class PhotosGetMarketUploadServer extends Request
     public $upload_url;
 
     /**
+     * result in $this->getUploadUrl();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -26,7 +28,8 @@ class PhotosGetMarketUploadServer extends Request
 
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response) && $json->response) {
+            if (isset($json->response, $json->response->upload_url)) {
+                $this->upload_url = $json->response->upload_url;
                 return true;
             }
         }
