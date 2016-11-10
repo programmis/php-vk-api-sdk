@@ -1,16 +1,39 @@
 <ul>
 <h5>Supported:</h5>
-<li>users</li>
-<li>groups</li>
-<li>wall</li>
-<li>photos</li>
-<li>friends</li>
-<li>status</li>
-<li>board</li>
-<li>account</li>
-<li>messages</li>
-<li>polls</li>
-<li>ads</li>
+ 	<li>Account</li>
+	<li>Ads</li>
+	<li>Apps</li>
+	<li>Audio</li>
+	<li>Auth</li>
+	<li>Board</li>
+	<li>Database</li>
+	<li>Docs</li>
+	<li>Fave</li>
+	<li>Friends</li>
+	<li>Gifts</li>
+	<li>Groups</li>
+	<li>Leads</li>
+	<li>Likes</li>
+	<li>Market</li>
+	<li>Messages</li>
+	<li>Newsfeed</li>
+	<li>Notes</li>
+	<li>Notifications</li>
+	<li>Orders</li>
+	<li>Pages</li>
+	<li>Photos</li>
+	<li>Places</li>
+	<li>Polls</li>
+	<li>Search</li>
+	<li>Secure</li>
+	<li>Stats</li>
+	<li>Status</li>
+	<li>Storage</li>
+	<li>Users</li>
+	<li>Utils</li>
+	<li>Video</li>
+	<li>Wall</li>
+	<li>Widgets</li>
 </ul>
 
 **1) Download [composer](https://getcomposer.org/download/) :**
