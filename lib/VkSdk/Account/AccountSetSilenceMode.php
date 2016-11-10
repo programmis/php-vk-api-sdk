@@ -96,7 +96,8 @@ class AccountSetSilenceMode extends Request
     }
 
     /**
-     * '1' — to enable sound in this dialog, '0' — to disable sound. Only if 'peer_id' contains user or community ID.
+     * '1' — to enable sound in this dialog, '0' — to disable sound.
+     * Only if 'peer_id' contains user or community ID.
      *
      * @return $this
      *
@@ -110,7 +111,8 @@ class AccountSetSilenceMode extends Request
     }
 
     /**
-     * Time in seconds for what notifications should be disabled. '-1' to disable forever.
+     * Time in seconds for what notifications should be disabled.
+     * '-1' to disable forever.
      *
      * @return $this
      *
