@@ -21,6 +21,14 @@ class AccountGetInfo extends Request
     private $response;
 
     /**
+     * @return Info
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
      * Fields to return. Possible values:;
      *'country' — user country;;
      *'https_required' — is "HTTPS only" option enabled;;
@@ -42,6 +50,8 @@ class AccountGetInfo extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()

@@ -44,6 +44,8 @@ class AccountGetCounters extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
