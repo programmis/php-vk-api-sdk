@@ -7,21 +7,23 @@ use Psr\Log\LoggerInterface;
 
 /**
  * Class Request
+ *
  * @package VkSdk\Includes
  */
 abstract class Request extends \ApiRator\Includes\Request implements VkInterface
 {
+    /** @var string $access_token */
+    private static $access_token;
     /** @var int $error_code */
     private $error_code;
     /** @var string $error_msg */
     private $error_msg;
     private $json_response;
-    /** @var string $access_token */
-    private static $access_token;
 
     /**
      * Request constructor.
-     * @param string $access_token
+     *
+     * @param string          $access_token
      * @param LoggerInterface $logger
      */
     public function __construct($access_token = null, $logger = null)
@@ -34,12 +36,6 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         }
 
         parent::__construct(self::MAGIC_PREFIX, $logger);
-    }
-
-    /** @inheritdoc */
-    public function getAccessToken()
-    {
-        return self::$access_token;
     }
 
     /**
@@ -87,9 +83,10 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     {
         $json = json_decode($content);
 
-        if (isset($json->response)) {
-            $this->json_response = $json;
+        if (!$json || !is_object($json)) {
+            return false;
         }
+        $this->json_response = $json;
         if (isset($json->error) && $json->error) {
             if (isset($json->error->error_code) && $json->error->error_code) {
                 if ($json->error->error_code == self::ERROR_CODE_CAPTCHA_NEEDED) {
@@ -129,22 +126,6 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         return true;
     }
 
-    /**
-     * @param int $cnt
-     *
-     * @return string
-     */
-    private function getUrlSymbol(&$cnt)
-    {
-        $symbol = '&';
-        if ($cnt == 0) {
-            $symbol = '?';
-        }
-        $cnt++;
-
-        return $symbol;
-    }
-
     /** @inheritdoc */
     public function getResultApiUrl()
     {
@@ -162,12 +143,33 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     }
 
     /**
+     * @param int $cnt
+     *
+     * @return string
+     */
+    private function getUrlSymbol(&$cnt)
+    {
+        $symbol = '&';
+        if ($cnt == 0) {
+            $symbol = '?';
+        }
+        $cnt++;
+
+        return $symbol;
+    }
+
+    /** @inheritdoc */
+    public function getAccessToken()
+    {
+        return self::$access_token;
+    }
+
+    /**
      * В случае неудачи, ошибки можно посмотреть
      * вызвав методы getErrorCode и getErrorMsg
      *
      * @uses \VkSdk\Includes\Request::getErrorCode
      * @uses \VkSdk\Includes\Request::getErrorMsg
-     *
      * @return bool
      */
     abstract public function doRequest();

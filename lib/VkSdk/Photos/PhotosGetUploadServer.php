@@ -5,10 +5,12 @@ namespace VkSdk\Photos;
 use lib\AutoFillObject;
 use VkSdk\Includes\Request;
 use VkSdk\Photos\Includes\PhotoUpload;
+use VkSdk\Photos\Includes\UploadResult;
 
 /**
  * Returns the server address for photo upload.
  * Class PhotosGetUploadServer
+ *
  * @package VkSdk\Photos
  */
 class PhotosGetUploadServer extends Request
@@ -22,6 +24,37 @@ class PhotosGetUploadServer extends Request
     private $response;
 
     /**
+     * @var UploadResult $uploadResult
+     */
+    private $uploadResult;
+
+    /**
+     * @return UploadResult
+     */
+    public function getUploadResult()
+    {
+        return $this->uploadResult;
+    }
+
+    /**
+     * @param array $files
+     *
+     * @return bool
+     */
+    public function upload($files)
+    {
+        $result = $this->uploadFiles($this->getResponse()->getUploadUrl(), $files);
+        if ($result && ($json = $this->getJsonResponse())) {
+            $this->uploadResult = new UploadResult();
+            $this->uploadResult->fillByJson($json);
+
+            return true;
+        }
+
+        return false;
+    }
+
+    /**
      * @return PhotoUpload
      */
     public function getResponse()
@@ -31,7 +64,6 @@ class PhotosGetUploadServer extends Request
 
     /**
      * result in $this->getResponse();
-     *
      * {@inheritdoc}
      */
     public function doRequest()

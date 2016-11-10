@@ -56,6 +56,29 @@ https://oauth.vk.com/blank.html#access_token=**345345345345345345345345345d73e7d
 
 <ul>
 <h5>Examples:</h5>
+<li>Upload photo</li>
+<pre>
+$server = new PhotosGetUploadServer($token);
+$server->setAlbumId($album_id)
+    ->setGroupId($group_id);
+if (!$server->doRequest()) {
+    return;
+}
+if (!$server->upload([$img_path])) {
+    return;
+}
+$uploadResult = $server->getUploadResult();
+$photos = new PhotosSave($token);
+$photos->setAlbumId($album_id)
+    ->setGroupId($group_id)
+    ->setServer($uploadResult->getServer())
+    ->setPhotosList($uploadResult->getPhotosList())
+    ->setHash($uploadResult->getHash())
+    ->setCaption($text);
+if (!$photos->doRequest()) {
+    return;
+}
+</pre>
 <li>Obtain detailed information about users VKontakte:<br>
 <pre>
 $userGet = new UsersGet();
