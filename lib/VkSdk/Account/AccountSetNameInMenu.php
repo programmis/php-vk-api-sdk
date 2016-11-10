@@ -5,13 +5,14 @@ namespace VkSdk\Account;
 use VkSdk\Includes\Request;
 
 /**
- * Sets an application screen name (up to 17 characters), that is shown to the user in the left menu.
+ * Sets an application screen name (up to 17 characters),
+ * that is shown to the user in the left menu.
+ *
  * Class AccountSetNameInMenu
  * @package VkSdk\Account
  */
 class AccountSetNameInMenu extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +21,8 @@ class AccountSetNameInMenu extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +32,8 @@ class AccountSetNameInMenu extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
