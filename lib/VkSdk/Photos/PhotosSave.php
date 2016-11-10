@@ -3,6 +3,7 @@
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
+use VkSdk\Photos\Includes\PhotoFull;
 
 /**
  * Saves photos after successful uploading.
@@ -11,8 +12,20 @@ use VkSdk\Includes\Request;
  */
 class PhotosSave extends Request
 {
+    /** @var PhotoFull[] */
+    private $photos = [];
 
     /**
+     * @return PhotoFull[]
+     */
+    public function getPhotos()
+    {
+        return $this->photos;
+    }
+
+    /**
+     * result in $this->getPhotos();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -20,6 +33,13 @@ class PhotosSave extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                foreach ($json->response as $item) {
+                    $photo = new PhotoFull();
+                    $photo->fillByJson($item);
+
+                    $this->photos[] = $photo;
+                }
+
                 return true;
             }
         }
