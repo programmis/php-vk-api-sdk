@@ -1,27 +1,70 @@
 <?php
-
 namespace VkSdk\Friends;
 
+use lib\AutoFillObject;
+use VkSdk\Friends\Includes\RequestsXtrMessage;
 use VkSdk\Includes\Request;
 
 /**
- * Возвращает информацию о полученных или отправленных заявках
- * на добавление в друзья для текущего пользователя.
- *
+ * Returns information about the current user's incoming and outgoing friend requests.
  * Class FriendsGetRequests
+ *
  * @package VkSdk\Friends
  */
 class FriendsGetRequests extends Request
 {
-    /** @var int $count */
-    private $count;
-    /** @var array $items */
-    private $items;
+
+    use AutoFillObject;
 
     /**
-     * количество записей
+     * @var integer
+     */
+    public $count;
+
+    /**
+     * @var RequestsXtrMessage[]
+     */
+    public $items;
+
+    /**
+     * @return $this
      *
-     * @return int
+     * @param RequestsXtrMessage $item
+     */
+    public function addItem(RequestsXtrMessage $item)
+    {
+        $this->items[] = $item;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function doRequest()
+    {
+        $result = $this->execApi();
+        if ($result && ($json = $this->getJsonResponse())) {
+            if (isset($json->response) && $json->response) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getApiVersion()
+    {
+        return "5.60";
+    }
+
+    /**
+     * Total requests number
+     *
+     * @return integer
      */
     public function getCount()
     {
@@ -29,116 +72,12 @@ class FriendsGetRequests extends Request
     }
 
     /**
-     * результат запроса
-     *
-     * @return array
-     */
-    public function getItems()
-    {
-        return $this->items;
-    }
+     * Number of friend requests to return (default 100, maximum 1000).
 
-    /**
-     * false - не возвращать просмотренные заявки,
-     * true — возвращать просмотренные заявки.
-     * (Если out = true, данный параметр не учитывается).
+*
+*@return $this
      *
-     * @param bool $need_viewed
-     *
-     * @return $this
-     */
-    public function setNeedViewed($need_viewed)
-    {
-        $this->vkarg_need_viewed = $need_viewed ? '1' : '0';
-
-        return $this;
-    }
-
-    /**
-     * true — возвращать рекомендованных другими пользователями друзей,
-     * false — возвращать заявки в друзья (по умолчанию).
-     *
-     * @param bool $suggested
-     *
-     * @return $this
-     */
-    public function setSuggested($suggested)
-    {
-        $this->vkarg_suggested = $suggested ? '1' : '0';
-
-        return $this;
-    }
-
-    /**
-     * false — сортировать по дате добавления,
-     * true — сортировать по количеству общих друзей.
-     * (Если out = true, этот параметр не учитывается).
-     *
-     * @param bool $sort
-     *
-     * @return $this
-     */
-    public function setSort($sort)
-    {
-        $this->vkarg_sort = $sort ? '1' : '0';
-
-        return $this;
-    }
-
-    /**
-     * false — возвращать полученные заявки в друзья (по умолчанию),
-     * true — возвращать отправленные пользователем заявки.
-     *
-     * @param bool $out
-     *
-     * @return $this
-     */
-    public function setOut($out)
-    {
-        $this->vkarg_out = $out ? '1' : '0';
-
-        return $this;
-    }
-
-    /**
-     * определяет, требуется ли возвращать в ответе список общих друзей,
-     * если они есть. Обратите внимание, что при использовании
-     * need_mutual будет возвращено не более 2 заявок.
-     *
-     * @param bool $need_mutual
-     *
-     * @return $this
-     */
-    public function setNeedMutual($need_mutual)
-    {
-        $this->vkarg_need_mutual = $need_mutual ? '1' : '0';
-
-        return $this;
-    }
-
-    /**
-     * смещение, необходимое для выборки определенного
-     * подмножества заявок на добавление в друзья.
-     *
-     * @param int $offset
-     *
-     * @return $this
-     */
-    public function setOffset($offset)
-    {
-        $this->vkarg_offset = $offset;
-
-        return $this;
-    }
-
-    /**
-     * максимальное количество заявок на добавление в друзья,
-     * которые необходимо получить (не более 1000).
-     * По умолчанию — 100.
-     *
-     * @param int $count
-     *
-     * @return $this
+     * @param integer $count
      */
     public function setCount($count)
     {
@@ -148,70 +87,118 @@ class FriendsGetRequests extends Request
     }
 
     /**
-     * определяет, требуется ли возвращать в ответе сообщения от
-     * пользователей, подавших заявку на добавление в друзья.
-     * И отправителя рекомендации при suggested = 1.
-     *
-     * @param bool $extended
-     *
-     * @return $this
+     * @return RequestsXtrMessage[]
      */
-    public function setExtended($extended)
+    public function getItems()
     {
-        $this->vkarg_extended = $extended ? '1' : '0';
-
-        return $this;
+        return $this->items;
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc
+     */
     public function getMethod()
     {
         return "friends.getRequests";
     }
 
-    /** @inheritdoc */
-    public function getApiVersion()
+    /**
+     * @inheritdoc
+     */
+    public function objectFields()
     {
-        return '5.60';
+        return [
+            'items' => [
+                'class'  => 'VkSdk\Friends\Includes\RequestsXtrMessage',
+                'method' => 'addItem'
+            ],
+        ];
     }
 
     /**
-     * Если не установлен параметр need_mutual,
-     * то в случае успеха возвращает отсортированный в антихронологическом
-     * порядке по времени подачи заявки список идентификаторов (id)
-     * пользователей (кому или от кого пришла заявка).
+     * '1' — to return response messages from users who have sent a friend request or, if 'suggested' is set to '1', to return a list of suggested friends
      *
-     * Если установлен параметр need_mutual,
-     * то в случае успеха возвращает отсортированный в
-     * антихронологическом порядке по времени подачи заявки массив объектов,
-     * содержащих информацию о заявках на добавление в друзья.
-     * Каждый из объектов содержит поле user_id являющийся идентификатором
-     * пользователя. При наличии общих друзей, в объекте будет содержаться
-     * поле mutual, в котором будет находиться список идентификаторов
-     * общих друзей.
+*@return $this
      *
-     * результат можно посмотреть вызвав метод getItems
-     *
-     * {@inheritdoc}
+     * @param boolean $extended
      */
-    public function doRequest()
+    public function setExtended($extended)
     {
+        $this->vkarg_extended = $extended;
 
-        $result = $this->execApi();
+        return $this;
+    }
 
-        if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response) && $json->response) {
-                if (isset($json->response->count)) {
-                    $this->count = $json->response->count;
-                }
-                if (isset($json->response->items) && $json->response->items) {
-                    $this->items = $json->response->items;
-                }
+    /**
+     * '1' — to return a list of mutual friends (up to 20), if any
+     *
+*@return $this
+     *
+     * @param boolean $need_mutual
+     */
+    public function setNeedMutual($need_mutual)
+    {
+        $this->vkarg_need_mutual = $need_mutual;
 
-                return true;
-            }
-        }
+        return $this;
+    }
 
-        return false;
+    /**
+     * Offset needed to return a specific subset of friend requests.
+     *
+     * @return $this
+
+
+*
+     * @param integer $offset
+     */
+    public function setOffset($offset)
+    {
+        $this->vkarg_offset = $offset;
+
+        return $this;
+    }
+
+    /**
+     * '1' — to return outgoing requests; '0' — to return incoming requests (default)
+     *
+     *@return $this
+
+     *
+     * @param boolean $out
+     */
+    public function setOut($out)
+    {
+        $this->vkarg_out = $out;
+
+        return $this;
+    }
+
+    /**
+     * Sort order:; '1' — by number of mutual friends; '0' — by date
+     *
+*@return $this
+     *
+     * @param integer $sort
+     */
+    public function setSort($sort)
+    {
+        $this->vkarg_sort = $sort;
+
+        return $this;
+    }
+
+    /**
+     * '1' — to return a list of suggested friends; '0' — to return friend requests (default)
+     *
+     * @return $this
+     *
+*@param boolean $suggested
+     */
+    public function setSuggested($suggested)
+    {
+        $this->vkarg_suggested = $suggested;
+
+        return $this;
     }
 }

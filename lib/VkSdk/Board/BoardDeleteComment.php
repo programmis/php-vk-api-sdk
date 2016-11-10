@@ -1,43 +1,90 @@
 <?php
-
 namespace VkSdk\Board;
 
 use VkSdk\Includes\Request;
 
 /**
- * Удаляет сообщение темы в обсуждениях сообщества.
- * Требуются права доступа: groups.
- *
+ * Deletes a comment on a topic on a community's discussion board.
  * Class BoardDeleteComment
- *
- * @see https://vk.com/dev/board.deleteComment
- *
+
+*
  * @package VkSdk\Board
  */
 class BoardDeleteComment extends Request
 {
+
     /**
-     * идентификатор обсуждения.
-     * положительное число, обязательный параметр
-     *
-     * @param int $topic_id
-     *
-     * @return $this
+     * See constants of class OkResponse
+
+*
+* @var integer
      */
-    public function setTopicId($topic_id)
+    public $response;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function doRequest()
     {
-        $this->vkarg_topic_id = $topic_id;
+        $this->setRequiredParams(["group_id", "topic_id", "comment_id"]);
+
+        $result = $this->execApi();
+        if ($result && ($json = $this->getJsonResponse())) {
+            if (isset($json->response) && $json->response) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getApiVersion()
+    {
+        return "5.60";
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMethod()
+    {
+        return "board.deleteComment";
+    }
+
+    /**
+     * Returns 1 if request has been processed successfully
+     * See constants of class OkResponse
+     *
+     * @return integer
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * Comment ID.
+     *
+*@return $this
+     *
+     * @param integer $comment_id
+     */
+    public function setCommentId($comment_id)
+    {
+        $this->vkarg_comment_id = $comment_id;
 
         return $this;
     }
 
     /**
-     * идентификатор сообщества.
-     * положительное число, обязательный параметр
-     *
-     * @param int $group_id
+     * ID of the community that owns the discussion board.
      *
      * @return $this
+     *
+     * @param integer $group_id
      */
     public function setGroupId($group_id)
     {
@@ -47,52 +94,16 @@ class BoardDeleteComment extends Request
     }
 
     /**
-     * идентификатор комментария в обсуждении.
-     * положительное число, обязательный параметр
+     * Topic ID.
      *
-     * @param int $comment_id
+*@return $this
      *
-     * @return $this
+     * @param integer $topic_id
      */
-    public function setCommentId($comment_id)
+    public function setTopicId($topic_id)
     {
-        $this->vkarg_comment_id = $comment_id;
+        $this->vkarg_topic_id = $topic_id;
 
         return $this;
-    }
-
-    public function getMethod()
-    {
-        return 'board.deleteComment';
-    }
-
-    public function getApiVersion()
-    {
-        return '5.60';
-    }
-
-    /**
-     * После успешного выполнения, а также в том случае,
-     * если комментарий уже удален, возвращает true.
-     *
-     * {@inheritdoc}
-     */
-    public function doRequest()
-    {
-        $this->setRequiredParams(array(
-            'group_id',
-            'topic_id',
-            'comment_id'
-        ));
-
-        $result = $this->execApi();
-
-        if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response) && $json->response) {
-                return true;
-            }
-        }
-
-        return false;
     }
 }

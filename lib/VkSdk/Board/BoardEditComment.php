@@ -1,34 +1,104 @@
 <?php
-
 namespace VkSdk\Board;
 
 use VkSdk\Includes\Request;
-use VkSdk\Wall\Includes\WallAttachments;
 
 /**
- * Редактирует одно из сообщений в обсуждении сообщества.
- * Требуются права доступа: groups.
- *
+ * Edits a comment on a topic on a community's discussion board.
  * Class BoardEditComment
- *
- * @see https://vk.com/dev/board.editComment
- *
+
+*
  * @package VkSdk\Board
  */
 class BoardEditComment extends Request
 {
-    /**
-     * @var WallAttachments[] $attachments
-     */
-    private $attachments = [];
 
     /**
-     * идентификатор комментария в обсуждении.
-     * положительное число, обязательный параметр
+     * See constants of class OkResponse
      *
-     * @param int $comment_id
+     * @var integer
+     */
+    public $response;
+
+    /**
+     * (Required if 'message' is not set.) List of media objects attached to the comment, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media object:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media owner. ; '<media_id>' — Media ID.; ; Example:; "photo100172_166443618,photo66748_265827614"
+
+*
+*@return $this
      *
-     * @return $this
+     * @param string $attachment
+     */
+    public function addAttachment($attachment)
+    {
+        $this->vkarg_attachments[] = $attachment;
+
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function doRequest()
+    {
+        $this->setRequiredParams(["group_id", "topic_id", "comment_id"]);
+
+        $result = $this->execApi();
+        if ($result && ($json = $this->getJsonResponse())) {
+            if (isset($json->response) && $json->response) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getApiVersion()
+    {
+        return "5.60";
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMethod()
+    {
+        return "board.editComment";
+    }
+
+    /**
+     * Returns 1 if request has been processed successfully
+     * See constants of class OkResponse
+     *
+     * @return integer
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * (Required if 'message' is not set.) List of media objects attached to the comment, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media object:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media owner. ; '<media_id>' — Media ID.; ; Example:; "photo100172_166443618,photo66748_265827614"
+     *
+*@return $this
+     *
+     * @param array $attachments
+     */
+    public function setAttachments(array $attachments)
+    {
+        $this->vkarg_attachments = $attachments;
+
+        return $this;
+    }
+
+    /**
+     * ID of the comment on the topic.
+     *
+*@return $this
+     *
+     * @param integer $comment_id
      */
     public function setCommentId($comment_id)
     {
@@ -38,42 +108,13 @@ class BoardEditComment extends Request
     }
 
     /**
-     * новый список объектов, приложенных к комментарию.
-     * является обязательным, если не задан setMessage.
-     *
-     * @param WallAttachments $attachments
+     * ID of the community that owns the discussion board.
      *
      * @return $this
-     */
-    public function addAttachment(WallAttachments $attachments)
-    {
-        $this->attachments[] = $attachments;
 
-        return $this;
-    }
 
-    /**
-     * новый текст комментария
-     * является обязательным, если не добавлено значение addAttachment.
-     *
-     * @param string $message
-     *
-     * @return $this
-     */
-    public function setMessage($message)
-    {
-        $this->vkarg_message = $message;
-
-        return $this;
-    }
-
-    /**
-     * идентификатор сообщества, в котором размещено обсуждение.
-     * положительное число, обязательный параметр
-     *
-     * @param int $group_id
-     *
-     * @return $this
+*
+* @param integer $group_id
      */
     public function setGroupId($group_id)
     {
@@ -83,74 +124,31 @@ class BoardEditComment extends Request
     }
 
     /**
-     * идентификатор обсуждения.
-     * положительное число, обязательный параметр
+     * (Required if 'attachments' is not set). New comment text.
      *
-     * @param int $topic_id
+     *@return $this
+
      *
-     * @return $this
+     * @param string $message
+     */
+    public function setMessage($message)
+    {
+        $this->vkarg_message = $message;
+
+        return $this;
+    }
+
+    /**
+     * Topic ID.
+     *
+     *@return $this
+     *
+     * @param integer $topic_id
      */
     public function setTopicId($topic_id)
     {
         $this->vkarg_topic_id = $topic_id;
 
         return $this;
-    }
-
-    /** @inheritdoc */
-    public function getMethod()
-    {
-        return "board.editComment";
-    }
-
-    /** @inheritdoc */
-    public function getApiVersion()
-    {
-        return '5.60';
-    }
-
-    /**
-     * После успешного выполнения возвращает true
-     *
-     * {@inheritdoc}
-     */
-    public function doRequest()
-    {
-        $attachments = "";
-
-        $first = true;
-        foreach ($this->attachments as $attach) {
-            if (!$first) {
-                $attachments .= ",";
-            }
-            $attachments .= $attach->getAttachment();
-            $first = false;
-        }
-
-        if ($attachments) {
-            $this->setParameter("attachments", $attachments);
-        } else {
-            $this->setRequiredParams('message');
-        }
-
-        if (!$this->getParameter('message')) {
-            $this->setRequiredParams('attachments');
-        }
-
-        $this->setRequiredParams(array(
-            'group_id',
-            'topic_id',
-            'comment_id'
-        ));
-
-        $result = $this->execApi();
-
-        if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response) && $json->response) {
-                return true;
-            }
-        }
-
-        return false;
     }
 }

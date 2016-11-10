@@ -1,122 +1,232 @@
 <?php
-
 namespace VkSdk\Polls;
 
 use VkSdk\Includes\Request;
-use VkSdk\Polls\Includes\PollVotersInfo;
-use VkSdk\Users\Includes\UserInfo;
 
+/**
+ * Returns a list of IDs of users who selected specific answers in the poll.
+ * Class PollsGetVoters
+ *
+ * @package VkSdk\Polls
+ */
 class PollsGetVoters extends Request
 {
-    private $answer_ids = [];
-    private $count;
-    private $fields = [];
 
-    private $voters = [];
+    /**
+     * 'abl' — prepositional
+     */
+    const NAME_CASE_ABL = 'abl';
 
-    public function getVoters()
+    /**
+     * 'acc' — accusative
+     */
+    const NAME_CASE_ACC = 'acc';
+
+    /**
+     * 'dat' — dative
+     */
+    const NAME_CASE_DAT = 'dat';
+
+    /**
+     * 'gen' — genitive
+     */
+    const NAME_CASE_GEN = 'gen';
+
+    /**
+     * 'ins' — instrumental
+     */
+    const NAME_CASE_INS = 'ins';
+
+    /**
+     * 'nom' — nominative (default)
+     */
+    const NAME_CASE_NOM = 'nom';
+
+    /**
+     * Answer IDs.
+     *
+     * @return $this
+     *
+     * @param integer $answer_id
+     */
+    public function addAnswerId($answer_id)
     {
-        return $this->voters;
-    }
+        $this->vkarg_answer_ids[] = $answer_id;
 
-    public function setPollId($poll_id)
-    {
-        $this->vkarg_poll_id = $poll_id;
         return $this;
     }
 
-    public function setOffset($offset)
+    /**
+     * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate (birthdate)', 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online', 'counters'.;
+     * see FieldsValues::FIELD_* constants
+     *
+     * @return $this
+     *
+     * @param string $field
+     */
+    public function addField($field)
     {
-        $this->vkarg_offset = $offset;
+        $this->vkarg_fields[] = $field;
+
         return $this;
     }
 
-    public function setIsBoard($is_board)
+    /**
+     * {@inheritdoc}
+     */
+    public function doRequest()
     {
-        $this->vkarg_is_board = $is_board;
+        $this->setRequiredParams(["poll_id", "answer_ids"]);
+
+        $result = $this->execApi();
+        if ($result && ($json = $this->getJsonResponse())) {
+            if (isset($json->response) && $json->response) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getApiVersion()
+    {
+        return "5.60";
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMethod()
+    {
+        return "polls.getVoters";
+    }
+
+    /**
+     * Answer IDs.
+     *
+     * @return $this
+     *
+     * @param array $answer_ids
+     */
+    public function setAnswerIds(array $answer_ids)
+    {
+        $this->vkarg_answer_ids = $answer_ids;
+
         return $this;
     }
 
-    public function setNameCase($name_case)
-    {
-        $this->vkarg_name_case = $name_case;
-        return $this;
-    }
-
-    public function setFriendsOnly($friends_only)
-    {
-        $this->vkarg_friends_only = $friends_only;
-        return $this;
-    }
-
-    public function setFields($fields)
-    {
-        $this->fields = $fields;
-        return $this;
-    }
-
+    /**
+     * Number of user IDs to return (if the 'friends_only' parameter is not set, maximum '1000'; otherwise '10').; '100' — (default)
+     *
+     * @return $this
+     *
+     * @param integer $count
+     */
     public function setCount($count)
     {
         $this->vkarg_count = $count;
+
         return $this;
     }
 
-    public function setAnswerIds($answer_ids)
+    /**
+     * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate (birthdate)', 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online', 'counters'.;
+     * see FieldsValues::FIELD_* constants
+     *
+     * @return $this
+     *
+     * @param array $fields
+     */
+    public function setFields(array $fields)
     {
-        $this->answer_ids = $answer_ids;
+        $this->vkarg_fields = $fields;
+
         return $this;
     }
 
+    /**
+     * '1' — to return only current user's friends; '0' — to return all users (default);
+     *
+     * @return $this
+     *
+     * @param boolean $friends_only
+     */
+    public function setFriendsOnly($friends_only)
+    {
+        $this->vkarg_friends_only = $friends_only;
+
+        return $this;
+    }
+
+    /**
+     * @return $this
+     *
+     * @param boolean $is_board
+     */
+    public function setIsBoard($is_board)
+    {
+        $this->vkarg_is_board = $is_board;
+
+        return $this;
+    }
+
+    /**
+     * Case for declension of user name and surname: ; 'nom' — nominative (default) ; 'gen' — genitive ; 'dat' — dative ; 'acc' — accusative ; 'ins' — instrumental ; 'abl' — prepositional
+     * see self::NAME_CASE_* constants
+     *
+     * @return $this
+     *
+     * @param string $name_case
+     */
+    public function setNameCase($name_case)
+    {
+        $this->vkarg_name_case = $name_case;
+
+        return $this;
+    }
+
+    /**
+     * Offset needed to return a specific subset of voters.; '0' — (default)
+     *
+     * @return $this
+     *
+     * @param integer $offset
+     */
+    public function setOffset($offset)
+    {
+        $this->vkarg_offset = $offset;
+
+        return $this;
+    }
+
+    /**
+     * ID of the user or community that owns the poll.  Use a negative value to designate a community ID.
+     *
+     * @return $this
+     *
+     * @param integer $owner_id
+     */
     public function setOwnerId($owner_id)
     {
         $this->vkarg_owner_id = $owner_id;
+
         return $this;
     }
 
-    public function doRequest()
+    /**
+     * Poll ID.
+     *
+     * @return $this
+     *
+     * @param integer $poll_id
+     */
+    public function setPollId($poll_id)
     {
-        $this->setMethod("polls.getVoters");
+        $this->vkarg_poll_id = $poll_id;
 
-        if ($this->answer_ids) {
-            $this->setParameter("answer_ids", implode(",", $this->answer_ids));
-        }
-        if ($this->fields) {
-            $this->setParameter("fields", implode(",", $this->fields));
-        }
-
-        $json = $this->execApi();
-        if (!$json) {
-            return false;
-        }
-
-        if (!is_object($json) && $json < 0) {
-            return $json;
-        }
-
-        if (isset($json->response) && $json->response
-            && isset($json->response[0]) && isset($json->response[0]->answer_id)
-        ) {
-            foreach ($json->response as $voters) {
-                $poll_voters = new PollVotersInfo();
-                $poll_voters->setAnswerId($voters->answer_id);
-                $poll_voters->setCount($voters->users->count);
-                foreach ($voters->users->items as $user) {
-                    $user_info = new UserInfo();
-                    $user_info->setFirstName($user->first_name)
-                        ->setLastName($user->last_name)
-                        ->setId($user->id);
-                    if (isset($user->sex)) {
-                        $user_info->setSex($user->sex);
-                    }
-                    if (isset($user->photo_50)) {
-                        $user_info->setPhoto50($user->photo_50);
-                    }
-                    $poll_voters->addUser($user_info);
-                }
-                $this->voters[] = $poll_voters;
-            }
-            return true;
-        }
-        return false;
+        return $this;
     }
 }

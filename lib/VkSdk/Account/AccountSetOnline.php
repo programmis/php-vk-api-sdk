@@ -1,66 +1,79 @@
 <?php
-
 namespace VkSdk\Account;
 
 use VkSdk\Includes\Request;
 
 /**
- * Помечает текущего пользователя как online на 15 минут.
- *
+ * Marks the current user as online for 15 minutes.
  * Class AccountSetOnline
- *
- * @see https://vk.com/dev/account.setOnline
- *
+
+*
  * @package VkSdk\Account
  */
 class AccountSetOnline extends Request
 {
-    /**
-     * возможны ли видеозвонки для данного устройства
-     *
-     * @param bool $voip
-     *
-     * @return $this
-     */
-    public function setVoip($voip)
-    {
-        $this->vkarg_voip = $voip ? '1' : '0';
 
-        return $this;
+    /**
+     * See constants of class OkResponse
+
+*
+* @var integer
+     */
+    public $response;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function doRequest()
+    {
+        $result = $this->execApi();
+        if ($result && ($json = $this->getJsonResponse())) {
+            if (isset($json->response) && $json->response) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
-    /** @inheritdoc */
+    /**
+     * @inheritdoc
+     */
+    public function getApiVersion()
+    {
+        return "5.60";
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function getMethod()
     {
         return "account.setOnline";
     }
 
-    /** @inheritdoc */
-    public function getApiVersion()
+    /**
+     * Returns 1 if request has been processed successfully
+     * See constants of class OkResponse
+     *
+     * @return integer
+     */
+    public function getResponse()
     {
-        return '5.60';
+        return $this->response;
     }
 
     /**
-     * В случае успешного выполнения метода будет возвращён true.
+     * '1' if videocalls are available for current device.
      *
-     * {@inheritdoc}
+     * @return $this
+     *
+     * @param boolean $voip
      */
-    public function doRequest()
+    public function setVoip($voip)
     {
-        $json = $this->execApi();
-        if (!$json) {
-            return false;
-        }
+        $this->vkarg_voip = $voip;
 
-        if (!is_object($json) && $json < 0) {
-            return $json;
-        }
-
-        if (isset($json->response) && $json->response) {
-            return true;
-        }
-
-        return false;
+        return $this;
     }
 }

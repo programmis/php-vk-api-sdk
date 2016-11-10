@@ -1,51 +1,71 @@
 <?php
-
 namespace VkSdk\Status;
 
+use lib\AutoFillObject;
 use VkSdk\Includes\Request;
-use VkSdk\Objects\Audio;
+use VkSdk\Status\Includes\Status;
 
 /**
- * Получает текст статуса пользователя или сообщества.
- *
- * @see https://vk.com/dev/status.get
- *
+ * Returns data required to show the status of a user or community.
  * Class StatusGet
+ *
  * @package VkSdk\Status
  */
 class StatusGet extends Request
 {
-    /** @var string $text */
-    private $text;
-    /** @var Audio $audio */
-    private $audio;
+
+    use AutoFillObject;
 
     /**
-     * информация о прослушиваемой аудиозаписи
-     *
-     * @return Audio
+     * @var Status
      */
-    public function getAudio()
+    public $response;
+
+    /**
+     * {@inheritdoc}
+     */
+    public function doRequest()
     {
-        return $this->audio;
+        $result = $this->execApi();
+        if ($result && ($json = $this->getJsonResponse())) {
+            if (isset($json->response) && $json->response) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
-     * статус пользователя
-     *
-     * @return string
+     * @inheritdoc
      */
-    public function getText()
+    public function getApiVersion()
     {
-        return $this->text;
+        return "5.60";
     }
 
     /**
-     * идентификатор сообщества, статус которого необходимо получить.
-     *
-     * @param int $group_id
-     *
+     * @inheritdoc
+     */
+    public function getMethod()
+    {
+        return "status.get";
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function objectFields()
+    {
+        return [
+            'response' => 'VkSdk\Status\Includes\Status',
+        ];
+    }
+
+    /**
      * @return $this
+     *
+     * @param integer $group_id
      */
     public function setGroupId($group_id)
     {
@@ -55,61 +75,16 @@ class StatusGet extends Request
     }
 
     /**
-     * идентификатор пользователя или сообщества,
-     * информацию о статусе которого нужно получить.
-     * по умолчанию идентификатор текущего пользователя
-     *
-     * @param int $user_id
+     * User ID or community ID. Use a negative value to designate a community ID.
      *
      * @return $this
+     *
+     * @param integer $user_id
      */
     public function setUserId($user_id)
     {
         $this->vkarg_user_id = $user_id;
 
         return $this;
-    }
-
-    /** @inheritdoc */
-    public function getMethod()
-    {
-        return "status.get";
-    }
-
-    /** @inheritdoc */
-    public function getApiVersion()
-    {
-        return '5.60';
-    }
-
-    /**
-     * В случае успеха возвращает объект, у которого в поле text содержится
-     * текст статуса пользователя или сообщества.
-     * Если у пользователя включена трансляция играющей музыки в статус и
-     * в данный момент воспроизводится аудиозапись,
-     * то также будет возвращен объект audio.
-     * результат можно посмотреть вызвав методы getText и getAudio
-     *
-     * {@inheritdoc}
-     */
-    public function doRequest()
-    {
-        $result = $this->execApi();
-
-        if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response) && $json->response) {
-                if (isset($json->response->text)) {
-                    $this->text = $json->response->text;
-                }
-                if (isset($json->response->audio)) {
-                    $this->audio = new Audio();
-                    $this->audio->fillByJson($json->response->audio);
-                }
-
-                return true;
-            }
-        }
-
-        return false;
-    }
+	}
 }

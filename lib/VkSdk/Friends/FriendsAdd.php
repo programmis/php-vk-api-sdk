@@ -1,78 +1,71 @@
 <?php
-
 namespace VkSdk\Friends;
 
 use VkSdk\Includes\Request;
 
 /**
- * Одобряет или создает заявку на добавление в друзья.
- * Если идентификатор выбранного пользователя присутствует
- * в списке заявок на добавление в друзья,
- * полученном методом friends.getRequests,
- * то одобряет заявку на добавление и добавляет
- * выбранного пользователя в друзья к текущему пользователю.
- * В противном случае создает заявку на добавление в друзья
- * текущего пользователя к выбранному пользователю.
- * Требуются права доступа: friends.
- *
+ * Approves or creates a friend request.
  * Class FriendsAdd
- *
- * @see https://vk.com/dev/friends.add
- *
+
+*
  * @package VkSdk\Friends
  */
 class FriendsAdd extends Request
 {
-    /**
-     * заявка на добавление данного пользователя в друзья отправлена;
-     */
-    const RESULT_REQUEST_SEND = 1;
-    /**
-     * заявка на добавление в друзья от данного пользователя одобрена;
-     */
-    const RESULT_REQUEST_ACCEPT = 2;
-    /**
-     * повторная отправка заявки.
-     */
-    const RESULT_REQUEST_RESEND = 4;
 
     /**
-     * @var int $result
+     * {@inheritdoc}
      */
-    private $result;
-
-    /**
-     * возвращает значения соответствующие константам RESULT_*
-     *
-     * @return int
-     */
-    public function getResult()
+    public function doRequest()
     {
-        return $this->result;
+        $this->setRequiredParams(["user_id"]);
+
+        $result = $this->execApi();
+        if ($result && ($json = $this->getJsonResponse())) {
+            if (isset($json->response) && $json->response) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     /**
-     * true, если необходимо отклонить входящую заявку
-     * (оставить пользователя в подписчиках).
+     * @inheritdoc
+     */
+    public function getApiVersion()
+    {
+        return "5.60";
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMethod()
+    {
+        return "friends.add";
+    }
+
+    /**
+     * '1' to pass an incoming request to followers list.
      *
-     * @param bool $follow
+*@return $this
      *
-     * @return $this
+     * @param boolean $follow
      */
     public function setFollow($follow)
     {
-        $this->vkarg_follow = $follow ? '1' : '0';
+        $this->vkarg_follow = $follow;
 
         return $this;
     }
 
     /**
-     * текст сопроводительного сообщения для заявки на добавление в друзья.
-     * Максимальная длина сообщения — 500 символов.
+     * Text of the message (up to 500 characters) for the friend request, if any.
      *
-     * @param $text
+     *@return $this
      *
-     * @return $this
+     * @param string $text
      */
     public function setText($text)
     {
@@ -82,55 +75,16 @@ class FriendsAdd extends Request
     }
 
     /**
-     * идентификатор пользователя,
-     * которому необходимо отправить заявку,
-     * либо заявку от которого необходимо одобрить.
-     * положительное число, обязательный параметр
+     * ID of the user whose friend request will be approved or to whom a friend request will be sent.
      *
-     * @param int $user_id
+*@return $this
      *
-     * @return $this
+     * @param integer $user_id
      */
     public function setUserId($user_id)
     {
         $this->vkarg_user_id = $user_id;
 
         return $this;
-    }
-
-    /** @inheritdoc */
-    public function getMethod()
-    {
-        return 'friends.add';
-    }
-
-    /** @inheritdoc */
-    public function getApiVersion()
-    {
-        return '5.60';
-    }
-
-    /**
-     * В случае успеха,
-     * результат можно посмотреть вызвав метод getResult
-     *
-     * {@inheritdoc}
-     *
-     * @uses FriendsAdd::getResult()
-     */
-    public function doRequest()
-    {
-        $this->setRequiredParams('user_id');
-
-        $result = $this->execApi();
-
-        if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response) && $json->response) {
-                $this->result = $json->response;
-                return true;
-            }
-        }
-
-        return false;
-    }
+	}
 }

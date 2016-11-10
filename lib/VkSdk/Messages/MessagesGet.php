@@ -1,72 +1,85 @@
 <?php
-
 namespace VkSdk\Messages;
 
+use lib\AutoFillObject;
 use VkSdk\Includes\Request;
-use VkSdk\Messages\Includes\MessageItem;
+use VkSdk\Messages\Includes\Message;
 
 /**
- * Возвращает список входящих либо исходящих личных сообщений
- * текущего пользователя/сообщества.
- *
- * @see     https://vk.com/dev/messages.get
- *
+ * Returns a list of the current user's incoming or outgoing private messages.
  * Class MessagesGet
+ *
  * @package VkSdk\Messages
  */
 class MessagesGet extends Request
 {
-    private $count;
 
-    private $messages = [];
+    use AutoFillObject;
 
-    public function getMessages()
+    /**
+     * @var integer
+     */
+    public $count;
+
+    /**
+     * @var Message[]
+     */
+    public $items;
+
+    /**
+     * @return $this
+     *
+     * @param Message $item
+     */
+    public function addItem(Message $item)
     {
-        return $this->messages;
+        $this->items[] = $item;
+
+        return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
+    public function doRequest()
+    {
+        $result = $this->execApi();
+        if ($result && ($json = $this->getJsonResponse())) {
+            if (isset($json->response) && $json->response) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getApiVersion()
+    {
+        return "5.60";
+    }
+
+    /**
+     * Total number
+
+*
+     * @return integer
+     */
     public function getCount()
     {
         return $this->count;
     }
 
     /**
-     * если этот параметр равен true, сервер вернет исходящие сообщения.
-     *
-     * @param boolean $out
+     * Number of messages to return.
      *
      * @return $this
-     */
-    public function setOut($out)
-    {
-        $this->vkarg_out = $out ? '1' : '0';
 
-        return $this;
-    }
 
-    /**
-     * смещение, необходимое для выборки определенного
-     * подмножества сообщений
-     *
-     * @param int $offset
-     *
-     * @return $this
-     */
-    public function setOffset($offset)
-    {
-        $this->vkarg_offset = $offset;
-
-        return $this;
-    }
-
-    /**
-     * количество сообщений, которое необходимо получить.
-     * положительное число, по умолчанию 20,
-     * максимальное значение 200
-     *
-     * @param int $count
-     *
-     * @return $this
+*
+     * @param integer $count
      */
     public function setCount($count)
     {
@@ -76,46 +89,84 @@ class MessagesGet extends Request
     }
 
     /**
-     * максимальное время, прошедшее с момента отправки сообщения до
-     * текущего момента в секундах. 0, если Вы хотите получить
-     * сообщения любой давности.
-     *
-     * @param int $time_offset
+     * @return Message[]
+     */
+    public function getItems()
+    {
+        return $this->items;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMethod()
+    {
+        return "messages.get";
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function objectFields()
+    {
+        return [
+            'items' => [
+                'class'  => 'VkSdk\Messages\Includes\Message',
+                'method' => 'addItem'
+            ],
+        ];
+    }
+
+    /**
+     * ID of the message received before the message that will be returned last (provided that no more than 'count' messages were received before it; otherwise 'offset' parameter shall be used).
      *
      * @return $this
+     *
+     * @param integer $last_message_id
      */
-    public function setTimeOffset($time_offset)
+    public function setLastMessageId($last_message_id)
     {
-        $this->vkarg_time_offset = $time_offset;
+        $this->vkarg_last_message_id = $last_message_id;
 
         return $this;
     }
 
     /**
-     * фильтр возвращаемых сообщений:
-     * 8 — важные сообщения.
+     * Offset needed to return a specific subset of messages.
      *
-     * @param int $filters
+     *@return $this
      *
-     * @return $this
+     * @param integer $offset
      */
-    public function setFilters($filters)
+    public function setOffset($offset)
     {
-        $this->vkarg_filters = $filters;
+        $this->vkarg_offset = $offset;
 
         return $this;
     }
 
     /**
-     * количество символов, по которому нужно обрезать сообщение.
-     * Укажите 0, если Вы не хотите обрезать сообщение.
-     * (по умолчанию сообщения не обрезаются).
-     * Обратите внимание, текст обрезается по словам,
-     * точное число символов может не совпадать с указанным значением.
-     *
-     * @param int $preview_length
+     * '1' — to return outgoing messages; '0' — to return incoming messages (default)
      *
      * @return $this
+
+
+*
+*@param boolean $out
+     */
+    public function setOut($out)
+    {
+        $this->vkarg_out = $out;
+
+        return $this;
+    }
+
+    /**
+     * Number of characters after which to truncate a previewed message. To preview the full message, specify '0'.; "NOTE: Messages are not truncated by default. Messages are truncated by words."
+     *
+     * @return $this
+     *
+     * @param integer $preview_length
      */
     public function setPreviewLength($preview_length)
     {
@@ -125,67 +176,16 @@ class MessagesGet extends Request
     }
 
     /**
-     * идентификатор сообщения, полученного перед тем,
-     * которое нужно вернуть последним
-     * (при условии, что после него было получено не более count сообщений,
-     * иначе необходимо использовать с параметром offset).
-     *
-     * @param int $last_message_id
+     * Maximum time since a message was sent, in seconds. To return messages without a time limitation, set as '0'.
      *
      * @return $this
+     *
+     * @param integer $time_offset
      */
-    public function setLastMessageId($last_message_id)
+    public function setTimeOffset($time_offset)
     {
-        $this->vkarg_last_message_id = $last_message_id;
+        $this->vkarg_time_offset = $time_offset;
 
         return $this;
-    }
-
-    /** @inheritdoc */
-    public function getMethod()
-    {
-        return "messages.get";
-    }
-
-    /** @inheritdoc */
-    public function getApiVersion()
-    {
-        return '5.60';
-    }
-
-    /**
-     * После успешного выполнения возвращает объект,
-     * содержащий число результатов в поле count и массив объектов,
-     * описывающих личные сообщения
-     *
-     * {@inheritdoc}
-     */
-    public function doRequest()
-    {
-        $result = $this->execApi();
-
-        if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response) && $json->response) {
-                if (isset($json->response->count)) {
-                    $this->count = $json->response->count;
-                }
-                if (isset($json->response->items)) {
-                    foreach ($json->response->items as $key => $msg) {
-                        $this->messages[$key] = new MessageItem();
-                        $this->messages[$key]->setId($msg->id)
-                            ->setDate($msg->date)
-                            ->setOut($msg->out)
-                            ->setUserId($msg->user_id)
-                            ->setReadState($msg->read_state)
-                            ->setTitle($msg->title)
-                            ->setBody($msg->body);
-                    }
-                }
-
-                return true;
-            }
-        }
-
-        return false;
     }
 }

@@ -1,36 +1,66 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alfred
- * Date: 03.11.16
- * Time: 23:55
- */
-
 namespace VkSdk\Database\Includes;
 
-use lib\AutoFillObject;
-
 /**
- * информация о городе
- *
  * Class City
  * @package VkSdk\Database\Includes
  */
 class City
 {
-    use AutoFillObject;
-
-    /** @var int $id */
-    private $id;
-    /** @var string $title */
-    private $title;
 
     /**
-     * идентификатор города, который можно использовать
-     * для получения его названия
-     * с помощью метода database.getCitiesById;
+     * @var string
+     */
+    public $area;
+
+    /**
+     * @var integer
+     */
+    public $id;
+
+    /**
+     * See constants of class BoolInt
      *
-     * @return int
+     * @var integer
+     */
+    public $important;
+
+    /**
+     * @var string
+     */
+    public $region;
+
+    /**
+     * @var string
+     */
+    public $title;
+
+    /**
+     * Area title
+     *
+     * @return string
+     */
+    public function getArea()
+    {
+        return $this->area;
+    }
+
+    /**
+     * @return $this
+     *
+     * @param string $area
+     */
+    public function setArea($area)
+    {
+        $this->area = $area;
+
+        return $this;
+    }
+
+    /**
+     * Object ID
+     *
+     * @return integer
      */
     public function getId()
     {
@@ -38,9 +68,9 @@ class City
     }
 
     /**
-     * @param int $id
+     * @return $this
      *
-     * @return City
+     * @param integer $id
      */
     public function setId($id)
     {
@@ -50,7 +80,51 @@ class City
     }
 
     /**
-     * название города.
+     * Information whether the city is included in important cities list
+     *
+     * @return integer
+     */
+    public function getImportant()
+    {
+        return $this->important;
+    }
+
+    /**
+     * @return $this
+     *
+     * @param integer $important
+     */
+    public function setImportant($important)
+    {
+        $this->important = $important;
+
+        return $this;
+    }
+
+    /**
+     * Region title
+     *
+     * @return string
+     */
+    public function getRegion()
+    {
+        return $this->region;
+    }
+
+    /**
+     * @return $this
+     *
+     * @param string $region
+     */
+    public function setRegion($region)
+    {
+        $this->region = $region;
+
+        return $this;
+    }
+
+    /**
+     * Object title
      *
      * @return string
      */
@@ -60,9 +134,9 @@ class City
     }
 
     /**
-     * @param string $title
+     * @return $this
      *
-     * @return City
+     * @param string $title
      */
     public function setTitle($title)
     {

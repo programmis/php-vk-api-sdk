@@ -1,93 +1,132 @@
 <?php
-
 namespace VkSdk\Board;
 
 use VkSdk\Includes\Request;
-use VkSdk\Wall\Includes\WallAttachments;
 
 /**
- * Добавляет новый комментарий в обсуждении.
- * Требуются права доступа: groups.
- *
+ * Adds a comment on a topic on a community's discussion board.
  * Class BoardCreateComment
- *
- * @see https://vk.com/dev/board.createComment
- *
+
+*
  * @package VkSdk\Board
  */
 class BoardCreateComment extends Request
 {
-    /**
-     * @var WallAttachments[] $attachments
-     */
-    private $attachments = [];
 
     /**
-     * @var int $comment_id
-     */
-    private $comment_id;
-
-    /**
-     * идентификатор созданного комментария.
-     *
-     * @return int
-     */
-    public function getCommentId()
-    {
-        return $this->comment_id;
-    }
-
-    /**
-     * идентификатор стикера.
-     * положительное число
-     *
-     * @param int $sticker_id
+     * (Required if 'text' is not set.) List of media objects attached to the comment, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media object:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media owner. ; '<media_id>' — Media ID.
      *
      * @return $this
+     *
+     * @param string $attachment
      */
-    public function setStickerId($sticker_id)
+    public function addAttachment($attachment)
     {
-        $this->vkarg_sticker_id = $sticker_id;
+        $this->vkarg_attachments[] = $attachment;
 
         return $this;
     }
 
     /**
-     * Добавление в список объектов, приложенных к комментарию
-     *
-     * @param WallAttachments $attachments
-     *
-     * @return $this
+     * {@inheritdoc}
      */
-    public function addAttachment(WallAttachments $attachments)
+    public function doRequest()
     {
-        $this->attachments[] = $attachments;
+        $this->setRequiredParams(["group_id", "topic_id"]);
+
+        $result = $this->execApi();
+        if ($result && ($json = $this->getJsonResponse())) {
+            if (isset($json->response) && $json->response) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getApiVersion()
+    {
+        return "5.60";
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMethod()
+    {
+        return "board.createComment";
+    }
+
+    /**
+     * (Required if 'text' is not set.) List of media objects attached to the comment, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media object:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media owner. ; '<media_id>' — Media ID.
+
+*
+*@return $this
+     *
+     * @param array $attachments
+     */
+    public function setAttachments(array $attachments)
+    {
+        $this->vkarg_attachments = $attachments;
 
         return $this;
     }
 
     /**
-     * true — сообщение будет опубликовано от имени группы,
-     * false — сообщение будет опубликовано от имени пользователя (по умолчанию).
+     * '1' — to post the comment as by the community; '0' — to post the comment as by the user (default)
      *
-     * @param bool $from_group
+*@return $this
      *
-     * @return $this
+     * @param boolean $from_group
      */
     public function setFromGroup($from_group)
     {
-        $this->vkarg_from_group = $from_group ? '1' : '0';
+        $this->vkarg_from_group = $from_group;
 
         return $this;
     }
 
     /**
-     * текст комментария.
-     * Обязательный параметр, если не добавлено значение addAttachment.
-     *
-     * @param string $message
+     * ID of the community that owns the discussion board.
      *
      * @return $this
+
+
+*
+*@param integer $group_id
+     */
+    public function setGroupId($group_id)
+    {
+        $this->vkarg_group_id = $group_id;
+
+        return $this;
+    }
+
+    /**
+     * Unique identifier to avoid repeated comments.
+     *
+     * @return $this
+
+     *
+     * @param string $guid
+     */
+    public function setGuid($guid)
+    {
+        $this->vkarg_guid = $guid;
+
+        return $this;
+    }
+
+    /**
+     * (Required if 'attachments' is not set.) Text of the comment.
+     *
+     *@return $this
+
+     *
+     * @param string $message
      */
     public function setMessage($message)
     {
@@ -97,102 +136,30 @@ class BoardCreateComment extends Request
     }
 
     /**
-     * идентификатор сообщества, в котором находится обсуждение.
-     * обязательный параметр
+     * Sticker ID.
      *
-     * @param int $group_id
+*@return $this
      *
-     * @return $this
+     * @param integer $sticker_id
      */
-    public function setGroupId($group_id)
+    public function setStickerId($sticker_id)
     {
-        $this->vkarg_group_id = $group_id;
+        $this->vkarg_sticker_id = $sticker_id;
+
         return $this;
     }
 
     /**
-     * идентификатор темы, в которой необходимо оставить комментарий.
-     * обязательный параметр
-     *
-     * @param int $topic_id
+     * ID of the topic to be commented on.
      *
      * @return $this
+     *
+*@param integer $topic_id
      */
     public function setTopicId($topic_id)
     {
         $this->vkarg_topic_id = $topic_id;
-        return $this;
-    }
-
-    /**
-     * уникальный идентификатор,
-     * предназначенный для предотвращения повторной отправки одинакового комментария.
-     *
-     * @param string $guid
-     *
-     * @return $this
-     */
-    public function setGuid($guid)
-    {
-        $this->vkarg_topic_id = $guid;
 
         return $this;
-    }
-
-    /** @inheritdoc */
-    public function getMethod()
-    {
-        return "board.createComment";
-    }
-
-    /** @inheritdoc */
-    public function getApiVersion()
-    {
-        return "5.60";
-    }
-
-    /**
-     * В случае успеха идентификатор созданного комментария
-     * можно посмотреть вызвав метод getCommentId
-     *
-     * {@inheritdoc}
-     *
-     * @uses BoardCreateComment::getCommentId()
-     */
-    public function doRequest()
-    {
-        $attachments = "";
-
-        $first = true;
-        foreach ($this->attachments as $attach) {
-            if (!$first) {
-                $attachments .= ",";
-            }
-            $attachments .= $attach->getAttachment();
-            $first = false;
-        }
-
-        if ($attachments) {
-            $this->setParameter("attachments", $attachments);
-        } else {
-            $this->setRequiredParams('message');
-        }
-
-        $this->setRequiredParams(array(
-            'group_id',
-            'topic_id',
-        ));
-
-        $result = $this->execApi();
-
-        if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response) && $json->response) {
-                $this->comment_id = $json->response;
-
-                return true;
-            }
-        }
-
-        return false;
     }
 }
