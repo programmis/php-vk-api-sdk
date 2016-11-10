@@ -13,7 +13,6 @@ use VkSdk\Includes\Request;
  */
 class AccountGetCounters extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -22,7 +21,16 @@ class AccountGetCounters extends Request
     private $response;
 
     /**
-     * Counters to be returned (friends, messages, photos, videos, notes, gifts, events, groups, sdk).
+     * @return Counters
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * Counters to be returned
+     * (friends, messages, photos, videos, notes, gifts, events, groups, sdk).
      *
      * @return $this
      *
@@ -43,6 +51,8 @@ class AccountGetCounters extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json);
+
                 return true;
             }
         }
@@ -77,7 +87,8 @@ class AccountGetCounters extends Request
     }
 
     /**
-     * Counters to be returned (friends, messages, photos, videos, notes, gifts, events, groups, sdk).
+     * Counters to be returned
+     * (friends, messages, photos, videos, notes, gifts, events, groups, sdk).
      *
      * @return $this
      *
