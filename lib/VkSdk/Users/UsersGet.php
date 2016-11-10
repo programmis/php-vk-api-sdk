@@ -1,87 +1,149 @@
 <?php
-
 namespace VkSdk\Users;
 
 use VkSdk\Includes\Request;
-use VkSdk\Users\Includes\UserInfo;
 
 /**
+ * Returns detailed information on users.
  * Class UsersGet
- *
+
+*
  * @package VkSdk\Users
  */
 class UsersGet extends Request
 {
-    private $user_ids = [];
-    private $fields = [];
-
-    /** @var UserInfo[] $users_info */
-    private $users_info = [];
 
     /**
-     * @return Includes\UserInfo[]
+     * 'abl' — prepositional
      */
-    public function getUsersInfo()
-    {
-        return $this->users_info;
-    }
+    const NAME_CASE_ABL = 'abl';
 
-    public function setUserId($user_ids)
+    /**
+     * 'acc' — accusative
+     */
+    const NAME_CASE_ACC = 'acc';
+
+    /**
+     * 'dat' — dative
+     */
+    const NAME_CASE_DAT = 'dat';
+
+    /**
+     * 'gen' — genitive
+     */
+    const NAME_CASE_GEN = 'gen';
+
+    /**
+     * 'ins' — instrumental
+     */
+    const NAME_CASE_INS = 'ins';
+
+    /**
+     * 'nom' — nominative (default)
+     */
+    const NAME_CASE_NOM = 'nom';
+
+    /**
+     * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'contacts', 'education', 'online', 'counters', 'relation', 'last_seen', 'activity', 'can_write_private_message', 'can_see_all_posts', 'can_post', 'universities';
+     * see FieldsValues::FIELD_* constants
+     *
+     * @return $this
+     *
+     * @param string $field
+     */
+    public function addField($field)
     {
-        if (is_array($user_ids)) {
-            $this->user_ids = array_merge($this->user_ids, $user_ids);
-        } else {
-            $this->user_ids[] = $user_ids;
-        }
+        $this->vkarg_fields[] = $field;
 
         return $this;
     }
 
-    public function setField($field)
+    /**
+     * User IDs or screen names ('screen_name'). By default, current user ID.
+     *
+     * @return $this
+     *
+     * @param string $user_id
+     */
+    public function addUserId($user_id)
     {
-        if (is_array($field)) {
-            $this->fields = array_merge($this->fields, $field);
-        } else {
-            $this->fields[] = $field;
-        }
+        $this->vkarg_user_ids[] = $user_id;
 
         return $this;
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function doRequest()
     {
-        $this->setMethod("users.get");
-
-        if ($this->user_ids) {
-            $this->setParameter("user_ids", implode(",", $this->user_ids));
-        }
-        if ($this->fields) {
-            $this->setParameter("fields", implode(",", $this->fields));
-        }
-
-        $json = $this->execApi();
-        if (!$json) {
-            return false;
-        }
-
-        if (!is_object($json) && $json < 0) {
-            return $json;
-        }
-
-        if (isset($json->response) && $json->response) {
-            foreach ($json->response as $key => $ui) {
-                $this->users_info[$key] = new UserInfo();
-                $this->users_info[$key]->setId($ui->id);
-                $this->users_info[$key]->setFirstName($ui->first_name);
-                $this->users_info[$key]->setLastName($ui->last_name);
-                if (isset($ui->sex)) {
-                    $this->users_info[$key]->setSex($ui->sex);
-                }
+        $result = $this->execApi();
+        if ($result && ($json = $this->getJsonResponse())) {
+            if (isset($json->response) && $json->response) {
+                return true;
             }
-
-            return true;
         }
 
         return false;
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function getApiVersion()
+    {
+        return "5.60";
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMethod()
+    {
+        return "users.get";
+    }
+
+    /**
+     * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'contacts', 'education', 'online', 'counters', 'relation', 'last_seen', 'activity', 'can_write_private_message', 'can_see_all_posts', 'can_post', 'universities';
+     * see FieldsValues::FIELD_* constants
+     *
+     * @return $this
+     *
+     * @param array $fields
+     */
+    public function setFields(array $fields)
+    {
+        $this->vkarg_fields = $fields;
+
+        return $this;
+    }
+
+    /**
+     * Case for declension of user name and surname:; 'nom' — nominative (default); 'gen' — genitive ; 'dat' — dative; 'acc' — accusative ; 'ins' — instrumental ; 'abl' — prepositional
+     * see self::NAME_CASE_* constants
+     *
+     * @return $this
+     *
+     * @param string $name_case
+     */
+    public function setNameCase($name_case)
+    {
+        $this->vkarg_name_case = $name_case;
+
+        return $this;
+    }
+
+    /**
+     * User IDs or screen names ('screen_name'). By default, current user ID.
+     *
+     * @return $this
+     *
+     * @param array $user_ids
+     */
+    public function setUserIds(array $user_ids)
+    {
+        $this->vkarg_user_ids = $user_ids;
+
+        return $this;
+	}
 }

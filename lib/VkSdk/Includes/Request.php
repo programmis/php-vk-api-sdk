@@ -2,29 +2,73 @@
 
 namespace VkSdk\Includes;
 
+use logger\Logger;
 use Psr\Log\LoggerInterface;
-use VkSdk\Config\Config;
-use VkSdk\Logger\Logger;
 
+/**
+ * Class Request
+ * @package VkSdk\Includes
+ */
 abstract class Request extends \ApiRator\Includes\Request implements VkInterface
 {
+    /** @var int $error_code */
     private $error_code;
+    /** @var string $error_msg */
     private $error_msg;
-    private $response;
+    private $json_response;
+    /** @var string $access_token */
+    private static $access_token;
 
-    public function __construct(LoggerInterface $loggerInterface = null)
+    /**
+     * Request constructor.
+     * @param string $access_token
+     * @param LoggerInterface $logger
+     */
+    public function __construct($access_token = null, $logger = null)
     {
-        if (!$loggerInterface) {
-            $loggerInterface = new Logger();
+        if (!$logger) {
+            $logger = new Logger();
         }
-        parent::__construct(self::MAGIC_PREFIX, $loggerInterface);
+        if ($access_token) {
+            $this->setAccessToken($access_token);
+        }
+
+        parent::__construct(self::MAGIC_PREFIX, $logger);
     }
 
+    /** @inheritdoc */
+    public function getAccessToken()
+    {
+        return self::$access_token;
+    }
+
+    /**
+     * @param string $access_token
+     *
+     * @return Request
+     */
+    public function setAccessToken($access_token)
+    {
+        self::$access_token = $access_token;
+
+        return $this;
+    }
+
+    /**
+     * возвращает код ошибки
+     *
+     * @return int
+     */
     public function getErrorCode()
     {
         return $this->error_code;
     }
 
+    /**
+     * возвращает сообщение из ошибки
+     *
+     * @return string
+     */
     public function getErrorMsg()
     {
         return $this->error_msg;
@@ -33,21 +77,23 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     /**
      * @return mixed
      */
-    public function getResponse()
+    public function getJsonResponse()
     {
-        return $this->response;
+        return $this->json_response;
     }
 
+    /** @inheritdoc */
     public function answerProcessing($content)
     {
         $json = json_decode($content);
 
         if (isset($json->response)) {
-            $this->response = $json->response;
+            $this->json_response = $json;
         }
         if (isset($json->error) && $json->error) {
             if (isset($json->error->error_code) && $json->error->error_code) {
-                if ($json->error->error_code == 14) {
+                if ($json->error->error_code == self::ERROR_CODE_CAPTCHA_NEEDED) {
+                    /** TODO: connect php-antigate-api-sdk */
                     /*
                     if( $need_captcha_response ){
                         if(is_object($json) && isset($json->error->captcha_sid) && isset($json->error->captcha_img)) {
@@ -74,30 +120,55 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
             }
             if (isset($json->error->error_msg) && $json->error->error_msg) {
                 $this->error_msg = $json->error->error_msg;
-                $this->logger->error($this->error_msg);
+                $this->logger->error("#" . $this->error_code . " " . $this->error_msg);
             }
 
-            return -1;
+            return false;
         }
 
-        return $json;
+        return true;
     }
 
+    /**
+     * @param int $cnt
+     *
+     * @return string
+     */
+    private function getUrlSymbol(&$cnt)
+    {
+        $symbol = '&';
+        if ($cnt == 0) {
+            $symbol = '?';
+        }
+        $cnt++;
+
+        return $symbol;
+    }
+
+    /** @inheritdoc */
     public function getResultApiUrl()
     {
-        $access_token = $this->getAccessToken();
-        if (!$access_token) {
-            $access_token = Config::getParam('access_token', true);
-        }
-        $version = $this->getApiVersion();
-        if (!$version) {
-            $version = self::API_VERSION;
-        }
+        $cnt = 0;
 
-        $url = self::API_URL . $this->getMethod() . "?v=" . $version . "&access_token=" . $access_token;
+        $url = self::API_URL . $this->getMethod();
+        if ($this->getApiVersion()) {
+            $url .= $this->getUrlSymbol($cnt) . "v=" . $this->getApiVersion();
+        }
+        if ($this->getAccessToken()) {
+            $url .= $this->getUrlSymbol($cnt) . "access_token=" . $this->getAccessToken();
+        }
 
         return $url;
     }
 
+    /**
+     * В случае неудачи, ошибки можно посмотреть
+     * вызвав методы getErrorCode и getErrorMsg
+     *
+     * @uses \VkSdk\Includes\Request::getErrorCode
+     * @uses \VkSdk\Includes\Request::getErrorMsg
+     *
+     * @return bool
+     */
     abstract public function doRequest();
 }

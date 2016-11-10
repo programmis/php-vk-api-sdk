@@ -38,8 +38,7 @@ https://oauth.vk.com/blank.html#access_token=**345345345345345345345345345d73e7d
 $userGet = new UsersGet();
 $result = $userGet->setUserId(1)->setField('sex')->doRequest();
 if( $result === true ){
-    $userInfo = $userGet->getUsersInfo();
-    
+    $userInfo = $userGet->getUsersInfo();    
     foreach($userInfo as $uI ){
         echo $uI->getId() . "\n";
         echo $uI->getFirstName() . "\n";

@@ -1,114 +1,120 @@
 <?php
-
 namespace VkSdk\Polls;
 
+use lib\AutoFillObject;
 use VkSdk\Includes\Request;
-use VkSdk\Polls\Includes\PollAnswerInfo;
-use VkSdk\Polls\Includes\PollInfo;
+use VkSdk\Polls\Includes\Poll;
 
+/**
+ * Creates polls that can be attached to the users' or communities' posts.
+ * Class PollsCreate
+ *
+ * @package VkSdk\Polls
+ */
 class PollsCreate extends Request
 {
-    private $question;
-    private $owner_id;
-    private $add_answers;
+
+    use AutoFillObject;
 
     /**
-     * @var  PollInfo
+     * @var Poll
      */
-    private $poll_info;
+    public $response;
 
-    public function setQuestion($question)
+    /**
+     * {@inheritdoc}
+     */
+    public function doRequest()
     {
-        $this->vkarg_question = $question;
+        $result = $this->execApi();
+        if ($result && ($json = $this->getJsonResponse())) {
+            if (isset($json->response) && $json->response) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getApiVersion()
+    {
+        return "5.60";
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMethod()
+    {
+        return "polls.create";
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function objectFields()
+    {
+        return [
+            'response' => 'VkSdk\Polls\Includes\Poll',
+        ];
+    }
+
+    /**
+     * available answers list, for example:; " ["yes","no","maybe"]"; There can be from 1 to 10 answers.
+     *
+     * @return $this
+     *
+     * @param string $add_answers
+     */
+    public function setAddAnswers($add_answers)
+    {
+        $this->vkarg_add_answers = $add_answers;
+
         return $this;
     }
 
+    /**
+     * '1' – anonymous poll, participants list is hidden;; '0' – public poll, participants list is available;; Default value is '0'.
+     *
+     * @return $this
+     *
+     * @param boolean $is_anonymous
+     */
     public function setIsAnonymous($is_anonymous)
     {
         $this->vkarg_is_anonymous = $is_anonymous;
+
         return $this;
     }
 
+    /**
+     * If a poll will be added to a communty it is required to send a negative group identifier. Current user by default.
+     *
+     * @return $this
+     *
+     * @param integer $owner_id
+     */
     public function setOwnerId($owner_id)
     {
         $this->vkarg_owner_id = $owner_id;
+
         return $this;
     }
 
-    public function setAddAnswers($add_answers)
+    /**
+     * question text
+     *
+     * @return $this
+     *
+     * @param string $question
+     */
+    public function setQuestion($question)
     {
-        $this->add_answers = $add_answers;
+        $this->vkarg_question = $question;
+
         return $this;
-    }
-
-    public function addAnswer($answer)
-    {
-        $this->add_answers[] = $answer;
-        return $this;
-    }
-
-    public function getPollInfo()
-    {
-        return $this->poll_info;
-    }
-
-    public function doRequest()
-    {
-        $this->setMethod("polls.create");
-
-        if ($this->add_answers) {
-            $this->setParameter("add_answers", json_encode($this->add_answers));
-        }
-
-        $json = $this->execApi();
-        if (!$json) {
-            return false;
-        }
-
-        if (!is_object($json) && $json < 0) {
-            return $json;
-        }
-
-        if (isset($json->response) && $json->response
-            && isset($json->response->id) && $json->response->id
-        ) {
-            $this->poll_info = new PollInfo();
-            $this->poll_info->setId($json->response->id);
-            if (isset($json->response->owner_id)) {
-                $this->poll_info->setOwnerId($json->response->owner_id);
-            }
-            if (isset($json->response->created)) {
-                $this->poll_info->setCreated($json->response->created);
-            }
-            if (isset($json->response->question)) {
-                $this->poll_info->setQuestion($json->response->question);
-            }
-            if (isset($json->response->votes)) {
-                $this->poll_info->setVotes($json->response->votes);
-            }
-            if (isset($json->response->answer_id)) {
-                $this->poll_info->setAnswerId($json->response->answer_id);
-            }
-            if (isset($json->response->anonymous)) {
-                $this->poll_info->setAnonymous($json->response->anonymous);
-            }
-            if (isset($json->response->owner_id)) {
-                $this->poll_info->setOwnerId($json->response->owner_id);
-            }
-            if (isset($json->response->answers)) {
-                foreach ($json->response->answers as $ans) {
-                    if (isset($ans->id) && isset($ans->text) && isset($ans->votes) && isset($ans->rate)) {
-                        $answer = new PollAnswerInfo();
-                        $answer->setId($ans->id)
-                            ->setText($ans->text)
-                            ->setVotes($ans->votes)
-                            ->setRate($ans->rate);
-                        $this->poll_info->addAnswer($answer);
-                    }
-                }
-            }
-            return true;
-        }
-        return false;
-    }
+	}
 }

@@ -1,75 +1,75 @@
 <?php
-
 namespace VkSdk\Ads;
 
-use VkSdk\Ads\Includes\AdsCampaignSpecification;
 use VkSdk\Includes\Request;
 
+/**
+ * Creates advertising campaigns.
+ * Class AdsCreateCampaigns
+ *
+ * @package VkSdk\Ads
+ */
 class AdsCreateCampaigns extends Request
 {
-    private $campaign_specification;
 
-    private $ids = [];
-
-    public function getIds()
-    {
-        return $this->ids;
-    }
-
-    public function addCampaignSpecification(AdsCampaignSpecification $adsCampaignSpecification = null)
-    {
-        if (!$adsCampaignSpecification) {
-            return $this->campaign_specification[] = new AdsCampaignSpecification();
-        } else {
-            return $this->campaign_specification[] = $adsCampaignSpecification;
-        }
-    }
-
-    public function setAccountId($account_id)
-    {
-        $this->vkarg_account_id = $account_id;
-        return $this;
-    }
-
-    private function campaignSpecificationsToJSON()
-    {
-        $campaign = [];
-
-        foreach ($this->campaign_specification as $cs) {
-            /**
-             * @var AdsCampaignSpecification $cs
-             */
-            $campaign[] = $cs->getArray();
-        }
-
-        return json_encode($campaign);
-    }
-
+    /**
+     * {@inheritdoc}
+     */
     public function doRequest()
     {
-        $this->setRequiredParams('account_id');
+        $this->setRequiredParams(["account_id", "data"]);
 
-        $this->setMethod("ads.createCampaigns");
-
-        $this->setParameter("data", $this->campaignSpecificationsToJSON());
-
-        $json = $this->execApi();
-        if (!$json) {
-            return false;
-        }
-
-        if (!is_object($json) && $json < 0) {
-            return $json;
-        }
-
-        if (isset($json->response) && $json->response) {
-            foreach ($json->response as $rs) {
-                $this->ids[] = $rs->id;
+        $result = $this->execApi();
+        if ($result && ($json = $this->getJsonResponse())) {
+            if (isset($json->response) && $json->response) {
+                return true;
             }
-
-            return true;
         }
 
         return false;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getApiVersion()
+    {
+        return "5.60";
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMethod()
+    {
+        return "ads.createCampaigns";
+    }
+
+    /**
+     * Advertising account ID.
+     *
+     * @return $this
+     *
+     * @param integer $account_id
+     */
+    public function setAccountId($account_id)
+    {
+        $this->vkarg_account_id = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Serialized JSON array of objects that describe created campaigns. Description of 'campaign_specification' objects see below.
+     *
+     * @return $this
+     *
+     * @param string $data
+     */
+    public function setData($data)
+    {
+        $this->vkarg_data = $data;
+
+        return $this;
     }
 }

@@ -1,77 +1,75 @@
 <?php
-
 namespace VkSdk\Ads;
 
-use VkSdk\Ads\Includes\AdsAdSpecification;
-use VkSdk\Ads\Includes\Specifications;
 use VkSdk\Includes\Request;
 
+/**
+ * Creates ads.
+ * Class AdsCreateAds
+ *
+ * @package VkSdk\Ads
+ */
 class AdsCreateAds extends Request
 {
-    private $ad_specification = [];
 
-    private $ids = [];
-
-    public function getIds()
-    {
-        return $this->ids;
-    }
-
-    public function setAccountId($account_id)
-    {
-        $this->vkarg_account_id = $account_id;
-        return $this;
-    }
-
-    public function addAdSpecification(AdsAdSpecification $adsAdSpecification = null)
-    {
-        if (!$adsAdSpecification) {
-            return $this->ad_specification[] = new AdsAdSpecification(Specifications::CREATE);
-        } else {
-            return $this->ad_specification[] = $adsAdSpecification;
-        }
-    }
-
-    private function adDataToJSON()
-    {
-        $ad = [];
-
-        foreach ($this->ad_specification as $key => $as) {
-            $ad[] = $as->getArray();
-        }
-
-        return json_encode($ad);
-    }
-
+    /**
+     * {@inheritdoc}
+     */
     public function doRequest()
     {
-        $this->setRequiredParams('account_id');
+        $this->setRequiredParams(["account_id", "data"]);
 
-        $this->setMethod("ads.createAds");
-
-        $this->setParameter("data", $this->adDataToJSON());
-
-        $json = $this->execApi();
-        if (!$json) {
-            return false;
-        }
-
-        if (!is_object($json) && $json < 0) {
-            return $json;
-        }
-
-        if (isset($json->response) && $json->response
-            && isset($json->response[0]) && $json->response[0]
-            && isset($json->response[0]->id) && $json->response[0]->id
-            && !isset($json->response[0]->error_code)
-        ) {
-            foreach ($json->response as $rs) {
-                $this->ids[] = $rs->id;
+        $result = $this->execApi();
+        if ($result && ($json = $this->getJsonResponse())) {
+            if (isset($json->response) && $json->response) {
+                return true;
             }
-
-            return true;
         }
 
         return false;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getApiVersion()
+    {
+        return "5.60";
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMethod()
+    {
+        return "ads.createAds";
+    }
+
+    /**
+     * Advertising account ID.
+     *
+     * @return $this
+     *
+     * @param integer $account_id
+     */
+    public function setAccountId($account_id)
+    {
+        $this->vkarg_account_id = $account_id;
+
+        return $this;
+    }
+
+    /**
+     * Serialized JSON array of objects that describe created ads. Description of 'ad_specification' objects see below.
+     *
+     * @return $this
+     *
+     * @param string $data
+     */
+    public function setData($data)
+    {
+        $this->vkarg_data = $data;
+
+        return $this;
     }
 }

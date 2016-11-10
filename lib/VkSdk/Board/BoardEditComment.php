@@ -1,85 +1,154 @@
 <?php
-
 namespace VkSdk\Board;
 
 use VkSdk\Includes\Request;
-use VkSdk\Wall\Includes\WallAttachments;
 
+/**
+ * Edits a comment on a topic on a community's discussion board.
+ * Class BoardEditComment
+
+*
+ * @package VkSdk\Board
+ */
 class BoardEditComment extends Request
 {
-    private $attachments = [];
 
-    public function setCommentId($comment_id)
+    /**
+     * See constants of class OkResponse
+     *
+     * @var integer
+     */
+    public $response;
+
+    /**
+     * (Required if 'message' is not set.) List of media objects attached to the comment, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media object:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media owner. ; '<media_id>' — Media ID.; ; Example:; "photo100172_166443618,photo66748_265827614"
+
+*
+*@return $this
+     *
+     * @param string $attachment
+     */
+    public function addAttachment($attachment)
     {
-        $this->vkarg_comment_id = $comment_id;
+        $this->vkarg_attachments[] = $attachment;
+
         return $this;
     }
 
-    public function addAttachment(WallAttachments $attachments)
-    {
-        return $this->attachments[] = $attachments;
-    }
-
-    public function setFromGroup($from_group)
-    {
-        $this->from_group = $from_group;
-        return $this;
-    }
-
-    public function setText($text)
-    {
-        $this->vkarg_text = $text;
-        return $this;
-    }
-
-    public function setGroupId($group_id)
-    {
-        $this->vkarg_group_id = $group_id;
-        return $this;
-    }
-
-    public function setTopicId($topic_id)
-    {
-        $this->vkarg_topic_id = $topic_id;
-        return $this;
-    }
-
+    /**
+     * {@inheritdoc}
+     */
     public function doRequest()
     {
-        $this->setMethod("board.editComment");
+        $this->setRequiredParams(["group_id", "topic_id", "comment_id"]);
 
-        $attachments = "";
-
-        if ($this->attachments) {
-            $first = true;
-            foreach ($this->attachments as $attach) {
-                if (!$first) {
-                    $attachments .= ",";
-                }
-                $attachments .= $attach->getAttachment();
-                $first = false;
+        $result = $this->execApi();
+        if ($result && ($json = $this->getJsonResponse())) {
+            if (isset($json->response) && $json->response) {
+                return true;
             }
         }
 
-        if ($attachments) {
-            $this->setParameter("attachments", $attachments);
-        }
-
-        $this->setRequiredParams(array('text', 'attachments', 'topic_id'));
-
-        $json = $this->execApi();
-        if (!$json) {
-            return false;
-        }
-
-        if (!is_object($json) && $json < 0) {
-            return $json;
-        }
-
-        if (isset($json->response) && $json->response) {
-            return true;
-        }
-
         return false;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getApiVersion()
+    {
+        return "5.60";
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMethod()
+    {
+        return "board.editComment";
+    }
+
+    /**
+     * Returns 1 if request has been processed successfully
+     * See constants of class OkResponse
+     *
+     * @return integer
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * (Required if 'message' is not set.) List of media objects attached to the comment, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media object:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media owner. ; '<media_id>' — Media ID.; ; Example:; "photo100172_166443618,photo66748_265827614"
+     *
+*@return $this
+     *
+     * @param array $attachments
+     */
+    public function setAttachments(array $attachments)
+    {
+        $this->vkarg_attachments = $attachments;
+
+        return $this;
+    }
+
+    /**
+     * ID of the comment on the topic.
+     *
+*@return $this
+     *
+     * @param integer $comment_id
+     */
+    public function setCommentId($comment_id)
+    {
+        $this->vkarg_comment_id = $comment_id;
+
+        return $this;
+    }
+
+    /**
+     * ID of the community that owns the discussion board.
+     *
+     * @return $this
+
+
+*
+* @param integer $group_id
+     */
+    public function setGroupId($group_id)
+    {
+        $this->vkarg_group_id = $group_id;
+
+        return $this;
+    }
+
+    /**
+     * (Required if 'attachments' is not set). New comment text.
+     *
+     *@return $this
+
+     *
+     * @param string $message
+     */
+    public function setMessage($message)
+    {
+        $this->vkarg_message = $message;
+
+        return $this;
+    }
+
+    /**
+     * Topic ID.
+     *
+     *@return $this
+     *
+     * @param integer $topic_id
+     */
+    public function setTopicId($topic_id)
+    {
+        $this->vkarg_topic_id = $topic_id;
+
+        return $this;
     }
 }

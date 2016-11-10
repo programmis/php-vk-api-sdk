@@ -1,35 +1,79 @@
 <?php
-
 namespace VkSdk\Account;
 
 use VkSdk\Includes\Request;
 
+/**
+ * Marks the current user as online for 15 minutes.
+ * Class AccountSetOnline
+
+*
+ * @package VkSdk\Account
+ */
 class AccountSetOnline extends Request
 {
-    public function setVoip($voip)
-    {
-        $this->vkarg_voip = $voip;
-        return $this;
-    }
 
+    /**
+     * See constants of class OkResponse
+
+*
+* @var integer
+     */
+    public $response;
+
+    /**
+     * {@inheritdoc}
+     */
     public function doRequest()
     {
-        $this->setMethod("account.setOnline");
-
-
-        $json = $this->execApi();
-        if (!$json) {
-            return false;
-        }
-
-        if (!is_object($json) && $json < 0) {
-            return $json;
-        }
-
-        if (isset($json->response) && $json->response) {
-            return true;
+        $result = $this->execApi();
+        if ($result && ($json = $this->getJsonResponse())) {
+            if (isset($json->response) && $json->response) {
+                return true;
+            }
         }
 
         return false;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getApiVersion()
+    {
+        return "5.60";
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMethod()
+    {
+        return "account.setOnline";
+    }
+
+    /**
+     * Returns 1 if request has been processed successfully
+     * See constants of class OkResponse
+     *
+     * @return integer
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * '1' if videocalls are available for current device.
+     *
+     * @return $this
+     *
+     * @param boolean $voip
+     */
+    public function setVoip($voip)
+    {
+        $this->vkarg_voip = $voip;
+
+        return $this;
     }
 }

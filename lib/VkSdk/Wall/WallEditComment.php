@@ -1,96 +1,135 @@
 <?php
-
 namespace VkSdk\Wall;
 
 use VkSdk\Includes\Request;
-use VkSdk\Wall\Includes\WallAttachments;
 
+/**
+ * Edits a comment on a user wall or community wall.;
+ * Class WallEditComment
+ *
+ * @package VkSdk\Wall
+ */
 class WallEditComment extends Request
 {
-    private $attachments = [];
 
-    public function getCommentId()
-    {
-        return $this->vkarg_comment_id;
-    }
+    /**
+     * See constants of class OkResponse
+     *
+     * @var integer
+     */
+    public $response;
 
-    public function setCommentId($comment_id)
+    /**
+     * List of objects attached to the comment, in the following format:; ; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media attachment owner.; '<media_id>' — Media attachment ID. ; ; For example:; "photo100172_166443618,photo66748_265827614"
+     *
+     * @return $this
+     *
+     * @param string $attachment
+     */
+    public function addAttachment($attachment)
     {
-        $this->vkarg_comment_id = $comment_id;
+        $this->vkarg_attachments[] = $attachment;
+
         return $this;
     }
 
-    public function setStickerId($sticker_id)
-    {
-        $this->sticker_id = $sticker_id;
-        return $this;
-    }
-
-    public function setReplyToComment($reply_to_comment)
-    {
-        $this->reply_to_comment = $reply_to_comment;
-        return $this;
-    }
-
-    public function addAttachment(WallAttachments $attachments)
-    {
-        return $this->attachments[] = $attachments;
-    }
-
-    public function setFromGroup($from_group)
-    {
-        $this->from_group = $from_group;
-        return $this;
-    }
-
-    public function setMessage($message)
-    {
-        $this->vkarg_message = $message;
-        return $this;
-    }
-
-    public function setOwnerId($owner_id)
-    {
-        $this->vkarg_owner_id = $owner_id;
-        return $this;
-    }
-
+    /**
+     * {@inheritdoc}
+     */
     public function doRequest()
     {
-        $this->setMethod("wall.editComment");
+        $this->setRequiredParams(["comment_id"]);
 
-        $attachments = "";
-
-        if ($this->attachments) {
-            $first = true;
-            foreach ($this->attachments as $attach) {
-                if (!$first) {
-                    $attachments .= ",";
-                }
-                $attachments .= $attach->getAttachment();
-                $first = false;
+        $result = $this->execApi();
+        if ($result && ($json = $this->getJsonResponse())) {
+            if (isset($json->response) && $json->response) {
+                return true;
             }
         }
 
-        if ($attachments) {
-            $this->setParameter("attachments", $attachments);
-        }
-
-        $this->setRequiredParams(array('message', 'attachments'));
-        
-        $json = $this->execApi();
-        if (!$json) {
-            return false;
-        }
-
-        if (!is_object($json) && $json < 0) {
-            return $json;
-        }
-
-        if (isset($json->response) && $json->response) {
-            return true;
-        }
-
         return false;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getApiVersion()
+    {
+        return "5.60";
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getMethod()
+    {
+        return "wall.editComment";
+    }
+
+    /**
+     * Returns 1 if request has been processed successfully
+     * See constants of class OkResponse
+     *
+     * @return integer
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * List of objects attached to the comment, in the following format:; ; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media attachment owner.; '<media_id>' — Media attachment ID. ; ; For example:; "photo100172_166443618,photo66748_265827614"
+     *
+     * @return $this
+     *
+     * @param array $attachments
+     */
+    public function setAttachments(array $attachments)
+    {
+        $this->vkarg_attachments = $attachments;
+
+        return $this;
+    }
+
+    /**
+     * Comment ID.
+     *
+     * @return $this
+     *
+     * @param integer $comment_id
+     */
+    public function setCommentId($comment_id)
+    {
+        $this->vkarg_comment_id = $comment_id;
+
+        return $this;
+    }
+
+    /**
+     * New comment text.;
+     *
+     * @return $this
+     *
+     * @param string $message
+     */
+    public function setMessage($message)
+    {
+        $this->vkarg_message = $message;
+
+        return $this;
+    }
+
+    /**
+     * User ID or community ID. Use a negative value to designate a community ID.; ;
+     *
+     * @return $this
+     *
+     * @param integer $owner_id
+     */
+    public function setOwnerId($owner_id)
+    {
+        $this->vkarg_owner_id = $owner_id;
+
+        return $this;
     }
 }
