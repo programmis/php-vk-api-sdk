@@ -2,15 +2,27 @@
 
 namespace VkSdk\Groups;
 
+use VkSdk\Groups\Includes\GroupFull;
 use VkSdk\Includes\Request;
 
 /**
  * Returns information about communities by their IDs.
  * Class GroupsGetById
- * @package VkSdk\Groups
+ *
+*@package VkSdk\Groups
  */
 class GroupsGetById extends Request
 {
+    /** @var GroupFull[] $groups */
+    private $groups = [];
+
+    /**
+     * @return GroupFull[]
+     */
+    public function getGroups()
+    {
+        return $this->groups;
+    }
 
     /**
      * Group fields to return.;
@@ -41,13 +53,22 @@ class GroupsGetById extends Request
     }
 
     /**
+     * result in $this->getGroups();
      * {@inheritdoc}
      */
     public function doRequest()
     {
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response) && $json->response) {
+            if (isset($json->response)
+                && is_array($json->response)
+            ) {
+                foreach ($json->response as $item) {
+                    $group = new GroupFull();
+                    $group->fillByJson($item);
+                    $this->groups[] = $group;
+                }
+
                 return true;
             }
         }
