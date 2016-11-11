@@ -28,7 +28,7 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
      */
     public function __construct($access_token = null, $logger = null)
     {
-        if (!$logger) {
+        if (!$logger && !self::$logger) {
             $logger = new Logger();
         }
         if ($access_token) {
