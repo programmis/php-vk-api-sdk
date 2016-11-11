@@ -118,7 +118,9 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
             }
             if (isset($json->error->error_msg) && $json->error->error_msg) {
                 $this->error_msg = $json->error->error_msg;
-                $this->logger->error("#" . $this->error_code . " " . $this->error_msg);
+                if (self::$logger) {
+                    self::$logger->error("#" . $this->error_code . " " . $this->error_msg);
+                }
             }
 
             return false;
