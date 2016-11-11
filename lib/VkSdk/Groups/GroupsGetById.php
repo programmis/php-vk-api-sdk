@@ -9,12 +9,22 @@ use VkSdk\Includes\Request;
  * Returns information about communities by their IDs.
  * Class GroupsGetById
  *
-*@package VkSdk\Groups
+ * @package VkSdk\Groups
  */
 class GroupsGetById extends Request
 {
     /** @var GroupFull[] $groups */
     private $groups = [];
+
+    /**
+     * @var array $fields
+     */
+    private $fields = [];
+
+    /**
+     * @var array $group_ids
+     */
+    private $group_ids = [];
 
     /**
      * @return GroupFull[]
@@ -33,7 +43,7 @@ class GroupsGetById extends Request
      */
     public function addField($field)
     {
-        $this->vkarg_fields[] = $field;
+        $this->fields[] = $field;
 
         return $this;
     }
@@ -47,7 +57,7 @@ class GroupsGetById extends Request
      */
     public function addGroupId($group_id)
     {
-        $this->vkarg_group_ids[] = $group_id;
+        $this->group_ids[] = $group_id;
 
         return $this;
     }
@@ -58,6 +68,9 @@ class GroupsGetById extends Request
      */
     public function doRequest()
     {
+        $this->setParameter('fields', $this->fields);
+        $this->setParameter('group_id', $this->group_ids);
+
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response)
@@ -101,7 +114,7 @@ class GroupsGetById extends Request
      */
     public function setFields(array $fields)
     {
-        $this->vkarg_fields = $fields;
+        $this->fields = $fields;
 
         return $this;
     }
@@ -129,7 +142,7 @@ class GroupsGetById extends Request
      */
     public function setGroupIds(array $group_ids)
     {
-        $this->vkarg_group_ids = $group_ids;
+        $this->group_ids = $group_ids;
 
         return $this;
     }

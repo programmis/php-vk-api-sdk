@@ -9,11 +9,11 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of user IDs or detailed information about a user's friends.
  * Class FriendsGet
- * @package VkSdk\Friends
+ *
+*@package VkSdk\Friends
  */
 class FriendsGet extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -57,16 +57,25 @@ class FriendsGet extends Request
     private $items;
 
     /**
-     * Profile fields to return. Sample values: 'uid', 'first_name', 'last_name', 'nickname', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'domain', 'has_mobile', 'rate', 'contacts', 'education'.;
+     * @var array $fields
+     */
+    private $fields = [];
+
+    /**
+     * Profile fields to return. Sample values: 'uid', 'first_name', 'last_name',
+     * 'nickname', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone',
+     * 'photo', 'photo_medium', 'photo_big', 'domain', 'has_mobile',
+     * 'rate', 'contacts', 'education'.;
      * see FieldsValues::FIELD_* constants
+
      *
-     * @return $this
+*@return $this
      *
-*@param string $field
+     * @param string $field
      */
     public function addField($field)
     {
-        $this->vkarg_fields[] = $field;
+        $this->fields[] = $field;
 
         return $this;
     }
@@ -84,13 +93,18 @@ class FriendsGet extends Request
     }
 
     /**
+     * result in $this->getCount(); and $this->getItems();
      * {@inheritdoc}
      */
     public function doRequest()
     {
+        $this->setParameter('fields', $this->fields);
+
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json);
+
                 return true;
             }
         }
@@ -118,11 +132,11 @@ class FriendsGet extends Request
 
     /**
      * Number of friends to return.
-     *
-     * @return $this
 
      *
-*@param integer $count
+*@return $this
+     *
+     * @param integer $count
      */
     public function setCount($count)
     {
@@ -161,23 +175,27 @@ class FriendsGet extends Request
     }
 
     /**
-     * Profile fields to return. Sample values: 'uid', 'first_name', 'last_name', 'nickname', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'domain', 'has_mobile', 'rate', 'contacts', 'education'.;
+     * Profile fields to return. Sample values: 'uid', 'first_name', 'last_name', 'nickname',
+     * 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium',
+     * 'photo_big', 'domain', 'has_mobile', 'rate', 'contacts', 'education'.;
      * see FieldsValues::FIELD_* constants
+     *
+     * @return $this
 
      *
-*@return $this
-     *
-     * @param array $fields
+*@param array $fields
      */
     public function setFields(array $fields)
     {
-        $this->vkarg_fields = $fields;
+        $this->fields = $fields;
 
         return $this;
     }
 
     /**
-     * ID of the friend list returned by the  method to be used as the source. This parameter is taken into account only when the uid parameter is set to the current user ID.; ; This parameter is available only for .;
+     * ID of the friend list returned by the  method to be used as the source.
+     * This parameter is taken into account only when the uid parameter is set to the current user ID.; ;
+     * This parameter is available only for .;
      *
      * @return $this
      *
@@ -191,13 +209,15 @@ class FriendsGet extends Request
     }
 
     /**
-     * Case for declension of user name and surname: ; 'nom' — nominative (default) ; 'gen' — genitive ; 'dat' — dative ; 'acc' — accusative ; 'ins' — instrumental ; 'abl' — prepositional
+     * Case for declension of user name and surname: ; 'nom' — nominative (default) ;
+     * 'gen' — genitive ; 'dat' — dative ; 'acc' — accusative ; 'ins' — instrumental ;
+     * 'abl' — prepositional
      * see self::NAME_CASE_* constants
-     *
-     * @return $this
 
      *
-*@param string $name_case
+*@return $this
+     *
+     * @param string $name_case
      */
     public function setNameCase($name_case)
     {
@@ -208,11 +228,11 @@ class FriendsGet extends Request
 
     /**
      * Offset needed to return a specific subset of friends.
-     *
-     * @return $this
 
      *
-*@param integer $offset
+*@return $this
+     *
+     * @param integer $offset
      */
     public function setOffset($offset)
     {
@@ -222,7 +242,9 @@ class FriendsGet extends Request
     }
 
     /**
-     * Sort order: ; 'name' — by name (enabled only if the 'fields' parameter is used); 'hints' — by rating, similar to how friends are sorted in My friends section; ; This parameter is available only for .
+     * Sort order: ; 'name' — by name (enabled only if the 'fields' parameter is used);
+     * 'hints' — by rating, similar to how friends are sorted in My friends section; ;
+     * This parameter is available only for .
      *
      * @return $this
      *
@@ -247,5 +269,5 @@ class FriendsGet extends Request
         $this->vkarg_user_id = $user_id;
 
         return $this;
-	}
+    }
 }
