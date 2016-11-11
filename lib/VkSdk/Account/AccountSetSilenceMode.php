@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Mutes push notifications for the set period of time.
+ *
  * Class AccountSetSilenceMode
  * @package VkSdk\Account
  */
 class AccountSetSilenceMode extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class AccountSetSilenceMode extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -27,6 +29,8 @@ class AccountSetSilenceMode extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -76,7 +80,9 @@ class AccountSetSilenceMode extends Request
     }
 
     /**
-     * Destination ID.; "For user:; 'User ID', e.g. '12345'.; ; For chat:; '2000000000' + 'Chat ID', e.g. '2000000001'.; ; For community:; '- Community ID', e.g. '-12345'.; "
+     * Destination ID.; "For user:; 'User ID', e.g. '12345'.; ;
+     * For chat:; '2000000000' + 'Chat ID', e.g. '2000000001'.; ;
+     * For community:; '- Community ID', e.g. '-12345'.; "
      *
      * @return $this
      *
@@ -90,7 +96,8 @@ class AccountSetSilenceMode extends Request
     }
 
     /**
-     * '1' — to enable sound in this dialog, '0' — to disable sound. Only if 'peer_id' contains user or community ID.
+     * '1' — to enable sound in this dialog, '0' — to disable sound.
+     * Only if 'peer_id' contains user or community ID.
      *
      * @return $this
      *
@@ -104,7 +111,8 @@ class AccountSetSilenceMode extends Request
     }
 
     /**
-     * Time in seconds for what notifications should be disabled. '-1' to disable forever.
+     * Time in seconds for what notifications should be disabled.
+     * '-1' to disable forever.
      *
      * @return $this
      *

@@ -7,13 +7,15 @@ use VkSdk\Account\Includes\Offer;
 use VkSdk\Includes\Request;
 
 /**
- * Returns a list of active ads (offers) which executed by the user will bring him/her respective number of votes to his balance in the application.
+ * Returns a list of active ads (offers)
+ * which executed by the user will bring him/her
+ * respective number of votes to his balance in the application.
+ *
  * Class AccountGetActiveOffers
  * @package VkSdk\Account
  */
 class AccountGetActiveOffers extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -39,6 +41,8 @@ class AccountGetActiveOffers extends Request
     }
 
     /**
+     * result in $this->getCount(); and $this->getItems();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -46,6 +50,8 @@ class AccountGetActiveOffers extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }

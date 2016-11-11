@@ -13,7 +13,6 @@ use VkSdk\Includes\Request;
  */
 class AccountGetInfo extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -22,7 +21,22 @@ class AccountGetInfo extends Request
     private $response;
 
     /**
-     * Fields to return. Possible values:; *'country' — user country;; *'https_required' — is "HTTPS only" option enabled;; *'own_posts_default' — is "Show my posts only" option is enabled;; *'no_wall_replies' — are wall replies disabled or not;; *'intro' — is intro passed by user or not;; *'lang' — user language.; ; By default: all.
+     * @return Info
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * Fields to return. Possible values:;
+     *'country' — user country;;
+     *'https_required' — is "HTTPS only" option enabled;;
+     *'own_posts_default' — is "Show my posts only" option is enabled;;
+     *'no_wall_replies' — are wall replies disabled or not;;
+     *'intro' — is intro passed by user or not;;
+     *'lang' — user language.;
+     * By default: all.
      *
      * @return $this
      *
@@ -36,6 +50,8 @@ class AccountGetInfo extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -43,6 +59,8 @@ class AccountGetInfo extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json);
+
                 return true;
             }
         }
@@ -77,7 +95,14 @@ class AccountGetInfo extends Request
     }
 
     /**
-     * Fields to return. Possible values:; *'country' — user country;; *'https_required' — is "HTTPS only" option enabled;; *'own_posts_default' — is "Show my posts only" option is enabled;; *'no_wall_replies' — are wall replies disabled or not;; *'intro' — is intro passed by user or not;; *'lang' — user language.; ; By default: all.
+     * Fields to return. Possible values:;
+     *'country' — user country;;
+     *'https_required' — is "HTTPS only" option enabled;;
+     *'own_posts_default' — is "Show my posts only" option is enabled;;
+     *'no_wall_replies' — are wall replies disabled or not;;
+     *'intro' — is intro passed by user or not;;
+     *'lang' — user language.;
+     * By default: all.
      *
      * @return $this
      *

@@ -7,19 +7,28 @@ use VkSdk\Account\Includes\LookupResult;
 use VkSdk\Includes\Request;
 
 /**
- * Allows to search the VK users using phone numbers, e-mail addresses and user IDs on other services.
+ * Allows to search the VK users using phone numbers,
+ * e-mail addresses and user IDs on other services.
+ *
  * Class AccountLookupContacts
  * @package VkSdk\Account
  */
 class AccountLookupContacts extends Request
 {
-
     use AutoFillObject;
 
     /**
      * @var LookupResult
      */
     private $response;
+
+    /**
+     * @return LookupResult
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
 
     /**
      * List of contacts separated with commas
@@ -36,7 +45,11 @@ class AccountLookupContacts extends Request
     }
 
     /**
-     * Profile fields to return. Possible values: 'nickname, domain, sex, bdate, city, country, timezone, photo_50, photo_100, photo_200_orig, has_mobile, contacts, education, online, relation, last_seen, status, can_write_private_message, can_see_all_posts, can_post, universities'.
+     * Profile fields to return.
+     * Possible values: 'nickname, domain, sex, bdate, city, country,
+     * timezone, photo_50, photo_100, photo_200_orig, has_mobile,
+     * contacts, education, online, relation, last_seen, status,
+     * can_write_private_message, can_see_all_posts, can_post, universities'.
      *
      * @return $this
      *
@@ -50,6 +63,8 @@ class AccountLookupContacts extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -59,6 +74,8 @@ class AccountLookupContacts extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json);
+
                 return true;
             }
         }
@@ -107,7 +124,10 @@ class AccountLookupContacts extends Request
     }
 
     /**
-     * Profile fields to return. Possible values: 'nickname, domain, sex, bdate, city, country, timezone, photo_50, photo_100, photo_200_orig, has_mobile, contacts, education, online, relation, last_seen, status, can_write_private_message, can_see_all_posts, can_post, universities'.
+     * Profile fields to return. Possible values: 'nickname, domain, sex,
+     * bdate, city, country, timezone, photo_50, photo_100, photo_200_orig,
+     * has_mobile, contacts, education, online, relation, last_seen, status,
+     * can_write_private_message, can_see_all_posts, can_post, universities'.
      *
      * @return $this
      *
@@ -135,7 +155,8 @@ class AccountLookupContacts extends Request
     }
 
     /**
-     * '1' – also return contacts found using this service before, '0' – return only contacts found using 'contacts' field.
+     * '1' – also return contacts found using this service before,
+     * '0' – return only contacts found using 'contacts' field.
      *
      * @return $this
      *
@@ -149,7 +170,9 @@ class AccountLookupContacts extends Request
     }
 
     /**
-     * String identifier of a service which contacts are used for searching. Possible values: ; * email; * phone; * twitter; * facebook; * odnoklassniki; * instagram; * google
+     * String identifier of a service which contacts are used for searching.
+     * Possible values: ; * email; * phone; * twitter; * facebook;
+     * odnoklassniki; * instagram; * google
      *
      * @return $this
      *

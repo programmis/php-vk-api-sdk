@@ -8,12 +8,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Returns the current account info.
+ *
  * Class AccountGetProfileInfo
  * @package VkSdk\Account
  */
 class AccountGetProfileInfo extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -22,6 +22,16 @@ class AccountGetProfileInfo extends Request
     private $response;
 
     /**
+     * @return UserSettings
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +39,8 @@ class AccountGetProfileInfo extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json);
+
                 return true;
             }
         }

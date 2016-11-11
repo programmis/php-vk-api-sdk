@@ -11,8 +11,20 @@ use VkSdk\Includes\Request;
  */
 class AccountGetAppPermissions extends Request
 {
+    /** @var int $response */
+    private $response;
 
     /**
+     * @return int
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -22,6 +34,8 @@ class AccountGetAppPermissions extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }

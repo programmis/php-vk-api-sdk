@@ -5,13 +5,14 @@ namespace VkSdk\Account;
 use VkSdk\Includes\Request;
 
 /**
- * Subscribes an iOS/Android/Windows Phone-based device to receive push notifications
+ * Subscribes an iOS/Android/Windows Phone-based
+ * device to receive push notifications
+ *
  * Class AccountRegisterDevice
  * @package VkSdk\Account
  */
 class AccountRegisterDevice extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +21,8 @@ class AccountRegisterDevice extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +32,8 @@ class AccountRegisterDevice extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
