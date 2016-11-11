@@ -130,11 +130,11 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     public function handleParameters($parameters)
     {
         $r_params = [];
-        foreach ($parameters as $parameter) {
+        foreach ($parameters as $key => $parameter) {
             if (is_array($parameter)) {
-                $r_params[] = implode(',', $parameter);
+                $r_params[$key] = implode(',', $parameter);
             } else {
-                $r_params[] = $parameter;
+                $r_params[$key] = $parameter;
             }
         }
 
