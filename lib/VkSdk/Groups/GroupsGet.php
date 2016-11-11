@@ -9,11 +9,11 @@ use VkSdk\Includes\Request;
 /**
  * Returns a list of the communities to which a user belongs.; ;
  * Class GroupsGet
- * @package VkSdk\Groups
+ *
+*@package VkSdk\Groups
  */
 class GroupsGet extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -24,7 +24,7 @@ class GroupsGet extends Request
     /**
      * @var GroupFull[]
      */
-    private $items;
+    private $items = [];
 
     /**
      * Profile fields to return.;
@@ -41,11 +41,15 @@ class GroupsGet extends Request
     }
 
     /**
-     * Types of communities to return:; 'admin' — to return communities administered by the user ; 'editor' — to return communities where the user is an administrator or editor; 'moder' — to return communities where the user is an administrator, editor, or moderator; 'groups' — to return only groups; 'publics' — to return only public pages; 'events' — to return only events
+     * Types of communities to return:; 'admin' — to return communities administered by the user ;
+     * 'editor' — to return communities where the user is an administrator or editor;
+     * 'moder' — to return communities where the user is an administrator, editor, or moderator;
+     * 'groups' — to return only groups; 'publics' — to return only public pages; 'events' — to return only events
      *
-     * @return $this
+*@return $this
+
      *
-     * @param string $filter
+*@param string $filter
      */
     public function addFilter($filter)
     {
@@ -67,6 +71,7 @@ class GroupsGet extends Request
     }
 
     /**
+     * result in $this->getItems(); and $this->getCount();
      * {@inheritdoc}
      */
     public function doRequest()
@@ -74,6 +79,8 @@ class GroupsGet extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }
@@ -143,11 +150,14 @@ class GroupsGet extends Request
     }
 
     /**
-     * '1' — to return complete information about a user's communities; '0' — to return a list of community IDs without any additional fields (default);
+     * '1' — to return complete information about a user's communities;
+     * '0' — to return a list of community IDs without any additional fields (default);
+
      *
-     * @return $this
+*@return $this
+
      *
-     * @param boolean $extended
+*@param boolean $extended
      */
     public function setExtended($extended)
     {
@@ -171,7 +181,10 @@ class GroupsGet extends Request
     }
 
     /**
-     * Types of communities to return:; 'admin' — to return communities administered by the user ; 'editor' — to return communities where the user is an administrator or editor; 'moder' — to return communities where the user is an administrator, editor, or moderator; 'groups' — to return only groups; 'publics' — to return only public pages; 'events' — to return only events
+     * Types of communities to return:; 'admin' — to return communities administered by the user ;
+     * 'editor' — to return communities where the user is an administrator or editor;
+     * 'moder' — to return communities where the user is an administrator, editor, or moderator;
+     * 'groups' — to return only groups; 'publics' — to return only public pages; 'events' — to return only events
      *
      * @return $this
      *
