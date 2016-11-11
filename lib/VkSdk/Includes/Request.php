@@ -130,6 +130,7 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     /** @inheritdoc */
     public function handleParameters($parameters)
     {
+        $this->setParameter("access_token", $this->getAccessToken());
         $r_params = [];
         foreach ($parameters as $key => $parameter) {
             if (is_array($parameter)) {
@@ -143,41 +144,20 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     }
 
     /** @inheritdoc */
-    public function getResultApiUrl()
-    {
-        $cnt = 0;
-
-        $url = self::API_URL . $this->getMethod();
-        if ($this->getApiVersion()) {
-            $url .= $this->getUrlSymbol($cnt) . "v=" . $this->getApiVersion();
-        }
-        if ($this->getAccessToken()) {
-            $url .= $this->getUrlSymbol($cnt) . "access_token=" . $this->getAccessToken();
-        }
-
-        return $url;
-    }
-
-    /**
-     * @param int $cnt
-     *
-     * @return string
-     */
-    private function getUrlSymbol(&$cnt)
-    {
-        $symbol = '&';
-        if ($cnt == 0) {
-            $symbol = '?';
-        }
-        $cnt++;
-
-        return $symbol;
-    }
-
-    /** @inheritdoc */
     public function getAccessToken()
     {
         return self::$access_token;
+    }
+
+    /** @inheritdoc */
+    public function getResultApiUrl()
+    {
+        $url = self::API_URL . $this->getMethod();
+        if ($this->getApiVersion()) {
+            $url .= "?v=" . $this->getApiVersion();
+        }
+
+        return $url;
     }
 
     /**
