@@ -130,7 +130,6 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     /** @inheritdoc */
     public function handleParameters($parameters)
     {
-        $this->setParameter("access_token", $this->getAccessToken());
         $r_params = [];
         foreach ($parameters as $key => $parameter) {
             if (is_array($parameter)) {
@@ -144,20 +143,21 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     }
 
     /** @inheritdoc */
-    public function getAccessToken()
-    {
-        return self::$access_token;
-    }
-
-    /** @inheritdoc */
     public function getResultApiUrl()
     {
         $url = self::API_URL . $this->getMethod();
         if ($this->getApiVersion()) {
             $url .= "?v=" . $this->getApiVersion();
         }
+        $this->setParameter("access_token", $this->getAccessToken());
 
         return $url;
+    }
+
+    /** @inheritdoc */
+    public function getAccessToken()
+    {
+        return self::$access_token;
     }
 
     /**
