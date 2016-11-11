@@ -7,12 +7,12 @@ use VkSdk\Includes\Request;
 /**
  * Ads a new item to the market.
  * Class MarketAdd
- *
-*@package VkSdk\Market
+
+*
+* @package VkSdk\Market
  */
 class MarketAdd extends Request
 {
-
     /**
      * @var integer
      */
@@ -183,7 +183,7 @@ class MarketAdd extends Request
      *
      * @param number $price
      */
-    public function setPrice(number $price)
+    public function setPrice($price)
     {
         $this->vkarg_price = $price;
 
