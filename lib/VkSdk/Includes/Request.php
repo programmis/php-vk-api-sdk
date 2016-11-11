@@ -4,6 +4,7 @@ namespace VkSdk\Includes;
 
 use logger\Logger;
 use Psr\Log\LoggerInterface;
+use VkSdk\Base\Errors;
 
 /**
  * Class Request
@@ -89,7 +90,7 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         $this->json_response = $json;
         if (isset($json->error) && $json->error) {
             if (isset($json->error->error_code) && $json->error->error_code) {
-                if ($json->error->error_code == self::ERROR_CODE_CAPTCHA_NEEDED) {
+                if ($json->error->error_code == Errors::API_ERROR_CAPTCHA) {
                     /** TODO: connect php-antigate-api-sdk */
                     /*
                     if( $need_captcha_response ){
