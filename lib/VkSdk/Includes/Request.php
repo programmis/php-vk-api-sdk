@@ -127,6 +127,21 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     }
 
     /** @inheritdoc */
+    public function handleParameters($parameters)
+    {
+        $r_params = [];
+        foreach ($parameters as $parameter) {
+            if (is_array($parameter)) {
+                $r_params[] = implode(',', $parameter);
+            } else {
+                $r_params[] = $parameter;
+            }
+        }
+
+        return $r_params;
+    }
+
+    /** @inheritdoc */
     public function getResultApiUrl()
     {
         $cnt = 0;
