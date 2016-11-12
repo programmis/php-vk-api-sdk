@@ -19,7 +19,7 @@ class MarketEdit extends Request
      */
     private $response;
     /** @var array $photo_ids */
-    private $photo_ids;
+    private $photo_ids = [];
 
     /**
      * IDs of additional photos.
