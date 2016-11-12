@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Edits the place in community.
+ *
  * Class GroupsEditPlace
  * @package VkSdk\Groups
  */
 class GroupsEditPlace extends Request
 {
-
     /**
      * @var string
      */
@@ -25,6 +25,8 @@ class GroupsEditPlace extends Request
     private $success;
 
     /**
+     * result in $this->getAddress(); and $this->getSuccess();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -33,7 +35,14 @@ class GroupsEditPlace extends Request
 
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response) && $json->response) {
+            if (isset(
+                $json->response,
+                $json->response->success,
+                $json->response->address
+            )) {
+                $this->address = $json->response->address;
+                $this->success = $json->response->success;
+
                 return true;
             }
         }
