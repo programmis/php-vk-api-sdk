@@ -9,12 +9,12 @@ use VkSdk\Users\Includes\UserMin;
 
 /**
  * Returns a list of invitations to join communities and events.; ;
+ *
  * Class GroupsGetInvites
  * @package VkSdk\Groups
  */
 class GroupsGetInvites extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -57,6 +57,8 @@ class GroupsGetInvites extends Request
     }
 
     /**
+     * result in $this->getCount(); and $this->getItems(); and $this->getProfiles();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -64,6 +66,8 @@ class GroupsGetInvites extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }
