@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Edits a community.
+ *
  * Class GroupsEdit
  * @package VkSdk\Groups
  */
 class GroupsEdit extends Request
 {
-
     /**
      * '1' — no limits
      */
@@ -77,6 +77,8 @@ class GroupsEdit extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -86,6 +88,8 @@ class GroupsEdit extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -121,7 +125,10 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Community type. Possible values:; *'0' – open;; *'1' – closed;; *'2' – private.
+     * Community type. Possible values:;
+     *'0' – open;;
+     *'1' – closed;;
+     *'2' – private.
      *
      * @return $this
      *
@@ -135,7 +142,10 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Community age limits. Possible values:; *'1' — no limits;; *'2' — 16+;; *'3' — 18+.
+     * Community age limits. Possible values:;
+     *'1' — no limits;;
+     *'2' — 16+;;
+     *'3' — 18+.
      * see self::AGE_LIMITS_* constants
      *
      * @return $this
@@ -150,7 +160,10 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Audio settings. Possible values:; *'0' – disabled;; *'1' – open;; *'2' – limited (for groups and events only).
+     * Audio settings. Possible values:;
+     *'0' – disabled;;
+     *'1' – open;;
+     *'2' – limited (for groups and events only).
      *
      * @return $this
      *
@@ -164,7 +177,10 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Contacts settings (for public pages only). Possible values:; *'0' – disabled;; *'1' – enabled.;
+     * Contacts settings (for public pages only).
+     * Possible values:;
+     *'0' – disabled;;
+     *'1' – enabled.;
      *
      * @return $this
      *
@@ -192,7 +208,10 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Documents settings. Possible values:; *'0' – disabled;; *'1' – open;; *'2' – limited (for groups and events only).
+     * Documents settings. Possible values:;
+     *'0' – disabled;;
+     *'1' – open;;
+     *'2' – limited (for groups and events only).
      *
      * @return $this
      *
@@ -248,7 +267,10 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Events settings (for public pages only). Possible values:; *'0' – disabled;; *'1' – enabled.;
+     * Events settings (for public pages only).
+     * Possible values:;
+     *'0' – disabled;;
+     *'1' – enabled.;
      *
      * @return $this
      *
@@ -290,7 +312,10 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Links settings (for public pages only). Possible values:; *'0' – disabled;; *'1' – enabled.;
+     * Links settings (for public pages only).
+     * Possible values:;
+     *'0' – disabled;;
+     *'1' – enabled.;
      *
      * @return $this
      *
@@ -304,7 +329,9 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Market settings. Possible values:; *'0' – disabled;; *'1' – enabled.
+     * Market settings. Possible values:;
+     *'0' – disabled;;
+     *'1' – enabled.
      *
      * @return $this
      *
@@ -332,7 +359,9 @@ class GroupsEdit extends Request
     }
 
     /**
-     * market comments settings. Possible values:; *'0' – disabled;; *'1' – enabled.
+     * market comments settings. Possible values:;
+     *'0' – disabled;;
+     *'1' – enabled.
      *
      * @return $this
      *
@@ -346,7 +375,8 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Seller contact for market.; Set '0' for community messages.
+     * Seller contact for market.;
+     * Set '0' for community messages.
      *
      * @return $this
      *
@@ -374,7 +404,12 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Market currency settings. Possbile values: ; *'643' – Russian rubles;; *'980' – Ukrainian hryvnia;; *'398' – Kazakh tenge;; *'978' – Euro;; *'840' – US dollars
+     * Market currency settings. Possbile values: ;
+     *'643' – Russian rubles;;
+     *'980' – Ukrainian hryvnia;;
+     *'398' – Kazakh tenge;;
+     *'978' – Euro;;
+     *'840' – US dollars
      *
      * @return $this
      *
@@ -402,7 +437,9 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Community messages. Possible values:; *'0' — disabled;; *'1' — enabled.
+     * Community messages. Possible values:;
+     *'0' — disabled;;
+     *'1' — enabled.
      *
      * @return $this
      *
@@ -416,7 +453,10 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Obscene expressions filter in comments. Possible values: ; *'0' – disabled;; *'1' – enabled.
+     * Obscene expressions filter in comments.
+     * Possible values: ;
+     *'0' – disabled;;
+     *'1' – enabled.
      *
      * @return $this
      *
@@ -430,7 +470,9 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Stopwords filter in comments. Possible values: ; *'0' – disabled;; *'1' – enabled.
+     * Stopwords filter in comments. Possible values: ;
+     *'0' – disabled;;
+     *'1' – enabled.
      *
      * @return $this
      *
@@ -471,7 +513,9 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Photos settings. Possible values:; *'0' – disabled;; *'1' – open;; *'2' – limited (for groups and events only).;
+     * Photos settings. Possible values:;
+     *'0' – disabled;; *'1' – open;;
+     *'2' – limited (for groups and events only).;
      * @return $this
      *
      * @param integer $photos
@@ -484,7 +528,10 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Places settings (for public pages only). Possible values:; *'0' – disabled;; *'1' – enabled.;
+     * Places settings (for public pages only).
+     * Possible values:;
+     *'0' – disabled;;
+     *'1' – enabled.;
      * @return $this
      *
      * @param boolean $places
@@ -511,7 +558,8 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Founding date of a company or organization owning the community in "dd.mm.YYYY" format.
+     * Founding date of a company or organization owning the community
+     * in "dd.mm.YYYY" format.
      *
      * @return $this
      *
@@ -539,7 +587,8 @@ class GroupsEdit extends Request
     }
 
     /**
-     * RSS feed address for import (available only to communities with special permission. Contact vk.com/support to get it.
+     * RSS feed address for import (available only to communities
+     * with special permission. Contact vk.com/support to get it.
      *
      * @return $this
      *
@@ -566,7 +615,49 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Community subject. Possible values: ; *'1' – auto/moto;; *'2' –  activity holidays;; *'3' – business;; *'4' – pets;; *'5' – health;; *'6' – dating and communication; ; *'7' – games;; *'8' – IT (computers and software);; *'9' – cinema;; *'10' – beauty and fashion;; *'11' – cooking;; *'12' – art and culture;; *'13' – literature;; *'14' – mobile services and internet;; *'15' – music;; *'16' – science and technology;; *'17' – real estate;; *'18' – news and media;; *'19' – security;; *'20' – education;; *'21' – home and renovations;; *'22' – politics;; *'23' – food;; *'24' – industry;; *'25' – travel;; *'26' – work;; *'27' – entertainment;; *'28' – religion;; *'29' – family;; *'30' – sports;; *'31' – insurance;; *'32' – television;; *'33' – goods and services;; *'34' – hobbies;; *'35' – finance;; *'36' – photo;; *'37' – esoterics;; *'38' – electronics and appliances;; *'39' – erotic;; *'40' – humor;; *'41' – society, humanities;; *'42' – design and graphics.
+     * Community subject. Possible values: ;
+     *'1' – auto/moto;;
+     *'2' –  activity holidays;;
+     *'3' – business;;
+     *'4' – pets;;
+     *'5' – health;;
+     *'6' – dating and communication; ;
+     *'7' – games;;
+     *'8' – IT (computers and software);;
+     *'9' – cinema;;
+     *'10' – beauty and fashion;;
+     *'11' – cooking;;
+     *'12' – art and culture;;
+     *'13' – literature;;
+     *'14' – mobile services and internet;;
+     *'15' – music;;
+     *'16' – science and technology;;
+     *'17' – real estate;;
+     *'18' – news and media;;
+     *'19' – security;;
+     *'20' – education;;
+     *'21' – home and renovations;;
+     *'22' – politics;;
+     *'23' – food;;
+     *'24' – industry;;
+     *'25' – travel;;
+     *'26' – work;;
+     *'27' – entertainment;;
+     *'28' – religion;;
+     *'29' – family;;
+     *'30' – sports;;
+     *'31' – insurance;;
+     *'32' – television;;
+     *'33' – goods and services;;
+     *'34' – hobbies;;
+     *'35' – finance;;
+     *'36' – photo;;
+     *'37' – esoterics;;
+     *'38' – electronics and appliances;;
+     *'39' – erotic;;
+     *'40' – humor;;
+     *'41' – society, humanities;;
+     *'42' – design and graphics.
      *
      * @return $this
      *
@@ -594,7 +685,10 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Board topics settings. Possbile values: ; *'0' – disabled;; *'1' – open;; *'2' – limited (for groups and events only).;
+     * Board topics settings. Possbile values: ;
+     *'0' – disabled;;
+     *'1' – open;;
+     *'2' – limited (for groups and events only).;
      *
      * @return $this
      *
@@ -608,7 +702,10 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Video settings. Possible values:; *'0' – disabled;; *'1' – open;; *'2' – limited (for groups and events only).
+     * Video settings. Possible values:;
+     *'0' – disabled;;
+     *'1' – open;;
+     *'2' – limited (for groups and events only).
      *
      * @return $this
      *
@@ -622,7 +719,11 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Wall settings. Possible values:; *'0' – disabled;; *'1' – open;; *'2' – limited (groups and events only);; *'3' – closed (groups and events only).;
+     * Wall settings. Possible values:;
+     *'0' – disabled;;
+     *'1' – open;;
+     *'2' – limited (groups and events only);;
+     *'3' – closed (groups and events only).;
      *
      * @return $this
      *
@@ -636,7 +737,8 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Website that will be displayed in the community information field.
+     * Website that will be displayed in the
+     * community information field.
      *
      * @return $this
      *
@@ -650,7 +752,10 @@ class GroupsEdit extends Request
     }
 
     /**
-     * Wiki pages settings. Possible values:; *'0' – disabled;; *'1' – open;; *'2' – limited (for groups and events only).
+     * Wiki pages settings. Possible values:;
+     *'0' – disabled;;
+     *'1' – open;;
+     *'2' – limited (for groups and events only).
      *
      * @return $this
      *
