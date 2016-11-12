@@ -8,12 +8,12 @@ use VkSdk\Users\Includes\UserFull;
 
 /**
  * Returns a list of requests to the community.
+ *
  * Class GroupsGetRequests
  * @package VkSdk\Groups
  */
 class GroupsGetRequests extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -53,6 +53,8 @@ class GroupsGetRequests extends Request
     }
 
     /**
+     * result in $this->getCount(); and $this->getItems();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -62,6 +64,8 @@ class GroupsGetRequests extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }
