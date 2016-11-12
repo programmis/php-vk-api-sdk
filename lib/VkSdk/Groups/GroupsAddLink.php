@@ -8,12 +8,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Allows to add a link to the community.
+ *
  * Class GroupsAddLink
  * @package VkSdk\Groups
  */
 class GroupsAddLink extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -22,6 +22,16 @@ class GroupsAddLink extends Request
     private $response;
 
     /**
+     * @return GroupLink
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -31,6 +41,8 @@ class GroupsAddLink extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json);
+
                 return true;
             }
         }
