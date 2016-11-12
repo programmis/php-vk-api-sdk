@@ -6,18 +6,20 @@ use VkSdk\Includes\Request;
 
 /**
  * Edits an item.
+ *
  * Class MarketEdit
  * @package VkSdk\Market
  */
 class MarketEdit extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
      * @var integer
      */
     private $response;
+    /** @var array $photo_ids */
+    private $photo_ids;
 
     /**
      * IDs of additional photos.
@@ -28,21 +30,34 @@ class MarketEdit extends Request
      */
     public function addPhotoId($photo_id)
     {
-        $this->vkarg_photo_ids[] = $photo_id;
+        $this->photo_ids[] = $photo_id;
 
         return $this;
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
     {
-        $this->setRequiredParams(["owner_id", "item_id", "name", "description", "category_id", "price", "main_photo_id"]);
+        $this->setRequiredParams([
+            "owner_id",
+            "item_id",
+            "name",
+            "description",
+            "category_id",
+            "price",
+            "main_photo_id"
+        ]);
+        $this->setParameter('photo_ids', $this->photo_ids);
 
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -184,7 +199,7 @@ class MarketEdit extends Request
      */
     public function setPhotoIds(array $photo_ids)
     {
-        $this->vkarg_photo_ids = $photo_ids;
+        $this->photo_ids = $photo_ids;
 
         return $this;
     }
