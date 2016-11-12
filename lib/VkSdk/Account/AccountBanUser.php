@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Adds user to the banlist.
+ *
  * Class AccountBanUser
  * @package VkSdk\Account
  */
 class AccountBanUser extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
