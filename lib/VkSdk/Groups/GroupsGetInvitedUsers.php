@@ -8,12 +8,12 @@ use VkSdk\Users\Includes\UserFull;
 
 /**
  * Returns invited users list of a community
+ *
  * Class GroupsGetInvitedUsers
  * @package VkSdk\Groups
  */
 class GroupsGetInvitedUsers extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -57,7 +57,14 @@ class GroupsGetInvitedUsers extends Request
     private $items;
 
     /**
-     * List of additional fields to be returned. ; Available values: 'sex, bdate, city, country, photo_50, photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, online_mobile, lists, domain, has_mobile, contacts, connections, site, education, universities, schools, can_post, can_see_all_posts, can_see_audio, can_write_private_message, status, last_seen, common_count, relation, relatives, counters'.
+     * List of additional fields to be returned. ;
+     * Available values: 'sex, bdate, city, country, photo_50,
+     * photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max,
+     * photo_max_orig, online, online_mobile, lists, domain, has_mobile,
+     * contacts, connections, site, education, universities, schools,
+     * can_post, can_see_all_posts, can_see_audio,
+     * can_write_private_message, status, last_seen, common_count,
+     * relation, relatives, counters'.
      *
      * @return $this
      *
@@ -83,6 +90,8 @@ class GroupsGetInvitedUsers extends Request
     }
 
     /**
+     * result in $this->getCount(); and $this->getItems();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -92,6 +101,8 @@ class GroupsGetInvitedUsers extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }
@@ -161,7 +172,13 @@ class GroupsGetInvitedUsers extends Request
     }
 
     /**
-     * List of additional fields to be returned. ; Available values: 'sex, bdate, city, country, photo_50, photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, online_mobile, lists, domain, has_mobile, contacts, connections, site, education, universities, schools, can_post, can_see_all_posts, can_see_audio, can_write_private_message, status, last_seen, common_count, relation, relatives, counters'.
+     * List of additional fields to be returned. ;
+     * Available values: 'sex, bdate, city, country, photo_50,
+     * photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max,
+     * photo_max_orig, online, online_mobile, lists, domain, has_mobile,
+     * contacts, connections, site, education, universities, schools,
+     * can_post, can_see_all_posts, can_see_audio, can_write_private_message,
+     * status, last_seen, common_count, relation, relatives, counters'.
      *
      * @return $this
      *
@@ -189,7 +206,10 @@ class GroupsGetInvitedUsers extends Request
     }
 
     /**
-     * Case for declension of user name and surname. Possible values:; *'nom' — nominative (default);; *'gen' — genitive;; *'dat' — dative;; *'acc' — accusative; ; *'ins' — instrumental;; *'abl' — prepositional.
+     * Case for declension of user name and surname.
+     * Possible values:; *'nom' — nominative (default);;
+     *'gen' — genitive;; *'dat' — dative;; *'acc' — accusative; ;
+     *'ins' — instrumental;; *'abl' — prepositional.
      * see self::NAME_CASE_* constants
      *
      * @return $this
