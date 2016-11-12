@@ -8,12 +8,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Returns categories list for communities catalog
+ *
  * Class GroupsGetCatalogInfo
  * @package VkSdk\Groups
  */
 class GroupsGetCatalogInfo extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -39,6 +39,8 @@ class GroupsGetCatalogInfo extends Request
     }
 
     /**
+     * result in $this->getEnabled(); and $this->getCategories();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -46,6 +48,8 @@ class GroupsGetCatalogInfo extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }
