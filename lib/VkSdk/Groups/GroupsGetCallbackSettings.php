@@ -2,15 +2,18 @@
 
 namespace VkSdk\Groups;
 
+use lib\AutoFillObject;
 use VkSdk\Includes\Request;
 
 /**
  * Returns  notifications settings.
+ *
  * Class GroupsGetCallbackSettings
  * @package VkSdk\Groups
  */
 class GroupsGetCallbackSettings extends Request
 {
+    use AutoFillObject;
 
     /**
      * See constants of class BoolInt
@@ -139,6 +142,25 @@ class GroupsGetCallbackSettings extends Request
     private $wall_reply_new;
 
     /**
+     * result in $this->getAudioNew();
+     * and $this->getBoardPostDelete();
+     * and $this->getBoardPostEdit();
+     * and $this->getBoardPostNew();
+     * and $this->getBoardPostRestore();
+     * and $this->getGroupJoin();
+     * and $this->getGroupLeave();
+     * and $this->getMarketCommentNew();
+     * and $this->getMessageAllow();
+     * and $this->getMessageDeny();
+     * and $this->getMessageNew();
+     * and $this->getPhotoCommentNew();
+     * and $this->getPhotoNew();
+     * and $this->getVideoCommentNew();
+     * and $this->getVideoNew();
+     * and $this->getWallPostNew();
+     * and $this->getWallReplyEdit();
+     * and $this->getWallReplyNew();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -148,6 +170,8 @@ class GroupsGetCallbackSettings extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }
