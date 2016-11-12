@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Adds a user to a community blacklist.
+ *
  * Class GroupsBanUser
  * @package VkSdk\Groups
  */
 class GroupsBanUser extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class GroupsBanUser extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class GroupsBanUser extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -78,7 +82,9 @@ class GroupsBanUser extends Request
     }
 
     /**
-     * '1' — text of comment will be visible to the user;; '0' — text of comment will be invisible to the user. ; By default: '0'.
+     * '1' — text of comment will be visible to the user;;
+     * '0' — text of comment will be invisible to the user. ;
+     * By default: '0'.
      *
      * @return $this
      *
@@ -92,7 +98,8 @@ class GroupsBanUser extends Request
     }
 
     /**
-     * Date (in Unix time) when the user will be removed from the blacklist.
+     * Date (in Unix time) when the user will be removed from
+     * the blacklist.
      *
      * @return $this
      *
@@ -120,7 +127,9 @@ class GroupsBanUser extends Request
     }
 
     /**
-     * Reason for ban:; '1' — spam; '2' — verbal abuse; '3' — strong language; '4' — irrelevant messages; '0' — other (default)
+     * Reason for ban:; '1' — spam; '2' — verbal abuse;
+     * '3' — strong language; '4' — irrelevant messages;
+     * '0' — other (default)
      *
      * @return $this
      *
