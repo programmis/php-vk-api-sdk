@@ -8,12 +8,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Returns a list of community members.
+ *
  * Class GroupsGetMembers
  * @package VkSdk\Groups
  */
 class GroupsGetMembers extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -27,7 +27,14 @@ class GroupsGetMembers extends Request
     private $items;
 
     /**
-     * List of additional fields to be returned. ; Available values: 'sex, bdate, city, country, photo_50, photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, online_mobile, lists, domain, has_mobile, contacts, connections, site, education, universities, schools, can_post, can_see_all_posts, can_see_audio, can_write_private_message, status, last_seen, common_count, relation, relatives, counters'.
+     * List of additional fields to be returned. ;
+     * Available values: 'sex, bdate, city, country, photo_50,
+     * photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max,
+     * photo_max_orig, online, online_mobile, lists, domain, has_mobile,
+     * contacts, connections, site, education, universities, schools,
+     * can_post, can_see_all_posts, can_see_audio,
+     * can_write_private_message, status, last_seen, common_count,
+     * relation, relatives, counters'.
      *
      * @return $this
      *
@@ -53,6 +60,8 @@ class GroupsGetMembers extends Request
     }
 
     /**
+     * result in $this->getCount(); and $this->getItems();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -60,6 +69,8 @@ class GroupsGetMembers extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }
@@ -129,7 +140,14 @@ class GroupsGetMembers extends Request
     }
 
     /**
-     * List of additional fields to be returned. ; Available values: 'sex, bdate, city, country, photo_50, photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, online_mobile, lists, domain, has_mobile, contacts, connections, site, education, universities, schools, can_post, can_see_all_posts, can_see_audio, can_write_private_message, status, last_seen, common_count, relation, relatives, counters'.
+     * List of additional fields to be returned. ;
+     * Available values: 'sex, bdate, city, country, photo_50,
+     * photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max,
+     * photo_max_orig, online, online_mobile, lists, domain,
+     * has_mobile, contacts, connections, site, education, universities,
+     * schools, can_post, can_see_all_posts, can_see_audio,
+     * can_write_private_message, status, last_seen, common_count,
+     * relation, relatives, counters'.
      *
      * @return $this
      *
@@ -143,7 +161,9 @@ class GroupsGetMembers extends Request
     }
 
     /**
-     * *'friends' – only friends in this community will be returned;; *'unsure' – only those who pressed 'I may attend' will be returned (if it's an event).
+     * *'friends' – only friends in this community will be returned;;
+     *'unsure' – only those who pressed
+     * 'I may attend' will be returned (if it's an event).
      *
      * @return $this
      *
@@ -185,7 +205,9 @@ class GroupsGetMembers extends Request
     }
 
     /**
-     * Sort order. Available values: 'id_asc', 'id_desc', 'time_asc', 'time_desc'.; 'time_asc' and 'time_desc' are availavle only if the method is called by the group's 'moderator'.
+     * Sort order. Available values: 'id_asc', 'id_desc', 'time_asc',
+     * 'time_desc'.; 'time_asc' and 'time_desc' are availavle only
+     * if the method is called by the group's 'moderator'.
      *
      * @return $this
      *
