@@ -7,6 +7,7 @@ use VkSdk\Includes\Request;
 
 /**
  * Returns information about communities by their IDs.
+ *
  * Class GroupsGetById
  *
  * @package VkSdk\Groups
