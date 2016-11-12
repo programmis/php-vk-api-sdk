@@ -5,13 +5,14 @@ namespace VkSdk\Groups;
 use VkSdk\Includes\Request;
 
 /**
- * With this method you can join the group or public page, and also confirm your participation in an event.
+ * With this method you can join the group or public page,
+ * and also confirm your participation in an event.
+ *
  * Class GroupsJoin
  * @package VkSdk\Groups
  */
 class GroupsJoin extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +21,8 @@ class GroupsJoin extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -27,6 +30,8 @@ class GroupsJoin extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -76,7 +81,9 @@ class GroupsJoin extends Request
     }
 
     /**
-     * Optional parameter which is taken into account when 'gid' belongs to the event:; '1' — Perhaps I will attend; '0' — I will be there for sure (default); ;
+     * Optional parameter which is taken into account when 'gid'
+     * belongs to the event:; '1' — Perhaps I will attend;
+     * '0' — I will be there for sure (default); ;
      *
      * @return $this
      *
