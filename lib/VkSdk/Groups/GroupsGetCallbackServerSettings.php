@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Returns  server settings for the community.
+ *
  * Class GroupsGetCallbackServerSettings
  * @package VkSdk\Groups
  */
 class GroupsGetCallbackServerSettings extends Request
 {
-
     /**
      * @var string
      */
@@ -23,6 +23,8 @@ class GroupsGetCallbackServerSettings extends Request
     private $server_url;
 
     /**
+     * result in $this->getSecretKey(); and $this->getServerUrl();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -31,7 +33,14 @@ class GroupsGetCallbackServerSettings extends Request
 
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response) && $json->response) {
+            if (isset(
+                $json->response,
+                $json->response->server_url,
+                $json->response->secret_key
+            )) {
+                $this->secret_key = $json->response->secret_key;
+                $this->server_url = $json->response->server_url;
+
                 return true;
             }
         }
