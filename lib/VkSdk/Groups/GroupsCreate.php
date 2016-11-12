@@ -8,12 +8,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Creates a new community.
+ *
  * Class GroupsCreate
  * @package VkSdk\Groups
  */
 class GroupsCreate extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -37,6 +37,16 @@ class GroupsCreate extends Request
     private $response;
 
     /**
+     * @return Group
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -46,6 +56,8 @@ class GroupsCreate extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json);
+
                 return true;
             }
         }
@@ -108,7 +120,11 @@ class GroupsCreate extends Request
     }
 
     /**
-     * Public page subtype. Possible values:; *'1' – place or small business;; *'2' – company, organizaton or website;; *'3' – famous person or group of people;; *'4' – product or work of art.
+     * Public page subtype. Possible values:;
+     *'1' – place or small business;; *'2' – company,
+     * organizaton or website;;
+     *'3' – famous person or group of people;;
+     *'4' – product or work of art.
      *
      * @return $this
      *
@@ -136,7 +152,10 @@ class GroupsCreate extends Request
     }
 
     /**
-     * Community type. Possible values:; *'group' – group;; *'event' – event;; *'public' – public page
+     * Community type. Possible values:;
+     *'group' – group;;
+     *'event' – event;;
+     *'public' – public page
      * see self::TYPE_* constants
      *
      * @return $this
