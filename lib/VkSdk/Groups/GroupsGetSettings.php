@@ -8,12 +8,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Returns community settings.
+ *
  * Class GroupsGetSettings
  * @package VkSdk\Groups
  */
 class GroupsGetSettings extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -22,6 +22,16 @@ class GroupsGetSettings extends Request
     private $response;
 
     /**
+     * @return GroupSettings
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
+
+    /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -31,6 +41,8 @@ class GroupsGetSettings extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json);
+
                 return true;
             }
         }
