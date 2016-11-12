@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Allows to add, remove or edit the community manager .
+ *
  * Class GroupsEditManager
  * @package VkSdk\Groups
  */
 class GroupsEditManager extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class GroupsEditManager extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class GroupsEditManager extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -134,7 +138,10 @@ class GroupsEditManager extends Request
     }
 
     /**
-     * Manager role. Possible values:; *'moderator';; *'editor';; *'administrator'.
+     * Manager role. Possible values:;
+     *'moderator';;
+     *'editor';;
+     *'administrator'.
      *
      * @return $this
      *
