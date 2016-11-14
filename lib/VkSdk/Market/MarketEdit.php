@@ -211,7 +211,7 @@ class MarketEdit extends Request
      *
      * @param number $price
      */
-    public function setPrice(number $price)
+    public function setPrice($price)
     {
         $this->vkarg_price = $price;
 
