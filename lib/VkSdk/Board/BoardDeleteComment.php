@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Deletes a comment on a topic on a community's discussion board.
+ *
  * Class BoardDeleteComment
  * @package VkSdk\Board
  */
 class BoardDeleteComment extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class BoardDeleteComment extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class BoardDeleteComment extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -67,9 +71,8 @@ class BoardDeleteComment extends Request
      * Comment ID.
      *
      * @return $this
-
      *
-*@param integer $comment_id
+     * @param integer $comment_id
      */
     public function setCommentId($comment_id)
     {
@@ -96,14 +99,13 @@ class BoardDeleteComment extends Request
      * Topic ID.
      *
      * @return $this
-
      *
-*@param integer $topic_id
+     * @param integer $topic_id
      */
     public function setTopicId($topic_id)
     {
         $this->vkarg_topic_id = $topic_id;
 
         return $this;
-	}
+    }
 }
