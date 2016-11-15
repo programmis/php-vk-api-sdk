@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Sends 'SMS' notification to a user's mobile device.
+ *
  * Class SecureSendSMSNotification
  * @package VkSdk\Secure
  */
 class SecureSendSMSNotification extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class SecureSendSMSNotification extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class SecureSendSMSNotification extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -64,7 +68,8 @@ class SecureSendSMSNotification extends Request
     }
 
     /**
-     * 'SMS' text to be sent in 'UTF-8' encoding. Only Latin letters and numbers are allowed. Maximum size is '160' characters.
+     * 'SMS' text to be sent in 'UTF-8' encoding. Only Latin letters and numbers are allowed. Maximum size is '160'
+     * characters.
      *
      * @return $this
      *
@@ -78,7 +83,8 @@ class SecureSendSMSNotification extends Request
     }
 
     /**
-     * ID of the user to whom SMS notification is sent. The user shall allow the application to send him/her notifications (, +1).
+     * ID of the user to whom SMS notification is sent. The user shall allow the application to send him/her
+     * notifications (, +1).
      *
      * @return $this
      *
