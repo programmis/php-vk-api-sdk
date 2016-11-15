@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Changes the status of a user as typing in a conversation.
+ *
  * Class MessagesSetActivity
  * @package VkSdk\Messages
  */
 class MessagesSetActivity extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class MessagesSetActivity extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -27,6 +29,8 @@ class MessagesSetActivity extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -62,7 +66,8 @@ class MessagesSetActivity extends Request
     }
 
     /**
-     * Destination ID.; ; "For user:; 'User ID', e.g. '12345'.; ; For chat:; '2000000000' + 'chat_id', e.g. '2000000001'.; ; For community:; '- community ID', e.g. '-12345'.; "
+     * Destination ID.; ; "For user:; 'User ID', e.g. '12345'.; ; For chat:; '2000000000' + 'chat_id', e.g.
+     * '2000000001'.; ; For community:; '- community ID', e.g. '-12345'.; "
      *
      * @return $this
      *
