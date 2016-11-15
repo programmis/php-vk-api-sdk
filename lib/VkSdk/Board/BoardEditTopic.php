@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Edits the title of a topic on a community's discussion board.
+ *
  * Class BoardEditTopic
  * @package VkSdk\Board
  */
 class BoardEditTopic extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class BoardEditTopic extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class BoardEditTopic extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
