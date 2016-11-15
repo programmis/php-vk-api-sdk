@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Reorders an audio file, placing it between other specified audio files.
+ *
  * Class AudioReorder
  * @package VkSdk\Audio
  */
 class AudioReorder extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class AudioReorder extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class AudioReorder extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
