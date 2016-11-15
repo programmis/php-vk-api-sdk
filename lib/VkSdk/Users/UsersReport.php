@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Reports (submits a complain about) a user.;
+ *
  * Class UsersReport
  * @package VkSdk\Users
  */
 class UsersReport extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class UsersReport extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class UsersReport extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -78,7 +82,8 @@ class UsersReport extends Request
     }
 
     /**
-     * Type of complaint:; 'porn' – pornography; 'spam' – spamming; 'insult' – abusive behavior; 'advertisment' – disruptive advertisements
+     * Type of complaint:; 'porn' – pornography; 'spam' – spamming; 'insult' – abusive behavior; 'advertisment' –
+     * disruptive advertisements
      *
      * @return $this
      *
