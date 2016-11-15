@@ -8,9 +8,10 @@ use VkSdk\Includes\Request;
 
 /**
  * Returns a list of the communities to which a user belongs.; ;
+ *
  * Class GroupsGet
  *
-*@package VkSdk\Groups
+ * @package VkSdk\Groups
  */
 class GroupsGet extends Request
 {
@@ -46,10 +47,9 @@ class GroupsGet extends Request
      * 'moder' — to return communities where the user is an administrator, editor, or moderator;
      * 'groups' — to return only groups; 'publics' — to return only public pages; 'events' — to return only events
      *
-*@return $this
-
+     * @return $this
      *
-*@param string $filter
+     * @param string $filter
      */
     public function addFilter($filter)
     {
@@ -152,12 +152,10 @@ class GroupsGet extends Request
     /**
      * '1' — to return complete information about a user's communities;
      * '0' — to return a list of community IDs without any additional fields (default);
-
      *
-*@return $this
-
+     * @return $this
      *
-*@param boolean $extended
+     * @param boolean $extended
      */
     public function setExtended($extended)
     {

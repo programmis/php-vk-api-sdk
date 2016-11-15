@@ -8,12 +8,12 @@ use VkSdk\Market\Includes\ItemFull;
 
 /**
  * Returns information about market items by their ids.
+ *
  * Class MarketGetById
  * @package VkSdk\Market
  */
 class MarketGetById extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -25,6 +25,8 @@ class MarketGetById extends Request
      * @var ItemFull[]
      */
     private $items;
+    /** @var array $item_ids */
+    private $item_ids = [];
 
     /**
      * @return $this
@@ -39,7 +41,9 @@ class MarketGetById extends Request
     }
 
     /**
-     * Comma-separated ids list: {user id}_{item id}.; If an item belongs to a community -{community id} is used. ; " 'Videos' value example: ; '-4363_136089719,13245770_137352259'"
+     * Comma-separated ids list: {user id}_{item id}.;
+     * If an item belongs to a community -{community id} is used. ; "
+     * 'Videos' value example: ; '-4363_136089719,13245770_137352259'"
      *
      * @return $this
      *
@@ -47,21 +51,25 @@ class MarketGetById extends Request
      */
     public function addItemId($item_id)
     {
-        $this->vkarg_item_ids[] = $item_id;
+        $this->item_ids[] = $item_id;
 
         return $this;
     }
 
     /**
+     * result in $this->getCount(); and $this->getItems();
      * {@inheritdoc}
      */
     public function doRequest()
     {
         $this->setRequiredParams(["item_ids"]);
+        $this->setParameter('item_ids', $this->item_ids);
 
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }
@@ -131,7 +139,8 @@ class MarketGetById extends Request
     }
 
     /**
-     * Comma-separated ids list: {user id}_{item id}.; If an item belongs to a community -{community id} is used. ; " 'Videos' value example: ; '-4363_136089719,13245770_137352259'"
+     * Comma-separated ids list: {user id}_{item id}.; If an item belongs to a community -{community id} is used. ; "
+     * 'Videos' value example: ; '-4363_136089719,13245770_137352259'"
      *
      * @return $this
      *
@@ -139,7 +148,7 @@ class MarketGetById extends Request
      */
     public function setItemIds(array $item_ids)
     {
-        $this->vkarg_item_ids = $item_ids;
+        $this->item_ids = $item_ids;
 
         return $this;
     }

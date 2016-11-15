@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Edits the caption of a photo.
+ *
  * Class PhotosEdit
  * @package VkSdk\Photos
  */
 class PhotosEdit extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class PhotosEdit extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class PhotosEdit extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -64,7 +68,8 @@ class PhotosEdit extends Request
     }
 
     /**
-     * New caption for the photo. If this parameter is not set, it is considered to be equal to an empty string.
+     * New caption for the photo. If this parameter is not set,
+     * it is considered to be equal to an empty string.
      *
      * @return $this
      *

@@ -8,12 +8,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Returns a list of communities matching the search criteria.
+ *
  * Class GroupsSearch
  * @package VkSdk\Groups
  */
 class GroupsSearch extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -39,6 +39,8 @@ class GroupsSearch extends Request
     }
 
     /**
+     * result in $this->getCount(); and $this->getItems();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -48,6 +50,8 @@ class GroupsSearch extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }
@@ -74,7 +78,9 @@ class GroupsSearch extends Request
     }
 
     /**
-     * Number of communities to return.; "Note that you can not receive more than first thousand of results, regardless of 'count' and 'offset' values."
+     * Number of communities to return.; "Note that you can not receive
+     * more than first thousand of results, regardless of 'count' and
+     * 'offset' values."
      *
      * @return $this
      *
@@ -145,7 +151,8 @@ class GroupsSearch extends Request
     }
 
     /**
-     * '1' —  to return only upcoming events. Works with the 'type' = 'event' only.
+     * '1' —  to return only upcoming events. Works with the
+     * 'type' = 'event' only.
      *
      * @return $this
      *
@@ -201,7 +208,13 @@ class GroupsSearch extends Request
     }
 
     /**
-     * Sort order. Possible values:; *'0' — default sorting (similar the full version of the site);; *'1' — by growth speed;; *'2'— by the "day attendance/members number" ratio;; *'3' — by the "Likes number/members number" ratio;; *'4' — by the "comments number/members number" ratio;; *'5' — by the "boards entries number/members number" ratio.; ;
+     * Sort order. Possible values:; *'0' — default sorting
+     * (similar the full version of the site);;
+     *'1' — by growth speed;;
+     *'2'— by the "day attendance/members number" ratio;;
+     *'3' — by the "Likes number/members number" ratio;;
+     *'4' — by the "comments number/members number" ratio;;
+     *'5' — by the "boards entries number/members number" ratio.; ;
      *
      * @return $this
      *

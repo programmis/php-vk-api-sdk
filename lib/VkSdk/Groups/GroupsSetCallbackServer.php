@@ -2,15 +2,18 @@
 
 namespace VkSdk\Groups;
 
+use lib\AutoFillObject;
 use VkSdk\Includes\Request;
 
 /**
  * Allow to set  server URL for the community. ; ;
+ *
  * Class GroupsSetCallbackServer
  * @package VkSdk\Groups
  */
 class GroupsSetCallbackServer extends Request
 {
+    use AutoFillObject;
 
     /**
      * @var string
@@ -23,6 +26,8 @@ class GroupsSetCallbackServer extends Request
     private $state_code;
 
     /**
+     * result in $this->getState(); and $this->getStateCode();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -32,6 +37,8 @@ class GroupsSetCallbackServer extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }

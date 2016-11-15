@@ -8,12 +8,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Returns a list of users on a community blacklist.
+ *
  * Class GroupsGetBanned
  * @package VkSdk\Groups
  */
 class GroupsGetBanned extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -51,6 +51,8 @@ class GroupsGetBanned extends Request
     }
 
     /**
+     * result in $this->getCount(); and $this->getItems();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -60,6 +62,8 @@ class GroupsGetBanned extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json);
+
                 return true;
             }
         }

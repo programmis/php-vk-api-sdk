@@ -2,15 +2,19 @@
 
 namespace VkSdk\Groups;
 
+use lib\AutoFillObject;
 use VkSdk\Includes\Request;
 
 /**
- * Returns information specifying whether a user is a member of a community.
+ * Returns information specifying whether a user is a member
+ * of a community.
+ *
  * Class GroupsIsMember
  * @package VkSdk\Groups
  */
 class GroupsIsMember extends Request
 {
+    use AutoFillObject;
 
     /**
      * See constants of class BoolInt
@@ -55,6 +59,11 @@ class GroupsIsMember extends Request
     }
 
     /**
+     * result in $this->getInvitation();
+     * and $this->getMember();
+     * and $this->getRequest();
+     * and $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -64,6 +73,8 @@ class GroupsIsMember extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }

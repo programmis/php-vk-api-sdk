@@ -6,18 +6,20 @@ use VkSdk\Includes\Request;
 
 /**
  * Returns Callback API confirmation code for the community.
+ *
  * Class GroupsGetCallbackConfirmationCode
  * @package VkSdk\Groups
  */
 class GroupsGetCallbackConfirmationCode extends Request
 {
-
     /**
      * @var string
      */
     private $code;
 
     /**
+     * result in $this->getCode();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -26,7 +28,9 @@ class GroupsGetCallbackConfirmationCode extends Request
 
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
-            if (isset($json->response) && $json->response) {
+            if (isset($json->response, $json->response->code)) {
+                $this->code = $json->response->code;
+
                 return true;
             }
         }
