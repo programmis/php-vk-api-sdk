@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Sets a new status for the current user.
+ *
  * Class StatusSet
  * @package VkSdk\Status
  */
 class StatusSet extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class StatusSet extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -27,6 +29,8 @@ class StatusSet extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
