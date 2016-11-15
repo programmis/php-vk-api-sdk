@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Moves audio files to an album.
+ *
  * Class AudioMoveToAlbum
  * @package VkSdk\Audio
  */
 class AudioMoveToAlbum extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -34,6 +34,8 @@ class AudioMoveToAlbum extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -43,6 +45,8 @@ class AudioMoveToAlbum extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
