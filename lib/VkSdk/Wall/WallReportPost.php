@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Reports (submits a complaint about) a post on a user wall or community wall.;
+ *
  * Class WallReportPost
  * @package VkSdk\Wall
  */
 class WallReportPost extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class WallReportPost extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class WallReportPost extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -92,7 +96,8 @@ class WallReportPost extends Request
     }
 
     /**
-     * Reason for the complaint:; '0' – spam; '1' – child pornography; '2' – extremism; '3' – violence; '4' – drug propaganda; '5' – adult material; '6' – insult; abuse
+     * Reason for the complaint:; '0' – spam; '1' – child pornography; '2' – extremism; '3' – violence; '4' – drug
+     * propaganda; '5' – adult material; '6' – insult; abuse
      *
      * @return $this
      *
