@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Hides an item from the newsfeed.
+ *
  * Class NewsfeedIgnoreItem
  * @package VkSdk\Newsfeed
  */
 class NewsfeedIgnoreItem extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class NewsfeedIgnoreItem extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class NewsfeedIgnoreItem extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -78,7 +82,8 @@ class NewsfeedIgnoreItem extends Request
     }
 
     /**
-     * Item owner's identifier (user or community); "Note that community id must be negative. ; 'owner_id=1' – user ; 'owner_id=-1' – community "
+     * Item owner's identifier (user or community); "Note that community id must be negative. ; 'owner_id=1' – user ;
+     * 'owner_id=-1' – community "
      *
      * @return $this
      *
@@ -92,7 +97,8 @@ class NewsfeedIgnoreItem extends Request
     }
 
     /**
-     * Item type. Possible values:; *'wall' – post on the wall;; *'tag' – tag on a photo;; *'profilephoto' – profile photo;; *'video' – video;; *'audio' – audio.
+     * Item type. Possible values:; *'wall' – post on the wall;; *'tag' – tag on a photo;; *'profilephoto' – profile
+     * photo;; *'video' – video;; *'audio' – audio.
      *
      * @return $this
      *
