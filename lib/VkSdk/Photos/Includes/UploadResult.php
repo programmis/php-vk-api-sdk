@@ -39,6 +39,8 @@ class UploadResult
     private $crop_hash;
     /** @var string $crop_data */
     private $crop_data;
+    /** @var string $error */
+    private $error;
 
     /**
      * @return string
@@ -216,6 +218,24 @@ class UploadResult
     public function setProfileAid($profile_aid)
     {
         $this->profile_aid = $profile_aid;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getError()
+    {
+        return $this->error;
+    }
+
+    /**
+     * @param string $error
+     */
+    public function setError($error)
+    {
+        $this->error = $error;
 
         return $this;
     }
