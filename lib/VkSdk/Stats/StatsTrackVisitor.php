@@ -10,7 +10,6 @@ use VkSdk\Includes\Request;
  */
 class StatsTrackVisitor extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -19,6 +18,8 @@ class StatsTrackVisitor extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -26,6 +27,8 @@ class StatsTrackVisitor extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
