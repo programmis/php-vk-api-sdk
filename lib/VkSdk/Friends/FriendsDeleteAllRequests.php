@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Marks all incoming friend requests as viewed.
+ *
  * Class FriendsDeleteAllRequests
  * @package VkSdk\Friends
  */
 class FriendsDeleteAllRequests extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class FriendsDeleteAllRequests extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -27,6 +29,8 @@ class FriendsDeleteAllRequests extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
