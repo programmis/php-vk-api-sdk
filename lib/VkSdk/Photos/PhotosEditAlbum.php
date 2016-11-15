@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Edits information about a photo album.
+ *
  * Class PhotosEditAlbum
  * @package VkSdk\Photos
  */
 class PhotosEditAlbum extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -44,6 +44,8 @@ class PhotosEditAlbum extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -53,6 +55,8 @@ class PhotosEditAlbum extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
