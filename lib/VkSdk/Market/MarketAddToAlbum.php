@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Adds an item to one or multiple collections.
+ *
  * Class MarketAddToAlbum
  * @package VkSdk\Market
  */
 class MarketAddToAlbum extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -34,6 +34,8 @@ class MarketAddToAlbum extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -43,6 +45,8 @@ class MarketAddToAlbum extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
