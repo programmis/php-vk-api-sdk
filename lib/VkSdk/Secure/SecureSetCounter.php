@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Sets a counter which is shown to the user in bold in the left menu.
+ *
  * Class SecureSetCounter
  * @package VkSdk\Secure
  */
 class SecureSetCounter extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -32,6 +32,8 @@ class SecureSetCounter extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -39,6 +41,8 @@ class SecureSetCounter extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
