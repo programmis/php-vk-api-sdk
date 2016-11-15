@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Chages item comment's text
+ *
  * Class MarketEditComment
  * @package VkSdk\Market
  */
 class MarketEditComment extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,7 +20,10 @@ class MarketEditComment extends Request
     private $response;
 
     /**
-     * Comma-separated list of objects attached to a comment. The field is submitted the following way: ; "'<owner_id>_<media_id>,<owner_id>_<media_id>'"; ; '' - media attachment type:; "'photo' - photo; 'video' - video; 'audio' - audio; 'doc' - document"; ; '<owner_id>' - media owner id; '<media_id>' - media attachment id; ; For example:; "photo100172_166443618,photo66748_265827614";
+     * Comma-separated list of objects attached to a comment. The field is submitted the following way: ;
+     * "'<owner_id>_<media_id>,<owner_id>_<media_id>'"; ; '' - media attachment type:; "'photo' - photo; 'video' -
+     * video; 'audio' - audio; 'doc' - document"; ; '<owner_id>' - media owner id; '<media_id>' - media attachment id;
+     * ; For example:; "photo100172_166443618,photo66748_265827614";
      *
      * @return $this
      *
@@ -34,6 +37,8 @@ class MarketEditComment extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -43,6 +48,8 @@ class MarketEditComment extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -78,7 +85,10 @@ class MarketEditComment extends Request
     }
 
     /**
-     * Comma-separated list of objects attached to a comment. The field is submitted the following way: ; "'<owner_id>_<media_id>,<owner_id>_<media_id>'"; ; '' - media attachment type:; "'photo' - photo; 'video' - video; 'audio' - audio; 'doc' - document"; ; '<owner_id>' - media owner id; '<media_id>' - media attachment id; ; For example:; "photo100172_166443618,photo66748_265827614";
+     * Comma-separated list of objects attached to a comment. The field is submitted the following way: ;
+     * "'<owner_id>_<media_id>,<owner_id>_<media_id>'"; ; '' - media attachment type:; "'photo' - photo; 'video' -
+     * video; 'audio' - audio; 'doc' - document"; ; '<owner_id>' - media owner id; '<media_id>' - media attachment id;
+     * ; For example:; "photo100172_166443618,photo66748_265827614";
      *
      * @return $this
      *
