@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Edits a comment on a photo.
+ *
  * Class PhotosEditComment
  * @package VkSdk\Photos
  */
 class PhotosEditComment extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,7 +20,10 @@ class PhotosEditComment extends Request
     private $response;
 
     /**
-     * (Required if 'message' is not set.) List of objects attached to the post, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — Media attachment owner ID.; '<media_id>' — Media attachment ID.; ; Example:; "photo100172_166443618,photo66748_265827614"
+     * (Required if 'message' is not set.) List of objects attached to the post, in the following format:;
+     * "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video;
+     * 'audio' — audio; 'doc' — document; '<owner_id>' — Media attachment owner ID.; '<media_id>' — Media attachment
+     * ID.; ; Example:; "photo100172_166443618,photo66748_265827614"
      *
      * @return $this
      *
@@ -34,6 +37,8 @@ class PhotosEditComment extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -43,6 +48,8 @@ class PhotosEditComment extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -78,7 +85,10 @@ class PhotosEditComment extends Request
     }
 
     /**
-     * (Required if 'message' is not set.) List of objects attached to the post, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — Media attachment owner ID.; '<media_id>' — Media attachment ID.; ; Example:; "photo100172_166443618,photo66748_265827614"
+     * (Required if 'message' is not set.) List of objects attached to the post, in the following format:;
+     * "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video;
+     * 'audio' — audio; 'doc' — document; '<owner_id>' — Media attachment owner ID.; '<media_id>' — Media attachment
+     * ID.; ; Example:; "photo100172_166443618,photo66748_265827614"
      *
      * @return $this
      *
