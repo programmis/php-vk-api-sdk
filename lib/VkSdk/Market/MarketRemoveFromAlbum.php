@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Removes an item from one or multiple collections.
+ *
  * Class MarketRemoveFromAlbum
  * @package VkSdk\Market
  */
 class MarketRemoveFromAlbum extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -34,6 +34,8 @@ class MarketRemoveFromAlbum extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -43,6 +45,8 @@ class MarketRemoveFromAlbum extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
