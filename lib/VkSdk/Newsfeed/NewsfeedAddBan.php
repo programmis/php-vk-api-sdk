@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Prevents news from specified users and communities from appearing in the current user's newsfeed.
+ *
  * Class NewsfeedAddBan
  * @package VkSdk\Newsfeed
  */
 class NewsfeedAddBan extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -44,6 +44,8 @@ class NewsfeedAddBan extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -51,6 +53,8 @@ class NewsfeedAddBan extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
