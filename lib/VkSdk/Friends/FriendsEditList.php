@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Edits a friend list of the current user.
+ *
  * Class FriendsEditList
  * @package VkSdk\Friends
  */
 class FriendsEditList extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -62,6 +62,8 @@ class FriendsEditList extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -71,6 +73,8 @@ class FriendsEditList extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
