@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Edits created polls
+ *
  * Class PollsEdit
  * @package VkSdk\Polls
  */
 class PollsEdit extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class PollsEdit extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class PollsEdit extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -92,7 +96,8 @@ class PollsEdit extends Request
     }
 
     /**
-     * object containing answers that need to be edited;; key – answer id, value – new answer text.; Example:; {"382967099":"option1", "382967103":"option2"}"
+     * object containing answers that need to be edited;; key – answer id, value – new answer text.; Example:;
+     * {"382967099":"option1", "382967103":"option2"}"
      *
      * @return $this
      *
