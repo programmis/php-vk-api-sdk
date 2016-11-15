@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Edits a comment on a user wall or community wall.;
+ *
  * Class WallEditComment
  * @package VkSdk\Wall
  */
 class WallEditComment extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,7 +20,10 @@ class WallEditComment extends Request
     private $response;
 
     /**
-     * List of objects attached to the comment, in the following format:; ; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media attachment owner.; '<media_id>' — Media attachment ID. ; ; For example:; "photo100172_166443618,photo66748_265827614"
+     * List of objects attached to the comment, in the following format:; ;
+     * "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video;
+     * 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media attachment owner.; '<media_id>' — Media
+     * attachment ID. ; ; For example:; "photo100172_166443618,photo66748_265827614"
      *
      * @return $this
      *
@@ -34,6 +37,8 @@ class WallEditComment extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -43,6 +48,8 @@ class WallEditComment extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -78,7 +85,10 @@ class WallEditComment extends Request
     }
 
     /**
-     * List of objects attached to the comment, in the following format:; ; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media attachment owner.; '<media_id>' — Media attachment ID. ; ; For example:; "photo100172_166443618,photo66748_265827614"
+     * List of objects attached to the comment, in the following format:; ;
+     * "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video;
+     * 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media attachment owner.; '<media_id>' — Media
+     * attachment ID. ; ; For example:; "photo100172_166443618,photo66748_265827614"
      *
      * @return $this
      *
