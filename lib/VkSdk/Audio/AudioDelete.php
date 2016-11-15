@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Deletes an audio file from a user page or community page.
+ *
  * Class AudioDelete
  * @package VkSdk\Audio
  */
 class AudioDelete extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class AudioDelete extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class AudioDelete extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
