@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Sets user game level in the application which can be seen by his/her friends.
+ *
  * Class SecureSetUserLevel
  * @package VkSdk\Secure
  */
 class SecureSetUserLevel extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -32,6 +32,8 @@ class SecureSetUserLevel extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -39,6 +41,8 @@ class SecureSetUserLevel extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
