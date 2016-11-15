@@ -1,36 +1,39 @@
 <?php
 
-namespace VkSdk\Wall\Includes;
-
-use lib\AutoFillObject;
+namespace VkSdk\Base;
 
 /**
  * Class LinkRating
- * @package VkSdk\Wall\Includes
+ * @package VkSdk\Base
  */
 class LinkRating
 {
-
-    use AutoFillObject;
-
     /**
      * @var integer
      */
-    private $reviews_count;
+    public $reviews_count;
 
     /**
      * @var number
      */
-    private $stars;
+    public $stars;
 
     /**
      * Count of reviews
-     *
      * @return integer
      */
     public function getReviewsCount()
     {
         return $this->reviews_count;
+    }
+
+    /**
+     * Count of stars
+     * @return number
+     */
+    public function getStars()
+    {
+        return $this->stars;
     }
 
     /**
@@ -43,16 +46,6 @@ class LinkRating
         $this->reviews_count = $reviews_count;
 
         return $this;
-    }
-
-    /**
-     * Count of stars
-     *
-     * @return number
-     */
-    public function getStars()
-    {
-        return $this->stars;
     }
 
     /**

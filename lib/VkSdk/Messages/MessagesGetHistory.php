@@ -8,12 +8,12 @@ use VkSdk\Messages\Includes\Message;
 
 /**
  * Returns message history for the specified user or group chat.
+ *
  * Class MessagesGetHistory
  * @package VkSdk\Messages
  */
 class MessagesGetHistory extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -30,6 +30,32 @@ class MessagesGetHistory extends Request
      * @var integer
      */
     private $unread;
+
+    /** @var int $in_read */
+    private $in_read;
+
+    /** @var int $out_read */
+    private $out_read;
+
+    /**
+     * Id of last read inbound message
+     *
+     * @return int
+     */
+    public function getInRead()
+    {
+        return $this->in_read;
+    }
+
+    /**
+     * Id of last read outbound message
+     *
+     * @return int
+     */
+    public function getOutRead()
+    {
+        return $this->out_read;
+    }
 
     /**
      * @return $this
@@ -51,6 +77,8 @@ class MessagesGetHistory extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }

@@ -4,6 +4,7 @@ namespace VkSdk\Wall\Includes;
 
 use lib\AutoFillObject;
 use VkSdk\Audio\Includes\Full;
+use VkSdk\Base\Link;
 use VkSdk\Docs\Includes\Doc;
 use VkSdk\Market\Includes\Album;
 use VkSdk\Market\Includes\Item;
@@ -19,7 +20,6 @@ use VkSdk\Video\Includes\Video;
  */
 class WallpostAttachment
 {
-
     use AutoFillObject;
 
     /**
@@ -435,7 +435,7 @@ class WallpostAttachment
             'audio'               => 'VkSdk\Audio\Includes\Full',
             'video'               => 'VkSdk\Video\Includes\Video',
             'doc'                 => 'VkSdk\Docs\Includes\Doc',
-            'link'                => 'VkSdk\Wall\Includes\Link',
+            'link'                => 'VkSdk\Base\Link',
             'graffiti'            => 'VkSdk\Wall\Includes\Graffiti',
             'note'                => 'VkSdk\Wall\Includes\AttachedNote',
             'app'                 => 'VkSdk\Wall\Includes\AppPost',

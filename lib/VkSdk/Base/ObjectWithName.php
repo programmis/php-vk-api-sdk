@@ -2,34 +2,38 @@
 
 namespace VkSdk\Base;
 
-use lib\AutoFillObject;
-
 /**
- * Class Objects
+ * Class ObjectWithName
  * @package VkSdk\Base
  */
-class Objects
+class ObjectWithName
 {
-    use AutoFillObject;
-
     /**
      * @var integer
      */
-    private $id;
+    public $id;
 
     /**
      * @var string
      */
-    private $title;
+    public $name;
 
     /**
      * Object ID
-     *
      * @return integer
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Object name
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 
     /**
@@ -45,23 +49,13 @@ class Objects
     }
 
     /**
-     * Object title
-     *
-     * @return string
-     */
-    public function getTitle()
-    {
-        return $this->title;
-    }
-
-    /**
      * @return $this
      *
-     * @param string $title
+     * @param string $name
      */
-    public function setTitle($title)
+    public function setName($name)
     {
-        $this->title = $title;
+        $this->name = $name;
 
         return $this;
     }

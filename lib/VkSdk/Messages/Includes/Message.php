@@ -11,7 +11,6 @@ use VkSdk\Base\Geo;
  */
 class Message
 {
-
     use AutoFillObject;
 
     /**

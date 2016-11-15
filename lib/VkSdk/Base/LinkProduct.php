@@ -1,23 +1,21 @@
 <?php
-
-namespace VkSdk\Wall\Includes;
+namespace VkSdk\Base;
 
 use lib\AutoFillObject;
 use VkSdk\Market\Includes\Price;
 
 /**
  * Class LinkProduct
- * @package VkSdk\Wall\Includes
+ * @package VkSdk\Base
  */
 class LinkProduct
 {
-
     use AutoFillObject;
 
     /**
      * @var Price
      */
-    private $price;
+    public $price;
 
     /**
      * @return Price
@@ -25,6 +23,16 @@ class LinkProduct
     public function getPrice()
     {
         return $this->price;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function objectFields()
+    {
+        return [
+            'price' => 'VkSdk\Market\Includes\Price',
+        ];
     }
 
     /**
@@ -37,15 +45,5 @@ class LinkProduct
         $this->price = $price;
 
         return $this;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function objectFields()
-    {
-        return [
-            'price' => 'VkSdk\Market\Includes\Price',
-        ];
     }
 }

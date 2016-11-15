@@ -4,6 +4,7 @@ namespace VkSdk\Wall\Includes;
 
 use lib\AutoFillObject;
 use VkSdk\Audio\Includes\Full;
+use VkSdk\Base\Link;
 use VkSdk\Base\Sticker;
 use VkSdk\Docs\Includes\Doc;
 use VkSdk\Market\Includes\Album;
@@ -18,7 +19,6 @@ use VkSdk\Video\Includes\Video;
  */
 class CommentAttachment
 {
-
     use AutoFillObject;
 
     /**
@@ -308,7 +308,7 @@ class CommentAttachment
             'audio'               => 'VkSdk\Audio\Includes\Full',
             'video'               => 'VkSdk\Video\Includes\Video',
             'doc'                 => 'VkSdk\Docs\Includes\Doc',
-            'link'                => 'VkSdk\Wall\Includes\Link',
+            'link'                => 'VkSdk\Base\Link',
             'note'                => 'VkSdk\Wall\Includes\AttachedNote',
             'page'                => 'VkSdk\Pages\Includes\WikipageFull',
             'market_market_album' => 'VkSdk\Market\Includes\Album',

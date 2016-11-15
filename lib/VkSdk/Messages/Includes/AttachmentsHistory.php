@@ -4,6 +4,7 @@ namespace VkSdk\Messages\Includes;
 
 use lib\AutoFillObject;
 use VkSdk\Audio\Includes\Full;
+use VkSdk\Base\Link;
 use VkSdk\Docs\Includes\Doc;
 use VkSdk\Photos\Includes\Photo;
 use VkSdk\Video\Includes\Video;
@@ -14,7 +15,6 @@ use VkSdk\Video\Includes\Video;
  */
 class AttachmentsHistory
 {
-
     use AutoFillObject;
 
     /**
@@ -28,7 +28,7 @@ class AttachmentsHistory
     private $doc;
 
     /**
-     * @var MessageLink
+     * @var Link
      */
     private $link;
 
@@ -88,7 +88,7 @@ class AttachmentsHistory
     }
 
     /**
-     * @return MessageLink
+     * @return Link
      */
     public function getLink()
     {
@@ -98,9 +98,9 @@ class AttachmentsHistory
     /**
      * @return $this
      *
-     * @param MessageLink $link
+     * @param Link $link
      */
-    public function setLink(MessageLink $link)
+    public function setLink(Link $link)
     {
         $this->link = $link;
 
@@ -179,7 +179,7 @@ class AttachmentsHistory
             'video' => 'VkSdk\Video\Includes\Video',
             'audio' => 'VkSdk\Audio\Includes\Full',
             'doc'   => 'VkSdk\Docs\Includes\Doc',
-            'link'  => 'VkSdk\Messages\Includes\MessageLink',
+            'link'  => 'VkSdk\Base\Link',
         ];
     }
 }

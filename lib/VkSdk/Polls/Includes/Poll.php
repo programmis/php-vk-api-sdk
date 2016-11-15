@@ -1,5 +1,4 @@
 <?php
-
 namespace VkSdk\Polls\Includes;
 
 use lib\AutoFillObject;
@@ -10,52 +9,156 @@ use lib\AutoFillObject;
  */
 class Poll
 {
-
     use AutoFillObject;
 
     /**
+     * See constants of class BoolInt
+     *
      * @var integer
      */
-    private $answer_id;
-
-    /**
-     * @var array
-     */
-    private $answers;
+    public $anonymous;
 
     /**
      * @var integer
      */
-    private $created;
+    public $answer_id;
+
+    /**
+     * @var Answer[]
+     */
+    public $answers;
 
     /**
      * @var integer
      */
-    private $id;
+    public $created;
 
     /**
      * @var integer
      */
-    private $owner_id;
+    public $id;
+
+    /**
+     * @var integer
+     */
+    public $owner_id;
 
     /**
      * @var string
      */
-    private $question;
+    public $question;
 
     /**
      * @var string
      */
-    private $votes;
+    public $votes;
+
+    /**
+     * @return $this
+     *
+     * @param Answer $answer
+     */
+    public function addAnswer(Answer $answer)
+    {
+        $this->answers[] = $answer;
+
+        return $this;
+    }
+
+    /**
+     * Information whether the pole is anonymous
+     * @return integer
+     */
+    public function getAnonymous()
+    {
+        return $this->anonymous;
+    }
 
     /**
      * Current user's answer ID
-     *
      * @return integer
      */
     public function getAnswerId()
     {
         return $this->answer_id;
+    }
+
+    /**
+     * @return Answer[]
+     */
+    public function getAnswers()
+    {
+        return $this->answers;
+    }
+
+    /**
+     * Date when poll has been created in Unixtime
+     * @return integer
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Poll ID
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Poll owner's ID
+     * @return integer
+     */
+    public function getOwnerId()
+    {
+        return $this->owner_id;
+    }
+
+    /**
+     * Poll question
+     * @return string
+     */
+    public function getQuestion()
+    {
+        return $this->question;
+    }
+
+    /**
+     * Votes number
+     * @return string
+     */
+    public function getVotes()
+    {
+        return $this->votes;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function objectFields()
+    {
+        return [
+            'answers' => [
+                'class'  => 'VkSdk\Polls\Includes\Answer',
+                'method' => 'addAnswer'
+            ],
+        ];
+    }
+
+    /**
+     * @return $this
+     *
+     * @param integer $anonymous
+     */
+    public function setAnonymous($anonymous)
+    {
+        $this->anonymous = $anonymous;
+
+        return $this;
     }
 
     /**
@@ -71,14 +174,6 @@ class Poll
     }
 
     /**
-     * @return array
-     */
-    public function getAnswers()
-    {
-        return $this->answers;
-    }
-
-    /**
      * @return $this
      *
      * @param array $answers
@@ -88,16 +183,6 @@ class Poll
         $this->answers = $answers;
 
         return $this;
-    }
-
-    /**
-     * Date when poll has been created in Unixtime
-     *
-     * @return integer
-     */
-    public function getCreated()
-    {
-        return $this->created;
     }
 
     /**
@@ -113,16 +198,6 @@ class Poll
     }
 
     /**
-     * Poll ID
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
-    /**
      * @return $this
      *
      * @param integer $id
@@ -132,16 +207,6 @@ class Poll
         $this->id = $id;
 
         return $this;
-    }
-
-    /**
-     * Poll owner's ID
-     *
-     * @return integer
-     */
-    public function getOwnerId()
-    {
-        return $this->owner_id;
     }
 
     /**
@@ -157,16 +222,6 @@ class Poll
     }
 
     /**
-     * Poll question
-     *
-     * @return string
-     */
-    public function getQuestion()
-    {
-        return $this->question;
-    }
-
-    /**
      * @return $this
      *
      * @param string $question
@@ -176,16 +231,6 @@ class Poll
         $this->question = $question;
 
         return $this;
-    }
-
-    /**
-     * Votes number
-     *
-     * @return string
-     */
-    public function getVotes()
-    {
-        return $this->votes;
     }
 
     /**
