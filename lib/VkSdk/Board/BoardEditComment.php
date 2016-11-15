@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Edits a comment on a topic on a community's discussion board.
+ *
  * Class BoardEditComment
  * @package VkSdk\Board
  */
 class BoardEditComment extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,11 +20,14 @@ class BoardEditComment extends Request
     private $response;
 
     /**
-     * (Required if 'message' is not set.) List of media objects attached to the comment, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media object:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media owner. ; '<media_id>' — Media ID.; ; Example:; "photo100172_166443618,photo66748_265827614"
+     * (Required if 'message' is not set.) List of media objects attached to the comment, in the following format:;
+     * "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media object:; 'photo' — photo; 'video' — video;
+     * 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media owner. ; '<media_id>' — Media ID.; ; Example:;
+     * "photo100172_166443618,photo66748_265827614"
      *
      * @return $this
      *
-*@param string $attachment
+     * @param string $attachment
      */
     public function addAttachment($attachment)
     {
@@ -34,6 +37,8 @@ class BoardEditComment extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -43,6 +48,8 @@ class BoardEditComment extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -78,12 +85,14 @@ class BoardEditComment extends Request
     }
 
     /**
-     * (Required if 'message' is not set.) List of media objects attached to the comment, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media object:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media owner. ; '<media_id>' — Media ID.; ; Example:; "photo100172_166443618,photo66748_265827614"
+     * (Required if 'message' is not set.) List of media objects attached to the comment, in the following format:;
+     * "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media object:; 'photo' — photo; 'video' — video;
+     * 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media owner. ; '<media_id>' — Media ID.; ; Example:;
+     * "photo100172_166443618,photo66748_265827614"
      *
      * @return $this
-
      *
-*@param array $attachments
+     * @param array $attachments
      */
     public function setAttachments(array $attachments)
     {
@@ -96,9 +105,8 @@ class BoardEditComment extends Request
      * ID of the comment on the topic.
      *
      * @return $this
-
      *
-*@param integer $comment_id
+     * @param integer $comment_id
      */
     public function setCommentId($comment_id)
     {
@@ -109,9 +117,8 @@ class BoardEditComment extends Request
 
     /**
      * ID of the community that owns the discussion board.
-
      *
-*@return $this
+     * @return $this
      *
      * @param integer $group_id
      */
@@ -126,9 +133,8 @@ class BoardEditComment extends Request
      * (Required if 'attachments' is not set). New comment text.
      *
      * @return $this
-
      *
-*@param string $message
+     * @param string $message
      */
     public function setMessage($message)
     {
@@ -141,14 +147,13 @@ class BoardEditComment extends Request
      * Topic ID.
      *
      * @return $this
-
      *
-*@param integer $topic_id
+     * @param integer $topic_id
      */
     public function setTopicId($topic_id)
     {
         $this->vkarg_topic_id = $topic_id;
 
         return $this;
-	}
+    }
 }
