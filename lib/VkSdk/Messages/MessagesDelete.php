@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Deletes one or more messages.
+ *
  * Class MessagesDelete
  * @package VkSdk\Messages
  */
 class MessagesDelete extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -34,6 +34,8 @@ class MessagesDelete extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -41,6 +43,8 @@ class MessagesDelete extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
