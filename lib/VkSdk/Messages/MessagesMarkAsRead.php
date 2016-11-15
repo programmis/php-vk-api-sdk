@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Marks messages as read.
+ *
  * Class MessagesMarkAsRead
  * @package VkSdk\Messages
  */
 class MessagesMarkAsRead extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -34,6 +34,8 @@ class MessagesMarkAsRead extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -41,6 +43,8 @@ class MessagesMarkAsRead extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -90,7 +94,8 @@ class MessagesMarkAsRead extends Request
     }
 
     /**
-     * Destination ID.; ; "For user:; 'User ID', e.g. '12345'.; ; For chat:; '2000000000' + 'chat_id', e.g. '2000000001'.; ; For community:; '- community ID', e.g. '-12345'.; "
+     * Destination ID.; ; "For user:; 'User ID', e.g. '12345'.; ; For chat:; '2000000000' + 'chat_id', e.g.
+     * '2000000001'.; ; For community:; '- community ID', e.g. '-12345'.; "
      *
      * @return $this
      *
