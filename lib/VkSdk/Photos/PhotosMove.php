@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Moves a photo from one album to another.
+ *
  * Class PhotosMove
  * @package VkSdk\Photos
  */
 class PhotosMove extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class PhotosMove extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class PhotosMove extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
