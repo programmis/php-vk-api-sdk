@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Edits the title of a video album.
+ *
  * Class VideoEditAlbum
  * @package VkSdk\Video
  */
 class VideoEditAlbum extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,7 +20,8 @@ class VideoEditAlbum extends Request
     private $response;
 
     /**
-     * new access permissions for the album.; Possible values: ; *'0' – all users;; *'1' – friends only;; *'2' – friends and friends of friends;; *'3' – "only me".
+     * new access permissions for the album.; Possible values: ; *'0' – all users;; *'1' – friends only;; *'2' –
+     * friends and friends of friends;; *'3' – "only me".
      *
      * @return $this
      *
@@ -34,6 +35,8 @@ class VideoEditAlbum extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -43,6 +46,8 @@ class VideoEditAlbum extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -106,7 +111,8 @@ class VideoEditAlbum extends Request
     }
 
     /**
-     * new access permissions for the album.; Possible values: ; *'0' – all users;; *'1' – friends only;; *'2' – friends and friends of friends;; *'3' – "only me".
+     * new access permissions for the album.; Possible values: ; *'0' – all users;; *'1' – friends only;; *'2' –
+     * friends and friends of friends;; *'3' – "only me".
      *
      * @return $this
      *
