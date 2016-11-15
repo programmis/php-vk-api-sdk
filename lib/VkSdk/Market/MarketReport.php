@@ -11,7 +11,6 @@ use VkSdk\Includes\Request;
  */
 class MarketReport extends Request
 {
-
     /**
      * '0' — spam
      */
@@ -55,6 +54,8 @@ class MarketReport extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -64,6 +65,8 @@ class MarketReport extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -127,8 +130,8 @@ class MarketReport extends Request
     }
 
     /**
-     * Complaint reason. Possible values:; *'0' — spam;; *'1' — child porn;; *'2' — extremism;; *'3' — violence;; *'4' — drugs propaganda;; *'5' — adult materials;; *'6' — insult.
-     * see self::REASON_* constants
+     * Complaint reason. Possible values:; *'0' — spam;; *'1' — child porn;; *'2' — extremism;; *'3' — violence;; *'4'
+     * — drugs propaganda;; *'5' — adult materials;; *'6' — insult. see self::REASON_* constants
      *
      * @return $this
      *
