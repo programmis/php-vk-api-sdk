@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Reorders the photo in the list of photos of the user album.
+ *
  * Class PhotosReorderPhotos
  * @package VkSdk\Photos
  */
 class PhotosReorderPhotos extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class PhotosReorderPhotos extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class PhotosReorderPhotos extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
