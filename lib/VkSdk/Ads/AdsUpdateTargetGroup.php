@@ -20,6 +20,8 @@ class AdsUpdateTargetGroup extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class AdsUpdateTargetGroup extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -78,7 +82,8 @@ class AdsUpdateTargetGroup extends Request
     }
 
     /**
-     * 'Only for advertising agencies.' ; ID of the client with the advertising account where the group will be created.;
+     * 'Only for advertising agencies.' ;
+     * ID of the client with the advertising account where the group will be created.;
      *
      * @return $this
      *
@@ -106,7 +111,9 @@ class AdsUpdateTargetGroup extends Request
     }
 
     /**
-     * 'Only for the groups that get audience from sites with user accounting code.'; Time in days when users added to a retarget group will be automatically excluded from it. ; '0' – automatic exclusion is off.
+     * 'Only for the groups that get audience from sites with user accounting code.';
+     * Time in days when users added to a retarget group will be automatically excluded from it. ;
+     * '0' – automatic exclusion is off.
      *
      * @return $this
      *

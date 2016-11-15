@@ -6,6 +6,7 @@ use VkSdk\Includes\Request;
 
 /**
  * Deletes a retarget group.
+ *
  * Class AdsDeleteTargetGroup
  * @package VkSdk\Ads
  */
@@ -20,6 +21,8 @@ class AdsDeleteTargetGroup extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +32,8 @@ class AdsDeleteTargetGroup extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -78,7 +83,8 @@ class AdsDeleteTargetGroup extends Request
     }
 
     /**
-     * 'Only for advertising agencies.' ; ID of the client with the advertising account where the group will be created.;
+     * 'Only for advertising agencies.' ;
+     * ID of the client with the advertising account where the group will be created.;
      *
      * @return $this
      *
