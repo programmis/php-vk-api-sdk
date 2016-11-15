@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Unsubscribes the current user from specified newsfeeds.
+ *
  * Class NewsfeedUnsubscribe
  * @package VkSdk\Newsfeed
  */
 class NewsfeedUnsubscribe extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class NewsfeedUnsubscribe extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class NewsfeedUnsubscribe extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -92,7 +96,8 @@ class NewsfeedUnsubscribe extends Request
     }
 
     /**
-     * Type of object from which to unsubscribe:; 'note' — note; 'photo' — photo; 'post' — post on user wall or community wall; 'topic' — topic; 'video' — video
+     * Type of object from which to unsubscribe:; 'note' — note; 'photo' — photo; 'post' — post on user wall or
+     * community wall; 'topic' — topic; 'video' — video
      *
      * @return $this
      *
