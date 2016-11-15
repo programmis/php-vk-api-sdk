@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Edits information about a video on a user or community page.
+ *
  * Class VideoEdit
  * @package VkSdk\Video
  */
 class VideoEdit extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -48,6 +48,8 @@ class VideoEdit extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -57,6 +59,8 @@ class VideoEdit extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
