@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Edits a post on a user wall or community wall.
+ *
  * Class WallEdit
  * @package VkSdk\Wall
  */
 class WallEdit extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,7 +20,12 @@ class WallEdit extends Request
     private $response;
 
     /**
-     * (Required if 'message' is not set.) List of objects attached to the post, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media application owner.; '<media_id>' — Media application ID. ; ; Example:; "photo100172_166443618,photo66748_265827614"; May contain a link to an external page to include in the post. Example:; "photo66748_265827614,http://habrahabr.ru"; "NOTE: If more than one link is being attached, an error is thrown."
+     * (Required if 'message' is not set.) List of objects attached to the post, in the following format:;
+     * "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video;
+     * 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media application owner.; '<media_id>' — Media
+     * application ID. ; ; Example:; "photo100172_166443618,photo66748_265827614"; May contain a link to an external
+     * page to include in the post. Example:; "photo66748_265827614,http://habrahabr.ru"; "NOTE: If more than one link
+     * is being attached, an error is thrown."
      *
      * @return $this
      *
@@ -34,6 +39,8 @@ class WallEdit extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -43,6 +50,8 @@ class WallEdit extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -78,7 +87,12 @@ class WallEdit extends Request
     }
 
     /**
-     * (Required if 'message' is not set.) List of objects attached to the post, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media application owner.; '<media_id>' — Media application ID. ; ; Example:; "photo100172_166443618,photo66748_265827614"; May contain a link to an external page to include in the post. Example:; "photo66748_265827614,http://habrahabr.ru"; "NOTE: If more than one link is being attached, an error is thrown."
+     * (Required if 'message' is not set.) List of objects attached to the post, in the following format:;
+     * "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video;
+     * 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media application owner.; '<media_id>' — Media
+     * application ID. ; ; Example:; "photo100172_166443618,photo66748_265827614"; May contain a link to an external
+     * page to include in the post. Example:; "photo66748_265827614,http://habrahabr.ru"; "NOTE: If more than one link
+     * is being attached, an error is thrown."
      *
      * @return $this
      *
@@ -92,7 +106,8 @@ class WallEdit extends Request
     }
 
     /**
-     * (Applies only when editing a scheduled post.); '1' — post will be available to friends only; '0' — post will be available to all users (default)
+     * (Applies only when editing a scheduled post.); '1' — post will be available to friends only; '0' — post will be
+     * available to all users (default)
      *
      * @return $this
      *
@@ -202,7 +217,8 @@ class WallEdit extends Request
     }
 
     /**
-     * (Applies only to a scheduled post.) Publication date (in Unix time). If used, posting will be delayed until the set time.
+     * (Applies only to a scheduled post.) Publication date (in Unix time). If used, posting will be delayed until the
+     * set time.
      *
      * @return $this
      *
@@ -216,8 +232,8 @@ class WallEdit extends Request
     }
 
     /**
-     * (Applies only to a scheduled post.) List of services or websites where status will be updated, if the user has so requested. Sample values: 'twitter', 'facebook'.
-     * see ServicesValues::SERVICE_* constants
+     * (Applies only to a scheduled post.) List of services or websites where status will be updated, if the user has
+     * so requested. Sample values: 'twitter', 'facebook'. see ServicesValues::SERVICE_* constants
      *
      * @return $this
      *
@@ -231,7 +247,8 @@ class WallEdit extends Request
     }
 
     /**
-     * (Applies only to a post that was created "as community" on a community wall.); '1' — to add the signature of the user who created the post
+     * (Applies only to a post that was created "as community" on a community wall.); '1' — to add the signature of the
+     * user who created the post
      *
      * @return $this
      *
