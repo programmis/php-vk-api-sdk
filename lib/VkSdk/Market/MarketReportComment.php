@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Sends a complaint to the item's comment.
+ *
  * Class MarketReportComment
  * @package VkSdk\Market
  */
 class MarketReportComment extends Request
 {
-
     /**
      * '0' — spam
      */
@@ -55,6 +55,8 @@ class MarketReportComment extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -64,6 +66,8 @@ class MarketReportComment extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -127,8 +131,8 @@ class MarketReportComment extends Request
     }
 
     /**
-     * Complaint reason. Possible values:; *'0' — spam;; *'1' — child porn;; *'2' — extremism;; *'3' — violence;; *'4' — drugs propaganda;; *'5' — adult materials;; *'6' — insult.
-     * see self::REASON_* constants
+     * Complaint reason. Possible values:; *'0' — spam;; *'1' — child porn;; *'2' — extremism;; *'3' — violence;; *'4'
+     * — drugs propaganda;; *'5' — adult materials;; *'6' — insult. see self::REASON_* constants
      *
      * @return $this
      *
