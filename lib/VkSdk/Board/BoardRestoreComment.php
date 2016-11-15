@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Restores a comment deleted from a topic on a community's discussion board.
+ *
  * Class BoardRestoreComment
  * @package VkSdk\Board
  */
 class BoardRestoreComment extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class BoardRestoreComment extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class BoardRestoreComment extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
