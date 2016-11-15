@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Edits a document.
+ *
  * Class DocsEdit
  * @package VkSdk\Docs
  */
 class DocsEdit extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -34,6 +34,8 @@ class DocsEdit extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -43,6 +45,8 @@ class DocsEdit extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
