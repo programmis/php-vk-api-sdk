@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Allows to clear the cache of particular 'external' pages which may be attached to VK posts.
+ *
  * Class PagesClearCache
  * @package VkSdk\Pages
  */
 class PagesClearCache extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class PagesClearCache extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class PagesClearCache extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
