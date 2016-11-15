@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Re-opens a previously closed topic on a community's discussion board.
+ *
  * Class BoardOpenTopic
  * @package VkSdk\Board
  */
 class BoardOpenTopic extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class BoardOpenTopic extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class BoardOpenTopic extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
