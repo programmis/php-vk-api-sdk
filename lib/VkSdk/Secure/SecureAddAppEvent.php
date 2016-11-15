@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Adds user activity information to an application
+ *
  * Class SecureAddAppEvent
  * @package VkSdk\Secure
  */
 class SecureAddAppEvent extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -20,6 +20,8 @@ class SecureAddAppEvent extends Request
     private $response;
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -29,6 +31,8 @@ class SecureAddAppEvent extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -64,7 +68,8 @@ class SecureAddAppEvent extends Request
     }
 
     /**
-     * there are 2 default activities: ; * 1 – level. Works similar to ;; * 2 – points, saves points amount; Any other value is for saving completed missions
+     * there are 2 default activities: ; * 1 – level. Works similar to ;; * 2 – points, saves points amount; Any other
+     * value is for saving completed missions
      *
      * @return $this
      *
@@ -92,7 +97,8 @@ class SecureAddAppEvent extends Request
     }
 
     /**
-     * depends on activity_id:; * 1 – number, current level number;; * 2 – number, current user's points amount; ; Any other value is ignored
+     * depends on activity_id:; * 1 – number, current level number;; * 2 – number, current user's points amount; ; Any
+     * other value is ignored
      *
      * @return $this
      *
