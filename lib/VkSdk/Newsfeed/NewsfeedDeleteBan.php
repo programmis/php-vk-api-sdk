@@ -6,12 +6,12 @@ use VkSdk\Includes\Request;
 
 /**
  * Allows news from previously banned users and communities to be shown in the current user's newsfeed.
+ *
  * Class NewsfeedDeleteBan
  * @package VkSdk\Newsfeed
  */
 class NewsfeedDeleteBan extends Request
 {
-
     /**
      * See constants of class OkResponse
      *
@@ -44,6 +44,8 @@ class NewsfeedDeleteBan extends Request
     }
 
     /**
+     * result in $this->getResponse();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
@@ -51,6 +53,8 @@ class NewsfeedDeleteBan extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
