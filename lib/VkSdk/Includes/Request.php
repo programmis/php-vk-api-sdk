@@ -16,6 +16,8 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
 {
     /** @var string $access_token */
     private static $access_token;
+    /** @var AntiCaptchaInterface $antiCaptcha */
+    private static $antiCaptcha = null;
     /** @var int $error_code */
     private $error_code;
     /** @var string $error_msg */
@@ -23,8 +25,6 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     /** @var mixed $errors */
     private $errors;
     private $json_response;
-    /** @var AntiCaptchaInterface $antiCaptcha */
-    private $antiCaptcha = null;
 
     /**
      * Request constructor.
@@ -99,6 +99,32 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         return $this->json_response;
     }
 
+    /**
+     * @param AntiCaptchaInterface $antiCaptcha
+     */
+    public function setAntiCaptcha($antiCaptcha)
+    {
+        if (!($this->getAntiCaptcha() instanceof AntiCaptchaInterface)) {
+            $error_text = get_class($this->getAntiCaptcha()) . ' must by implemented of AntiCaptchaInterface';
+            if (self::$logger) {
+                self::$logger->critical($error_text);
+            }
+            throw new \Exception($error_text);
+        }
+
+        self::$antiCaptcha = $antiCaptcha;
+
+        return $this;
+    }
+
+    /**
+     * @return AntiCaptchaInterface
+     */
+    public function getAntiCaptcha()
+    {
+        return self::$antiCaptcha;
+    }
+
     /** @inheritdoc */
     public function answerProcessing($content)
     {
@@ -111,26 +137,17 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         if (isset($json->error) && $json->error) {
             if (isset($json->error->error_code) && $json->error->error_code) {
                 if ($json->error->error_code == Errors::API_ERROR_CAPTCHA) {
-                    if ($this->antiCaptcha && is_object($this->antiCaptcha)) {
-                        if (!($this->antiCaptcha instanceof AntiCaptchaInterface)) {
-                            if (self::$logger) {
-                                self::$logger->error(
-                                    get_class($this->antiCaptcha) . ' must by implemented of AntiCaptchaInterface'
-                                );
-                            }
-
-                            return false;
-                        }
+                    if ($this->getAntiCaptcha() && is_object($this->getAntiCaptcha())) {
                         if (!isset($json->error->captcha_sid) || !isset($json->error->captcha_img)) {
                             if (self::$logger) {
-                                self::$logger->error('incorrect captcha object');
+                                self::$logger->critical('incorrect captcha object');
                             }
 
                             return false;
                         }
-                        if ($this->antiCaptcha->recognize($json->error->captcha_img)) {
+                        if ($this->getAntiCaptcha()->recognize($json->error->captcha_img)) {
                             $this->setParameter("captcha_sid", $json->error->captcha_sid);
-                            $this->setParameter("captcha_key", $this->antiCaptcha->getText());
+                            $this->setParameter("captcha_key", $this->getAntiCaptcha()->getText());
 
                             return $this->doRequest();
                         }
