@@ -16,7 +16,8 @@
         "symfony/yaml": "2.*|3.*",
         "programmis/api-rator": "1.*",
         "programmis/colorful-logger": "0.*",
-        "programmis/auto-fill-object": "0.*"
+      "programmis/auto-fill-object": "0.*",
+      "programmis/anti-captcha": "0.*"
     },
     "require-dev": {
         "phpunit/phpunit": "^4.8",

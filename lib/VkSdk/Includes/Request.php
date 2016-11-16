@@ -2,6 +2,7 @@
 
 namespace VkSdk\Includes;
 
+use AntiCaptcha\Includes\AntiCaptchaInterface;
 use logger\Logger;
 use Psr\Log\LoggerInterface;
 use VkSdk\Base\Errors;
@@ -22,6 +23,8 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     /** @var mixed $errors */
     private $errors;
     private $json_response;
+    /** @var AntiCaptchaInterface $antiCaptcha */
+    private $antiCaptcha = null;
 
     /**
      * Request constructor.
@@ -108,28 +111,30 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         if (isset($json->error) && $json->error) {
             if (isset($json->error->error_code) && $json->error->error_code) {
                 if ($json->error->error_code == Errors::API_ERROR_CAPTCHA) {
-                    /** TODO: connect php-antigate-api-sdk */
-                    /*
-                    if( $need_captcha_response ){
-                        if(is_object($json) && isset($json->error->captcha_sid) && isset($json->error->captcha_img)) {
-                            $recognize = new AntigateRecognizeCaptchaRequest( $json->error->captcha_img );
-                            $recognize->downloadCaptcha();
-                            $result = $recognize->doRecognize();
-                            if( !$result ) {
-                                $this->logger->debug("Don't recognize captcha!");
-                                return false;
+                    if ($this->antiCaptcha && is_object($this->antiCaptcha)) {
+                        if (!($this->antiCaptcha instanceof AntiCaptchaInterface)) {
+                            if (self::$logger) {
+                                self::$logger->error(
+                                    get_class($this->antiCaptcha) . ' must by implemented of AntiCaptchaInterface'
+                                );
                             }
-                            $this->setParameter( "captcha_sid", $json->error->captcha_sid );
-                            $this->setParameter( "captcha_key", $recognize->getRecognizeCaptcha() );
-                            $this->logger->debug("Send captcha_sid " . $json->error->captcha_sid);
-                            $this->logger->debug("Send captcha_key " . $recognize->getRecognizeCaptcha());
-                        }
-                        else{
-                            $this->logger->debug("Json is corrupt: " . serialize( $json ));
+
                             return false;
                         }
+                        if (!isset($json->error->captcha_sid) || !isset($json->error->captcha_img)) {
+                            if (self::$logger) {
+                                self::$logger->error('incorrect captcha object');
+                            }
+
+                            return false;
+                        }
+                        if ($this->antiCaptcha->recognize($json->error->captcha_img)) {
+                            $this->setParameter("captcha_sid", $json->error->captcha_sid);
+                            $this->setParameter("captcha_key", $this->antiCaptcha->getText());
+
+                            return $this->doRequest();
+                        }
                     }
-                    */
                 }
                 $this->error_code = $json->error->error_code;
             }
@@ -150,6 +155,16 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
 
         return true;
     }
+
+    /**
+     * В случае неудачи, ошибки можно посмотреть
+     * вызвав методы getErrorCode и getErrorMsg
+     *
+     * @uses \VkSdk\Includes\Request::getErrorCode
+     * @uses \VkSdk\Includes\Request::getErrorMsg
+     * @return bool
+     */
+    abstract public function doRequest();
 
     /** @inheritdoc */
     public function handleParameters($parameters)
@@ -176,14 +191,4 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
 
         return $url;
     }
-
-    /**
-     * В случае неудачи, ошибки можно посмотреть
-     * вызвав методы getErrorCode и getErrorMsg
-     *
-     * @uses \VkSdk\Includes\Request::getErrorCode
-     * @uses \VkSdk\Includes\Request::getErrorMsg
-     * @return bool
-     */
-    abstract public function doRequest();
 }
