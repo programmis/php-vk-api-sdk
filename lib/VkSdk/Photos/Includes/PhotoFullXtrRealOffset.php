@@ -11,7 +11,6 @@ use VkSdk\Base\Likes;
  */
 class PhotoFullXtrRealOffset
 {
-
     use AutoFillObject;
 
     /**
@@ -344,7 +343,7 @@ class PhotoFullXtrRealOffset
      *
      * @param number $lat
      */
-    public function setLat(number $lat)
+    public function setLat($lat)
     {
         $this->lat = $lat;
 
@@ -386,7 +385,7 @@ class PhotoFullXtrRealOffset
      *
      * @param number $long
      */
-    public function setLong(number $long)
+    public function setLong($long)
     {
         $this->long = $long;
 

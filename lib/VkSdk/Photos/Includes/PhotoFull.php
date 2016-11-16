@@ -11,7 +11,6 @@ use VkSdk\Base\Likes;
  */
 class PhotoFull
 {
-
     use AutoFillObject;
 
     /**
@@ -310,7 +309,7 @@ class PhotoFull
      *
      * @param number $lat
      */
-    public function setLat(number $lat)
+    public function setLat($lat)
     {
         $this->lat = $lat;
 
@@ -352,7 +351,7 @@ class PhotoFull
      *
      * @param number $long
      */
-    public function setLong(number $long)
+    public function setLong($long)
     {
         $this->long = $long;
 
