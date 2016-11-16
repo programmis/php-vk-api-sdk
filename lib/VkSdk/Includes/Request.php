@@ -64,6 +64,22 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     }
 
     /**
+     * @param AntiCaptchaInterface $antiCaptcha
+     */
+    public static function setAntiCaptcha($antiCaptcha)
+    {
+        if (!($antiCaptcha instanceof AntiCaptchaInterface)) {
+            $error_text = get_class($antiCaptcha) . ' must by implemented of AntiCaptchaInterface';
+            if (self::$logger) {
+                self::$logger->critical($error_text);
+            }
+            throw new \Exception($error_text);
+        }
+
+        self::$antiCaptcha = $antiCaptcha;
+    }
+
+    /**
      * возвращает код ошибки
      *
      * @return int
@@ -97,32 +113,6 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     public function getJsonResponse()
     {
         return $this->json_response;
-    }
-
-    /**
-     * @param AntiCaptchaInterface $antiCaptcha
-     */
-    public function setAntiCaptcha($antiCaptcha)
-    {
-        if (!($this->getAntiCaptcha() instanceof AntiCaptchaInterface)) {
-            $error_text = get_class($this->getAntiCaptcha()) . ' must by implemented of AntiCaptchaInterface';
-            if (self::$logger) {
-                self::$logger->critical($error_text);
-            }
-            throw new \Exception($error_text);
-        }
-
-        self::$antiCaptcha = $antiCaptcha;
-
-        return $this;
-    }
-
-    /**
-     * @return AntiCaptchaInterface
-     */
-    public function getAntiCaptcha()
-    {
-        return self::$antiCaptcha;
     }
 
     /** @inheritdoc */
@@ -171,6 +161,14 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         }
 
         return true;
+    }
+
+    /**
+     * @return AntiCaptchaInterface
+     */
+    public function getAntiCaptcha()
+    {
+        return self::$antiCaptcha;
     }
 
     /**
