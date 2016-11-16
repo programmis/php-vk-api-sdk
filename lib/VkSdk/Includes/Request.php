@@ -19,6 +19,8 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     private $error_code;
     /** @var string $error_msg */
     private $error_msg;
+    /** @var array $errors */
+    private $errors = [];
     private $json_response;
 
     /**
@@ -59,6 +61,14 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     public function getErrorCode()
     {
         return $this->error_code;
+    }
+
+    /**
+     * @return array
+     */
+    public function getErrors()
+    {
+        return $this->errors;
     }
 
     /**
@@ -121,6 +131,9 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
                 if (self::$logger) {
                     self::$logger->error("#" . $this->error_code . " " . $this->error_msg);
                 }
+            } elseif (!is_array($json->error) && !is_object($json->error)) {
+                $this->errors[] = $json->error;
+                self::$logger->error($json->error);
             }
 
             return false;
