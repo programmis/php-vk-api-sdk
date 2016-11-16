@@ -133,7 +133,9 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
                 }
             } elseif (!is_array($json->error) && !is_object($json->error)) {
                 $this->errors[] = $json->error;
-                self::$logger->error($json->error);
+                if (self::$logger) {
+                    self::$logger->error($json->error);
+                }
             }
 
             return false;
