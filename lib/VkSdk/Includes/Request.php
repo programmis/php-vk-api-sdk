@@ -49,8 +49,15 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
     public function setAccessToken($access_token)
     {
         self::$access_token = $access_token;
+        $this->setParameter("access_token", $this->getAccessToken());
 
         return $this;
+    }
+
+    /** @inheritdoc */
+    public function getAccessToken()
+    {
+        return self::$access_token;
     }
 
     /**
@@ -166,15 +173,8 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         if ($this->getApiVersion()) {
             $url .= "?v=" . $this->getApiVersion();
         }
-        $this->setParameter("access_token", $this->getAccessToken());
 
         return $url;
-    }
-
-    /** @inheritdoc */
-    public function getAccessToken()
-    {
-        return self::$access_token;
     }
 
     /**
