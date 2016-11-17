@@ -18,6 +18,8 @@ class MarketAddToAlbum extends Request
      * @var integer
      */
     private $response;
+    /** @var array $album_ids */
+    private $album_ids = [];
 
     /**
      * Collections IDs to add  item to.
@@ -28,7 +30,7 @@ class MarketAddToAlbum extends Request
      */
     public function addAlbumId($album_id)
     {
-        $this->vkarg_album_ids[] = $album_id;
+        $this->album_ids[] = $album_id;
 
         return $this;
     }
@@ -41,6 +43,7 @@ class MarketAddToAlbum extends Request
     public function doRequest()
     {
         $this->setRequiredParams(["owner_id", "item_id", "album_ids"]);
+        $this->setParameter('album_ids', $this->album_ids);
 
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
@@ -90,7 +93,7 @@ class MarketAddToAlbum extends Request
      */
     public function setAlbumIds(array $album_ids)
     {
-        $this->vkarg_album_ids = $album_ids;
+        $this->album_ids = $album_ids;
 
         return $this;
     }
