@@ -1,63 +1,31 @@
-<ul>
 <h5>Supported:</h5>
- 	<li>Account</li>
-	<li>Ads</li>
-	<li>Apps</li>
-	<li>Audio</li>
-	<li>Auth</li>
-	<li>Board</li>
-	<li>Database</li>
-	<li>Docs</li>
-	<li>Fave</li>
-	<li>Friends</li>
-	<li>Gifts</li>
-	<li>Groups</li>
-	<li>Leads</li>
-	<li>Likes</li>
-	<li>Market</li>
-	<li>Messages</li>
-	<li>Newsfeed</li>
-	<li>Notes</li>
-	<li>Notifications</li>
-	<li>Orders</li>
-	<li>Pages</li>
-	<li>Photos</li>
-	<li>Places</li>
-	<li>Polls</li>
-	<li>Search</li>
-	<li>Secure</li>
-	<li>Stats</li>
-	<li>Status</li>
-	<li>Storage</li>
-	<li>Users</li>
-	<li>Utils</li>
-	<li>Video</li>
-	<li>Wall</li>
-	<li>Widgets</li>
-</ul>
+Account, Ads, Apps, Audio, Auth, Board, Database, Docs, Fave, Friends, Gifts, Groups,
+Leads, Likes, Market, Messages, Newsfeed, Notes, Notifications, Orders, Pages, Photos,
+Places, Polls, Search, Secure, Stats, Status, Storage, Users, Utils, Video, Wall, Widgets
+
+<h5>How to install:</h5>
 
 **1) Download [composer](https://getcomposer.org/download/) :**
-
+<pre>
 php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" <br>
 php -r "if (hash_file('SHA384', 'composer-setup.php') === 'e115a8dc7871f15d853148a7fbac7da27d6c0030b848d9b3dc09e2a0388afed865e6a3d6b3c0fad45c48e2b5fc1196ae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" <br>
 php composer-setup.php <br>
 php -r "unlink('composer-setup.php');" 
-
+</pre>
 **2) Install SDK:**
-
+<pre>
 php composer.phar require programmis/php-vk-api-sdk
-
+</pre>
 **3) Get token vkontakte:**
-
-http://oauth.vk.com/authorize?client_id=3682744&v=5.7&scope=friends,wall,offline&redirect_uri=http://oauth.vk.com/blank.html&display=page&response_type=token <br>
+<pre>
+http://oauth.vk.com/authorize?client_id=3682744&scope=friends,wall,offline,photos,market&redirect_uri=http://oauth.vk.com/blank.html&display=page&response_type=token <br>
 in the address bar: <br>
 https://oauth.vk.com/blank.html#access_token=**345345345345345345345345345d73e7de6acf1475ca460d**&expires_in=0&user_id=1 
+</pre>
 
-
-<ul>
 <h5>Examples:</h5>
-<li>Upload photo</li>
-<pre>
+**Upload photo**
+```php
 $server = new PhotosGetUploadServer($token);
 $server->setAlbumId($album_id)
     ->setGroupId($group_id);
@@ -78,9 +46,9 @@ $photos->setAlbumId($album_id)
 if (!$photos->doRequest()) {
     return;
 }
-</pre>
-<li>Obtain detailed information about users VKontakte:<br>
-<pre>
+```
+**Obtain detailed information about users VKontakte:**
+```php
 $userGet = new UsersGet();
 $result = $userGet->setUserId(1)->setField('sex')->doRequest();
 if( $result === true ){
@@ -93,20 +61,17 @@ if( $result === true ){
         echo "-------------------------\n";
     }
 }
-</pre>
-</li>
-<li>Join this group or to attend a meeting VKontakte:<br>
-<pre>
+```
+**Join this group or to attend a meeting VKontakte:**
+```php
 $joinGroup = new GroupsJoin();
 $result = $joinGroup->setGroupId(1)->doRequest();
 if( $result === true ){
     echo $joinGroup->getResponse();
 }
-</pre>
-</li>
-<li>
-Place a record on the wall VKontakte:<br>
-<pre>
+```
+**Place a record on the wall VKontakte:**
+```php
 $wallPost = new WallPost();
 $result = $wallPost->setOwnerId(1)
     ->setMessage("test")
@@ -114,22 +79,18 @@ $result = $wallPost->setOwnerId(1)
 if( $result === true ){
     echo $wallPost->getPostId();    
 }
-</pre>
-</li>
-<li>
-Create a new album VKontakte:<br>
-<pre>
+```
+**Create a new album VKontakte:**
+```php
 $album = new PhotosCreateAlbum();
 $album->setTitle("My new album");
 $result = $album->doRequest();
 if( $result === true ){
     echo $album->getId();
 }
-</pre>
-</li>
-<li>
-Add user VKontakte to friend:<br>
-<pre>
+```
+**Add user VKontakte to friend:**
+```php
 $friendsAdd = new FriendsAdd();
 $result = $friendsAdd->setUserId(1)
     ->setText("Add me as a friend rather")
@@ -137,11 +98,9 @@ $result = $friendsAdd->setUserId(1)
 if($result === true ){
     echo $friendsAdd->getResponse();
 }
-</pre>
-</li>
-<li>
-Change the status of the user VKontakte:<br>
-<pre>
+```
+**Change the status of the user VKontakte:**
+```php
 $statusSet = new StatusSet();
 $result = $statusSet
     ->setText("This is my new status")
@@ -149,11 +108,9 @@ $result = $statusSet
 if($result===true){
     echo $statusSet->getResponse();
 }
-</pre>
-</li>
-<li>
-Add a comment to the discussion VKontakte:<br>
-<pre>
+```
+**Add a comment to the discussion VKontakte:**
+```php
 $boardComment = new BoardAddComment();
 $result = $boardComment->setText("This is my new comment")
     ->setGroupId(1)
@@ -162,32 +119,26 @@ $result = $boardComment->setText("This is my new comment")
 if($result===true){
     echo $boardComment->getCommentId();
 }
-</pre>
-</li>
-<li>
-Set the status of "online" in your account VKontakte:<br>
-<pre>
+```
+**Set the status of "online" in your account VKontakte:**
+```php
 $online = new AccountSetOnline();
 $result = $online->doRequest();
 if($result===true){
     echo $online->getResponse();
 }
-</pre>
-</li>
-<li>
-Send message to VKontakte user:<br>
-<pre>
+```
+**Send message to VKontakte user:**
+```php
 $message = new MessagesSend();
 $result = $message->setMessage("Hello people")
     ->setUserId(1)->doRequest();
 if( $result===true ){
     echo $message->getMessageId();
 }
-</pre>
-</li>
-<li>
-Create a new poll VKontakte:<br>
-<pre>
+```
+**Create a new poll VKontakte:**
+```php
 $poll = new PollsCreate();
 $result = $poll->setOwnerId(1)->setIsAnonymous(1)
     ->setQuestion("Would you like to provide financial assistance for a set of these classes?")
@@ -199,8 +150,6 @@ if( $result === true ){
     echo $pollInfo->getId() . "\n";
     echo $pollInfo->getVotes() . "\n";
 }
-</pre>
-</li>
-</ul>
+```
 Get Access Token: http://vk.com/dev/auth_sites
 <br> Description of the API methods: http://vk.com/dev/methods
