@@ -19,8 +19,8 @@ php composer.phar require programmis/php-vk-api-sdk
 **3) Get token vkontakte:**
 <pre>
 http://oauth.vk.com/authorize?client_id=3682744&scope=friends,wall,offline,photos,market&redirect_uri=http://oauth.vk.com/blank.html&display=page&response_type=token <br>
-in the address bar: <br>
-https://oauth.vk.com/blank.html#access_token=**345345345345345345345345345d73e7de6acf1475ca460d**&expires_in=0&user_id=1 
+<b>in the address bar</b>: <br>
+https://oauth.vk.com/blank.html#access_token=<b>345345345345345345345345345d73e7de6acf1475ca460d</b>&expires_in=0&user_id=1 
 </pre>
 
 <h3>Examples:</h3>
@@ -153,11 +153,11 @@ if( $result === true ){
 ```
 **Console log example**
 <pre>
-<span style="color:green">info</span>(1).........[2016/11/27 17:48:46] -> Set parameter: user_ids as array, values: a:1:{i:0;i:1;}
-<span style="color:yellow">debug</span>(1)........[2016/11/27 17:48:46] -> execApi: https://api.vk.com/method/users.get?v=5.60
-<span style="color:yellow">debug</span>(2)........[2016/11/27 17:48:46] -> with headers: a:1:{s:12:"Content-type";s:19:"multipart/form-data";}
-<span style="color:yellow">debug</span>(3)........[2016/11/27 17:48:46] -> with parameters: a:1:{s:8:"user_ids";s:1:"1";}
-<span style="color:yellow">debug</span>(4)........[2016/11/27 17:48:46] -> execApi result: {"response":[{"id":1,"first_name":"Павел","last_name":"Дуров"}]}
+<span style="color:green;">info</span>(1).........[2016/11/27 17:48:46] -> Set parameter: user_ids as array, values: a:1:{i:0;i:1;}
+<span style="color:yellow;">debug</span>(1)........[2016/11/27 17:48:46] -> execApi: https://api.vk.com/method/users.get?v=5.60
+<span style="color:yellow;">debug</span>(2)........[2016/11/27 17:48:46] -> with headers: a:1:{s:12:"Content-type";s:19:"multipart/form-data";}
+<span style="color:yellow;">debug</span>(3)........[2016/11/27 17:48:46] -> with parameters: a:1:{s:8:"user_ids";s:1:"1";}
+<span style="color:yellow;">debug</span>(4)........[2016/11/27 17:48:46] -> execApi result: {"response":[{"id":1,"first_name":"Павел","last_name":"Дуров"}]}
 </pre>
 
 **Connecting your logger**
