@@ -18,7 +18,7 @@ php composer.phar require programmis/php-vk-api-sdk
 </pre>
 **3) Get token vkontakte:**
 <pre>
-http://oauth.vk.com/authorize?client_id=3682744&scope=friends,wall,offline,photos,market,messages&redirect_uri=http://oauth.vk.com/blank.html&display=page&response_type=token <br>
+http://oauth.vk.com/authorize?client_id=3682744&scope=status,friends,wall,offline,photos,market&redirect_uri=http://oauth.vk.com/blank.html&display=page&response_type=token <br>
 <b>in the address bar</b>: <br>
 https://oauth.vk.com/blank.html#access_token=<b>345345345345345345345345345d73e7de6acf1475ca460d</b>&expires_in=0&user_id=1 
 </pre>
@@ -104,10 +104,8 @@ if($friendsAdd->doRequest()){
 **Change the status of the user VKontakte:**
 ```php
 $statusSet = new StatusSet();
-$result = $statusSet
-    ->setText("This is my new status")
-    ->doRequest();
-if($result===true){
+$statusSet->setText("This is my new status");
+if($statusSet->doRequest()){
     echo $statusSet->getResponse();
 }
 ```
@@ -140,15 +138,12 @@ if($message->doRequest()){
 **Create a new poll VKontakte:**
 ```php
 $poll = new PollsCreate();
-$result = $poll->setOwnerId(1)->setIsAnonymous(1)
-    ->setQuestion("Would you like to provide financial assistance for a set of these classes?")
-    ->addAnswer("Yes")
-    ->addAnswer("Of Course")
-    ->doRequest();
-if( $result === true ){
-    $pollInfo = $poll->getPollInfo();
-    echo $pollInfo->getId() . "\n";
-    echo $pollInfo->getVotes() . "\n";
+$poll->setOwnerId(1)->setIsAnonymous(1)
+     ->setQuestion("Would you like to provide financial assistance for a set of these classes?")
+     ->addAnswer('Yes')
+     ->addAnswer('Of course');
+if($poll->doRequest()){
+    echo $poll->getPollInfo()->getId() . "\n";
 }
 ```
 **Console log example**

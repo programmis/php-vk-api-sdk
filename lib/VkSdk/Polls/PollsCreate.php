@@ -13,8 +13,10 @@ use VkSdk\Polls\Includes\Poll;
  */
 class PollsCreate extends Request
 {
-
     use AutoFillObject;
+
+    /** @var array $add_answers */
+    private $add_answers = [];
 
     /**
      * @var Poll
@@ -22,13 +24,37 @@ class PollsCreate extends Request
     private $response;
 
     /**
+     * @return Poll
+     */
+    public function getPollInfo()
+    {
+        return $this->response;
+    }
+
+    /**
+     * @param string $answer
+     *
+     * @return $this
+     */
+    public function addAnswer($answer)
+    {
+        $this->add_answers[] = $answer;
+
+        return $this;
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function doRequest()
     {
+        $this->setParameter('add_answers', json_encode($this->add_answers));
+
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json);
+
                 return true;
             }
         }
@@ -71,13 +97,14 @@ class PollsCreate extends Request
      */
     public function setAddAnswers($add_answers)
     {
-        $this->vkarg_add_answers = $add_answers;
+        $this->add_answers = $add_answers;
 
         return $this;
     }
 
     /**
-     * '1' – anonymous poll, participants list is hidden;; '0' – public poll, participants list is available;; Default value is '0'.
+     * '1' – anonymous poll, participants list is hidden;; '0' – public poll, participants list is available;; Default
+     * value is '0'.
      *
      * @return $this
      *
@@ -91,7 +118,8 @@ class PollsCreate extends Request
     }
 
     /**
-     * If a poll will be added to a communty it is required to send a negative group identifier. Current user by default.
+     * If a poll will be added to a communty it is required to send a negative group identifier. Current user by
+     * default.
      *
      * @return $this
      *
@@ -116,5 +144,5 @@ class PollsCreate extends Request
         $this->vkarg_question = $question;
 
         return $this;
-	}
+    }
 }

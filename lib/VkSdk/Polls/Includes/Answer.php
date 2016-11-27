@@ -2,12 +2,16 @@
 
 namespace VkSdk\Polls\Includes;
 
+use lib\AutoFillObject;
+
 /**
  * Class Answer
  * @package VkSdk\Polls\Includes
  */
 class Answer
 {
+    use AutoFillObject;
+
     /**
      * @var integer
      */
@@ -81,7 +85,7 @@ class Answer
      *
      * @param number $rate
      */
-    public function setRate(number $rate)
+    public function setRate($rate)
     {
         $this->rate = $rate;
 
