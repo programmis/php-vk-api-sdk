@@ -1,9 +1,9 @@
-<h5>Supported:</h5>
+<h3>Supported:</h3>
 Account, Ads, Apps, Audio, Auth, Board, Database, Docs, Fave, Friends, Gifts, Groups,
 Leads, Likes, Market, Messages, Newsfeed, Notes, Notifications, Orders, Pages, Photos,
 Places, Polls, Search, Secure, Stats, Status, Storage, Users, Utils, Video, Wall, Widgets
 
-<h5>How to install:</h5>
+<h3>How to install:</h3>
 
 **1) Download [composer](https://getcomposer.org/download/) :**
 <pre>
@@ -23,7 +23,7 @@ in the address bar: <br>
 https://oauth.vk.com/blank.html#access_token=**345345345345345345345345345d73e7de6acf1475ca460d**&expires_in=0&user_id=1 
 </pre>
 
-<h5>Examples:</h5>
+<h3>Examples:</h3>
 **Upload photo**
 ```php
 $server = new PhotosGetUploadServer($token);
@@ -151,5 +151,28 @@ if( $result === true ){
     echo $pollInfo->getVotes() . "\n";
 }
 ```
+**Console log example**
+<pre>
+<span style="color:green">info</span>(1).........[2016/11/27 17:48:46] -> Set parameter: user_ids as array, values: a:1:{i:0;i:1;}
+<span style="color:yellow">debug</span>(1)........[2016/11/27 17:48:46] -> execApi: https://api.vk.com/method/users.get?v=5.60
+<span style="color:yellow">debug</span>(2)........[2016/11/27 17:48:46] -> with headers: a:1:{s:12:"Content-type";s:19:"multipart/form-data";}
+<span style="color:yellow">debug</span>(3)........[2016/11/27 17:48:46] -> with parameters: a:1:{s:8:"user_ids";s:1:"1";}
+<span style="color:yellow">debug</span>(4)........[2016/11/27 17:48:46] -> execApi result: {"response":[{"id":1,"first_name":"Павел","last_name":"Дуров"}]}
+</pre>
+
+**Connecting your logger**
+```php
+\VkSdk\Includes\Request::setLogger(new \youre\Logger());
+```
+
+**Connecting anti captcha**
+```php
+$antiCaptcha = new \AntiCaptcha\RuCaptcha(); //integrated in project now
+$antiCaptcha->setAccessToken($anti_captcha_access_token);
+\VkSdk\Includes\Request::setAntiCaptcha($antiCaptcha);
+```
+
 Get Access Token: http://vk.com/dev/auth_sites
 <br> Description of the API methods: http://vk.com/dev/methods
+
+**if you find error - please send mail for me**
