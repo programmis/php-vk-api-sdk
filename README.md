@@ -18,7 +18,7 @@ php composer.phar require programmis/php-vk-api-sdk
 </pre>
 **3) Get token vkontakte:**
 <pre>
-http://oauth.vk.com/authorize?client_id=3682744&scope=friends,wall,offline,photos,market&redirect_uri=http://oauth.vk.com/blank.html&display=page&response_type=token <br>
+http://oauth.vk.com/authorize?client_id=3682744&scope=groups,friends,wall,offline,photos,market&redirect_uri=http://oauth.vk.com/blank.html&display=page&response_type=token <br>
 <b>in the address bar</b>: <br>
 https://oauth.vk.com/blank.html#access_token=<b>345345345345345345345345345d73e7de6acf1475ca460d</b>&expires_in=0&user_id=1 
 </pre>
@@ -64,19 +64,18 @@ if($user->doRequest()){
 **Join this group or to attend a meeting VKontakte:**
 ```php
 $joinGroup = new GroupsJoin();
-$result = $joinGroup->setGroupId(1)->doRequest();
-if( $result === true ){
+$joinGroup->setGroupId(1);
+if( $joinGroup->doRequest()){
     echo $joinGroup->getResponse();
 }
 ```
 **Place a record on the wall VKontakte:**
 ```php
 $wallPost = new WallPost();
-$result = $wallPost->setOwnerId(1)
-    ->setMessage("test")
-    ->doRequest();
-if( $result === true ){
-    echo $wallPost->getPostId();    
+$wallPost->setOwnerId(1)
+    ->setMessage("test");
+if($wallPost->doRequest()){
+    echo $wallPost->getPostId();
 }
 ```
 **Create a new album VKontakte:**

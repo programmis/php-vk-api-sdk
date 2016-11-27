@@ -2,6 +2,7 @@
 
 namespace VkSdk\Wall;
 
+use lib\AutoFillObject;
 use VkSdk\Includes\Request;
 
 /**
@@ -11,14 +12,24 @@ use VkSdk\Includes\Request;
  */
 class WallPost extends Request
 {
+    use AutoFillObject;
 
     /**
      * @var integer
      */
     private $post_id;
 
+    /** @var array $attachments */
+    private $attachments = [];
+
     /**
-     * (Required if 'message' is not set.) List of objects attached to the post, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; 'page' — wiki-page; 'note' — note; 'poll' — poll; 'album' — photo album; '<owner_id>' — ID of the media application owner. ; '<media_id>' — Media application ID.; ; Example:; "photo100172_166443618,photo66748_265827614"; May contain a link to an external page to include in the post. Example:; "photo66748_265827614,http://habrahabr.ru"; "NOTE: If more than one link is being attached, an error will be thrown."
+     * (Required if 'message' is not set.) List of objects attached to the post, in the following format:;
+     * "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video;
+     * 'audio' — audio; 'doc' — document; 'page' — wiki-page; 'note' — note; 'poll' — poll; 'album' — photo album;
+     * '<owner_id>' — ID of the media application owner. ; '<media_id>' — Media application ID.; ; Example:;
+     * "photo100172_166443618,photo66748_265827614"; May contain a link to an external page to include in the post.
+     * Example:; "photo66748_265827614,http://habrahabr.ru"; "NOTE: If more than one link is being attached, an error
+     * will be thrown."
      *
      * @return $this
      *
@@ -26,7 +37,7 @@ class WallPost extends Request
      */
     public function addAttachment($attachment)
     {
-        $this->vkarg_attachments[] = $attachment;
+        $this->attachments[] = $attachment;
 
         return $this;
     }
@@ -36,9 +47,13 @@ class WallPost extends Request
      */
     public function doRequest()
     {
+        $this->setParameter('attachments', $this->attachments);
+
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json);
+
                 return true;
             }
         }
@@ -87,7 +102,13 @@ class WallPost extends Request
     }
 
     /**
-     * (Required if 'message' is not set.) List of objects attached to the post, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; 'page' — wiki-page; 'note' — note; 'poll' — poll; 'album' — photo album; '<owner_id>' — ID of the media application owner. ; '<media_id>' — Media application ID.; ; Example:; "photo100172_166443618,photo66748_265827614"; May contain a link to an external page to include in the post. Example:; "photo66748_265827614,http://habrahabr.ru"; "NOTE: If more than one link is being attached, an error will be thrown."
+     * (Required if 'message' is not set.) List of objects attached to the post, in the following format:;
+     * "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video;
+     * 'audio' — audio; 'doc' — document; 'page' — wiki-page; 'note' — note; 'poll' — poll; 'album' — photo album;
+     * '<owner_id>' — ID of the media application owner. ; '<media_id>' — Media application ID.; ; Example:;
+     * "photo100172_166443618,photo66748_265827614"; May contain a link to an external page to include in the post.
+     * Example:; "photo66748_265827614,http://habrahabr.ru"; "NOTE: If more than one link is being attached, an error
+     * will be thrown."
      *
      * @return $this
      *
@@ -95,7 +116,7 @@ class WallPost extends Request
      */
     public function setAttachments(array $attachments)
     {
-        $this->vkarg_attachments = $attachments;
+        $this->attachments = $attachments;
 
         return $this;
     }
@@ -115,7 +136,8 @@ class WallPost extends Request
     }
 
     /**
-     * For a community:; '1' — post will be published by the community; '0' — post will be published by the user (default)
+     * For a community:; '1' — post will be published by the community; '0' — post will be published by the user
+     * (default)
      *
      * @return $this
      *
@@ -237,8 +259,8 @@ class WallPost extends Request
     }
 
     /**
-     * List of services or websites the update will be exported to, if the user has so requested. Sample values: 'twitter', 'facebook'.
-     * see ServicesValues::SERVICE_* constants
+     * List of services or websites the update will be exported to, if the user has so requested. Sample values:
+     * 'twitter', 'facebook'. see ServicesValues::SERVICE_* constants
      *
      * @return $this
      *
@@ -252,7 +274,8 @@ class WallPost extends Request
     }
 
     /**
-     * Only for posts in communities with 'from_group' set to '1':; '1' — post will be signed with the name of the posting user; '0' — post will not be signed (default)
+     * Only for posts in communities with 'from_group' set to '1':; '1' — post will be signed with the name of the
+     * posting user; '0' — post will not be signed (default)
      *
      * @return $this
      *
