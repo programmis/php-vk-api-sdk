@@ -49,16 +49,15 @@ if (!$photos->doRequest()) {
 ```
 **Obtain detailed information about users VKontakte:**
 ```php
-$userGet = new UsersGet();
-$result = $userGet->setUserId(1)->setField('sex')->doRequest();
-if( $result === true ){
-    $userInfo = $userGet->getUsersInfo();    
-    foreach($userInfo as $uI ){
+$user = new \VkSdk\Users\UsersGet();
+$user->setUserIds([1])
+    ->addField('sex');
+if($user->doRequest()){
+    foreach($user->getUsersInfo() as $uI ){
         echo $uI->getId() . "\n";
         echo $uI->getFirstName() . "\n";
         echo $uI->getLastName() . "\n";
         echo $uI->getSex() . "\n";
-        echo "-------------------------\n";
     }
 }
 ```

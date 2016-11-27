@@ -2,7 +2,9 @@
 
 namespace VkSdk\Users;
 
+use lib\AutoFillObject;
 use VkSdk\Includes\Request;
+use VkSdk\Users\Includes\UserFull;
 
 /**
  * Returns detailed information on users.
@@ -11,6 +13,7 @@ use VkSdk\Includes\Request;
  */
 class UsersGet extends Request
 {
+    use AutoFillObject;
 
     /**
      * 'abl' — prepositional
@@ -42,9 +45,27 @@ class UsersGet extends Request
      */
     const NAME_CASE_NOM = 'nom';
 
+    /** @var array $fields */
+    private $fields;
+    /** @var array $user_ids */
+    private $user_ids;
+
+    /** @var UserFull[] $response */
+    private $response = [];
+
     /**
-     * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'contacts', 'education', 'online', 'counters', 'relation', 'last_seen', 'activity', 'can_write_private_message', 'can_see_all_posts', 'can_post', 'universities';
-     * see FieldsValues::FIELD_* constants
+     * @return UserFull[]
+     */
+    public function getUsersInfo(): array
+    {
+        return $this->response;
+    }
+
+    /**
+     * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
+     * 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'contacts', 'education', 'online',
+     * 'counters', 'relation', 'last_seen', 'activity', 'can_write_private_message', 'can_see_all_posts', 'can_post',
+     * 'universities'; see FieldsValues::FIELD_* constants
      *
      * @return $this
      *
@@ -52,7 +73,32 @@ class UsersGet extends Request
      */
     public function addField($field)
     {
-        $this->vkarg_fields[] = $field;
+        $this->fields[] = $field;
+
+        return $this;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function objectFields()
+    {
+        return [
+            'response' => [
+                'class'  => 'VkSdk\Users\Includes\UserFull',
+                'method' => 'addUserInfo'
+            ]
+        ];
+    }
+
+    /**
+     * @return $this
+     *
+     * @param UserFull $userInfo
+     */
+    protected function addUserInfo(UserFull $userInfo)
+    {
+        $this->response[] = $userInfo;
 
         return $this;
     }
@@ -66,7 +112,7 @@ class UsersGet extends Request
      */
     public function addUserId($user_id)
     {
-        $this->vkarg_user_ids[] = $user_id;
+        $this->user_ids[] = $user_id;
 
         return $this;
     }
@@ -76,9 +122,14 @@ class UsersGet extends Request
      */
     public function doRequest()
     {
+        $this->setParameter('fields', $this->fields);
+        $this->setParameter('user_ids', $this->user_ids);
+
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json);
+
                 return true;
             }
         }
@@ -103,8 +154,10 @@ class UsersGet extends Request
     }
 
     /**
-     * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'contacts', 'education', 'online', 'counters', 'relation', 'last_seen', 'activity', 'can_write_private_message', 'can_see_all_posts', 'can_post', 'universities';
-     * see FieldsValues::FIELD_* constants
+     * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
+     * 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'contacts', 'education', 'online',
+     * 'counters', 'relation', 'last_seen', 'activity', 'can_write_private_message', 'can_see_all_posts', 'can_post',
+     * 'universities'; see FieldsValues::FIELD_* constants
      *
      * @return $this
      *
@@ -112,14 +165,14 @@ class UsersGet extends Request
      */
     public function setFields(array $fields)
     {
-        $this->vkarg_fields = $fields;
+        $this->fields = $fields;
 
         return $this;
     }
 
     /**
-     * Case for declension of user name and surname:; 'nom' — nominative (default); 'gen' — genitive ; 'dat' — dative; 'acc' — accusative ; 'ins' — instrumental ; 'abl' — prepositional
-     * see self::NAME_CASE_* constants
+     * Case for declension of user name and surname:; 'nom' — nominative (default); 'gen' — genitive ; 'dat' — dative;
+     * 'acc' — accusative ; 'ins' — instrumental ; 'abl' — prepositional see self::NAME_CASE_* constants
      *
      * @return $this
      *
@@ -141,8 +194,8 @@ class UsersGet extends Request
      */
     public function setUserIds(array $user_ids)
     {
-        $this->vkarg_user_ids = $user_ids;
+        $this->user_ids = $user_ids;
 
         return $this;
-	}
+    }
 }
