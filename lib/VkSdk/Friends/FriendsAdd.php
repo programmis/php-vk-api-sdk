@@ -11,6 +11,23 @@ use VkSdk\Includes\Request;
  */
 class FriendsAdd extends Request
 {
+    /** заявка на добавление данного пользователя в друзья отправлена */
+    const RESULT_SEND = 1;
+    /** заявка на добавление в друзья от данного пользователя одобрена */
+    const RESULT_ACCEPT = 2;
+    /** повторная отправка заявки */
+    const RESULT_REPEAT = 4;
+
+    /** @var int $response */
+    private $response;
+
+    /**
+     * @return int
+     */
+    public function getResponse()
+    {
+        return $this->response;
+    }
 
     /**
      * {@inheritdoc}
@@ -22,6 +39,8 @@ class FriendsAdd extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -50,7 +69,7 @@ class FriendsAdd extends Request
      *
      * @return $this
      *
-*@param boolean $follow
+     * @param boolean $follow
      */
     public function setFollow($follow)
     {
@@ -63,9 +82,8 @@ class FriendsAdd extends Request
      * Text of the message (up to 500 characters) for the friend request, if any.
      *
      * @return $this
-
      *
-*@param string $text
+     * @param string $text
      */
     public function setText($text)
     {
@@ -78,14 +96,13 @@ class FriendsAdd extends Request
      * ID of the user whose friend request will be approved or to whom a friend request will be sent.
      *
      * @return $this
-
      *
-*@param integer $user_id
+     * @param integer $user_id
      */
     public function setUserId($user_id)
     {
         $this->vkarg_user_id = $user_id;
 
         return $this;
-	}
+    }
 }

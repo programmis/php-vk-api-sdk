@@ -89,11 +89,16 @@ if($album->doRequest()){
 **Add user VKontakte to friend:**
 ```php
 $friendsAdd = new FriendsAdd();
-$result = $friendsAdd->setUserId(1)
-    ->setText("Add me as a friend rather")
-    ->doRequest();
-if($result === true ){
-    echo $friendsAdd->getResponse();
+$friendsAdd->setUserId(1)
+    ->setText("Add me please");
+if($friendsAdd->doRequest()){
+    switch($friendsAdd->getResponse()){
+        case FriendsAdd::RESULT_SEND:
+        case FriendsAdd::RESULT_ACCEPT:
+        case FriendsAdd::RESULT_REPEAT:
+            echo "OK";
+            break;
+    }
 }
 ```
 **Change the status of the user VKontakte:**
