@@ -118,6 +118,8 @@ class UsersGet extends Request
     }
 
     /**
+     * result in $this->getUsersInfo();
+     *
      * {@inheritdoc}
      */
     public function doRequest()

@@ -43,6 +43,8 @@ class WallPost extends Request
     }
 
     /**
+     * result in $this->getPostId();
+     *
      * {@inheritdoc}
      */
     public function doRequest()

@@ -81,10 +81,9 @@ if($wallPost->doRequest()){
 **Create a new album VKontakte:**
 ```php
 $album = new PhotosCreateAlbum();
-$album->setTitle("My new album");
-$result = $album->doRequest();
-if( $result === true ){
-    echo $album->getId();
+$album->setTitle("My new test album");
+if($album->doRequest()){
+    echo $album->getAlbumInfo()->getId();
 }
 ```
 **Add user VKontakte to friend:**

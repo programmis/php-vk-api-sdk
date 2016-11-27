@@ -13,13 +13,18 @@ use VkSdk\Photos\Includes\PhotoAlbumFull;
  */
 class PhotosCreateAlbum extends Request
 {
-
     use AutoFillObject;
 
     /**
      * @var PhotoAlbumFull
      */
     private $response;
+
+    /** @var array $privacy_comment */
+    private $privacy_comment = [];
+
+    /** @var array $privacy_view */
+    private $privacy_view = [];
 
     /**
      * @return $this
@@ -28,7 +33,7 @@ class PhotosCreateAlbum extends Request
      */
     public function addPrivacyComment($privacy_comment)
     {
-        $this->vkarg_privacy_comment[] = $privacy_comment;
+        $this->privacy_comment[] = $privacy_comment;
 
         return $this;
     }
@@ -40,21 +45,36 @@ class PhotosCreateAlbum extends Request
      */
     public function addPrivacyView($privacy_view)
     {
-        $this->vkarg_privacy_view[] = $privacy_view;
+        $this->privacy_view[] = $privacy_view;
 
         return $this;
     }
 
     /**
+     * @return PhotoAlbumFull
+     */
+    public function getAlbumInfo()
+    {
+        return $this->response;
+    }
+
+    /**
+     * result in $this->getAlbumInfo();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
     {
+        $this->setParameter('privacy_view', $this->privacy_view);
+        $this->setParameter('privacy_comment', $this->privacy_comment);
+
         $this->setRequiredParams(["title"]);
 
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json);
+
                 return true;
             }
         }
@@ -135,7 +155,7 @@ class PhotosCreateAlbum extends Request
      */
     public function setPrivacyComment(array $privacy_comment)
     {
-        $this->vkarg_privacy_comment = $privacy_comment;
+        $this->privacy_comment = $privacy_comment;
 
         return $this;
     }
@@ -147,7 +167,7 @@ class PhotosCreateAlbum extends Request
      */
     public function setPrivacyView(array $privacy_view)
     {
-        $this->vkarg_privacy_view = $privacy_view;
+        $this->privacy_view = $privacy_view;
 
         return $this;
     }
@@ -176,5 +196,5 @@ class PhotosCreateAlbum extends Request
         $this->vkarg_upload_by_admins_only = $upload_by_admins_only;
 
         return $this;
-	}
+    }
 }
