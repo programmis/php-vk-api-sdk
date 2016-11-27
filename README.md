@@ -18,7 +18,7 @@ php composer.phar require programmis/php-vk-api-sdk
 </pre>
 **3) Get token vkontakte:**
 <pre>
-http://oauth.vk.com/authorize?client_id=3682744&scope=groups,friends,wall,offline,photos,market&redirect_uri=http://oauth.vk.com/blank.html&display=page&response_type=token <br>
+http://oauth.vk.com/authorize?client_id=3682744&scope=friends,wall,offline,photos,market,messages&redirect_uri=http://oauth.vk.com/blank.html&display=page&response_type=token <br>
 <b>in the address bar</b>: <br>
 https://oauth.vk.com/blank.html#access_token=<b>345345345345345345345345345d73e7de6acf1475ca460d</b>&expires_in=0&user_id=1 
 </pre>
@@ -124,17 +124,16 @@ if ($boardComment->doRequest()) {
 **Set the status of "online" in your account VKontakte:**
 ```php
 $online = new AccountSetOnline();
-$result = $online->doRequest();
-if($result===true){
+if($online->doRequest()){
     echo $online->getResponse();
 }
 ```
 **Send message to VKontakte user:**
 ```php
 $message = new MessagesSend();
-$result = $message->setMessage("Hello people")
-    ->setUserId(1)->doRequest();
-if( $result===true ){
+$message->setMessage("Hello people")
+    ->setUserId(1);
+if($message->doRequest()){
     echo $message->getMessageId();
 }
 ```

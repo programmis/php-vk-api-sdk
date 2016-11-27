@@ -11,6 +11,19 @@ use VkSdk\Includes\Request;
  */
 class MessagesSend extends Request
 {
+    /** @var array $user_ids */
+    private $user_ids = [];
+
+    /** @var int $response */
+    private $response;
+
+    /**
+     * @return int
+     */
+    public function getMessageId(): int
+    {
+        return $this->response;
+    }
 
     /**
      * IDs of message recipients (if new conversation shall be started).
@@ -21,19 +34,25 @@ class MessagesSend extends Request
      */
     public function addUserId($user_id)
     {
-        $this->vkarg_user_ids[] = $user_id;
+        $this->user_ids[] = $user_id;
 
         return $this;
     }
 
     /**
+     * result in $this->getMessageId();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
     {
+        $this->setParameter('user_ids', $this->user_ids);
+
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -58,7 +77,10 @@ class MessagesSend extends Request
     }
 
     /**
-     * (Required if 'message' is not set.) List of objects attached to the message, separated by commas, in the following format:; "<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; 'wall' — wall post; '<owner_id>' — ID of the media attachment owner.; '<media_id>' — media attachment ID.; ; Example:; "photo100172_166443618"
+     * (Required if 'message' is not set.) List of objects attached to the message, separated by commas, in the
+     * following format:; "<owner_id>_<media_id>"; '' — Type of media attachment:; 'photo' — photo; 'video' — video;
+     * 'audio' — audio; 'doc' — document; 'wall' — wall post; '<owner_id>' — ID of the media attachment owner.;
+     * '<media_id>' — media attachment ID.; ; Example:; "photo100172_166443618"
      *
      * @return $this
      *
@@ -100,7 +122,8 @@ class MessagesSend extends Request
     }
 
     /**
-     * ID of forwarded messages, separated with a comma. Listed messages of the sender will be shown in the message body at the recipient's.; ; Example:; "123,431,544"
+     * ID of forwarded messages, separated with a comma. Listed messages of the sender will be shown in the message
+     * body at the recipient's.; ; Example:; "123,431,544"
      *
      * @return $this
      *
@@ -170,7 +193,8 @@ class MessagesSend extends Request
     }
 
     /**
-     * Destination ID.; ; "For user:; 'User ID', e.g. '12345'.; ; For chat:; '2000000000' + 'chat_id', e.g. '2000000001'.; ; For community:; '- community ID', e.g. '-12345'.; "
+     * Destination ID.; ; "For user:; 'User ID', e.g. '12345'.; ; For chat:; '2000000000' + 'chat_id', e.g.
+     * '2000000001'.; ; For community:; '- community ID', e.g. '-12345'.; "
      *
      * @return $this
      *
@@ -234,7 +258,7 @@ class MessagesSend extends Request
      */
     public function setUserIds(array $user_ids)
     {
-        $this->vkarg_user_ids = $user_ids;
+        $this->user_ids = $user_ids;
 
         return $this;
     }
