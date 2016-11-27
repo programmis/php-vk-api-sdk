@@ -113,12 +113,11 @@ if($result===true){
 ```
 **Add a comment to the discussion VKontakte:**
 ```php
-$boardComment = new BoardAddComment();
-$result = $boardComment->setText("This is my new comment")
+$boardComment = new BoardCreateComment();
+$boardComment->setMessage("This is my new comment")
     ->setGroupId(1)
-    ->setTopicId(1)
-    ->doRequest();
-if($result===true){
+    ->setTopicId(21972158);
+if ($boardComment->doRequest()) {
     echo $boardComment->getCommentId();
 }
 ```

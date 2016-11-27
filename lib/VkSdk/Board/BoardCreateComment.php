@@ -11,9 +11,24 @@ use VkSdk\Includes\Request;
  */
 class BoardCreateComment extends Request
 {
+    /** @var array $attachments */
+    private $attachments = [];
+
+    /** @var int $response */
+    private $response;
 
     /**
-     * (Required if 'text' is not set.) List of media objects attached to the comment, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media object:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media owner. ; '<media_id>' — Media ID.
+     * @return int
+     */
+    public function getCommentId()
+    {
+        return $this->response;
+    }
+
+    /**
+     * (Required if 'text' is not set.) List of media objects attached to the comment, in the following format:;
+     * "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media object:; 'photo' — photo; 'video' — video;
+     * 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media owner. ; '<media_id>' — Media ID.
      *
      * @return $this
      *
@@ -21,21 +36,27 @@ class BoardCreateComment extends Request
      */
     public function addAttachment($attachment)
     {
-        $this->vkarg_attachments[] = $attachment;
+        $this->attachments[] = $attachment;
 
         return $this;
     }
 
     /**
+     * result in $this->getCommentId();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
     {
+        $this->setParameter('attachments', $this->attachments);
+
         $this->setRequiredParams(["group_id", "topic_id"]);
 
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->response = $json->response;
+
                 return true;
             }
         }
@@ -60,15 +81,17 @@ class BoardCreateComment extends Request
     }
 
     /**
-     * (Required if 'text' is not set.) List of media objects attached to the comment, in the following format:; "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media object:; 'photo' — photo; 'video' — video; 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media owner. ; '<media_id>' — Media ID.
+     * (Required if 'text' is not set.) List of media objects attached to the comment, in the following format:;
+     * "<owner_id>_<media_id>,<owner_id>_<media_id>"; '' — Type of media object:; 'photo' — photo; 'video' — video;
+     * 'audio' — audio; 'doc' — document; '<owner_id>' — ID of the media owner. ; '<media_id>' — Media ID.
      *
      * @return $this
      *
-*@param array $attachments
+     * @param array $attachments
      */
     public function setAttachments(array $attachments)
     {
-        $this->vkarg_attachments = $attachments;
+        $this->attachments = $attachments;
 
         return $this;
     }
@@ -77,9 +100,8 @@ class BoardCreateComment extends Request
      * '1' — to post the comment as by the community; '0' — to post the comment as by the user (default)
      *
      * @return $this
-
      *
-*@param boolean $from_group
+     * @param boolean $from_group
      */
     public function setFromGroup($from_group)
     {
@@ -90,9 +112,8 @@ class BoardCreateComment extends Request
 
     /**
      * ID of the community that owns the discussion board.
-
      *
-*@return $this
+     * @return $this
      *
      * @param integer $group_id
      */
@@ -121,9 +142,8 @@ class BoardCreateComment extends Request
      * (Required if 'attachments' is not set.) Text of the comment.
      *
      * @return $this
-
      *
-*@param string $message
+     * @param string $message
      */
     public function setMessage($message)
     {
@@ -136,9 +156,8 @@ class BoardCreateComment extends Request
      * Sticker ID.
      *
      * @return $this
-
      *
-*@param integer $sticker_id
+     * @param integer $sticker_id
      */
     public function setStickerId($sticker_id)
     {
@@ -149,9 +168,8 @@ class BoardCreateComment extends Request
 
     /**
      * ID of the topic to be commented on.
-
      *
-*@return $this
+     * @return $this
      *
      * @param integer $topic_id
      */
@@ -160,5 +178,5 @@ class BoardCreateComment extends Request
         $this->vkarg_topic_id = $topic_id;
 
         return $this;
-	}
+    }
 }
