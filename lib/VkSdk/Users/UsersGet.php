@@ -79,6 +79,16 @@ class UsersGet extends Request
     }
 
     /**
+     * @return UserFull[]|array
+     */
+    public function execute()
+    {
+        $this->doRequest();
+
+        return $this->getUsersInfo();
+    }
+
+    /**
      * @inheritdoc
      */
     public function objectFields()

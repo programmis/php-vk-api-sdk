@@ -14,7 +14,6 @@ use VkSdk\Users\Includes\Items;
  */
 class UsersGetSubscriptions extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -38,15 +37,28 @@ class UsersGetSubscriptions extends Request
     private $users;
 
     /**
+     * @var array $fields
+     */
+    private $fields = [];
+
+    /**
      * @return $this
      *
      * @param string $field
      */
     public function addField($field)
     {
-        $this->vkarg_fields[] = $field;
+        $this->fields[] = $field;
 
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function execute()
+    {
+        return $this->doRequest();
     }
 
     /**
@@ -54,9 +66,13 @@ class UsersGetSubscriptions extends Request
      */
     public function doRequest()
     {
+        $this->setParameter('fields', $this->fields);
+
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }
@@ -141,7 +157,8 @@ class UsersGetSubscriptions extends Request
     }
 
     /**
-     * '1' — to return a combined list of users and communities; '0' — to return separate lists of users and communities (default)
+     * '1' — to return a combined list of users and communities; '0' — to return separate lists of users and
+     * communities (default)
      *
      * @return $this
      *
@@ -161,7 +178,7 @@ class UsersGetSubscriptions extends Request
      */
     public function setFields(array $fields)
     {
-        $this->vkarg_fields = $fields;
+        $this->fields = $fields;
 
         return $this;
     }

@@ -32,6 +32,9 @@
         "post-update-cmd": "php develop_init.php"
     },
     "autoload": {
-        "psr-4": {"VkSdk\\": "lib/VkSdk"}
+        "psr-4": {
+            "VkSdk\\": "lib/VkSdk",
+            "VkApi\\": "lib/VkApi"
+        }
     }
 }

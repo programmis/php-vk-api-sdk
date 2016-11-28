@@ -2,7 +2,9 @@
 
 namespace VkSdk\Users;
 
+use lib\AutoFillObject;
 use VkSdk\Includes\Request;
+use VkSdk\Users\Includes\UserFull;
 
 /**
  * Returns a list of IDs of followers of the user in question, sorted by date added, most recent first.
@@ -11,6 +13,7 @@ use VkSdk\Includes\Request;
  */
 class UsersGetFollowers extends Request
 {
+    use AutoFillObject;
 
     /**
      * 'abl' — prepositional
@@ -48,13 +51,19 @@ class UsersGetFollowers extends Request
     private $count;
 
     /**
-     * @var array
+     * @var UserFull[]
      */
     private $items;
 
     /**
-     * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online'.;
-     * see FieldsValues::FIELD_* constants
+     * @var array $fields
+     */
+    private $fields = [];
+
+    /**
+     * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
+     * 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education',
+     * 'online'.; see FieldsValues::FIELD_* constants
      *
      * @return $this
      *
@@ -62,24 +71,64 @@ class UsersGetFollowers extends Request
      */
     public function addField($field)
     {
-        $this->vkarg_fields[] = $field;
+        $this->fields[] = $field;
 
         return $this;
     }
 
     /**
+     * @inheritdoc
+     */
+    public function objectFields()
+    {
+        return [
+            'items' => [
+                'class'  => 'VkSdk\Users\Includes\UserFull',
+                'method' => 'addItem'
+            ],
+        ];
+    }
+
+    /**
+     * @return $this
+     *
+     * @param UserFull $item
+     */
+    public function addItem($item)
+    {
+        $this->items[] = $item;
+
+        return $this;
+    }
+
+    /**
+     * result in $this->getCount() and $this->getItems();
      * {@inheritdoc}
      */
     public function doRequest()
     {
+        $this->setParameter('fields', $this->fields);
+
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }
 
         return false;
+    }
+
+    /**
+     * result in $this->getCount() and $this->getItems();
+     *
+     * @return bool
+     */
+    public function execute()
+    {
+        return $this->doRequest();
     }
 
     /**
@@ -117,7 +166,7 @@ class UsersGetFollowers extends Request
     /**
      * User ID
      *
-     * @return array
+     * @return UserFull[]
      */
     public function getItems()
     {
@@ -133,8 +182,9 @@ class UsersGetFollowers extends Request
     }
 
     /**
-     * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city', 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education', 'online'.;
-     * see FieldsValues::FIELD_* constants
+     * Profile fields to return. Sample values: 'nickname', 'screen_name', 'sex', 'bdate' (birthdate), 'city',
+     * 'country', 'timezone', 'photo', 'photo_medium', 'photo_big', 'has_mobile', 'rate', 'contacts', 'education',
+     * 'online'.; see FieldsValues::FIELD_* constants
      *
      * @return $this
      *
@@ -142,14 +192,14 @@ class UsersGetFollowers extends Request
      */
     public function setFields(array $fields)
     {
-        $this->vkarg_fields = $fields;
+        $this->fields = $fields;
 
         return $this;
     }
 
     /**
-     * Case for declension of user name and surname:; 'nom' — nominative (default); 'gen' — genitive ; 'dat' — dative; 'acc' — accusative ; 'ins' — instrumental ; 'abl' — prepositional
-     * see self::NAME_CASE_* constants
+     * Case for declension of user name and surname:; 'nom' — nominative (default); 'gen' — genitive ; 'dat' — dative;
+     * 'acc' — accusative ; 'ins' — instrumental ; 'abl' — prepositional see self::NAME_CASE_* constants
      *
      * @return $this
      *

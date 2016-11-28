@@ -13,7 +13,6 @@ use VkSdk\Users\Includes\UserFull;
  */
 class UsersGetNearby extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -25,9 +24,18 @@ class UsersGetNearby extends Request
      * @var UserFull[]
      */
     private $items;
+    /**
+     * @var array $fields
+     */
+    private $fields = [];
 
     /**
-     * list of additional fields to return.; Available values: sex, bdate, city, country, photo_50, photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, online_mobile, domain, has_mobile, contacts, connections, site, education, universities, schools, can_post, can_see_all_posts, can_see_audio, can_write_private_message, status, last_seen, common_count, relation, relatives, counters, screen_name, maiden_name, timezone, occupation
+     * list of additional fields to return.;
+     * Available values: sex, bdate, city, country, photo_50, photo_100, photo_200_orig, photo_200,
+     * photo_400_orig, photo_max, photo_max_orig, online, online_mobile, domain, has_mobile, contacts,
+     * connections, site, education, universities, schools, can_post, can_see_all_posts, can_see_audio,
+     * can_write_private_message, status, last_seen, common_count, relation, relatives, counters, screen_name,
+     * maiden_name, timezone, occupation
      *
      * @return $this
      *
@@ -35,9 +43,19 @@ class UsersGetNearby extends Request
      */
     public function addField($field)
     {
-        $this->vkarg_fields[] = $field;
+        $this->fields[] = $field;
 
         return $this;
+    }
+
+    /**
+     * result in $this->getCount() and $this->getItems();
+     *
+     * @return bool
+     */
+    public function execute()
+    {
+        return $this->doRequest();
     }
 
     /**
@@ -53,15 +71,21 @@ class UsersGetNearby extends Request
     }
 
     /**
+     * result in $this->getCount() and $this->getItems();
+     *
      * {@inheritdoc}
      */
     public function doRequest()
     {
+        $this->setParameter('fields', $this->fields);
+
         $this->setRequiredParams(["latitude", "longitude"]);
 
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }
@@ -131,7 +155,12 @@ class UsersGetNearby extends Request
     }
 
     /**
-     * list of additional fields to return.; Available values: sex, bdate, city, country, photo_50, photo_100, photo_200_orig, photo_200, photo_400_orig, photo_max, photo_max_orig, online, online_mobile, domain, has_mobile, contacts, connections, site, education, universities, schools, can_post, can_see_all_posts, can_see_audio, can_write_private_message, status, last_seen, common_count, relation, relatives, counters, screen_name, maiden_name, timezone, occupation
+     * list of additional fields to return.;
+     * Available values: sex, bdate, city, country, photo_50, photo_100, photo_200_orig, photo_200,
+     * photo_400_orig, photo_max, photo_max_orig, online, online_mobile, domain, has_mobile, contacts,
+     * connections, site, education, universities, schools, can_post, can_see_all_posts, can_see_audio,
+     * can_write_private_message, status, last_seen, common_count, relation, relatives, counters, screen_name,
+     * maiden_name, timezone, occupation
      *
      * @return $this
      *
@@ -139,7 +168,7 @@ class UsersGetNearby extends Request
      */
     public function setFields(array $fields)
     {
-        $this->vkarg_fields = $fields;
+        $this->fields = $fields;
 
         return $this;
     }
@@ -173,7 +202,9 @@ class UsersGetNearby extends Request
     }
 
     /**
-     * Case for declension of user name and surname: ; nom –nominative (default) ; gen – genitive ; dat – dative ; acc – accusative ; ins – instrumental ; abl – prepositional
+     * Case for declension of user name and surname: ;
+     * nom –nominative (default) ; gen – genitive ; dat – dative ; acc – accusative ;
+     * ins – instrumental ; abl – prepositional
      *
      * @return $this
      *
