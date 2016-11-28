@@ -167,6 +167,15 @@ $antiCaptcha->setAccessToken($anti_captcha_access_token);
 \VkSdk\Includes\Request::setAntiCaptcha($antiCaptcha);
 ```
 
+**Set before and after request callback**
+```php
+\VkSdk\Includes\Request::setBeforeRequestCallback($this, 'beforeRequest');
+\VkSdk\Includes\Request::setAfterRequestCallback($this, 'afterRequest');
+//OR
+\VkSdk\Includes\Request::setBeforeRequestCallback(function(){});
+\VkSdk\Includes\Request::setAfterRequestCallback(function(){});
+```
+
 Get Access Token: http://vk.com/dev/auth_sites
 <br> Description of the API methods: http://vk.com/dev/methods
 
