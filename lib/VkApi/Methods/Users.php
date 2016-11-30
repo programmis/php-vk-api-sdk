@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alfred
- * Date: 28.11.16
- * Time: 20:36
- */
 
 namespace VkApi\Methods;
 
@@ -12,6 +6,7 @@ use VkApi\Includes\ApiTrait;
 
 /**
  * Class Users
+ *
  * @package VkApi\Methods
  */
 class Users
@@ -48,5 +43,29 @@ class Users
     public function getSubscriptions()
     {
         return new \VkSdk\Users\UsersGetSubscriptions($this->token);
+    }
+
+    /**
+     * @return \VkSdk\Users\UsersIsAppUser
+     */
+    public function isAppUser()
+    {
+        return new \VkSdk\Users\UsersIsAppUser($this->token);
+    }
+
+    /**
+     * @return \VkSdk\Users\UsersReport
+     */
+    public function report()
+    {
+        return new \VkSdk\Users\UsersReport($this->token);
+    }
+
+    /**
+     * @return \VkSdk\Users\UsersSearch
+     */
+    public function search()
+    {
+        return new \VkSdk\Users\UsersSearch($this->token);
     }
 }

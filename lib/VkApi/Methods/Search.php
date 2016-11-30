@@ -1,12 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alfred
- * Date: 28.11.16
- * Time: 20:34
- */
 
 namespace VkApi\Methods;
+
+use VkApi\Includes\ApiTrait;
 
 /**
  * Class Search
@@ -14,5 +10,13 @@ namespace VkApi\Methods;
  */
 class Search
 {
+    use ApiTrait;
 
+    /**
+     * @return \VkSdk\Search\SearchGetHints
+     */
+    public function getHints()
+    {
+        return new \VkSdk\Search\SearchGetHints($this->token);
+    }
 }
