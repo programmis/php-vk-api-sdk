@@ -121,6 +121,12 @@ abstract class Request extends \ApiRator\Includes\Request implements VkInterface
         $json = json_decode($content);
 
         if (!$json || !is_object($json)) {
+            if ($content) {
+                if (self::$logger) {
+                    self::$logger->critical('incorrect json object');
+                }
+            }
+
             return false;
         }
         $this->json_response = $json;
