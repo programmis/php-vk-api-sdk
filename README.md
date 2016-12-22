@@ -49,6 +49,17 @@ if (!$photos->doRequest()) {
 ```
 **Obtain detailed information about users VKontakte:**
 ```php
+$users = \VkApi\Vk::users()->get()
+    ->addUserId(1)
+    ->addField('sex')
+    ->execute();
+foreach ($users as $uI) {
+    echo $uI->getId() . "\n";
+    echo $uI->getFirstName() . "\n";
+    echo $uI->getLastName() . "\n";
+    echo $uI->getSex() . "\n";
+}
+//OR
 $user = new \VkSdk\Users\UsersGet();
 $user->setUserIds([1])
     ->addField('sex');

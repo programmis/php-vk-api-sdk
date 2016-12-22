@@ -27,6 +27,11 @@ class GroupsGet extends Request
      */
     private $items = [];
 
+    /** @var array $fields */
+    private $fields = [];
+    /** @var array $filter */
+    private $filter = [];
+
     /**
      * Profile fields to return.;
      *
@@ -36,7 +41,7 @@ class GroupsGet extends Request
      */
     public function addField($field)
     {
-        $this->vkarg_fields[] = $field;
+        $this->fields[] = $field;
 
         return $this;
     }
@@ -53,7 +58,7 @@ class GroupsGet extends Request
      */
     public function addFilter($filter)
     {
-        $this->vkarg_filter[] = $filter;
+        $this->filter[] = $filter;
 
         return $this;
     }
@@ -76,6 +81,9 @@ class GroupsGet extends Request
      */
     public function doRequest()
     {
+        $this->setParameter('filter', $this->filter);
+        $this->setParameter('fields', $this->fields);
+
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
@@ -173,7 +181,7 @@ class GroupsGet extends Request
      */
     public function setFields(array $fields)
     {
-        $this->vkarg_fields = $fields;
+        $this->fields = $fields;
 
         return $this;
     }
@@ -190,7 +198,7 @@ class GroupsGet extends Request
      */
     public function setFilter(array $filter)
     {
-        $this->vkarg_filter = $filter;
+        $this->filter = $filter;
 
         return $this;
     }
