@@ -9,11 +9,11 @@ use VkSdk\Market\Includes\Album;
 /**
  * Returns items album's data
  * Class MarketGetAlbumById
- * @package VkSdk\Market
+ *
+*@package VkSdk\Market
  */
 class MarketGetAlbumById extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -26,6 +26,9 @@ class MarketGetAlbumById extends Request
      */
     private $items;
 
+    /** @var array $album_ids */
+    private $album_ids = [];
+
     /**
      * collections identifiers to obtain data from
      *
@@ -35,7 +38,7 @@ class MarketGetAlbumById extends Request
      */
     public function addAlbumId($album_id)
     {
-        $this->vkarg_album_ids[] = $album_id;
+        $this->album_ids[] = $album_id;
 
         return $this;
     }
@@ -58,6 +61,7 @@ class MarketGetAlbumById extends Request
     public function doRequest()
     {
         $this->setRequiredParams(["owner_id", "album_ids"]);
+        $this->setParameter("album_ids", $this->album_ids);
 
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
@@ -125,17 +129,20 @@ class MarketGetAlbumById extends Request
      */
     public function setAlbumIds(array $album_ids)
     {
-        $this->vkarg_album_ids = $album_ids;
+        $this->album_ids = $album_ids;
 
         return $this;
     }
 
     /**
-     * identifier of an album owner community; "Note that community id in the 'owner_id' parameter should be negative number. For example 'owner_id'=-1 matches the [vk.com/apiclub|VK API] community "
+     * identifier of an album owner community; "Note that community id in the 'owner_id'
+     * parameter should be negative number. For example 'owner_id'=-1 matches
+     * the [vk.com/apiclub|VK API] community "
      *
-     * @return $this
+*@return $this
+
      *
-     * @param integer $owner_id
+*@param integer $owner_id
      */
     public function setOwnerId($owner_id)
     {
