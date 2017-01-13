@@ -10,7 +10,7 @@ use VkSdk\Market\Includes\Album;
  * Returns items album's data
  * Class MarketGetAlbumById
  *
-*@package VkSdk\Market
+ * @package VkSdk\Market
  */
 class MarketGetAlbumById extends Request
 {
@@ -138,11 +138,11 @@ class MarketGetAlbumById extends Request
      * identifier of an album owner community; "Note that community id in the 'owner_id'
      * parameter should be negative number. For example 'owner_id'=-1 matches
      * the [vk.com/apiclub|VK API] community "
-     *
-*@return $this
 
+*
+* @return $this
      *
-*@param integer $owner_id
+     * @param integer $owner_id
      */
     public function setOwnerId($owner_id)
     {
