@@ -13,7 +13,6 @@ use VkSdk\Messages\Includes\Dialog;
  */
 class MessagesGetDialogs extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -51,6 +50,8 @@ class MessagesGetDialogs extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }
@@ -144,7 +145,8 @@ class MessagesGetDialogs extends Request
     }
 
     /**
-     * Number of characters after which to truncate a previewed message. To preview the full message, specify '0'.; "NOTE: Messages are not truncated by default. Messages are truncated by words."
+     * Number of characters after which to truncate a previewed message. To preview the full message, specify '0'.;
+     * "NOTE: Messages are not truncated by default. Messages are truncated by words."
      *
      * @return $this
      *

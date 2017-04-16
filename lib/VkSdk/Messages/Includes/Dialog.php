@@ -10,7 +10,6 @@ use lib\AutoFillObject;
  */
 class Dialog
 {
-
     use AutoFillObject;
 
     /**
