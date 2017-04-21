@@ -10,7 +10,6 @@ use lib\AutoFillObject;
  */
 class PhotoUpload
 {
-
     use AutoFillObject;
 
     /**

@@ -7,6 +7,7 @@ use VkSdk\Base\Likes;
 
 /**
  * Class PhotoFull
+ *
  * @package VkSdk\Photos\Includes
  */
 class PhotoFull
@@ -129,6 +130,182 @@ class PhotoFull
      * @var integer
      */
     private $width;
+
+    /** @var integer $pid */
+    private $pid;
+
+    /** @var integer $aid */
+    private $aid;
+
+    /** @var string $src */
+    private $src;
+
+    /** @var string $src_big */
+    private $src_big;
+
+    /** @var string $src_small */
+    private $src_small;
+
+    /** @var string $created */
+    private $created;
+
+    /** @var string $src_xbig */
+    private $src_xbig;
+
+    /** @var string $src_xxbig */
+    private $src_xxbig;
+
+    /**
+     * @return int
+     */
+    public function getPid()
+    {
+        return $this->pid;
+    }
+
+    /**
+     * @param int $pid
+     * @return $this
+     */
+    public function setPid($pid)
+    {
+        $this->pid = $pid;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAid()
+    {
+        return $this->aid;
+    }
+
+    /**
+     * @param int $aid
+     * @return $this
+     */
+    public function setAid($aid)
+    {
+        $this->aid = $aid;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSrc()
+    {
+        return $this->src;
+    }
+
+    /**
+     * @param string $src
+     * @return $this
+     */
+    public function setSrc($src)
+    {
+        $this->src = $src;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSrcBig()
+    {
+        return $this->src_big;
+    }
+
+    /**
+     * @param string $src_big
+     * @return $this
+     */
+    public function setSrcBig($src_big)
+    {
+        $this->src_big = $src_big;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSrcSmall()
+    {
+        return $this->src_small;
+    }
+
+    /**
+     * @param string $src_small
+     * @return $this
+     */
+    public function setSrcSmall($src_small)
+    {
+        $this->src_small = $src_small;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * @param string $created
+     * @return $this
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSrcXbig()
+    {
+        return $this->src_xbig;
+    }
+
+    /**
+     * @param string $src_xbig
+     * @return $this
+     */
+    public function setSrcXbig($src_xbig)
+    {
+        $this->src_xbig = $src_xbig;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSrcXxbig()
+    {
+        return $this->src_xxbig;
+    }
+
+    /**
+     * @param string $src_xxbig
+     * @return $this
+     */
+    public function setSrcXxbig($src_xxbig)
+    {
+        $this->src_xxbig = $src_xxbig;
+
+        return $this;
+    }
 
     /**
      * @return $this
@@ -618,6 +795,7 @@ class PhotoFull
 
     /**
      * Original photo width
+     *
      * @return integer
      */
     public function getWidth()
