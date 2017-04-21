@@ -9,11 +9,11 @@ use VkSdk\Photos\Includes\PhotoUpload;
 /**
  * Returns the server address for photo upload in a private message for a user.
  * Class PhotosGetMessagesUploadServer
+ *
  * @package VkSdk\Photos
  */
 class PhotosGetMessagesUploadServer extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -29,11 +29,21 @@ class PhotosGetMessagesUploadServer extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json);
+
                 return true;
             }
         }
 
         return false;
+    }
+
+    /**
+     * @return PhotoUpload
+     */
+    public function getResponse()
+    {
+        return $this->response;
     }
 
     /**
