@@ -64,7 +64,7 @@ class MessagesGetDialogs extends Request
      */
     public function getApiVersion()
     {
-        return "5.60";
+        return "5.63";
     }
 
     /**
@@ -183,6 +183,20 @@ class MessagesGetDialogs extends Request
     public function setUnread($unread)
     {
         $this->vkarg_unread = $unread;
+
+        return $this;
+    }
+
+    /**
+     * 1 — вернуть диалоги с пометкой «Неотвеченные» (для сообщений сообществ)
+     *
+     * @return $this
+     *
+     * @param boolean $unanswered
+     */
+    public function setUnanswered($unanswered)
+    {
+        $this->vkarg_unanswered = $unanswered;
 
         return $this;
     }

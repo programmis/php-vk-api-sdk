@@ -43,7 +43,7 @@ class MessagesMarkAsAnsweredDialog extends Request
      */
     public function getApiVersion()
     {
-        return "5.60";
+        return "5.63";
     }
 
     /**
