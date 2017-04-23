@@ -13,7 +13,6 @@ use VkSdk\Messages\Includes\Message;
  */
 class MessagesGet extends Request
 {
-
     use AutoFillObject;
 
     /**
@@ -46,6 +45,8 @@ class MessagesGet extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                $this->fillByJson($json->response);
+
                 return true;
             }
         }
@@ -64,7 +65,7 @@ class MessagesGet extends Request
     /**
      * Total number
      *
-*@return integer
+     * @return integer
      */
     public function getCount()
     {
@@ -73,11 +74,10 @@ class MessagesGet extends Request
 
     /**
      * Number of messages to return.
-
      *
-*@return $this
+     * @return $this
      *
-*@param integer $count
+     * @param integer $count
      */
     public function setCount($count)
     {
@@ -116,7 +116,11 @@ class MessagesGet extends Request
     }
 
     /**
-     * ID of the message received before the message that will be returned last (provided that no more than 'count' messages were received before it; otherwise 'offset' parameter shall be used).
+     * ID of the message received before the message
+     * that will be returned last
+     * (provided that no more than 'count' messages were
+     * received before it; otherwise 'offset' parameter
+     * shall be used).
      *
      * @return $this
      *
@@ -133,9 +137,8 @@ class MessagesGet extends Request
      * Offset needed to return a specific subset of messages.
      *
      * @return $this
-
      *
-*@param integer $offset
+     * @param integer $offset
      */
     public function setOffset($offset)
     {
@@ -146,9 +149,8 @@ class MessagesGet extends Request
 
     /**
      * '1' — to return outgoing messages; '0' — to return incoming messages (default)
-
      *
-*@return $this
+     * @return $this
      *
      * @param boolean $out
      */
@@ -160,7 +162,8 @@ class MessagesGet extends Request
     }
 
     /**
-     * Number of characters after which to truncate a previewed message. To preview the full message, specify '0'.; "NOTE: Messages are not truncated by default. Messages are truncated by words."
+     * Number of characters after which to truncate a previewed message. To preview the full message, specify '0'.;
+     * "NOTE: Messages are not truncated by default. Messages are truncated by words."
      *
      * @return $this
      *
@@ -185,5 +188,5 @@ class MessagesGet extends Request
         $this->vkarg_time_offset = $time_offset;
 
         return $this;
-	}
+    }
 }
