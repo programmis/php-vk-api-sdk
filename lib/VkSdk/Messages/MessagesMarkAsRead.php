@@ -19,6 +19,9 @@ class MessagesMarkAsRead extends Request
      */
     private $response;
 
+    /** @var array $message_ids */
+    private $message_ids = [];
+
     /**
      * IDs of messages to mark as read.
      *
@@ -28,7 +31,7 @@ class MessagesMarkAsRead extends Request
      */
     public function addMessageId($message_id)
     {
-        $this->vkarg_message_ids[] = $message_id;
+        $this->message_ids[] = $message_id;
 
         return $this;
     }
@@ -40,6 +43,8 @@ class MessagesMarkAsRead extends Request
      */
     public function doRequest()
     {
+        $this->setParameter('message_ids', $this->message_ids);
+
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
@@ -88,7 +93,7 @@ class MessagesMarkAsRead extends Request
      */
     public function setMessageIds(array $message_ids)
     {
-        $this->vkarg_message_ids = $message_ids;
+        $this->message_ids = $message_ids;
 
         return $this;
     }
