@@ -44,6 +44,9 @@ class GroupsIsMember extends Request
      */
     private $response;
 
+    /** @var array $user_ids */
+    private $user_ids = [];
+
     /**
      * User IDs.
      *
@@ -53,7 +56,7 @@ class GroupsIsMember extends Request
      */
     public function addUserId($user_id)
     {
-        $this->vkarg_user_ids[] = $user_id;
+        $this->user_ids[] = $user_id;
 
         return $this;
     }
@@ -69,11 +72,12 @@ class GroupsIsMember extends Request
     public function doRequest()
     {
         $this->setRequiredParams(["group_id"]);
+        $this->setParameter('user_ids', $this->user_ids);
 
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
-                $this->fillByJson($json->response);
+                $this->fillByJson($json);
 
                 return true;
             }
@@ -189,7 +193,7 @@ class GroupsIsMember extends Request
      */
     public function setUserIds(array $user_ids)
     {
-        $this->vkarg_user_ids = $user_ids;
+        $this->user_ids = $user_ids;
 
         return $this;
     }
