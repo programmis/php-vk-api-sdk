@@ -3,14 +3,26 @@
 namespace VkSdk\Photos;
 
 use VkSdk\Includes\Request;
+use VkSdk\Photos\Includes\PhotoFull;
 
 /**
  * Saves a photo to a user's or community's wall after being uploaded.
  * Class PhotosSaveWallPhoto
+ *
  * @package VkSdk\Photos
  */
 class PhotosSaveWallPhoto extends Request
 {
+    /** @var PhotoFull[] */
+    private $photos = [];
+
+    /**
+     * @return PhotoFull[]
+     */
+    public function getPhotos()
+    {
+        return $this->photos;
+    }
 
     /**
      * {@inheritdoc}
@@ -22,6 +34,13 @@ class PhotosSaveWallPhoto extends Request
         $result = $this->execApi();
         if ($result && ($json = $this->getJsonResponse())) {
             if (isset($json->response) && $json->response) {
+                foreach ($json->response as $item) {
+                    $photo = new PhotoFull();
+                    $photo->fillByJson($item);
+
+                    $this->photos[] = $photo;
+                }
+
                 return true;
             }
         }
