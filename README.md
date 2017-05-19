@@ -24,6 +24,7 @@ https://oauth.vk.com/blank.html#access_token=<b>345345345345345345345345345d73e7
 </pre>
 
 <h3>Examples:</h3>
+
 **Upload photo**
 ```php
 $server = new PhotosGetUploadServer($token);
